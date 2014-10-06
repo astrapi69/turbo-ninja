@@ -37,6 +37,8 @@
 	<properties>
 		<wicket.version>6.17.0</wicket.version>
 		<jetty.version>7.6.13.v20130916</jetty.version>
+		<!-- SERVLET-API version -->
+		<javax.servlet-api.version>3.0.1</javax.servlet-api.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- allowed values: R7, 1.0, 1.5, 2.0 or none -->
 		<wtp.version>none</wtp.version>
@@ -71,7 +73,14 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		
+		<!-- JAVAX-SERVLET DEPENDENCIES -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servlet-api.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<resources>
