@@ -56,6 +56,12 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+			<!-- JAULP-WICKET DEPENDENCIES -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.wicket.base</artifactId>
+				<version>${wicket.version}</version>
+			</dependency>
 			<!-- DB-MODULES DEPENDENCIES -->
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
@@ -102,6 +108,11 @@
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket-core</artifactId>
+		</dependency>
+		<!-- JAULP-WICKET DEPENDENCIES -->
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>jaulp.wicket.base</artifactId>
 		</dependency>
 		<!-- DB-MODULES DEPENDENCIES -->
 		<dependency>
