@@ -62,6 +62,12 @@
 				<artifactId>jaulp.wicket.base</artifactId>
 				<version>${wicket.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.wicket.dropdownchoices</artifactId>
+				<version>${wicket.version}</version>
+			</dependency>
 			<!-- DB-MODULES DEPENDENCIES -->
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
@@ -113,6 +119,11 @@
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jaulp.wicket.base</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>jaulp.wicket.dropdownchoices</artifactId>
 		</dependency>
 		<!-- DB-MODULES DEPENDENCIES -->
 		<dependency>
