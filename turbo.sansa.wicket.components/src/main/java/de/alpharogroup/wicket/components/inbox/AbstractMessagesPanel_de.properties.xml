@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="global.no.messages.label">Keine Nachrichten gefunden</entry>
+	<entry key="inbox.header.state">Aktueller Status</entry>
+	<entry key="inbox.header.username">Von</entry>
+	<entry key="inbox.header.subject">Betreff</entry>
+	<entry key="inbox.header.sentDate">Sendedatum</entry>
+	<entry key="inbox.read.message.link.label">Lesen</entry>
+	<entry key="inbox.delete.button.label">Löschen</entry>
+</properties>

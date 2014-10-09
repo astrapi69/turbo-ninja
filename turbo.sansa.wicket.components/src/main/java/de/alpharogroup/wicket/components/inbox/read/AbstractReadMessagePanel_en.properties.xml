@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="inbox.sender.label">From</entry>
+	<entry key="inbox.sent.date.label">Sent date</entry>
+	<entry key="inbox.subject.label">Subject</entry>
+	<entry key="inbox.message.content.label">Content</entry>
+	<entry key="inbox.button.label">Inbox</entry>
+	<entry key="inbox.delete.button.label">Delete</entry>
+	<entry key="inbox.junk.button.label">Junk</entry>
+	<entry key="inbox.no.junk.button.label">No junk</entry>
+	<entry key="inbox.reply.button.label">Reply</entry>
+	<entry key="inbox.read.message.header.label">Read message</entry>
+</properties>

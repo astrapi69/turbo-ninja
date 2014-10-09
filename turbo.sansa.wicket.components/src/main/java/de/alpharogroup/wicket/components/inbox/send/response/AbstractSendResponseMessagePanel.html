@@ -1,0 +1,26 @@
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<form wicket:id="form">
+
+		<fieldset>
+			<legend><span wicket:id="replyMessageLabel"></span></legend>
+
+			<input wicket:id="inboxButton" type="submit"
+				wicket:message="value:inbox.button.label" /> <input
+				wicket:id="upperSendButton" type="submit"
+				wicket:message="value:inbox.send.button.label" />
+
+			<div wicket:id="sendInformationModel.sender.username"></div>
+
+			<div wicket:id="responseSubject"></div>
+
+			<div wicket:id="responseMessage"></div>
+			
+			<input wicket:id="lowerSendButton"
+						type="submit" wicket:message="value:inbox.send.button.label"></input>
+
+		</fieldset>
+
+	</form>
+
+</wicket:panel>

@@ -1,0 +1,44 @@
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<form wicket:id="form">
+	    <fieldset>
+	        <legend><span wicket:id="readMessageLabel"></span></legend>
+
+			<input wicket:id="inboxButton"
+				type="submit"
+				wicket:message="value:inbox.button.label" /> <input
+				wicket:id="deleteButton"
+				type="submit"
+				wicket:message="value:inbox.delete.button.label" />
+			<input wicket:id="junkButton"
+				type="submit"
+				wicket:message="value:inbox.junk.button.label" /> 
+			<input wicket:id="noJunkButton"
+				type="submit"
+				wicket:message="value:inbox.no.junk.button.label" />
+			<img wicket:id="junkmail"
+				src="/images/junkmail.png"
+				height="20" />
+		
+		    <div wicket:id="sender.username"></div>
+		
+		    <div wicket:id="sentDate"></div>
+		
+		    <div wicket:id="subject"></div>
+		
+		    <div wicket:id="messageContent"></div>
+		    
+  			<div>
+				<ul>
+					<li><input
+						wicket:id="replyButton"
+						type="submit"
+						wicket:message="value:inbox.reply.button.label"></input>
+					</li>
+				</ul>
+			</div>
+
+		</fieldset>
+    </form>
+
+</wicket:panel>

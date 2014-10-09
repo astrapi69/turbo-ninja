@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="global.inbox.tab.info">Inbox({0})</entry>
+	<entry key="global.inbox.sent.tab.info">Sent({0})</entry>
+	<entry key="global.inbox.readed.tab.info">Readed({0})</entry>
+	<entry key="inbox.messages.mainhead">Messages and requests</entry>
+	<entry key="global.inbox.successful.message.send">Message sent</entry>
+</properties>

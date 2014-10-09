@@ -1,0 +1,132 @@
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+<br></br>
+
+<div wicket:id="noresults">
+	<h1>
+		<wicket:message key="global.no.messages.label">
+                   You have no messages.
+           </wicket:message>
+       </h1>
+</div>
+
+<div wicket:id="results">
+
+	<table class="table table-striped table-condensed">
+
+	    <thead>
+	
+			<tr class="navigationrow pagination">
+				<th class="navigationheader" colspan="5">
+				    <span wicket:id="label"></span>
+				    <span wicket:id="navigator"></span>
+				</th>
+			</tr>
+			
+			<tr>
+	
+				<td class="mainhead first">
+				
+					<a wicket:id="sortState">
+					
+						<wicket:message key="inbox.header.state" />
+					
+					</a>
+				
+				</td>
+				
+				<td class="mainhead">
+				
+					<a wicket:id="sortSenderUsername">
+					
+						<wicket:message key="inbox.header.username" />
+					
+					</a>
+				
+				</td>
+				
+				<td class="mainhead">
+				
+					<a wicket:id="sortSubject">
+					
+						<wicket:message key="inbox.header.subject" />
+					
+					</a>
+				
+				</td>
+				
+				<td class="mainhead">
+				
+					<a wicket:id="sortSentDate">
+					
+						<wicket:message key="inbox.header.sentDate" />
+					
+					</a>
+				
+				</td>
+				
+				<td>
+				
+					<wicket:message key="inbox.read.message.link.label" />
+				
+				</td>
+	
+			</tr>
+	
+		</thead>
+
+		<tbody>
+		
+			<tr wicket:id="dataView">
+			
+				<td class="content first">
+				
+					<span wicket:id="state"></span>
+				
+				</td>
+				
+				<td class="content">
+				
+					<span wicket:id="sender.username"></span>
+				
+				</td>
+				
+				<td class="content">
+				
+					<span wicket:id="subject"></span>
+				
+				</td>
+				
+				<td class="content">
+				
+					<span wicket:id="sentDate"></span>
+				
+				</td>
+				
+				<td class="mainhead">
+				
+					<a href="#" wicket:id="readMessageLink">
+					
+						<wicket:message key="inbox.read.message.link.label" />
+					
+					</a>
+					
+					<br></br>
+				    
+					<a href="#" wicket:id="deleteMessageLink">
+					
+						<wicket:message key="inbox.delete.button.label" />
+					
+					</a>
+				
+				 </td>
+			
+			</tr>
+		
+		</tbody>
+
+	</table>
+
+</div>
+
+</wicket:panel>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="inbox.recipient.label">An</entry>
+	<entry key="inbox.subject.label">Betreff</entry>
+	<entry key="inbox.message.label">Nachricht</entry>
+	<entry key="inbox.send.button.label">Senden</entry>	
+	<entry key="inbox.send.message.header.label">Nachricht senden</entry>
+</properties>
