@@ -15,9 +15,10 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.StringResourceModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.jaulp.wicket.base.util.resource.ResourceModelFactory;
-import org.jaulp.wicket.components.labeled.label.LabeledEnumLabelPanel;
-import org.jaulp.wicket.components.labeled.textarea.LabeledTextAreaPanel;
-import org.jaulp.wicket.components.labeled.textfield.LabeledTextFieldPanel;
+
+import de.alpharogroup.wicket.components.labeled.label.LabeledEnumLabelPanel;
+import de.alpharogroup.wicket.components.labeled.textarea.LabeledTextAreaPanel;
+import de.alpharogroup.wicket.components.labeled.textfield.LabeledTextFieldPanel;
 
 public abstract class AbstractSendResponseMessagePanel extends Panel {
 

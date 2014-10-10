@@ -7,11 +7,11 @@ import org.apache.wicket.model.IModel;
 import org.jaulp.wicket.components.i18n.dropdownchoice.renderers.PropertiesChoiceRenderer;
 import org.jaulp.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
 
-import de.alpharogroup.wicket.components.address.countries.CountriesProvincesPanel;
 import address.book.factories.AddressBookFactory;
 import address.book.model.Addresses;
 import address.book.model.Federalstates;
 import address.book.model.Zipcodes;
+import de.alpharogroup.wicket.components.address.countries.CountriesProvincesPanel;
 
 /**
  * The class AddressPanel.

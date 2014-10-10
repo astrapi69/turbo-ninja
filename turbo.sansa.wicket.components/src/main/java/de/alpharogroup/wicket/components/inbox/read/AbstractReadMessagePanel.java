@@ -13,9 +13,10 @@ import org.apache.wicket.model.StringResourceModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.jaulp.wicket.base.BasePanel;
 import org.jaulp.wicket.base.util.resource.ResourceModelFactory;
-import org.jaulp.wicket.components.img.WicketImage;
-import org.jaulp.wicket.components.labeled.label.LabeledEnumLabelPanel;
-import org.jaulp.wicket.components.labeled.textarea.LabeledTextAreaPanel;
+
+import de.alpharogroup.wicket.components.img.WicketImage;
+import de.alpharogroup.wicket.components.labeled.label.LabeledEnumLabelPanel;
+import de.alpharogroup.wicket.components.labeled.textarea.LabeledTextAreaPanel;
 
 /**
  * The Class AbstractReadMessagePanel.
