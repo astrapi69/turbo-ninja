@@ -2,7 +2,8 @@ package de.alpharogroup.wicket.bootstrap2.components.labeled.textarea;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.model.IModel;
 import org.jaulp.wicket.behaviors.AddJsQueryBehavior;
-import org.jaulp.wicket.components.labeled.textarea.LabeledTextAreaPanel;
+
+import de.alpharogroup.wicket.components.labeled.textarea.LabeledTextAreaPanel;
 
 
 public class BootstrapLabeledTextAreaPanel<T> extends LabeledTextAreaPanel<T> {

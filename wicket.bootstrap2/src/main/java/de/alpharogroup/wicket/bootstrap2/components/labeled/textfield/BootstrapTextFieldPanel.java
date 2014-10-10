@@ -2,7 +2,8 @@ package de.alpharogroup.wicket.bootstrap2.components.labeled.textfield;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.model.IModel;
-import org.jaulp.wicket.components.labeled.textfield.LabeledTextFieldPanel;
+
+import de.alpharogroup.wicket.components.labeled.textfield.LabeledTextFieldPanel;
 
 public class BootstrapTextFieldPanel<T> extends LabeledTextFieldPanel<T> {
 

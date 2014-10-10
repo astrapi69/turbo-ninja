@@ -5,11 +5,11 @@ import java.util.List;
 import org.apache.wicket.extensions.markup.html.tabs.TabbedPanel;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.model.IModel;
-import org.jaulp.wicket.components.ajax.editable.tabs.AjaxCloseableTabbedPanel;
-import org.jaulp.wicket.components.ajax.editable.tabs.ICloseableTab;
 
 import de.agilecoders.wicket.core.markup.html.bootstrap.behavior.BootstrapBaseBehavior;
 import de.agilecoders.wicket.core.util.Attributes;
+import de.alpharogroup.wicket.components.ajax.editable.tabs.AjaxCloseableTabbedPanel;
+import de.alpharogroup.wicket.components.ajax.editable.tabs.ICloseableTab;
 
 /**
  * Styled version of {@link TabbedPanel}.

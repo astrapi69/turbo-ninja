@@ -2,7 +2,8 @@ package de.alpharogroup.wicket.bootstrap2.components.labeled.label;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.model.IModel;
-import org.jaulp.wicket.components.labeled.label.LabeledMultiLineLabelPanel;
+
+import de.alpharogroup.wicket.components.labeled.label.LabeledMultiLineLabelPanel;
 
 /**
  * Convenience class for labeled Label for form uneditable components. Adds some bootstrap css.
