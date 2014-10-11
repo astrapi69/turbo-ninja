@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment />
+	<entry key="upload.file.input.label">Αρχείο</entry>
+	<entry key="upload.file.submit.value.label">Επισύναψη αρχείου</entry>
+	<entry key="form.uploadTooLarge">To αρχείο που θα επισυνάψετε θα πρέπει να είναι μικρότερο από ${maxSize}.</entry>
+	<entry key="form.uploadFailed">Παρουσιάστηκε ένα λάθος στην Επισύναψη αρχείου: ${exception.localizedMessage}</entry>
+</properties>

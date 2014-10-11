@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment />
+	<entry key="upload.file.input.label">File</entry>
+	<entry key="upload.file.submit.value.label">Upload</entry>
+	<entry key="form.uploadTooLarge">Uploaded file should be less than ${maxSize}.</entry>
+	<entry key="form.uploadFailed">File failed to upload: ${exception.localizedMessage}</entry>
+</properties>
