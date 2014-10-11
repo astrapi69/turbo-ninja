@@ -153,15 +153,20 @@
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jaulp.wicket.data.provider</artifactId>
 		</dependency>
-			<!-- INTERNAL WICKET LIB DEPENDENCIES -->
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>wicket.bootstrap2</artifactId>
-			</dependency>
+		<!-- INTERNAL WICKET LIB DEPENDENCIES -->
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>wicket.bootstrap2</artifactId>
+		</dependency>
 		<!-- DB-MODULES DEPENDENCIES -->
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>message.system</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>db.resource.bundles</artifactId>
 		</dependency>
 
 	</dependencies>
