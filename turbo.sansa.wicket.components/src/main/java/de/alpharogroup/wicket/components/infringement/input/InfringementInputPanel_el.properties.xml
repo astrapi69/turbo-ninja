@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment />
+	<entry key="rule.violation.dropdown.reason.label">Infringement</entry>
+	<entry key="rule.violation.reason.description.label">Descripton of violation</entry>
+	<entry key="global.enter.your.rule.violation.reason.description.label">Enter your description for the rule violation</entry>
+</properties>

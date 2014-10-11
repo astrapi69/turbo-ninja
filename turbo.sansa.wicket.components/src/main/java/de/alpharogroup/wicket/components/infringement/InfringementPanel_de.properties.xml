@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment />
+	<entry key="header.label">Regelverstoß melden</entry>
+	<entry key="introduction.label">Melden Sie Mitglieder die gegen die Regeln verstoßen.</entry>
+	<entry key="infringement.list.entry.1.label">Werbung</entry>
+	<entry key="infringement.list.entry.2.label"> Angabe der Kontaktdaten (z.B. skype, E-Mail, ICQ)</entry>
+	<entry key="infringement.list.entry.3.label">Sexuelle Ausrichtung</entry>
+	<entry key="infringement.list.entry.4.label">Gewaltverherrlichung</entry>
+	<entry key="infringement.list.entry.5.label">Obszöne Fotos</entry>
+	<entry key="infringement.list.entry.6.label">Verletzung des Urheberrecht</entry>
+	<entry key="infringement.list.entry.7.label">Beleidigend</entry>
+</properties>

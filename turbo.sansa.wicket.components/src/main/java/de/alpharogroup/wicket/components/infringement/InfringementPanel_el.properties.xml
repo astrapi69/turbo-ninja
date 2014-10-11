@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment />
+	<entry key="header.label">Αναφορά από παράβαση των κανονισμών</entry>
+	<entry key="introduction.label">Melden Sie Mitglieder die gegen die Regeln verstoßen.</entry>
+	<entry key="infringement.list.entry.1.label">διαφήμιση</entry>
+	<entry key="infringement.list.entry.2.label">δήλωσηδιεύθυνση f επικοινωνίας Angabe der Kontaktdaten (z.B. skype, E-Mail, ICQ)</entry>
+	<entry key="infringement.list.entry.3.label">σεξουαλικός προσανατολισμός Sexuelle Ausrichtung</entry>
+	<entry key="infringement.list.entry.4.label">βίαιος, επιθετικόςGewaltverherrlichung</entry>
+	<entry key="infringement.list.entry.5.label">χυδαίος, αισχρόςObszöne Fotos</entry>
+	<entry key="infringement.list.entry.6.label">παράβαση δικαίωμα nt πνευματικής ιδιοκτησίαςVerletzung des Urheberrecht</entry>
+	<entry key="infringement.list.entry.7.label">προσβλητικόςBeleidigend</entry>
+</properties>

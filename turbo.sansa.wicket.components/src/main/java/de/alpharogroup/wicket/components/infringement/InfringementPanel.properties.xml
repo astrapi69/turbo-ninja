@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment />
+	<entry key="header.label">Report an infringement</entry>
+	<entry key="introduction.label">Report members that break the rules</entry>
+	<entry key="infringement.list.entry.1.label">Advertise</entry>
+	<entry key="infringement.list.entry.2.label">Give contact data (i.e. skype, E-Mail, ICQ)</entry>
+	<entry key="infringement.list.entry.3.label">Sexual harassment</entry>
+	<entry key="infringement.list.entry.4.label">Blorification of violence</entry>
+	<entry key="infringement.list.entry.5.label">Obscene photos</entry>
+	<entry key="infringement.list.entry.6.label">Violation of copyright</entry>
+	<entry key="infringement.list.entry.7.label">Abusive</entry>
+</properties>
