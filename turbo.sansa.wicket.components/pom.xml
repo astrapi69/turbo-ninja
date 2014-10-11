@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.alpharogroup</groupId>
 	<artifactId>turbo.sansa.wicket.components</artifactId>
-	<version>1.0.0</version>
+	<version>6.17.0</version>
 	<description>Wicket components that uses entities from project turbo.sansa</description>
 
 	<properties>
@@ -80,6 +80,12 @@
 				<artifactId>jaulp.wicket.data.provider</artifactId>
 				<version>${wicket.version}</version>
 			</dependency>
+			<!-- INTERNAL WICKET LIB DEPENDENCIES -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>wicket.bootstrap2</artifactId>
+				<version>${wicket.version}</version>
+			</dependency>
 			<!-- DB-MODULES DEPENDENCIES -->
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
@@ -147,6 +153,11 @@
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jaulp.wicket.data.provider</artifactId>
 		</dependency>
+			<!-- INTERNAL WICKET LIB DEPENDENCIES -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>wicket.bootstrap2</artifactId>
+			</dependency>
 		<!-- DB-MODULES DEPENDENCIES -->
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
