@@ -20,7 +20,7 @@ public class BootstrapLabeledPasswordTextFieldPanel<T> extends
 		getLabelComponent().add(new AttributeAppender("class", " control-label"));
 		getPasswordTextField().add(new AddJsQueryBehavior("wrap", "<div class=\"controls\"></div>"));
 		getPasswordTextField().add(new AttributeAppender("class", " input-xlarge"));
-		if(placeholderModel != null){
+		if(placeholderModel != null) {
 			getPasswordTextField().add(new AttributeAppender("placeholder", placeholderModel));
 		}
 	}
