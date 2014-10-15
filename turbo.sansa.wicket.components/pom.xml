@@ -35,6 +35,9 @@
 		<maven-compiler-plugin.optimize>true</maven-compiler-plugin.optimize>
 		<maven-compiler-plugin.showWarnings>true</maven-compiler-plugin.showWarnings>
 		<maven-compiler-plugin.debug>true</maven-compiler-plugin.debug>
+		<maven-source-plugin.version>2.2.1</maven-source-plugin.version>
+		<maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
+		<maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
 	</properties>
 
 	<dependencyManagement>
@@ -171,7 +174,10 @@
 
 	</dependencies>
 
+
+
 	<build>
+
 		<pluginManagement>
 
 			<plugins>
@@ -192,10 +198,165 @@
 						<debug>${maven-compiler-plugin.debug}</debug>
 					</configuration>
 				</plugin>
+				<!-- Configuring Maven Source Plugin: To attach source artifacts to your 
+					build we execute the source:jar goal from the source plugin during the package 
+					phase. -->
+				<plugin>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven-source-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- Configuring Maven Javadoc Plugin: To attach javadoc artifacts to 
+					your build we execute the javadoc:jar goal from the javadoc plugin. -->
+				<plugin>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<configuration>
+						<descriptorRefs>
+							<descriptorRef>jar-with-dependencies</descriptorRef>
+						</descriptorRefs>
+					</configuration>
+					<executions>
+						<execution>
+							<id>make-assembly</id>
+							<!-- this is used for inheritance merges -->
+							<phase>package</phase>
+							<!-- append to the packaging phase. -->
+							<goals>
+								<goal>attached</goal>
+								<!-- goals == mojos -->
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
+					<configuration>
+						<suiteXmlFiles>
+							<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+						</suiteXmlFiles>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-eclipse-plugin</artifactId>
+					<version>${maven-eclipse-plugin.version}</version>
+					<configuration>
+						<additionalBuildcommands>
+							<buildcommand>org.eclipse.m2e.core.maven2Builder</buildcommand>
+						</additionalBuildcommands>
+						<additionalProjectnatures>
+							<projectnature>org.eclipse.m2e.core.maven2Nature</projectnature>
+							<projectnature>org.springsource.ide.eclipse.gradle.core.nature</projectnature>
+						</additionalProjectnatures>
+						<downloadSources>true</downloadSources>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.mortbay.jetty</groupId>
+					<artifactId>jetty-maven-plugin</artifactId>
+					<version>${jetty.version}</version>
+					<configuration>
+						<connectors>
+							<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+								<port>8080</port>
+								<maxIdleTime>3600000</maxIdleTime>
+							</connector>
+							<connector implementation="org.eclipse.jetty.server.ssl.SslSocketConnector">
+								<port>8443</port>
+								<maxIdleTime>3600000</maxIdleTime>
+								<keystore>${project.build.directory}/test-classes/keystore</keystore>
+								<password>wicket</password>
+								<keyPassword>wicket</keyPassword>
+							</connector>
+						</connectors>
+					</configuration>
+				</plugin>
 
 			</plugins>
 
 		</pluginManagement>
 
+		<resources>
+
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+
+		</resources>
+
+		<testResources>
+
+			<testResource>
+				<filtering>false</filtering>
+				<directory>src/test/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+			<testResource>
+				<filtering>false</filtering>
+				<directory>src/test/resources</directory>
+			</testResource>
+
+		</testResources>
+
+		<plugins>
+
+			<plugin>
+				<inherited>true</inherited>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<inherited>true</inherited>
+				<artifactId>maven-eclipse-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<inherited>true</inherited>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+
 	</build>
+
+
 </project>
