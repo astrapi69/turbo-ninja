@@ -2,7 +2,7 @@ package de.alpharogroup.wicket.components.upload;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.markup.html.form.AjaxButton;
+import org.apache.wicket.extensions.ajax.markup.html.IndicatingAjaxButton;
 import org.apache.wicket.extensions.ajax.markup.html.form.upload.UploadProgressBar;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
@@ -193,21 +193,24 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	 *            the form
 	 * @return the button
 	 */
-	protected Button newButton(final String id, final Form<?> form) {
-		return new AjaxButton(id) {
+	protected Button newButton(final String id, final Form<?> form) {		
+		return new IndicatingAjaxButton(id, form) {
 			/**
 			 * The serialVersionUID.
 			 */
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected void onError(AjaxRequestTarget target, Form<?> form) {
+			protected void onSubmit(final AjaxRequestTarget target,
+					final Form<?> form) {
+				target.add(form);
 				onUpload(target, form, false);
 			}
 
 			@Override
-			public void onSubmit(AjaxRequestTarget target, Form<?> form) {
-				onUpload(target, form, false);
+			protected void onError(AjaxRequestTarget target, Form<?> form) {
+				target.add(form);
+				onUpload(target, form, true);
 			}
 		};
 	}
@@ -240,6 +243,7 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	protected Form<?> newForm(final String id, final IModel<?> model) {
 		Form<UploadFileModel> form = new Form<UploadFileModel>(id,
 				(IModel<UploadFileModel>) model);
+		form.setOutputMarkupId(true);
 		// Set to true to use enctype='multipart/form-data',
 		// and to process file uploads by default multiPart = false
 		form.setMultiPart(true);
