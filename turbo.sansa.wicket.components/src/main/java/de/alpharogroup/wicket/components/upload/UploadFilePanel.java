@@ -203,7 +203,7 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 			@Override
 			protected void onSubmit(final AjaxRequestTarget target,
 					final Form<?> form) {
-				target.add(form);
+				target.add(form);				
 				onUpload(target, form, false);
 			}
 
