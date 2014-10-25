@@ -10,7 +10,7 @@ import address.book.model.Addresses;
  *
  * @author Asterios Raptis
  */
-public class AddressModel implements IClusterable {
+public abstract class AddressModel implements IClusterable {
 
 	/**
 	 * The serialVersionUID.
@@ -33,11 +33,14 @@ public class AddressModel implements IClusterable {
 	 * Instantiates a new address model.
 	 */
 	public AddressModel() {
+		this.countriesAndProvincesDropDownChoicesModel = newCountriesAndProvincesDropDownChoicesModel();
 	}
 
 	public Addresses getAddress() {
 		return address;
 	}
+	
+	protected abstract StringTwoDropDownChoicesModel newCountriesAndProvincesDropDownChoicesModel();
 
 	/**
 	 * Gets the countries and provinces drop down choices model.
