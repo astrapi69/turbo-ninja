@@ -48,6 +48,8 @@ public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlA
 	
 	/** The properties. */
 	private Properties properties;
+	// http://www.wicket-library.com/wicket-examples/resourceaggregation/wicket/bookmarkable/org.apache.wicket.examples.source.SourcesPage?0&SourcesPage_class=org.apache.wicket.examples.resourcedecoration.HomePage&source=HomePage.java
+	public static final String FOOTER_FILTER_NAME = "footer-container";
 
 	/**
 	 * Get Application for current thread.
