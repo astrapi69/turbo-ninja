@@ -105,21 +105,7 @@ public class DropDownChoiceTextFieldPanel extends Panel {
 	protected LocalisedDropDownChoice<String> newLocalisedDropDownChoice(final String id, final IModel< String > model,
               final IModel< ? extends List< ? extends String >> choices,
             final IChoiceRenderer< ? super String > renderer) {
-				return new LocalisedDropDownChoice<String>(id, model, choices, renderer) 
-//				{
-//					private static final long serialVersionUID = 1L;
-//
-//					@Override
-//			        protected boolean wantOnSelectionChangedNotifications() {
-//			            return true;
-//			        }
-//
-//			        @Override
-//			        protected void onSelectionChanged(String newSelection) {
-//			            getZipcode().clearInput();
-//			        }
-//				}
-				;		
+				return new LocalisedDropDownChoice<String>(id, model, choices, renderer);		
 	}
 
 	public StringTwoDropDownChoicesModel getStringTwoDropDownChoicesModel() {
