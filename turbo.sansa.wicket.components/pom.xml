@@ -26,6 +26,10 @@
 		<rating.system.version>1.0.0</rating.system.version>
 		<resource.system.version>1.0.0</resource.system.version>
 		<user.management.version>1.0.4</user.management.version>
+		<events.system.version>1.0.0</events.system.version>
+		<!-- JAULP versions -->
+		<jaulp.core.version>3.9.0-SNAPSHOT</jaulp.core.version>
+		<jaulp.generic.tree.version>${jaulp.core.version}</jaulp.generic.tree.version>
 		<!-- MAVEN PLUGIN versions -->
 		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
 		<maven-compiler-plugin.source.version>1.7</maven-compiler-plugin.source.version>
@@ -126,6 +130,18 @@
 				<version>${resource.system.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>events.system</artifactId>
+				<version>${events.system.version}</version>
+			</dependency>
+			<!-- JAULP DEPENDENCIES -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.generic.tree</artifactId>
+				<version>${jaulp.generic.tree.version}</version>
+			</dependency>
+
 		</dependencies>
 
 	</dependencyManagement>
@@ -170,6 +186,16 @@
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>db.resource.bundles</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>events.system</artifactId>
+		</dependency>
+		<!-- JAULP DEPENDENCIES -->
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>jaulp.generic.tree</artifactId>
 		</dependency>
 
 	</dependencies>
