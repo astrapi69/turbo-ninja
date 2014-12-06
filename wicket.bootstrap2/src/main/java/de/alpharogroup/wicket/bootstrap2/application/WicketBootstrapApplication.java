@@ -24,6 +24,8 @@ import de.agilecoders.wicket.core.markup.html.references.BootstrapPrettifyJavaSc
 import de.agilecoders.wicket.core.markup.html.references.ModernizrJavaScriptReference;
 import de.agilecoders.wicket.core.request.resource.caching.version.Adler32ResourceVersion;
 import de.agilecoders.wicket.core.settings.BootstrapSettings;
+import de.agilecoders.wicket.core.settings.SessionThemeProvider;
+import de.agilecoders.wicket.core.settings.Theme;
 import de.agilecoders.wicket.core.settings.ThemeProvider;
 import de.agilecoders.wicket.extensions.javascript.GoogleClosureJavaScriptCompressor;
 import de.agilecoders.wicket.extensions.javascript.YuiCssCompressor;
@@ -162,6 +164,15 @@ public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlA
 	/**
 	 * configures wicket-bootstrap and installs the settings.
 	 */
+	protected void configureBootstrap(final Theme theme) {
+		final ThemeProvider themeProvider = new BootswatchThemeProvider() {
+			{
+				defaultTheme(theme);
+			}
+		};
+		configureBootstrap(themeProvider);
+	}
+
 	protected void configureBootstrap() {
 		final ThemeProvider themeProvider = new BootswatchThemeProvider() {
 			{
@@ -171,15 +182,22 @@ public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlA
 				add(new Bootstrap3Theme());
 				defaultTheme(newDefaultTheme());
 			}
-		};		
+		};
+		configureBootstrap(themeProvider);
+	}
+	
+	protected void configureBootstrap(final ThemeProvider themeProvider) {
+		initBootstrap(themeProvider);
+	}
 
+	private void initBootstrap(final ThemeProvider themeProvider) {
 		final BootstrapSettings settings = new BootstrapSettings();
-		settings.setJsResourceFilterName("footer-container").setThemeProvider(
+		settings.setJsResourceFilterName(FOOTER_FILTER_NAME).setThemeProvider(
 				themeProvider);
 		Bootstrap.install(this, settings);
-
 		BootstrapLess.install(this);
 	}
+
 	
 	/**
 	 * Factory method for set the default theme of the application. This method
