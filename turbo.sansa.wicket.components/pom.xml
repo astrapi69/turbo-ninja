@@ -15,7 +15,7 @@
 		<!-- WICKET EXTENSION LIBRARIES versions -->
 		<wicketstuff.version>${wicket.version}</wicketstuff.version>
 		<wicket-modelfactory.version>0.9.4</wicket-modelfactory.version>
-		<wicket-bootstrap.version>0.8.4</wicket-bootstrap.version>
+		<wicket-bootstrap.version>0.9.6</wicket-bootstrap.version>
 		<google-closure.version>r2180</google-closure.version>
 		<!-- TURBO-SANSA DB MODULES versions -->
 		<address.book.version>1.0.1</address.book.version>
@@ -90,7 +90,7 @@
 			<!-- INTERNAL WICKET LIB DEPENDENCIES -->
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
-				<artifactId>wicket.bootstrap2</artifactId>
+				<artifactId>wicket.bootstrap3</artifactId>
 				<version>${wicket.version}</version>
 			</dependency>
 			<!-- DB-MODULES DEPENDENCIES -->
@@ -175,7 +175,7 @@
 		<!-- INTERNAL WICKET LIB DEPENDENCIES -->
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>wicket.bootstrap2</artifactId>
+			<artifactId>wicket.bootstrap3</artifactId>
 		</dependency>
 		<!-- DB-MODULES DEPENDENCIES -->
 		<dependency>

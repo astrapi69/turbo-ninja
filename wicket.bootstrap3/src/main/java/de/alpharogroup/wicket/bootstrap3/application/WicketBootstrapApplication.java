@@ -40,8 +40,10 @@ import de.agilecoders.wicket.extensions.markup.html.bootstrap.jqueryui.JQueryUIR
 import de.agilecoders.wicket.extensions.markup.html.bootstrap.jqueryui.JQueryUIWidgetJavaScriptReference;
 import de.agilecoders.wicket.extensions.request.StaticResourceRewriteMapper;
 import de.agilecoders.wicket.less.BootstrapLess;
+import de.agilecoders.wicket.themes.markup.html.bootswatch.BootswatchTheme;
 import de.agilecoders.wicket.themes.markup.html.bootswatch.BootswatchThemeProvider;
 import de.alpharogroup.wicket.bootstrap3.resource.reference.fix.FixBootstrapStylesCssResourceReference;
+import de.alpharogroup.wicket.bootstrap3.themes.CustomTheme;
 
 /**
  * Demo Application instance for wicket bootstrap version.
@@ -172,7 +174,8 @@ public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlA
 	}
 
 	protected void configureBootstrap() {
-		configureBootstrap(new BootswatchThemeProvider(newDefaultTheme()));
+		CustomTheme theme = new CustomTheme();
+		configureBootstrap(theme);
 	}
 	
 	protected void configureBootstrap(final ThemeProvider themeProvider) {

@@ -15,7 +15,7 @@ import org.jaulp.wicket.behaviors.AddJsQueryBehavior;
 
 import user.management.application.models.InfringementModel;
 import user.management.enums.RuleViolationReason;
-import de.alpharogroup.wicket.bootstrap2.components.labeled.textarea.BootstrapLabeledTextAreaPanel;
+import de.alpharogroup.wicket.bootstrap3.components.labeled.textarea.BootstrapLabeledTextAreaPanel;
 import de.alpharogroup.wicket.components.i18n.dropdownchoice.EnumLocalizedDropdownChoicePanel;
 
 public class InfringementInputPanel extends Panel {
