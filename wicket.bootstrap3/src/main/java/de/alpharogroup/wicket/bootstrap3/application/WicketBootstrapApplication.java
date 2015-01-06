@@ -40,10 +40,8 @@ import de.agilecoders.wicket.extensions.markup.html.bootstrap.jqueryui.JQueryUIR
 import de.agilecoders.wicket.extensions.markup.html.bootstrap.jqueryui.JQueryUIWidgetJavaScriptReference;
 import de.agilecoders.wicket.extensions.request.StaticResourceRewriteMapper;
 import de.agilecoders.wicket.less.BootstrapLess;
-import de.agilecoders.wicket.themes.markup.html.bootswatch.BootswatchTheme;
 import de.agilecoders.wicket.themes.markup.html.bootswatch.BootswatchThemeProvider;
 import de.alpharogroup.wicket.bootstrap3.resource.reference.fix.FixBootstrapStylesCssResourceReference;
-import de.alpharogroup.wicket.bootstrap3.themes.CustomTheme;
 
 /**
  * Demo Application instance for wicket bootstrap version.
@@ -168,27 +166,36 @@ public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlA
 				(CssResourceReference) PrettifyCssResourceReference.INSTANCE,
 				FixBootstrapStylesCssResourceReference.INSTANCE);
 	}
-	
-	protected void configureBootstrap(Theme theme) {
-		configureBootstrap(new SingleThemeProvider(theme));
-	}
 
 	protected void configureBootstrap() {
-		CustomTheme theme = new CustomTheme();
-		configureBootstrap(theme);
+		configureBootstrap(newThemeProvider());
 	}
 	
 	protected void configureBootstrap(final ThemeProvider themeProvider) {
 		initBootstrap(themeProvider);
 	}
+	
+	protected Theme newTheme() {
+		return null;
+	}
+	
+	protected ThemeProvider newThemeProvider() {
+		Theme customTheme = newTheme();
+		if(customTheme != null) {
+			return new SingleThemeProvider(customTheme);
+		}	
+		return new BootswatchThemeProvider(newDefaultTheme());		
+	}
 
-	private void initBootstrap(final ThemeProvider themeProvider) {
+	private void initBootstrap(final ThemeProvider themeProvider) {		
 		final BootstrapSettings settings = new BootstrapSettings();
 		settings.setJsResourceFilterName(FOOTER_FILTER_NAME).setThemeProvider(
-				themeProvider);
+		themeProvider);
 		Bootstrap.install(this, settings);
 		BootstrapLess.install(this);
 	}
+	
+
 	
 	/**
 	 * Factory method for set the default theme of the application. This method
