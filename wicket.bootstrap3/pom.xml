@@ -25,6 +25,7 @@
 		<maven-compiler-plugin.optimize>true</maven-compiler-plugin.optimize>
 		<maven-compiler-plugin.showWarnings>true</maven-compiler-plugin.showWarnings>
 		<maven-compiler-plugin.debug>true</maven-compiler-plugin.debug>
+		<maven-source-plugin.version>2.2.1</maven-source-plugin.version>
 	</properties>
 
 	<dependencyManagement>
@@ -204,6 +205,22 @@
 						<showWarnings>${maven-compiler-plugin.showWarnings}</showWarnings>
 						<debug>${maven-compiler-plugin.debug}</debug>
 					</configuration>
+				</plugin>
+				<!-- Configuring Maven Source Plugin: To attach source artifacts to your 
+					build we execute the source:jar goal from the source plugin during the package 
+					phase. -->
+				<plugin>
+					<inherited>true</inherited>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven-source-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 
 			</plugins>
