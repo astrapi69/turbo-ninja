@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.alpharogroup</groupId>
 	<artifactId>turbo.sansa.wicket.components</artifactId>
-	<version>6.17.0</version>
+	<version>6.18.0</version>
 	<description>Wicket components that uses entities from project turbo.sansa</description>
 
 	<properties>
@@ -11,7 +11,7 @@
 		<!-- SERVLET-API version -->
 		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 		<!-- WICKET version -->
-		<wicket.version>6.17.0</wicket.version>
+		<wicket.version>6.18.0</wicket.version>
 		<!-- WICKET EXTENSION LIBRARIES versions -->
 		<wicketstuff.version>${wicket.version}</wicketstuff.version>
 		<wicket-modelfactory.version>0.9.4</wicket-modelfactory.version>
@@ -28,7 +28,7 @@
 		<user.management.version>1.0.4</user.management.version>
 		<events.system.version>1.0.0</events.system.version>
 		<!-- JAULP versions -->
-		<jaulp.core.version>3.9.0-SNAPSHOT</jaulp.core.version>
+		<jaulp.core.version>3.9.0</jaulp.core.version>
 		<jaulp.generic.tree.version>${jaulp.core.version}</jaulp.generic.tree.version>
 		<!-- MAVEN PLUGIN versions -->
 		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
