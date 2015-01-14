@@ -31,7 +31,7 @@
 		<jaulp.core.version>3.9.0</jaulp.core.version>
 		<jaulp.generic.tree.version>${jaulp.core.version}</jaulp.generic.tree.version>
 		<!-- MAVEN PLUGIN versions -->
-		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+		<maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>
 		<maven-compiler-plugin.source.version>1.7</maven-compiler-plugin.source.version>
 		<maven-compiler-plugin.target.version>1.7</maven-compiler-plugin.target.version>
 		<maven-compiler-plugin.compilerVersion>1.7</maven-compiler-plugin.compilerVersion>
@@ -39,9 +39,9 @@
 		<maven-compiler-plugin.optimize>true</maven-compiler-plugin.optimize>
 		<maven-compiler-plugin.showWarnings>true</maven-compiler-plugin.showWarnings>
 		<maven-compiler-plugin.debug>true</maven-compiler-plugin.debug>
-		<maven-source-plugin.version>2.2.1</maven-source-plugin.version>
+		<maven-source-plugin.version>2.4</maven-source-plugin.version>
 		<maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
-		<maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
+		<maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
 	</properties>
 
 	<dependencyManagement>
