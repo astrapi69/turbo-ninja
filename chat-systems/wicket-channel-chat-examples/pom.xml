@@ -121,6 +121,14 @@
 				<inherited>true</inherited>
 				<artifactId>maven-war-plugin</artifactId>
 			</plugin>
+			<!-- exclude this artifact from deploy -->
+			<plugin>
+				<inherited>false</inherited>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
 
 		</plugins>
 
