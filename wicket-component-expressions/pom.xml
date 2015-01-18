@@ -346,7 +346,7 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
+				<inherited>true</inherited>
 				<artifactId>maven-eclipse-plugin</artifactId>
 			</plugin>
 
