@@ -46,7 +46,7 @@ import de.alpharogroup.wicket.bootstrap3.resource.reference.fix.FixBootstrapStyl
 /**
  * Demo Application instance for wicket bootstrap version.
  */
-public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlApplication {
+public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrlApplication {
 	
 	/** The properties. */
 	private Properties properties;
@@ -58,14 +58,14 @@ public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlA
 	 * 
 	 * @return The current thread's Application
 	 */
-	public static WicketBootstrapApplication get() {
-		return (WicketBootstrapApplication) Application.get();
+	public static WicketBootstrap3Application get() {
+		return (WicketBootstrap3Application) Application.get();
 	}
 
 	/**
 	 * Constructor.
 	 */
-	public WicketBootstrapApplication() {
+	public WicketBootstrap3Application() {
 		properties = loadProperties();
 	}
 
@@ -129,7 +129,7 @@ public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlA
 	private void configureResourceBundles() {
 		getResourceBundles()
 				.addJavaScriptBundle(
-						WicketBootstrapApplication.class,
+						WicketBootstrap3Application.class,
 						"core.js",
 						(JavaScriptResourceReference) getJavaScriptLibrarySettings()
 								.getJQueryReference(),
@@ -143,13 +143,13 @@ public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlA
 
 		getResourceBundles()
 				.addJavaScriptBundle(
-						WicketBootstrapApplication.class,
+						WicketBootstrap3Application.class,
 						"bootstrap.js",
 						(JavaScriptResourceReference) Bootstrap.getSettings()
 								.getJsResourceReference(),
 						(JavaScriptResourceReference) PrettifyJavaScriptReference.INSTANCE);
 				
-        getResourceBundles().addJavaScriptBundle(WicketBootstrapApplication.class, "bootstrap-extensions.js",
+        getResourceBundles().addJavaScriptBundle(WicketBootstrap3Application.class, "bootstrap-extensions.js",
                 JQueryUICoreJavaScriptReference.instance(),
                 JQueryUIWidgetJavaScriptReference.instance(),
                 JQueryUIMouseJavaScriptReference.instance(),
@@ -157,11 +157,11 @@ public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlA
                 JQueryUIResizableJavaScriptReference.instance(),
                 Html5PlayerJavaScriptReference.instance());
 
-		getResourceBundles().addCssBundle(WicketBootstrapApplication.class,
+		getResourceBundles().addCssBundle(WicketBootstrap3Application.class,
 				"bootstrap-extensions.css", Html5PlayerCssReference.instance(),
 				OpenWebIconsCssReference.instance());
 
-		getResourceBundles().addCssBundle(WicketBootstrapApplication.class,
+		getResourceBundles().addCssBundle(WicketBootstrap3Application.class,
 				"application.css",
 				(CssResourceReference) PrettifyCssResourceReference.INSTANCE,
 				FixBootstrapStylesCssResourceReference.INSTANCE);
