@@ -7,14 +7,14 @@
 	<artifactId>chat-systems</artifactId>
 	<version>6.18.0</version>
 	<packaging>pom</packaging>
-  
+
 	<name>${project.artifactId}</name>
 
 	<description>This project holds interfaces for the chat communication.
 Inspired from the wicketstuff push project. Many interfaces are took from the wicketstuff push project.</description>
 
-	<url>https://github.com/astrapi69/turbo-ninja</url>	
-	
+	<url>https://github.com/astrapi69/turbo-ninja</url>
+
 	<scm>
 		<connection>scm:git:git:@github.com:astrapi69/turbo-ninja.git</connection>
 		<developerConnection>scm:git:git@github.com:astrapi69/turbo-ninja.git</developerConnection>
@@ -42,7 +42,7 @@ Inspired from the wicketstuff push project. Many interfaces are took from the wi
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 			<distribution>repo</distribution>
 		</license>
-	</licenses> 
+	</licenses>
 
 	<modules>
 		<module>wicket-chat-api</module>
@@ -412,10 +412,12 @@ Inspired from the wicketstuff push project. Many interfaces are took from the wi
 	<distributionManagement>
 		<snapshotRepository>
 			<id>ossrh</id>
+			<name>Nexus snapshot Repository</name>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
 		<repository>
 			<id>ossrh</id>
+			<name>Nexus snapshot Repository</name>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
@@ -457,10 +459,12 @@ Inspired from the wicketstuff push project. Many interfaces are took from the wi
 			<distributionManagement>
 				<snapshotRepository>
 					<id>ossrh</id>
+					<name>Nexus snapshot Repository</name>
 					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 				</snapshotRepository>
 				<repository>
 					<id>ossrh</id>
+					<name>Nexus snapshot Repository</name>
 					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 				</repository>
 			</distributionManagement>
@@ -468,5 +472,5 @@ Inspired from the wicketstuff push project. Many interfaces are took from the wi
 		</profile>
 
 	</profiles>
-	
+
 </project>

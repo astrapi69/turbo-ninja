@@ -15,8 +15,8 @@
 		The main purpose of this project is to find wicket components in the hierarchy.
 	</description>
 
-	<url>https://github.com/astrapi69/turbo-ninja</url>	
-	
+	<url>https://github.com/astrapi69/turbo-ninja</url>
+
 	<scm>
 		<connection>scm:git:git:@github.com:astrapi69/turbo-ninja.git</connection>
 		<developerConnection>scm:git:git@github.com:astrapi69/turbo-ninja.git</developerConnection>
@@ -112,7 +112,7 @@
 		</dependency>
 
 	</dependencies>
-	
+
 	<build>
 		<resources>
 			<resource>
@@ -357,10 +357,12 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>ossrh</id>
+			<name>Nexus snapshot Repository</name>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
 		<repository>
 			<id>ossrh</id>
+			<name>Nexus snapshot Repository</name>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
@@ -402,10 +404,12 @@
 			<distributionManagement>
 				<snapshotRepository>
 					<id>ossrh</id>
+					<name>Nexus snapshot Repository</name>
 					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 				</snapshotRepository>
 				<repository>
 					<id>ossrh</id>
+					<name>Nexus snapshot Repository</name>
 					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 				</repository>
 			</distributionManagement>
