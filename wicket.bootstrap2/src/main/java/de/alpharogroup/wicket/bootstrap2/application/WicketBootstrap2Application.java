@@ -24,7 +24,6 @@ import de.agilecoders.wicket.core.markup.html.references.BootstrapPrettifyJavaSc
 import de.agilecoders.wicket.core.markup.html.references.ModernizrJavaScriptReference;
 import de.agilecoders.wicket.core.request.resource.caching.version.Adler32ResourceVersion;
 import de.agilecoders.wicket.core.settings.BootstrapSettings;
-import de.agilecoders.wicket.core.settings.SessionThemeProvider;
 import de.agilecoders.wicket.core.settings.Theme;
 import de.agilecoders.wicket.core.settings.ThemeProvider;
 import de.agilecoders.wicket.extensions.javascript.GoogleClosureJavaScriptCompressor;
@@ -46,7 +45,7 @@ import de.alpharogroup.wicket.bootstrap2.resource.reference.fix.FixBootstrapStyl
 /**
  * Application instance for wicket bootstrap version 0.8.4. Note: Do not try it with a newer version.
  */
-public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlApplication {
+public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrlApplication {
 	
 	/** The properties. */
 	private Properties properties;
@@ -58,14 +57,14 @@ public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlA
 	 * 
 	 * @return The current thread's Application
 	 */
-	public static WicketBootstrapApplication get() {
-		return (WicketBootstrapApplication) Application.get();
+	public static WicketBootstrap2Application get() {
+		return (WicketBootstrap2Application) Application.get();
 	}
 
 	/**
 	 * Constructor.
 	 */
-	public WicketBootstrapApplication() {
+	public WicketBootstrap2Application() {
 		properties = loadProperties();
 	}
 
@@ -128,7 +127,7 @@ public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlA
 	private void configureResourceBundles() {
 		getResourceBundles()
 				.addJavaScriptBundle(
-						WicketBootstrapApplication.class,
+						WicketBootstrap2Application.class,
 						"core.js",
 						(JavaScriptResourceReference) getJavaScriptLibrarySettings()
 								.getJQueryReference(),
@@ -140,22 +139,22 @@ public abstract class WicketBootstrapApplication extends DisableJSessionIDinUrlA
 
 		getResourceBundles()
 				.addJavaScriptBundle(
-						WicketBootstrapApplication.class,
+						WicketBootstrap2Application.class,
 						"bootstrap.js",
 						(JavaScriptResourceReference) Bootstrap.getSettings()
 								.getJsResourceReference(),
 						(JavaScriptResourceReference) BootstrapPrettifyJavaScriptReference.INSTANCE);
 
 		getResourceBundles().addJavaScriptBundle(
-				WicketBootstrapApplication.class, "bootstrap-extensions.js",
+				WicketBootstrap2Application.class, "bootstrap-extensions.js",
 				JQueryUIJavaScriptReference.instance(),
 				Html5PlayerJavaScriptReference.instance());
 
-		getResourceBundles().addCssBundle(WicketBootstrapApplication.class,
+		getResourceBundles().addCssBundle(WicketBootstrap2Application.class,
 				"bootstrap-extensions.css", Html5PlayerCssReference.instance(),
 				OpenWebIconsCssReference.instance());
 
-		getResourceBundles().addCssBundle(WicketBootstrapApplication.class,
+		getResourceBundles().addCssBundle(WicketBootstrap2Application.class,
 				"application.css",
 				(CssResourceReference) BootstrapPrettifyCssReference.INSTANCE,
 				FixBootstrapStylesCssResourceReference.INSTANCE);
