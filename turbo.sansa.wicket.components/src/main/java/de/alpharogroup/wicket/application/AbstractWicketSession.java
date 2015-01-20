@@ -165,6 +165,15 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	}
 
 	/**
+	 * Checks if the user is a guest.
+	 *
+	 * @return true, the user is a guest.
+	 */
+	public synchronized boolean isGuest() {
+		return !isSignedIn();
+	}
+
+	/**
 	 * Removes the user attribute.
 	 * 
 	 * @param key
