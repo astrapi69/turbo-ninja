@@ -3,4 +3,8 @@
   <groupId>de.alpharogroup</groupId>
   <artifactId>server.configurations</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <description>
+  Project for examples how to cluster with tomcat. 
+  </description>
 </project>

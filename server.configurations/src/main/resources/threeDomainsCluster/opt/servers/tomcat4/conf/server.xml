@@ -23,10 +23,14 @@
 				<Realm className="org.apache.catalina.realm.UserDatabaseRealm"
 					resourceName="UserDatabase" />
 			</Realm>
-
-			<Host name="alpharogroup.de" appBase="webapps" unpackWARs="true"
-				autoDeploy="true" xmlValidation="false" xmlNamespaceAware="false">
-
+			
+			<Host name="alpharogroup.de" 
+			      appBase="webapps" 
+			      unpackWARs="true"
+				  autoDeploy="true"
+			      xmlValidation="false"
+			      xmlNamespaceAware="false">
+			      
 				<Alias>www.alpharogroup.de</Alias>
 
 				<Valve className="org.apache.catalina.valves.AccessLogValve"

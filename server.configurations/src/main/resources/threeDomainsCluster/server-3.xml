@@ -18,12 +18,24 @@
 				<Realm className="org.apache.catalina.realm.UserDatabaseRealm"
 					resourceName="UserDatabase" />
 			</Realm>
-			<Host name="localhost" appBase="webapps" unpackWARs="true"
-				autoDeploy="true">
+			
+			<Host name="flirteros.de" 
+			      appBase="webapps" 
+			      unpackWARs="true"
+				  autoDeploy="true"
+			      xmlValidation="false"
+			      xmlNamespaceAware="false">
+			      
+				<Alias>www.flirteros.de</Alias>
+				
 				<Valve className="org.apache.catalina.valves.AccessLogValve"
-					directory="logs" prefix="localhost_access_log" suffix=".txt"
+					directory="logs" prefix="flirteros_de_access_log" suffix=".txt"
 					pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+					
+				<Context path="/" docBase="flirteros.de" reloadable="true"/>
+
 			</Host>
+			
 		</Engine>
 	</Service>
 </Server> 
