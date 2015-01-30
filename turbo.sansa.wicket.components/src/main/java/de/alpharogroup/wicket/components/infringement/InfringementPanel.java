@@ -10,10 +10,12 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 import org.jaulp.wicket.base.util.properties.ComponentPropertiesKeysListResolver;
 import org.jaulp.wicket.base.util.resource.ResourceModelFactory;
 
 import user.management.application.models.InfringementModel;
+import de.alpharogroup.wicket.components.i18n.content.ContentModel;
 import de.alpharogroup.wicket.components.i18n.content.ContentPanel;
 import de.alpharogroup.wicket.components.i18n.list.UnorderedListPanel;
 import de.alpharogroup.wicket.components.infringement.form.InfringementFormPanel;
@@ -120,14 +122,14 @@ public abstract class InfringementPanel extends Panel {
 	 * @return the component
 	 */
 	protected Component newIntroductionPanel(String id, IModel<?> model) {
-		ContentPanel introductionPanel = new ContentPanel(id){
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			protected ResourceBundleKey newContentResourceKey() {
-				return ResourceBundleKey.builder().key("introduction.label").build();
-			}
-		};
+		ContentPanel introductionPanel = new ContentPanel(id, Model.of(ContentModel.builder()
+				.headerResourceKey(ResourceBundleKey.builder()
+						.key("header.label")
+						.build())
+				.contentResourceKey(ResourceBundleKey.builder()
+						.key("introduction.label")
+						.build())
+				.build()));
 		return introductionPanel;
 	}
 	
