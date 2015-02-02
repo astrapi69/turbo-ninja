@@ -9,10 +9,12 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.jaulp.wicket.base.pageparameters.ParameterKeys;
 import org.jaulp.wicket.base.util.WicketComponentUtils;
-import org.jaulp.wicket.base.util.WicketUrlUtils;
+import org.jaulp.wicket.base.util.parameter.PageParametersUtils;
+import org.jaulp.wicket.base.util.url.WicketUrlUtils;
 
 /**
- * The Class WicketUrlUtils.
+ * The Class WicketUrlResolver.
+ * @deprecated use instead {@link WicketUrlUtils}
  */
 public class WicketUrlResolver {
 
@@ -30,6 +32,7 @@ public class WicketUrlResolver {
 	 * @param resetPasswordPage
 	 *            the reset password page
 	 * @return the url for forgotten password
+	 * @deprecated use instead {@link WicketUrlUtils#absoluteUrlFor(Class, PageParameters, boolean)()}
 	 */
 	public static <C extends WebPage> String getUrlForForgottenPassword(
 			final String requestUrl, String username,
@@ -54,10 +57,11 @@ public class WicketUrlResolver {
 	 * @param parameters
 	 *            the parameters
 	 * @return the url for
+	 * @deprecated use instead {@link WicketUrlUtils#absoluteUrlFor(Class, PageParameters, boolean)()}
 	 */
 	public static <C extends WebPage> String getUrlFor(final String requestUrl,
 			Class<C> page, Map<String, String> parameters) {
-		PageParameters param = WicketComponentUtils.toPageParameters(parameters);
+		PageParameters param = PageParametersUtils.toPageParameters(parameters);
 		return urlFor(requestUrl, page, param);
 	}
 
@@ -75,14 +79,16 @@ public class WicketUrlResolver {
 	 * @param param
 	 *            the param
 	 * @return the string
+	 * @deprecated use instead {@link WicketUrlUtils#absoluteUrlFor(Class, PageParameters, boolean)()}
 	 */
 	public static <C extends WebPage> String urlFor(final String requestUrl,
 			Class<C> page, PageParameters param) {
-		String ru = StringUtils.substringBeforeLast(
-				requestUrl, "/");
-		StringBuilder url = new StringBuilder(ru).append("/");
-		url.append((RequestCycle.get()).urlFor(page, param));
-		return url.toString();
+//		String ru = StringUtils.substringBeforeLast(
+//				requestUrl, "/");
+//		StringBuilder url = new StringBuilder(ru).append("/");
+//		url.append((RequestCycle.get()).urlFor(page, param));
+//		return url.toString();
+		return WicketUrlUtils.absoluteUrlFor(page, param, false);
 	}
 
 	/**
@@ -94,6 +100,7 @@ public class WicketUrlResolver {
 	 * @param page
 	 *            the page
 	 * @return the string
+	 * @deprecated use instead {@link WicketUrlUtils#absoluteUrlFor(Class)()}
 	 */
 	public static <C extends WebPage> String urlFor(Class<C> page) {
 		return urlFor(WicketComponentUtils.getRequestURL(), page, new PageParameters());
@@ -113,6 +120,7 @@ public class WicketUrlResolver {
 	 * @param withServerPort
 	 *            the with server port
 	 * @return the url for forgotten password
+	 * @deprecated use instead {@link WicketUrlUtils#absoluteUrlFor(Class, PageParameters, boolean)()}
 	 */
 	public static <C extends WebPage> String getUrlForForgottenPassword(
 			String username, final String generatedCode,
@@ -128,6 +136,7 @@ public class WicketUrlResolver {
 	 *
 	 * @param withServerPort the with server port
 	 * @return the string
+	 * @deprecated use instead {@link WicketUrlUtils#absoluteUrlFor(Class, PageParameters, boolean)()}
 	 */
 	public static String toFullUrl() {		
 			return toFullUrl(false);		
@@ -138,9 +147,10 @@ public class WicketUrlResolver {
 	 *
 	 * @param withServerPort the with server port
 	 * @return the string
+	 * @deprecated use instead {@link WicketUrlUtils#absoluteUrlFor(Class, PageParameters, boolean)()}
 	 */
 	public static String toFullUrl(boolean withServerPort) {		
-			return WicketUrlUtils.getDomainUrl(withServerPort) + getBaseUrl();		
+			return WicketUrlUtils.getDomainUrl(withServerPort) +  getBaseUrl();		
 	}
 
 
@@ -148,6 +158,7 @@ public class WicketUrlResolver {
 	 * Gets the base Url.
 	 * 
 	 * @return base Url
+	 * @deprecated use instead {@link WicketUrlUtils#toBaseUrl()}
 	 */
 	public static String getBaseUrl() {
 		return RequestCycle.get().getUrlRenderer().getBaseUrl().canonical().toString();
