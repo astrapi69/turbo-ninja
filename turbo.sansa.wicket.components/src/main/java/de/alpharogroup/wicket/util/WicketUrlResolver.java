@@ -11,7 +11,7 @@ import org.jaulp.wicket.base.util.url.WicketUrlUtils;
 public class WicketUrlResolver {
 
 	/**
-	 * Gets the url for forgotten password.
+	 * Gets the url as String object for the forgotten password page.
 	 * 
 	 * @param <C>
 	 *            the generic type
@@ -35,7 +35,7 @@ public class WicketUrlResolver {
 	}
 	
 	/**
-	 * Gets the url for forgotten password.
+	 * Gets the url as String object for the forgotten password page.
 	 * 
 	 * @param <C>
 	 *            the generic type
