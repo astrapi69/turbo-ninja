@@ -215,5 +215,11 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	public synchronized void setUserId(USERID userId) {		
 		this.userId = userId;
 	}
+	
+	/**
+	 * Hook method that can be used when a user signs out from the application.
+	 */
+	public synchronized void onSignOut() {
+	}
 
 }
