@@ -8,6 +8,7 @@ import de.agilecoders.wicket.less.LessResourceReference;
  * All you have to do is to generate your own less file on {@link http://getbootstrap.com/customize/}
  * and give that generated less file in the lessfile path. 
  */
+@SuppressWarnings("javadoc")
 public class CustomTheme extends Theme {
 	
 	/**

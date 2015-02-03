@@ -14,7 +14,6 @@ import de.alpharogroup.wicket.components.ajax.editable.tabs.ICloseableTab;
 /**
  * Styled version of {@link TabbedPanel}.
  *
- * @author miha
  * @param <T> the generic type
  */
 public class BootstrapAjaxTabbedPanel<T extends ICloseableTab> extends AjaxCloseableTabbedPanel<T> {
@@ -22,18 +21,12 @@ public class BootstrapAjaxTabbedPanel<T extends ICloseableTab> extends AjaxClose
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-     * {@inheritDoc}
-     */
     public BootstrapAjaxTabbedPanel(String id, List<T> tabs) {
         super(id, tabs);
 
         commonInit();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public BootstrapAjaxTabbedPanel(String id, List<T> tabs, IModel<Integer> model) {
         super(id, tabs, model);
 
