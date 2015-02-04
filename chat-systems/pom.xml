@@ -10,6 +10,12 @@
 
 	<name>${project.artifactId}</name>
 
+	<modules>
+		<module>wicket-chat-api</module>
+		<module>wicket-channel-chat</module>
+		<module>wicket-channel-chat-examples</module>
+	</modules>
+
 	<description>This project holds interfaces for the chat communication.
 Inspired from the wicketstuff push project. Many interfaces are took from the wicketstuff push project.</description>
 
@@ -44,16 +50,10 @@ Inspired from the wicketstuff push project. Many interfaces are took from the wi
 		</license>
 	</licenses>
 
-	<modules>
-		<module>wicket-chat-api</module>
-		<module>wicket-channel-chat</module>
-		<module>wicket-channel-chat-examples</module>
-	</modules>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- JETTY version -->
-		<jetty.version>8.1.12.v20130726</jetty.version>
+		<jetty.version>8.1.16.v20140903</jetty.version>
 		<!-- WICKET version -->
 		<wicket.version>6.19.0</wicket.version>
 		<wiquery-core.version>6.13.0</wiquery-core.version>
