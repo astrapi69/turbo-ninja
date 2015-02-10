@@ -51,7 +51,7 @@
 		<!-- WICKET version -->
 		<wicket.version>6.19.0</wicket.version>
 		<!-- WICKET EXTENSION LIBRARIES versions -->
-		<wicketstuff.version>6.18.0</wicketstuff.version>
+		<wicketstuff.version>6.19.0</wicketstuff.version>
 		<wicket-modelfactory.version>0.9.4</wicket-modelfactory.version>
 		<wicket-bootstrap.version>0.9.6</wicket-bootstrap.version>
 		<google-closure.version>r2180</google-closure.version>
@@ -66,7 +66,7 @@
 		<user.management.version>1.0.4</user.management.version>
 		<events.system.version>1.0.0</events.system.version>
 		<!-- JAULP versions -->
-		<jaulp.core.version>3.9.0</jaulp.core.version>
+		<jaulp.core.version>3.10.0</jaulp.core.version>
 		<jaulp.generic.tree.version>${jaulp.core.version}</jaulp.generic.tree.version>
 		<!-- MAVEN PLUGIN versions -->
 		<maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>

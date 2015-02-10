@@ -58,7 +58,7 @@ Inspired from the wicketstuff push project. Many interfaces are took from the wi
 		<wicket.version>6.19.0</wicket.version>
 		<wiquery-core.version>6.13.0</wiquery-core.version>
 		<!-- JAULP versions -->
-		<jaulp.core.version>3.9.0</jaulp.core.version>
+		<jaulp.core.version>3.10.0</jaulp.core.version>
 		<jaulp.lang.version>${jaulp.core.version}</jaulp.lang.version>
 		<!-- MAVEN PLUGIN versions -->
 		<maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>
