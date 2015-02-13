@@ -56,15 +56,15 @@
 		<wicket-bootstrap.version>0.9.6</wicket-bootstrap.version>
 		<google-closure.version>r2180</google-closure.version>
 		<!-- TURBO-SANSA DB MODULES versions -->
-		<address.book.version>1.0.1</address.book.version>
-		<dao.api.version>1.0.4</dao.api.version>
-		<db.resource.bundles.version>1.0.0</db.resource.bundles.version>
-		<message.system.version>1.0.6</message.system.version>
-		<payment.module.version>1.0.0</payment.module.version>
-		<rating.system.version>1.0.0</rating.system.version>
-		<resource.system.version>1.0.0</resource.system.version>
-		<user.management.version>1.0.4</user.management.version>
-		<events.system.version>1.0.0</events.system.version>
+		<address.book.version>1.1.0</address.book.version>
+		<dao.api.version>1.1.0</dao.api.version>
+		<db.resource.bundles.version>1.1.0</db.resource.bundles.version>
+		<message.system.version>1.1.0</message.system.version>
+		<payment.module.version>1.1.0</payment.module.version>
+		<rating.system.version>1.1.0</rating.system.version>
+		<resource.system.version>1.1.0</resource.system.version>
+		<user.management.version>1.1.0</user.management.version>
+		<events.system.version>1.1.0</events.system.version>
 		<!-- JAULP versions -->
 		<jaulp.core.version>3.10.0</jaulp.core.version>
 		<jaulp.generic.tree.version>${jaulp.core.version}</jaulp.generic.tree.version>
