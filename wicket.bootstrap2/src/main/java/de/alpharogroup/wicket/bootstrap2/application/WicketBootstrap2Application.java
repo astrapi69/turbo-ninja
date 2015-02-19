@@ -118,7 +118,7 @@ public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrl
         }
 
         setHeaderResponseDecorator(new RenderJavaScriptToFooterHeaderResponseDecorator());
-        getRequestCycleSettings().setRenderStrategy(org.apache.wicket.settings.IRequestCycleSettings.RenderStrategy.ONE_PASS_RENDER);
+        getRequestCycleSettings().setRenderStrategy(org.apache.wicket.settings.RequestCycleSettings.RenderStrategy.ONE_PASS_RENDER);
 	}
 
 	/**

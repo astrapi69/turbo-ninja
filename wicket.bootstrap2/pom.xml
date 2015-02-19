@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.alpharogroup</groupId>
 	<artifactId>wicket.bootstrap2</artifactId>
-	<version>6.19.0</version>
+	<version>7.0.0-M5</version>
 
 	<name>${project.artifactId}</name>
 
@@ -49,9 +49,9 @@
 		<!-- SERVLET-API version -->
 		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 		<!-- WICKET version -->
-		<wicket.version>6.19.0</wicket.version>
+		<wicket.version>7.0.0-M5</wicket.version>
 		<!-- WICKET EXTENSION LIBRARIES versions -->
-		<wicketstuff.version>6.19.0</wicketstuff.version>
+		<wicketstuff.version>7.0.0-M5</wicketstuff.version>
 		<wicket-modelfactory.version>0.9.4</wicket-modelfactory.version>
 		<wicket-bootstrap.version>0.8.4</wicket-bootstrap.version>
 		<google-closure.version>r2180</google-closure.version>
