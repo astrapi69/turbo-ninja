@@ -11,7 +11,6 @@ import org.apache.wicket.request.resource.caching.FilenameWithVersionResourceCac
 import org.apache.wicket.request.resource.caching.NoOpResourceCachingStrategy;
 import org.apache.wicket.request.resource.caching.version.CachingResourceVersion;
 import org.apache.wicket.serialize.java.DeflatedJavaSerializer;
-import org.apache.wicket.settings.RequestCycleSettings;
 import org.apache.wicket.util.string.Strings;
 import org.jaulp.wicket.base.application.seo.DisableJSessionIDinUrlApplication;
 import org.wicketstuff.annotation.scan.AnnotatedMountScanner;
@@ -120,7 +119,7 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
         }
 
         setHeaderResponseDecorator(new RenderJavaScriptToFooterHeaderResponseDecorator());
-        getRequestCycleSettings().setRenderStrategy(RequestCycleSettings.RenderStrategy.ONE_PASS_RENDER);
+        getRequestCycleSettings().setRenderStrategy(org.apache.wicket.settings.IRequestCycleSettings.RenderStrategy.ONE_PASS_RENDER);
 	}
 
 	/**
