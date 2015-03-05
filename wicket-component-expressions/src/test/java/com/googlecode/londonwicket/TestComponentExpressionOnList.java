@@ -78,7 +78,7 @@ public class TestComponentExpressionOnList {
 
 		parent.add(one1.add(listView));
 
-		tester.startComponentInPage(parent);
+		tester.startComponent(parent);
 	}
 	
 	@Test
