@@ -27,8 +27,6 @@ import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.googlecode.londonwicket.ComponentExpression;
-
 public class TestComponentExpressionOnList {
 
 	/*
@@ -80,7 +78,7 @@ public class TestComponentExpressionOnList {
 
 		parent.add(one1.add(listView));
 
-		tester.startComponent(parent);
+		tester.startComponentInPage(parent);
 	}
 	
 	@Test
