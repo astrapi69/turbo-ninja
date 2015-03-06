@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-package com.googlecode.londonwicket;
+package de.alpharogroup.wicket.component.search;
 
 import static org.junit.Assert.assertEquals;
 
@@ -26,6 +26,8 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;
+
+import de.alpharogroup.wicket.component.search.ComponentExpression;
 
 public class TestComponentExpressionOnList {
 
@@ -54,6 +56,7 @@ public class TestComponentExpressionOnList {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	@Before
 	public void setup() {
 

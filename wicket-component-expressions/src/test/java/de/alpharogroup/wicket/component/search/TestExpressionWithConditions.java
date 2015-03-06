@@ -1,4 +1,4 @@
-package com.googlecode.londonwicket;
+package de.alpharogroup.wicket.component.search;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,6 +6,8 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;
+
+import de.alpharogroup.wicket.component.search.ComponentExpression;
 
 public class TestExpressionWithConditions {
 
@@ -25,6 +27,7 @@ public class TestExpressionWithConditions {
 	WebMarkupContainer four1;
 
 	WicketTester tester;
+	@SuppressWarnings("deprecation")
 	@Before
 	public void setup() {
 

@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-package com.googlecode.londonwicket;
+package de.alpharogroup.wicket.component.search;
 
 import java.util.ArrayList;
 import java.util.Arrays;

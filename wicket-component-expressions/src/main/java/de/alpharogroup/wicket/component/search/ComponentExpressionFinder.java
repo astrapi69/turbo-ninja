@@ -1,4 +1,4 @@
-package com.googlecode.londonwicket;
+package de.alpharogroup.wicket.component.search;
 
 import java.util.List;
 
