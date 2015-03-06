@@ -27,8 +27,6 @@ import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.googlecode.londonwicket.ComponentExpression;
-
 public class TestComponentExpressionOnList {
 
 	/*
