@@ -162,8 +162,9 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 
 		getResourceBundles().addCssBundle(WicketBootstrap3Application.class,
 				"application.css",
-				(CssResourceReference) PrettifyCssResourceReference.INSTANCE,
-				FixBootstrapStylesCssResourceReference.INSTANCE);
+				(CssResourceReference) PrettifyCssResourceReference.INSTANCE
+				, FixBootstrapStylesCssResourceReference.INSTANCE
+				);
 	}
 
 	protected void configureBootstrap() {
