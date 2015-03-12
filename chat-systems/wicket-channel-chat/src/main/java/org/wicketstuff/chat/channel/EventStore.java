@@ -55,4 +55,14 @@ class EventStore {
 	public void addEventStoreListener(final EventStoreListener listener) {
 		listenerList.add(listener);
 	}
+	
+  /**
+   * Removes the given listener from this list.
+   *
+   * @param listener
+   *            the listener to remove
+   */
+  public void remove(final EventStoreListener listener) {
+    listeners.remove(listener);
+  }
 }
