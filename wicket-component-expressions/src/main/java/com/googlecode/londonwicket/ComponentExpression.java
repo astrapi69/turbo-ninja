@@ -33,6 +33,13 @@ public class ComponentExpression {
 	private static final String ANY_COMPONENT_MATCHER = "*";
 	private static final String ANY_COMPONENT_RECURSIVE_MATCHER = "**";
 
+	  /**
+	   * Search for the first {@link org.apache.wicket.Component} with the given expression in the given parent.
+	   * Internally this method calls the {@link ComponentExpression#findAllComponents(org.apache.wicket.Component, String)} that returns a list and if this list is not empty the first element will be returned.
+	   * @param parent the parent that will be the start point to search.
+	   * @param expression the expression for search.
+	   * @return the first {@link org.apache.wicket.Component} with the given expression in the given parent or null if nothing is found.
+	   */
 	public static Component findComponent(Component parent, String expression) {
 		List<Component> results = findAllComponents(parent, expression);
 		if (results.isEmpty()) {
