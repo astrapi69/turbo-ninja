@@ -49,6 +49,14 @@ public class ComponentExpression {
 		}
 	}
 
+	  /**
+	   * Search for the first {@link org.apache.wicket.Component} with the given expression in the given parent with the given class type restriction.
+	   * Internally this method calls the {@link ComponentExpression#findAllComponents(org.apache.wicket.Component, String, Class)} that returns a list and if this list is not empty the first element will be returned.
+	   * @param parent the parent that will be the start point to search.
+	   * @param expression the expression for search.
+	   * @param typeRestriction the class type restriction for the search.
+	   * @return the first {@link org.apache.wicket.Component} with the given expression in the given parent or null if nothing is found.
+	   */
 	public static Component findComponent(Component parent, String expression, Class<? extends Component> typeRestriction) {
 		List<Component> results = findAllComponents(parent, expression, typeRestriction);
 		if (results.isEmpty()) {
@@ -58,11 +66,25 @@ public class ComponentExpression {
 		}
 	}
 
+	  /**
+	   * Search for all {@link org.apache.wicket.Component}s with the given expression in the given parent with a {@link org.apache.wicket.Component} class type restriction.
+	   *
+	   * @param parent the parent that will be the start point to search.
+	   * @param expression the expression for search.
+	   * @return all found {@link org.apache.wicket.Component}s in a {@link java.util.List} with the given expression in the given parent with the given class type restriction or an empty {@link java.util.List} if nothing is found.
+	   */
 	public static List<Component> findAllComponents(Component parent, String expression) {
 		return findAllComponents(parent, expression, Component.class);
-
 	}
 
+	  /**
+	   * Search for all {@link org.apache.wicket.Component}s with the given expression in the given parent with the given class type restriction.
+	   *
+	   * @param parent the parent that will be the start point to search.
+	   * @param expression the expression for search.
+	   * @param typeRestriction the class type restriction for the search.
+	   * @return all found {@link org.apache.wicket.Component}s in a {@link java.util.List} with the given expression in the given parent with the given class type restriction or an empty {@link java.util.List} if nothing is found.
+	   */
 	public static List<Component> findAllComponents(Component parent, String expression, Class<? extends Component> typeRestriction) {
 		if (expression == null || expression.equals("")) {
 			return Collections.emptyList();
