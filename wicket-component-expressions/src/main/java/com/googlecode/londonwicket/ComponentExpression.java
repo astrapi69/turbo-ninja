@@ -91,7 +91,15 @@ public class ComponentExpression {
 		}
 		return findComponent(parent, new LinkedList<String>(Arrays.asList(expression.split(Character.toString(Component.PATH_SEPARATOR)))), typeRestriction);
 	}
-
+  
+	  /**
+	   * Search for all {@link org.apache.wicket.Component}s with the given list of expressions in the given parent with the given class type restriction.
+	   *
+	   * @param parent the parent that will be the start point to search.
+	   * @param expressionListIn the list with the expressions for the search.
+	   * @param typeRestriction the class type restriction for the search.
+	   * @return all found {@link org.apache.wicket.Component}s in a {@link java.util.List} with the given expression in the given parent with the given class type restriction or an empty {@link java.util.List} if nothing is found.
+	   */
 	private static List<Component> findComponent(Component parent, LinkedList<String> expressionListIn, Class<? extends Component> typeRestriction) {
 
 		LinkedList<String> expressionList = new LinkedList<String>(expressionListIn);
