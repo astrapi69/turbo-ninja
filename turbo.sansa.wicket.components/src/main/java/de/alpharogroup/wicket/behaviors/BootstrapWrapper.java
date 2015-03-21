@@ -14,6 +14,7 @@ public final class BootstrapWrapper {
 	 */
 	private BootstrapWrapper() {
 	}
+	
 
 	/** The Constant ROW_ELEMENT. */
 	public static final JqueryStatementsBehavior ROW_ELEMENT = new JqueryStatementsBehavior()
