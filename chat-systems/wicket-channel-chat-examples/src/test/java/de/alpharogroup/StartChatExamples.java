@@ -1,76 +1,40 @@
 package de.alpharogroup;
 
-import org.apache.wicket.util.time.Duration;
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.bio.SocketConnector;
-import org.eclipse.jetty.server.ssl.SslSocketConnector;
-import org.eclipse.jetty.util.resource.Resource;
-import org.eclipse.jetty.util.ssl.SslContextFactory;
-import org.eclipse.jetty.webapp.WebAppContext;
+import java.io.File;
+
+import net.sourceforge.jaulp.file.search.PathFinder;
+
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.jaulp.wicket.base.application.jetty.Jetty9RunConfiguration;
+import org.jaulp.wicket.base.application.jetty.Jetty9Runner;
+import org.jaulp.wicket.base.application.jetty.ServletContextHandlerConfiguration;
+import org.wicketstuff.chat.channel.examples.application.WicketApplication;
+
 
 public class StartChatExamples {
-    public static void main(String[] args) throws Exception {
-        int timeout = (int) Duration.ONE_HOUR.getMilliseconds();
+	
+    public static void main(String[] args) throws Exception {    	
 
-        Server server = new Server();
-        SocketConnector connector = new SocketConnector();
+		System.setProperty("wicket.configuration", "development");
+		String projectname = "wicket-channel-chat-examples";
+		File projectDirectory = PathFinder.getProjectDirectory();
+		File webapp = PathFinder.getRelativePath(projectDirectory, projectname, "src", "main",
+			"webapp");
 
-        // Set some timeout options to make debugging easier.
-        connector.setMaxIdleTime(timeout);
-        connector.setSoLingerTime(-1);
-        connector.setPort(8080);
-        server.addConnector(connector);
+		ServletContextHandler servletContextHandler = Jetty9Runner.getServletContextHandler(ServletContextHandlerConfiguration.builder()
+				.applicationClass(WicketApplication.class)
+				.contextPath("/")
+				.webapp(webapp)
+				.maxInactiveInterval(300)
+				.filterPath("/*")
+				.build());
+		Jetty9Runner.run(Jetty9RunConfiguration.builder()
+			.servletContextHandler(servletContextHandler)
+			.httpPort(WicketApplication.DEFAULT_HTTP_PORT)
+			.httpsPort(WicketApplication.DEFAULT_HTTPS_PORT)
+			.keyStorePassword("wicket")
+			.keyStorePathResource("/keystore")
+			.build());
 
-        Resource keystore = Resource.newClassPathResource("/keystore");
-        if (keystore != null && keystore.exists()) {
-            // if a keystore for a SSL certificate is available, start a SSL
-            // connector on port 8443.
-            // By default, the quickstart comes with a Apache Wicket Quickstart
-            // Certificate that expires about half way september 2021. Do not
-            // use this certificate anywhere important as the passwords are
-            // available in the source.
-
-            connector.setConfidentialPort(8443);
-
-            SslContextFactory factory = new SslContextFactory();
-            factory.setKeyStoreResource(keystore);
-            factory.setKeyStorePassword("wicket");
-            factory.setTrustStoreResource(keystore);
-            factory.setKeyManagerPassword("wicket");
-            SslSocketConnector sslConnector = new SslSocketConnector(factory);
-            sslConnector.setMaxIdleTime(timeout);
-            sslConnector.setPort(8443);
-            sslConnector.setAcceptors(4);
-            server.addConnector(sslConnector);
-
-            System.out.println("SSL access to the quickstart has been enabled on port 8443");
-            System.out.println("You can access the application using SSL on https://localhost:8443");
-            System.out.println();
-        }
-
-        WebAppContext bb = new WebAppContext();
-        bb.setServer(server);
-        bb.setContextPath("/");
-        bb.setWar("src/main/webapp");
-
-        // START JMX SERVER
-        // MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer();
-        // MBeanContainer mBeanContainer = new MBeanContainer(mBeanServer);
-        // server.getContainer().addEventListener(mBeanContainer);
-        // mBeanContainer.start();
-
-        server.setHandler(bb);
-
-        try {
-            System.out.println(">>> STARTING EMBEDDED JETTY SERVER, PRESS ANY KEY TO STOP");
-            server.start();
-            System.in.read();
-            System.out.println(">>> STOPPING EMBEDDED JETTY SERVER");
-            server.stop();
-            server.join();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
     }
 }

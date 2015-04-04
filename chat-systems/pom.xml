@@ -53,7 +53,7 @@ Inspired from the wicketstuff push project. Many interfaces are took from the wi
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- JETTY version -->
-		<jetty.version>8.1.16.v20140903</jetty.version>
+		<jetty9.version>9.2.10.v20150310</jetty9.version>
 		<!-- WICKET version -->
 		<wicket.version>6.18.0</wicket.version>
 		<wiquery-core.version>6.13.0</wiquery-core.version>
@@ -85,11 +85,31 @@ Inspired from the wicketstuff push project. Many interfaces are took from the wi
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- JETTY DEPENDENCIES FOR TESTING -->
+			<!-- JETTY 9 DEPENDENCIES FOR TESTING -->
+			<dependency>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-server</artifactId>
+				<version>${jetty9.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-webapp</artifactId>
-				<version>${jetty.version}</version>
+				<version>${jetty9.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-util</artifactId>
+				<version>${jetty9.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-jmx</artifactId>
+				<version>${jetty9.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-deploy</artifactId>
+				<version>${jetty9.version}</version>
 			</dependency>
 			<!-- WICKET DEPENDENCIES -->
 			<dependency>
@@ -324,23 +344,17 @@ Inspired from the wicketstuff push project. Many interfaces are took from the wi
 				</plugin>
 
 				<plugin>
-					<groupId>org.mortbay.jetty</groupId>
+					<groupId>org.eclipse.jetty</groupId>
 					<artifactId>jetty-maven-plugin</artifactId>
-					<version>${jetty.version}</version>
+					<version>${jetty9.version}</version>
 					<configuration>
-						<connectors>
-							<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-								<port>8080</port>
-								<maxIdleTime>3600000</maxIdleTime>
-							</connector>
-							<connector implementation="org.eclipse.jetty.server.ssl.SslSocketConnector">
-								<port>8443</port>
-								<maxIdleTime>3600000</maxIdleTime>
-								<keystore>${project.build.directory}/test-classes/keystore</keystore>
-								<password>wicket</password>
-								<keyPassword>wicket</keyPassword>
-							</connector>
-						</connectors>
+						<systemProperties>
+							<systemProperty>
+								<name>maven.project.build.directory.test-classes</name>
+								<value>${project.build.directory}/test-classes</value>
+							</systemProperty>
+						</systemProperties>
+						<jettyXml>${project.basedir}/src/test/jetty/jetty.xml,${project.basedir}/src/test/jetty/jetty-ssl.xml,${project.basedir}/src/test/jetty/jetty-http.xml,${project.basedir}/src/test/jetty/jetty-https.xml</jettyXml>
 					</configuration>
 				</plugin>
 

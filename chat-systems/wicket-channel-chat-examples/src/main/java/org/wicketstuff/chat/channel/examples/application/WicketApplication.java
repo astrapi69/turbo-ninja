@@ -15,6 +15,8 @@ import org.jaulp.wicket.PackageResourceReferences;
  * Runs the WicketApplication when invoked from command line.
  */
 public class WicketApplication extends WebApplication implements Serializable {
+	public static final int DEFAULT_HTTP_PORT = 9090;
+	public static final int DEFAULT_HTTPS_PORT = 9443;
 	private static final long serialVersionUID = 1L;
 
 	private IChannelService timerChannelService;
