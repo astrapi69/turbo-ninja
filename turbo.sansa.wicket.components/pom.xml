@@ -56,15 +56,16 @@
 		<wicket-bootstrap.version>0.9.6</wicket-bootstrap.version>
 		<google-closure.version>r2180</google-closure.version>
 		<!-- TURBO-SANSA DB MODULES versions -->
-		<address.book.version>1.1.0</address.book.version>
-		<dao.api.version>1.1.0</dao.api.version>
-		<db.resource.bundles.version>1.1.0</db.resource.bundles.version>
-		<message.system.version>1.1.0</message.system.version>
-		<payment.module.version>1.1.0</payment.module.version>
-		<rating.system.version>1.1.0</rating.system.version>
-		<resource.system.version>1.1.0</resource.system.version>
-		<user.management.version>1.1.0</user.management.version>
-		<events.system.version>1.1.0</events.system.version>
+		<db.modules.version>2.0.0</db.modules.version>
+		<address.book.version>${db.modules.version}</address.book.version>
+		<dao.api.version>${db.modules.version}</dao.api.version>
+		<db.resource.bundles.version>${db.modules.version}</db.resource.bundles.version>
+		<message.system.version>${db.modules.version}</message.system.version>
+		<payment.module.version>${db.modules.version}</payment.module.version>
+		<rating.system.version>${db.modules.version}</rating.system.version>
+		<resource.system.version>${db.modules.version}</resource.system.version>
+		<user.management.version>${db.modules.version}</user.management.version>
+		<events.system.version>${db.modules.version}</events.system.version>
 		<!-- JAULP versions -->
 		<jaulp.core.version>3.10.0</jaulp.core.version>
 		<jaulp.generic.tree.version>${jaulp.core.version}</jaulp.generic.tree.version>
