@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.alpharogroup</groupId>
+	<artifactId>turbo-ninja</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<name>${project.artifactId}</name>
+
+	<description>
+		This project holds modules for wicket applications and server configurations for deploy on httpd and tomcat or jetty.
+	</description>
+
+	<url>https://github.com/astrapi69/turbo-ninja</url>
+
+	<scm>
+		<connection>scm:git:git:@github.com:astrapi69/turbo-ninja.git</connection>
+		<developerConnection>scm:git:git@github.com:astrapi69/turbo-ninja.git</developerConnection>
+		<url>git:@github.com:astrapi69/turbo-ninja.git</url>
+	</scm>
+
+	<developers>
+
+		<developer>
+			<id>astrapi69</id>
+			<name>Asterios Raptis</name>
+			<timezone>Berlin</timezone>
+			<roles>
+				<role>Project manager</role>
+				<role>Developer</role>
+			</roles>
+		</developer>
+
+	</developers>
+
+	<licenses>
+
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt
+			</url>
+			<distribution>repo</distribution>
+		</license>
+
+	</licenses>
+
+	<modules>
+		<module>chat-systems</module>
+		<module>server.configurations</module>
+		<module>turbo.sansa.wicket.components</module>
+		<module>wicket.bootstrap2</module>
+		<module>wicket.bootstrap3</module>
+		<module>wicket-component-expressions</module>
+	</modules>	
+
+</project>
