@@ -36,7 +36,12 @@
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-deploy</artifactId>
 		</dependency>
-	
+		
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>wicket-jetty9-runner</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>wicket-chat-api</artifactId>
@@ -56,9 +61,9 @@
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jaulp.wicket.base</artifactId>
 		</dependency>
-		
+
 	</dependencies>
-	
+
 	<build>
 		<resources>
 			<resource>
