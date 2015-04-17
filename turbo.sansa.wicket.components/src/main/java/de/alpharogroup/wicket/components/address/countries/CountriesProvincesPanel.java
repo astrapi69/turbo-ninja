@@ -10,7 +10,7 @@ import org.jaulp.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
  * 
  * @author Asterios Raptis
  */
-public class CountriesProvincesPanel extends TwoDropDownChoicesPanel {
+public class CountriesProvincesPanel extends TwoDropDownChoicesPanel<String> {
 
 	/**
 	 * The Constant serialVersionUID.

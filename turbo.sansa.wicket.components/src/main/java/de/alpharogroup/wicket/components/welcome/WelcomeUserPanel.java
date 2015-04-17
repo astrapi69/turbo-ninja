@@ -1,10 +1,13 @@
 package de.alpharogroup.wicket.components.welcome;
 
+import net.sourceforge.jaulp.locale.ResourceBundleKey;
+
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
+import org.jaulp.wicket.base.util.resource.ResourceModelFactory;
 
 import user.management.model.Users;
-import de.alpharogroup.wicket.components.i18n.label.LocalizedLabel;
+import de.alpharogroup.wicket.components.factory.ComponentFactory;
 
 /**
  * @author Asterios Raptis
@@ -34,8 +37,16 @@ public abstract class WelcomeUserPanel extends Panel {
 		}
 
 		final Object[] params = { username };
-		Label lblWelcome = new LocalizedLabel("lblWelcome", resourceKey
-				.toString().trim(), this, params);
+		ResourceModelFactory.newResourceModel(ResourceBundleKey.builder()
+			.key(resourceKey.toString().trim())
+			.parameters(params)
+			.defaultValue(resourceKey.toString().trim())
+			.build(), this);
+		Label lblWelcome = ComponentFactory.newLabel("lblWelcome", ResourceModelFactory.newResourceModel(ResourceBundleKey.builder()
+			.key(resourceKey.toString().trim())
+			.parameters(params)
+			.defaultValue(resourceKey.toString().trim())
+			.build(), this));
 		add(lblWelcome);
 
 	}
