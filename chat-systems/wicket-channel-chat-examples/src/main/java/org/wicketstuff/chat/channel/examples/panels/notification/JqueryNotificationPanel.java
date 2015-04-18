@@ -11,9 +11,13 @@ import org.jaulp.wicket.base.util.WicketComponentUtils;
 @ImportResources( resources = {@ImportResource( resourceName = "notification.css", resourceType = "css", index = 0 )})
 public class JqueryNotificationPanel extends Panel {
 
+	/**
+	 * The serialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public JqueryNotificationPanel(String id) {
 		super(id);
-		// TODO Auto-generated constructor stub
 		String fullName ="Asterios Raptis";
 		//Space characters must be replaced by character '+'
 		String googleQuery = "http://www.google.com/search?q=" + fullName.replace(" ", "+");
