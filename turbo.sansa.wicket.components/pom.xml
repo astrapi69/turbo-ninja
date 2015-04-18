@@ -138,6 +138,12 @@
 				<artifactId>jaulp.wicket.data.provider</artifactId>
 				<version>${wicket.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.wicket.behaviors</artifactId>
+				<version>${wicket.version}</version>
+			</dependency>
 			<!-- INTERNAL WICKET LIB DEPENDENCIES -->
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
