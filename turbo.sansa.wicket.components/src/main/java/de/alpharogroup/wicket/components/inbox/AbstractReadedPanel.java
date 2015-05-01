@@ -21,8 +21,6 @@ public abstract class AbstractReadedPanel extends Panel {
 	 * 
 	 * @param id
 	 *            the id
-	 * @param messageModels
-	 *            the message models
 	 */
 	public AbstractReadedPanel(final String id) {
 		super(id);

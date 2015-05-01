@@ -161,7 +161,7 @@ public class TopicTreeNodeProvider implements
 	}
 
 	/**
-	 * Get a {@link Foo} by its id.
+	 * Get by its id.
 	 * 
 	 * @param id
 	 *            the id
@@ -172,12 +172,7 @@ public class TopicTreeNodeProvider implements
 	}
 
 	/**
-	 * {@inheritDoc}.
-	 * 
-	 * @param treeNode
-	 *            the tree node
-	 * @return the children
-	 * @see wickettree.ITreeProvider#getChildren(java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Iterator<? extends ITreeNode<Topics>> getChildren(
@@ -186,10 +181,7 @@ public class TopicTreeNodeProvider implements
 	}
 
 	/**
-	 * {@inheritDoc}.
-	 * 
-	 * @return the roots
-	 * @see wickettree.ITreeProvider#getRoots()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Iterator<? extends ITreeNode<Topics>> getRoots() {
@@ -209,7 +201,6 @@ public class TopicTreeNodeProvider implements
 	 * Gets the sort state.
 	 * 
 	 * @return the sort state
-	 * @see ISortableDataProvider#getSortState()
 	 */
 	@Override
 	public final ISortState<String> getSortState() {
@@ -217,12 +208,7 @@ public class TopicTreeNodeProvider implements
 	}
 
 	/**
-	 * {@inheritDoc}.
-	 * 
-	 * @param treeNode
-	 *            the tree node
-	 * @return true, if successful
-	 * @see wickettree.ITreeProvider#hasChildren(java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean hasChildren(final ITreeNode<Topics> treeNode) {
@@ -230,12 +216,7 @@ public class TopicTreeNodeProvider implements
 	}
 
 	/**
-	 * {@inheritDoc}.
-	 * 
-	 * @param treeNode
-	 *            the tree node
-	 * @return the i model
-	 * @see wickettree.ITreeProvider#model(java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public IModel<ITreeNode<Topics>> model(final ITreeNode<Topics> treeNode) {
@@ -269,7 +250,6 @@ public class TopicTreeNodeProvider implements
 	 * 
 	 * @param state
 	 *            the new sort state
-	 * @see ISortableDataProvider#setSortState(org.apache.wicket.extensions.markup.html.repeater.data.sort.ISortState)
 	 */
 	public final void setSortState(final ISortState<String> state) {
 		if (!(state instanceof SingleSortState)) {

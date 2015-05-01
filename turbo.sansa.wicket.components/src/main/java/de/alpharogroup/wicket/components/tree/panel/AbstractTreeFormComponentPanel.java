@@ -86,7 +86,7 @@ public abstract class AbstractTreeFormComponentPanel<T> extends
 	/**
 	 * Creates the tree.
 	 * 
-	 * @param treeProvider
+	 * @param provider
 	 *            the treeProvider
 	 * @param state
 	 *            the state

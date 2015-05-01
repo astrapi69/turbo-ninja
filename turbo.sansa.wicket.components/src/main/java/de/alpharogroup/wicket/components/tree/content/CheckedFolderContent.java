@@ -128,17 +128,7 @@ public class CheckedFolderContent implements
 	}
 
 	/**
-	 * New content component.
-	 * 
-	 * @param id
-	 *            the id
-	 * @param tree
-	 *            the tree
-	 * @param model
-	 *            the model
-	 * @return the component {@inheritDoc}.
-	 * @see com.sem.base.model.tree.content.Content#newContentComponent(java.lang.String,
-	 *      wickettree.AbstractTree, org.apache.wicket.model.IModel)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Component newContentComponent(final String id,

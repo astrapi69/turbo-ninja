@@ -32,9 +32,9 @@ public abstract class AbstractMemberInboxPanel extends Panel {
 
 	/**
 	 * Instantiates a new provider inbox panel.
-	 * 
-	 * @param id
-	 *            the id
+	 *
+	 * @param id            the id
+	 * @param parameters the parameters
 	 */
 	public AbstractMemberInboxPanel(final String id, final PageParameters parameters) {
 		super(id);

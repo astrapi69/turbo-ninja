@@ -39,8 +39,8 @@ public abstract class AbstractMessagesPanel extends Panel {
 	 * 
 	 * @param id
 	 *            the id
-	 * @param messageModels
-	 *            the message models
+	 * @param state
+	 *            the message state
 	 */
 	public AbstractMessagesPanel(final String id, final MessageState state) {
 		super(id);

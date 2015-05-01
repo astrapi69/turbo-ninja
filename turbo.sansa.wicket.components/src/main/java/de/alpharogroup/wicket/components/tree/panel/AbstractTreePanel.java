@@ -88,7 +88,7 @@ public abstract class AbstractTreePanel<T> extends Panel {
 	/**
 	 * Creates the tree.
 	 * 
-	 * @param treeProvider
+	 * @param provider
 	 *            the treeProvider
 	 * @param state
 	 *            the state

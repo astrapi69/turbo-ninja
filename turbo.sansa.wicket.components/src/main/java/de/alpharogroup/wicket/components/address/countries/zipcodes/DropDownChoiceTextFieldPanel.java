@@ -54,9 +54,13 @@ public class DropDownChoiceTextFieldPanel extends Panel {
 
 	/**
 	 * Instantiates a new DropDownChoiceTextFieldPanel.
-	 * 
-	 * @param id
-	 *            the id
+	 *
+	 * @param id            the id
+	 * @param stringTwoDropDownChoicesModel the string two drop down choices model
+	 * @param rootRenderer the root renderer
+	 * @param rootLabelModel the root label model
+	 * @param childLabelModel the child label model
+	 * @param locationModel the location model
 	 */
 	public DropDownChoiceTextFieldPanel(final String id,
 			final StringTwoDropDownChoicesModel stringTwoDropDownChoicesModel,
@@ -125,8 +129,6 @@ public class DropDownChoiceTextFieldPanel extends Panel {
 	 * constructor from the derived classes and can be overridden so users can
 	 * provide their own version of a Label.
 	 * 
-	 * @param id
-	 *            the id
 	 * @param forId
 	 *            the for id
 	 * @param model
@@ -142,8 +144,6 @@ public class DropDownChoiceTextFieldPanel extends Panel {
 	 * constructor from the derived classes and can be overridden so users can
 	 * provide their own version of a Label.
 	 * 
-	 * @param id
-	 *            the id
 	 * @param forId
 	 *            the for id
 	 * @param model

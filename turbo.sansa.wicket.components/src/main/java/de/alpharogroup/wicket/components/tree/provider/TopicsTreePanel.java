@@ -64,8 +64,6 @@ public class TopicsTreePanel extends
 	 * @param state
 	 *            the state
 	 * @return the abstract tree
-	 * @see com.sem.base.components.tree.panel.AbstractTreePanel#createTree(wickettree.ITreeProvider,
-	 *      org.apache.wicket.model.IModel)
 	 */
 	@Override
 	protected AbstractTree<ITreeNode<Topics>> createTree(
@@ -88,7 +86,6 @@ public class TopicsTreePanel extends
 	 * 
 	 * @param contents
 	 *            the new contents
-	 * @see com.sem.base.components.tree.panel.AbstractTreePanel#setContents(java.util.List)
 	 */
 	@Override
 	protected void setContents(final List<Content<ITreeNode<Topics>>> contents) {

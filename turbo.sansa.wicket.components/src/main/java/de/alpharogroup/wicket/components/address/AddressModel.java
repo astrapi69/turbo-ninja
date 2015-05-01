@@ -24,6 +24,8 @@ public abstract class AddressModel implements IClusterable {
 
 	/**
 	 * Instantiates a new address model with the given .
+	 *
+	 * @param countriesAndProvincesDropDownChoicesModel the countries and provinces drop down choices model
 	 */
 	public AddressModel(StringTwoDropDownChoicesModel countriesAndProvincesDropDownChoicesModel) {
 		this.countriesAndProvincesDropDownChoicesModel = countriesAndProvincesDropDownChoicesModel;

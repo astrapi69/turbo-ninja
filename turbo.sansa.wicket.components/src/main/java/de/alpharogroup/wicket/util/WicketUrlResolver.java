@@ -39,8 +39,6 @@ public class WicketUrlResolver {
 	 * 
 	 * @param <C>
 	 *            the generic type
-	 * @param requestUrl
-	 *            the request url
 	 * @param username
 	 *            the username
 	 * @param generatedCode

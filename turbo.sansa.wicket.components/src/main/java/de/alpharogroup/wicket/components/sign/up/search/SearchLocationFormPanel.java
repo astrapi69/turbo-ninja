@@ -76,8 +76,6 @@ public abstract class SearchLocationFormPanel extends Panel {
 	 * 
 	 * @param id
 	 *            the id
-	 * @param model
-	 *            the model
 	 * @return the form
 	 */
 	protected Form<SignUpModel> newForm(String id) {
