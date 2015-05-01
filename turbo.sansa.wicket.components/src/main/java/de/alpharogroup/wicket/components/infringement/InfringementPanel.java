@@ -3,7 +3,7 @@ package de.alpharogroup.wicket.components.infringement;
 import java.util.Arrays;
 import java.util.List;
 
-import net.sourceforge.jaulp.locale.ResourceBundleKey;
+import de.alpharogroup.locale.ResourceBundleKey;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
@@ -11,8 +11,8 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
-import org.jaulp.wicket.base.util.properties.ComponentPropertiesKeysListResolver;
-import org.jaulp.wicket.base.util.resource.ResourceModelFactory;
+import de.alpharogroup.wicket.base.util.properties.ComponentPropertiesKeysListResolver;
+import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 
 import user.management.application.models.InfringementModel;
 import de.alpharogroup.wicket.components.i18n.content.ContentModel;

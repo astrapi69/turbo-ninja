@@ -6,7 +6,7 @@ import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
-import org.jaulp.wicket.base.util.resource.ResourceModelFactory;
+import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 
 import user.management.application.models.InfringementModel;
 import de.alpharogroup.wicket.components.infringement.input.InfringementInputPanel;

@@ -11,7 +11,7 @@ import org.apache.wicket.markup.html.form.upload.FileUploadField;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.lang.Bytes;
-import org.jaulp.wicket.base.util.resource.ResourceModelFactory;
+import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 
 /**
  * The Class UploadFilePanel.

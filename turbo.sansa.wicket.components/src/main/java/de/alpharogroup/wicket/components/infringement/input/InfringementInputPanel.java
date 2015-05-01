@@ -10,8 +10,8 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.StringResourceModel;
-import org.jaulp.wicket.base.util.resource.ResourceModelFactory;
-import org.jaulp.wicket.behaviors.AddJsQueryBehavior;
+import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
+import de.alpharogroup.wicket.behaviors.AddJsQueryBehavior;
 
 import user.management.application.models.InfringementModel;
 import user.management.enums.RuleViolationReason;

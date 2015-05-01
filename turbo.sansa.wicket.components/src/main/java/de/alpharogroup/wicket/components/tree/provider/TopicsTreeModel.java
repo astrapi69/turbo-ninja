@@ -3,10 +3,9 @@ package de.alpharogroup.wicket.components.tree.provider;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import net.sourceforge.jaulp.tree.ifaces.ITreeNode;
-
 import org.apache.wicket.util.io.IClusterable;
 
+import de.alpharogroup.tree.ifaces.ITreeNode;
 import events.system.model.Topics;
 
 /**

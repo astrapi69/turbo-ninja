@@ -12,7 +12,7 @@ import org.apache.wicket.request.resource.caching.NoOpResourceCachingStrategy;
 import org.apache.wicket.request.resource.caching.version.CachingResourceVersion;
 import org.apache.wicket.serialize.java.DeflatedJavaSerializer;
 import org.apache.wicket.util.string.Strings;
-import org.jaulp.wicket.base.application.seo.DisableJSessionIDinUrlApplication;
+import de.alpharogroup.wicket.base.application.seo.DisableJSessionIDinUrlApplication;
 import org.wicketstuff.annotation.scan.AnnotatedMountScanner;
 
 import com.google.javascript.jscomp.CompilationLevel;

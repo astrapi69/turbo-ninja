@@ -2,7 +2,7 @@ package de.alpharogroup.wicket.bootstrap3.components.labeled.textfield;
 
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.model.IModel;
-import org.jaulp.wicket.behaviors.AddJsQueryBehavior;
+import de.alpharogroup.wicket.behaviors.AddJsQueryBehavior;
 
 import de.alpharogroup.wicket.components.labeled.textfield.LabeledTextFieldPanel;
 

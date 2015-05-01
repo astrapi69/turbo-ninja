@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import net.sourceforge.jaulp.tree.ifaces.ITreeNode;
-
 import org.apache.wicket.Component;
 import org.apache.wicket.extensions.markup.html.repeater.tree.AbstractTree;
 import org.apache.wicket.extensions.markup.html.repeater.tree.ITreeProvider;
@@ -13,10 +11,10 @@ import org.apache.wicket.extensions.markup.html.repeater.tree.NestedTree;
 import org.apache.wicket.extensions.markup.html.repeater.util.ProviderSubset;
 import org.apache.wicket.model.IModel;
 
+import de.alpharogroup.tree.ifaces.ITreeNode;
 import de.alpharogroup.wicket.components.tree.content.CheckedFolderContent;
 import de.alpharogroup.wicket.components.tree.model.Content;
 import de.alpharogroup.wicket.components.tree.panel.AbstractTreeFormComponentPanel;
-
 import events.system.model.Topics;
 
 /**

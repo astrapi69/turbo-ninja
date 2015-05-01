@@ -4,8 +4,8 @@ import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
-import org.jaulp.wicket.components.i18n.dropdownchoice.renderers.PropertiesChoiceRenderer;
-import org.jaulp.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
+import de.alpharogroup.wicket.components.i18n.dropdownchoice.renderers.PropertiesChoiceRenderer;
+import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
 
 import address.book.factories.AddressBookFactory;
 import address.book.model.Addresses;

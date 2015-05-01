@@ -4,7 +4,7 @@ import java.util.List;
 
 import message.system.model.Messages;
 
-import org.jaulp.wicket.data.provider.AbstractSortableDataProvider;
+import de.alpharogroup.wicket.data.provider.AbstractSortableDataProvider;
 
 /**
  * The Class MessagesProvider.

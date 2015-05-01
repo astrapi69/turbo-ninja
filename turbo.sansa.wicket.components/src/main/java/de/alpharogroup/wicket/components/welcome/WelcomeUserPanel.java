@@ -1,10 +1,10 @@
 package de.alpharogroup.wicket.components.welcome;
 
-import net.sourceforge.jaulp.locale.ResourceBundleKey;
+import de.alpharogroup.locale.ResourceBundleKey;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.jaulp.wicket.base.util.resource.ResourceModelFactory;
+import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 
 import user.management.model.Users;
 import de.alpharogroup.wicket.components.factory.ComponentFactory;

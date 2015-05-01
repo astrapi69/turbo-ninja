@@ -73,7 +73,7 @@
 		<user.management.version>${db.modules.version}</user.management.version>
 		<events.system.version>${db.modules.version}</events.system.version>
 		<!-- JAULP versions -->
-		<jaulp.core.version>3.10.0</jaulp.core.version>
+		<jaulp.core.version>3.11.0</jaulp.core.version>
 		<jaulp.generic.tree.version>${jaulp.core.version}</jaulp.generic.tree.version>
 		<!-- MAVEN PLUGIN versions -->
 		<maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>

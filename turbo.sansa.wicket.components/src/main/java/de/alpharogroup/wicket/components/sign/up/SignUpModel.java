@@ -1,6 +1,6 @@
 package de.alpharogroup.wicket.components.sign.up;
 
-import net.sourceforge.jaulp.auth.models.BaseUsernameSignUpModel;
+import de.alpharogroup.auth.models.BaseUsernameSignUpModel;
 import address.book.application.model.LocationModel;
 import address.book.model.Addresses;
 

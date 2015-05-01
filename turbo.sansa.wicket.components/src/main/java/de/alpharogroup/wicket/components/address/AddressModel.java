@@ -1,7 +1,7 @@
 package de.alpharogroup.wicket.components.address;
 
 import org.apache.wicket.util.io.IClusterable;
-import org.jaulp.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
+import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
 
 import address.book.model.Addresses;
 

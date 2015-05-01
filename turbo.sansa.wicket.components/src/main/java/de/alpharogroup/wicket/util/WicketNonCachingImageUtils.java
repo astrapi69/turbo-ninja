@@ -3,7 +3,7 @@ package de.alpharogroup.wicket.util;
 import java.util.Set;
 
 import org.apache.wicket.markup.html.image.NonCachingImage;
-import org.jaulp.wicket.base.util.WicketImageUtils;
+import de.alpharogroup.wicket.base.util.WicketImageUtils;
 
 import resource.system.application.model.ResourcesModel;
 import resource.system.model.Resources;

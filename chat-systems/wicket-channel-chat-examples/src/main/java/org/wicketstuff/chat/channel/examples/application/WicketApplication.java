@@ -9,7 +9,7 @@ import org.apache.wicket.util.time.Duration;
 import org.wicketstuff.chat.channel.TimerChannelService;
 import org.wicketstuff.chat.channel.api.IChannelService;
 import org.wicketstuff.chat.channel.examples.pages.Index;
-import org.jaulp.wicket.PackageResourceReferences;
+import de.alpharogroup.wicket.PackageResourceReferences;
 
 /**
  * Runs the WicketApplication when invoked from command line.

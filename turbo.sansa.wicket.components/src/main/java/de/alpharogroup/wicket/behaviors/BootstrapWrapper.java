@@ -1,7 +1,7 @@
 package de.alpharogroup.wicket.behaviors;
 
-import org.jaulp.wicket.behaviors.JqueryStatementsBehavior;
-import org.jaulp.wicket.behaviors.BuildableChainableStatement;
+import de.alpharogroup.wicket.behaviors.JqueryStatementsBehavior;
+import de.alpharogroup.wicket.behaviors.BuildableChainableStatement;
 import org.odlabs.wiquery.core.javascript.JsUtils;
 
 /**

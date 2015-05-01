@@ -9,7 +9,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.util.time.Duration;
-import org.jaulp.wicket.base.util.WicketComponentUtils;
+import de.alpharogroup.wicket.base.util.WicketComponentUtils;
 import org.wicketstuff.chat.channel.api.IChannelService;
 import org.wicketstuff.chat.channel.examples.application.WicketApplication;
 import org.wicketstuff.chat.channel.examples.panels.ChatPanel;

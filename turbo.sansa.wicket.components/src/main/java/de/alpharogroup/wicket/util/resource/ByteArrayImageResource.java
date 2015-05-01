@@ -1,7 +1,7 @@
 package de.alpharogroup.wicket.util.resource;
 
 import org.apache.commons.lang.ArrayUtils;
-import org.jaulp.wicket.base.util.resource.DatabaseImageResource;
+import de.alpharogroup.wicket.base.util.resource.DatabaseImageResource;
 
 import resource.system.model.Resources;
 

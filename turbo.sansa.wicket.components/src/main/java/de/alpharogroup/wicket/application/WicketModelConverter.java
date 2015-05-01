@@ -3,8 +3,8 @@ package de.alpharogroup.wicket.application;
 import java.util.List;
 
 import net.sourceforge.jaulp.date.CreateDateUtils;
-import net.sourceforge.jaulp.file.checksum.Algorithm;
-import net.sourceforge.jaulp.file.checksum.ChecksumUtils;
+import de.alpharogroup.file.checksum.Algorithm;
+import de.alpharogroup.file.checksum.ChecksumUtils;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.wicket.markup.html.form.upload.FileUpload;

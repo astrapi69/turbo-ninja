@@ -2,8 +2,8 @@ package de.alpharogroup.wicket.components.address.countries;
 
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.form.IChoiceRenderer;
-import org.jaulp.wicket.components.i18n.dropdownchoice.panels.TwoDropDownChoicesPanel;
-import org.jaulp.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
+import de.alpharogroup.wicket.components.i18n.dropdownchoice.panels.TwoDropDownChoicesPanel;
+import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
 
 /**
  * The class CountriesProvincesPanel.

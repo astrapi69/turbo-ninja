@@ -5,9 +5,9 @@ import java.util.Map;
 import org.apache.wicket.markup.html.basic.MultiLineLabel;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
-import org.jaulp.wicket.base.util.resource.ResourceModelFactory;
-import org.jaulp.wicket.components.i18n.dropdownchoice.renderers.PropertiesChoiceRenderer;
-import org.jaulp.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
+import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
+import de.alpharogroup.wicket.components.i18n.dropdownchoice.renderers.PropertiesChoiceRenderer;
+import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
 
 import address.book.application.model.LocationModel;
 import de.alpharogroup.wicket.components.address.countries.zipcodes.DropDownChoiceTextFieldPanel;

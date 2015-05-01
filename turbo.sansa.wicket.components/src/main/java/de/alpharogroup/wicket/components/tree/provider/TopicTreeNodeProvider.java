@@ -5,8 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import net.sourceforge.jaulp.locale.ResourceBundleUtils;
-import net.sourceforge.jaulp.tree.ifaces.ITreeNode;
+import de.alpharogroup.locale.ResourceBundleUtils;
 
 import org.apache.wicket.Session;
 import org.apache.wicket.extensions.markup.html.repeater.data.sort.ISortState;
@@ -17,6 +16,7 @@ import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
+import de.alpharogroup.tree.ifaces.ITreeNode;
 import events.system.model.Topics;
 
 /**

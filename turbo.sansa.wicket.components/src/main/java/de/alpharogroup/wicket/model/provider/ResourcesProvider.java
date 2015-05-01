@@ -2,7 +2,7 @@ package de.alpharogroup.wicket.model.provider;
 
 import java.util.List;
 
-import org.jaulp.wicket.data.provider.AbstractSortableDataProvider;
+import de.alpharogroup.wicket.data.provider.AbstractSortableDataProvider;
 
 import resource.system.model.Resources;
 

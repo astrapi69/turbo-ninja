@@ -2,8 +2,8 @@ package de.alpharogroup.wicket.util;
 
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
-import org.jaulp.wicket.base.pageparameters.ParameterKeys;
-import org.jaulp.wicket.base.util.url.WicketUrlUtils;
+import de.alpharogroup.wicket.base.pageparameters.ParameterKeys;
+import de.alpharogroup.wicket.base.util.url.WicketUrlUtils;
 
 /**
  * The Class WicketUrlResolver.
