@@ -5,7 +5,7 @@ import de.agilecoders.wicket.less.LessResourceReference;
 
 /**
  * You can provide your own version of customized bootstrap components wiht the Class CustumTheme.
- * All you have to do is to generate your own less file on {@link http://getbootstrap.com/customize/}
+ * All you have to do is to generate your own less file on http://getbootstrap.com/customize/
  * and give that generated less file in the lessfile path. 
  */
 @SuppressWarnings("javadoc")

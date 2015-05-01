@@ -162,6 +162,8 @@ public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrl
 
 	/**
 	 * configures wicket-bootstrap and installs the settings.
+	 *
+	 * @param theme the theme
 	 */
 	protected void configureBootstrap(final Theme theme) {
 		final ThemeProvider themeProvider = new BootswatchThemeProvider() {
