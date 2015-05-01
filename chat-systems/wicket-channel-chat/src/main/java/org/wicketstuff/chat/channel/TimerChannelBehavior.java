@@ -53,9 +53,6 @@ import org.wicketstuff.chat.channel.api.IPushTarget;
  * 
  * @author Xavier Hanin
  * 
- * @see IChannelService
- * @see TimerChannelService
- * @see TimerPushService
  */
 public class TimerChannelBehavior extends AbstractAjaxTimerBehavior implements
 		Serializable {
@@ -280,7 +277,9 @@ public class TimerChannelBehavior extends AbstractAjaxTimerBehavior implements
 		}
 
 		/**
-		 * @see IAjaxPushBehavior#addComponent(Component)
+		 * Adds the component.
+		 *
+		 * @param component the component
 		 */
 		public void addComponent(final Component component) {
 			synchronized (currentTrigger) {
@@ -290,7 +289,10 @@ public class TimerChannelBehavior extends AbstractAjaxTimerBehavior implements
 		}
 
 		/**
-		 * @see IAjaxPushBehavior#addComponent(Component, String)
+		 * Adds the component.
+		 *
+		 * @param component the component
+		 * @param markupId the markup id
 		 */
 		public void addComponent(final Component component,
 				final String markupId) {
@@ -301,7 +303,9 @@ public class TimerChannelBehavior extends AbstractAjaxTimerBehavior implements
 		}
 
 		/**
-		 * @see IAjaxPushBehavior#appendJavaScript(String)
+		 * Append java script.
+		 *
+		 * @param javascript the javascript
 		 */
 		public void appendJavaScript(final String javascript) {
 			synchronized (currentTrigger) {
@@ -311,7 +315,9 @@ public class TimerChannelBehavior extends AbstractAjaxTimerBehavior implements
 		}
 
 		/**
-		 * @see IAjaxPushBehavior#focusComponent(Component)
+		 * Focus component.
+		 *
+		 * @param component the component
 		 */
 		public void focusComponent(final Component component) {
 			synchronized (currentTrigger) {
@@ -321,7 +327,9 @@ public class TimerChannelBehavior extends AbstractAjaxTimerBehavior implements
 		}
 
 		/**
-		 * @see IAjaxPushBehavior#prependJavaScript(String)
+		 * Prepend java script.
+		 *
+		 * @param javascript the javascript
 		 */
 		public void prependJavaScript(final String javascript) {
 			synchronized (currentTrigger) {
@@ -331,7 +339,7 @@ public class TimerChannelBehavior extends AbstractAjaxTimerBehavior implements
 		}
 
 		/**
-		 * @see IAjaxPushBehavior#trigger()
+		 * Trigger.
 		 */
 		public void trigger() {
 			DelayedMethodCallList trigger = null;
@@ -383,6 +391,7 @@ public class TimerChannelBehavior extends AbstractAjaxTimerBehavior implements
 	 * 
 	 * @param updateInterval
 	 *            the interval at which the server should be polled for changes
+	 *            @param timeout The timeout to set
 	 */
 	public TimerChannelBehavior(final Duration updateInterval,
 			final Duration timeout) {

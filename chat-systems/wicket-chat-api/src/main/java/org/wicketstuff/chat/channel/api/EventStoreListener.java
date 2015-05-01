@@ -19,7 +19,7 @@ package org.wicketstuff.chat.channel.api;
 import java.util.Map;
 
 /**
- * Listener to add in {@link EventStore}. It is for internal use only (volontary
+ * Listener to add in EventStore. It is for internal use only (volontary
  * package)
  * 
  * @author Vincent Demay

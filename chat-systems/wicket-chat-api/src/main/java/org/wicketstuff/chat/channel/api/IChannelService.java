@@ -48,16 +48,13 @@ import org.apache.wicket.Component;
  *
  * @author Xavier Hanin
  *
- * @see TimerChannelService
- * @see CometdService
- * @see IChannelTarget
  */
 public interface IChannelService {
   /**
    * Adds a behavior to the given component so that it will be notified of
-   * {@link ChannelEvent}s.
+   *  ChannelEvents.
    * <p>
-   * Usually the component if a {@link Page}, even if it's not mandatory.
+   * Usually the component if a Page, even if it's not mandatory.
    * Indeed the components reacting to the event are defined in the {@link IChannelListener},
    * by calling {@link IChannelTarget} methods. Hence any component on the page
    * can serve as the host of the behavior, as soon as it is visible.

@@ -21,17 +21,17 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 /**
  * A target used to push events to a client.
  * <p>
- * Instance of this interface are usually obtained by an {@link IPushService}.
+ * Instance of this interface are usually obtained by an IPushService.
  * <p>
- * This interface extends {@link IChannelTarget}, and thus provides
- * methods familiar to {@link AjaxRequestTarget} users.
+ * This interface extends IChannelTarget, and thus provides
+ * methods familiar to AjaxRequestTarget users.
  * <p>
- * The specificities of {@link IPushTarget} is that you have to call
- * {@link #trigger()} excplictly when you want the events to actually be send
- * to the client. Until the {@link #trigger()} method is called, events are 
+ * The specificities of IPushTarget is that you have to call
+ *  #trigger() excplictly when you want the events to actually be send
+ * to the client. Until the #trigger() method is called, events are 
  * simply queued.
  * <p>
- * The {@link #isConnected()} method allows to check if the target is still connected
+ * The #isConnected() method allows to check if the target is still connected
  * to the client. It is up to the user to call this method before calling
  * any method asking for clients updates.
  * 

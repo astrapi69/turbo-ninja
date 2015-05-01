@@ -43,7 +43,7 @@ public class WicketApplication extends WebApplication implements Serializable {
 	}
 
 	/**
-	 * @see wicket.Application#getHomePage()
+	 * {@inheritDoc}}
 	 */
 	@Override
 	public Class<? extends WebPage> getHomePage() {

@@ -33,8 +33,6 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
  * 
  * @author Xavier Hanin
  * 
- * @see IChannelListener
- * @see IChannelService
  */
 public interface IChannelTarget
 {
@@ -70,7 +68,7 @@ public interface IChannelTarget
 	 * Adds javascript that will be evaluated on the client side after
 	 * components are replaced
 	 * 
-	 * @param javascript
+	 * @param javascript The js to append
 	 */
 	public void appendJavaScript(String javascript);
 	
@@ -78,7 +76,7 @@ public interface IChannelTarget
 	 * Adds javascript that will be evaluated on the client side before
 	 * components are replaced
 	 * 
-	 * @param javascript
+	 * @param javascript The js to prepend
 	 */
 	public void prependJavaScript(String javascript);
 }
