@@ -9,9 +9,10 @@
 	</parent>
 
 	<artifactId>server.configurations</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.2</version>
 
 	<description>
-  Project for examples how to cluster with tomcat. 
-  </description>
+  	Project for examples how to cluster with tomcat. Configuration from apache-httpd server work also with jetty.
+	</description>
+	
 </project>
