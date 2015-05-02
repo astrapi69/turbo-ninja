@@ -198,6 +198,11 @@
 				<artifactId>jaulp.generic.tree</artifactId>
 				<version>${jaulp.generic.tree.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.lang</artifactId>
+				<version>${jaulp.lang.version}</version>
+			</dependency>
 
 		</dependencies>
 
