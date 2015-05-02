@@ -1,7 +1,7 @@
 package org.wicketstuff.chat.channel.examples.panels.notification;
 
-import net.sourceforge.jaulp.io.annotations.ImportResource;
-import net.sourceforge.jaulp.io.annotations.ImportResources;
+import de.alpharogroup.io.annotations.ImportResource;
+import de.alpharogroup.io.annotations.ImportResources;
 
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.link.ExternalLink;

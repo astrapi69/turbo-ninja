@@ -2,7 +2,7 @@ package org.wicketstuff.chat.components.notifications;
 
 import java.util.Map;
 
-import net.sourceforge.jaulp.string.StringUtils;
+import de.alpharogroup.string.StringUtils;
 
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;

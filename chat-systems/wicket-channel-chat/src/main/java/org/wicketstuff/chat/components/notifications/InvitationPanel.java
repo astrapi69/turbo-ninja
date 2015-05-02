@@ -3,7 +3,7 @@ package org.wicketstuff.chat.components.notifications;
 import java.util.Map;
 import java.util.UUID;
 
-import net.sourceforge.jaulp.string.StringUtils;
+import de.alpharogroup.string.StringUtils;
 
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.time.Duration;
