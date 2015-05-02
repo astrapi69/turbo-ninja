@@ -62,7 +62,7 @@
 		<wicket-bootstrap.version>0.9.8</wicket-bootstrap.version>
 		<google-closure.version>r2180</google-closure.version>
 		<!-- TURBO-SANSA DB MODULES versions -->
-		<db.modules.version>2.0.0</db.modules.version>
+		<db.modules.version>2.1.0</db.modules.version>
 		<address.book.version>${db.modules.version}</address.book.version>
 		<dao.api.version>${db.modules.version}</dao.api.version>
 		<db.resource.bundles.version>${db.modules.version}</db.resource.bundles.version>
