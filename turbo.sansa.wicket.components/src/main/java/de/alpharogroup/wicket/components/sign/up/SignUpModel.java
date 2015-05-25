@@ -1,7 +1,6 @@
 package de.alpharogroup.wicket.components.sign.up;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +15,6 @@ import de.alpharogroup.auth.models.BaseUsernameSignUpModel;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class SignUpModel extends BaseUsernameSignUpModel implements LocationModel {
 
 	private static final long serialVersionUID = 1L;
