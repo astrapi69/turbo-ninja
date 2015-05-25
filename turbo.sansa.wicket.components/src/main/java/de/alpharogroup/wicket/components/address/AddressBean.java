@@ -1,16 +1,16 @@
 package de.alpharogroup.wicket.components.address;
 
-import org.apache.wicket.util.io.IClusterable;
-import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
+import java.io.Serializable;
 
 import address.book.model.Addresses;
+import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
 
 /**
- * The Class AddressModel.
+ * The Class AddressBean.
  *
  * @author Asterios Raptis
  */
-public abstract class AddressModel implements IClusterable {
+public abstract class AddressBean implements Serializable {
 
 	/**
 	 * The serialVersionUID.
@@ -27,14 +27,14 @@ public abstract class AddressModel implements IClusterable {
 	 *
 	 * @param countriesAndProvincesDropDownChoicesModel the countries and provinces drop down choices model
 	 */
-	public AddressModel(StringTwoDropDownChoicesModel countriesAndProvincesDropDownChoicesModel) {
+	public AddressBean(StringTwoDropDownChoicesModel countriesAndProvincesDropDownChoicesModel) {
 		this.countriesAndProvincesDropDownChoicesModel = countriesAndProvincesDropDownChoicesModel;
 	}
 
 	/**
 	 * Instantiates a new address model.
 	 */
-	public AddressModel() {
+	public AddressBean() {
 		this.countriesAndProvincesDropDownChoicesModel = newCountriesAndProvincesDropDownChoicesModel();
 	}
 
