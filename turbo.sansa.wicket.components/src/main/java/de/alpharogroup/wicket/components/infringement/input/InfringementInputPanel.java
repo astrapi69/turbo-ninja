@@ -11,7 +11,7 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.StringResourceModel;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
-import de.alpharogroup.wicket.behaviors.AddJsQueryBehavior;
+import de.alpharogroup.wicket.behaviors.JQueryJsAppenderBehavior;
 
 import user.management.application.models.InfringementModel;
 import user.management.enums.RuleViolationReason;
@@ -73,7 +73,7 @@ public class InfringementInputPanel extends Panel {
 		EnumLocalizedDropdownChoicePanel<RuleViolationReason, InfringementModel> reason = new EnumLocalizedDropdownChoicePanel<RuleViolationReason, InfringementModel>(
 				"reason", model, genderLabelModel, violationReasons);		
 		reason.getDropdownChoice().add(
-				new AddJsQueryBehavior("wrap",
+				new JQueryJsAppenderBehavior("wrap",
 						"<div class=\"span3dot5\"></div>"));
 		reason.setRequired(true);
 		return reason;
