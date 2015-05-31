@@ -177,6 +177,12 @@ Inspired from the wicketstuff push project. Many interfaces are took from the wi
 
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.wicket.behaviors</artifactId>
+				<version>${wicket.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
 				<artifactId>jaulp.lang</artifactId>
 				<version>${jaulp.lang.version}</version>
 			</dependency>

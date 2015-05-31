@@ -2,15 +2,17 @@ package org.wicketstuff.chat.components.notifications;
 
 import java.util.Map;
 
-import de.alpharogroup.string.StringUtils;
-
+import org.apache.wicket.Application;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.time.Duration;
-import org.odlabs.wiquery.core.util.WiQueryUtil;
-import org.wicketstuff.chat.components.notifications.pnotify.PnotifyJsReference;
 import org.wicketstuff.chat.model.ChatroomModel;
+
+import de.alpharogroup.string.StringUtils;
+import de.alpharogroup.wicket.behaviors.pnotify.PnotifyJsGenerator;
+import de.alpharogroup.wicket.behaviors.pnotify.PnotifyJsReference;
+import de.alpharogroup.wicket.behaviors.pnotify.PnotifySettings;
 
 
 public abstract class PnotifyPanel extends NotificationPanel {
@@ -30,28 +32,21 @@ public abstract class PnotifyPanel extends NotificationPanel {
 	
 
 	protected String onGetPnotifyJsScript(final Map<String, String> datas) {
-		long delay = getDuration().getMilliseconds();
-		String title = StringUtils.getValue(datas, "title", "Notification");
-		String styling = StringUtils.getValue(datas, "styling", "jqueryui");
-		String message = datas.get("message");
-		String pnotify = 
-				  "$("
-				+ "function(){"
-				+ " new PNotify({ "
-				+ "title: '" + title + "', "
-				+ "text: '"	+ message + "', "
-				+ "animation: 'show', "
-				+ "delay: " + delay + ", "
-				+ "styling: '" + styling + "'"
-				+ " });"
-				+ " });";
-		return pnotify;
+		PnotifySettings settings = new PnotifySettings();
+		settings.getTitle().setValue(StringUtils.getValue(datas, "title", "Notification"));
+		settings.getStyling().setValue(StringUtils.getValue(datas, "styling", "jqueryui"));
+		settings.getText().setValue(datas.get("message"));
+		settings.getDelay().setValue((int)getDuration().getMilliseconds());
+		PnotifyJsGenerator generator = new PnotifyJsGenerator(settings);
+		generator.generateJs();
+		return generator.generateJs();
 	}
 	
 	@Override
 	public void renderHead(IHeaderResponse response) {
 		super.renderHead(response);		
-		 response.render(JavaScriptHeaderItem.forReference(WiQueryUtil.getJQueryResourceReference()));
+		response.render(JavaScriptHeaderItem.forReference(Application.get()
+			.getJavaScriptLibrarySettings().getJQueryReference()));
 		 response.render(JavaScriptHeaderItem.forReference(PnotifyJsReference.INSTANCE));		
 	}
 

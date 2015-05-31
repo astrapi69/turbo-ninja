@@ -34,5 +34,11 @@
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jaulp.wicket.base</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>jaulp.wicket.behaviors</artifactId>
+		</dependency>
+		
 	</dependencies>
 </project>

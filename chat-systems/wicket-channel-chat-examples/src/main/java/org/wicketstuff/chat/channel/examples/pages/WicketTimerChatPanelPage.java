@@ -16,8 +16,8 @@ import org.wicketstuff.chat.channel.examples.panels.ChatPanel;
 import org.wicketstuff.chat.channel.examples.panels.WicketChatPanel;
 import org.wicketstuff.chat.channel.examples.panels.notification.JqueryNotificationPanel;
 import org.wicketstuff.chat.components.notifications.InvitationPanel;
-import org.wicketstuff.chat.components.notifications.pnotify.PnotifyJsReference;
 import org.wicketstuff.chat.model.ChatroomModel;
+import de.alpharogroup.wicket.behaviors.pnotify.PnotifyJsReference;
 
 public class WicketTimerChatPanelPage extends WebPage
 {
