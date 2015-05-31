@@ -13,4 +13,6 @@
 	<entry key="sem.main.address.city.label">Πόλη:</entry>
 	<entry key="sem.main.address.country.label">Χώρα:</entry>
 	<entry key="sem.main.address.federal.state.label">Ομόσπονδο κρατίδιο:</entry>
+	<entry key="sem.main.address.street.and.nr.label">Οδός{0} Αριθμός:</entry>
+	<entry key="sem.main.address.zipcode.and.city.label">Τ.Κ.{0} Πόλη:</entry>
 </properties>

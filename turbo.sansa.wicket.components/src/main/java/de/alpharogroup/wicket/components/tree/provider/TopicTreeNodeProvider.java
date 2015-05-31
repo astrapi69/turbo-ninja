@@ -5,17 +5,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import de.alpharogroup.locale.ResourceBundleUtils;
-
 import org.apache.wicket.Session;
 import org.apache.wicket.extensions.markup.html.repeater.data.sort.ISortState;
-import org.apache.wicket.extensions.markup.html.repeater.data.table.ISortableDataProvider;
 import org.apache.wicket.extensions.markup.html.repeater.tree.ISortableTreeProvider;
 import org.apache.wicket.extensions.markup.html.repeater.util.SingleSortState;
 import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
+import de.alpharogroup.locale.ResourceBundleUtils;
 import de.alpharogroup.tree.ifaces.ITreeNode;
 import events.system.model.Topics;
 

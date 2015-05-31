@@ -1,46 +1,9 @@
 <wicket:panel xmlns:wicket="http://wicket.apache.org">
 
-	<span class="formlabel"> <wicket:message
-			key="sem.main.address.street.label" /> <font color="red">*</font> ,
-		<wicket:message key="sem.main.address.streetnr.label" /> <font
-		color="red">*</font>
-	</span>
+	<span wicket:id="streetNumberPanel"></span>
 
-	<span class="formdata"> 
-	<input wicket:id="address.address.street" class="largetextfield" type="text"
-		id="street" /> <input wicket:id="address.address.streetnumber"
-		class="smalltextfield" size="5" maxlength="5" type="text"
-		id="streetnumber" />
-	</span>
+	<span wicket:id="zipcodeCityPanel"></span>
 
-	<div class="clearfloatboth"></div>
-
-	<span class="formlabel"> <label for="zipcode"><wicket:message
-				key="sem.main.address.zipcode.label" /> </label> / <label for="city"><wicket:message
-				key="sem.main.address.city.label" /> </label> <font color="red">*</font>
-
-	</span>
-
-	<span class="formdata"> <input
-		wicket:id="address.address.zipcode.zipcode" class="smalltextfield"
-		type="text" id="zipcode" maxlength="5" size="5" /> <input
-		wicket:id="address.address.zipcode.city" class="largetextfield"
-		type="text" id="city" />
-	</span>
-
-	<br />
-	<div class="clearfloatboth"></div>
-
-	<span class="formlabel"> <wicket:message
-			key="sem.main.address.country.label" /> <br /> <br /> <wicket:message
-			key="sem.main.address.federal.state.label" />
-
-	</span>
-
-	<span class="formdata"> <span
-		wicket:id="countriesProvincesPanel">[countriesProvincesPanel]</span>
-	</span>
-
-	<div class="clearfloatboth"></div>
+	<span wicket:id="countriesProvincesPanel"></span>
 
 </wicket:panel>
