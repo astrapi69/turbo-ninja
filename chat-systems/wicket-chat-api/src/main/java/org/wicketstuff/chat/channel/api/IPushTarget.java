@@ -16,7 +16,6 @@
  */
 package org.wicketstuff.chat.channel.api;
 
-import org.apache.wicket.ajax.AjaxRequestTarget;
 
 /**
  * A target used to push events to a client.
@@ -24,7 +23,7 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
  * Instance of this interface are usually obtained by an IPushService.
  * <p>
  * This interface extends IChannelTarget, and thus provides
- * methods familiar to AjaxRequestTarget users.
+ * methods familiar to {@link org.apache.wicket.ajax.AjaxRequestTarget} users.
  * <p>
  * The specificities of IPushTarget is that you have to call
  *  #trigger() excplictly when you want the events to actually be send
