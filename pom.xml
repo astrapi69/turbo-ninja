@@ -59,7 +59,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- JETTY version -->
-		<jetty9.version>9.2.10.v20150310</jetty9.version>
+		<jetty9.version>9.3.0.v20150612</jetty9.version>
 		<wicket-jetty9-runner.version>1.0.0</wicket-jetty9-runner.version>
 		<!-- WICKET version -->
 		<wicket.version>6.18.0</wicket.version>
