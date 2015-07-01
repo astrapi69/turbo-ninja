@@ -39,6 +39,11 @@
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jaulp.wicket.behaviors</artifactId>
 		</dependency>
+		<!-- WICKET-JS-ADDONS DEPENDENCIES -->
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>wicket-pnotify</artifactId>
+		</dependency>
 		
 	</dependencies>
 </project>

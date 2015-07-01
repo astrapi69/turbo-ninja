@@ -10,10 +10,9 @@ import org.apache.wicket.util.time.Duration;
 import org.wicketstuff.chat.model.ChatroomModel;
 
 import de.alpharogroup.string.StringUtils;
-import de.alpharogroup.wicket.behaviors.pnotify.PnotifyJsGenerator;
-import de.alpharogroup.wicket.behaviors.pnotify.PnotifyJsReference;
-import de.alpharogroup.wicket.behaviors.pnotify.PnotifySettings;
-
+import de.alpharogroup.wicket.js.addon.pnotify.PnotifyJsGenerator;
+import de.alpharogroup.wicket.js.addon.pnotify.PnotifyJsReference;
+import de.alpharogroup.wicket.js.addon.pnotify.PnotifySettings;
 
 public abstract class PnotifyPanel extends NotificationPanel {
 
@@ -32,7 +31,7 @@ public abstract class PnotifyPanel extends NotificationPanel {
 	
 
 	protected String onGetPnotifyJsScript(final Map<String, String> datas) {
-		PnotifySettings settings = new PnotifySettings();
+		PnotifySettings settings = PnotifySettings.builder().build();
 		settings.getTitle().setValue(StringUtils.getValue(datas, "title", "Notification"));
 		settings.getStyling().setValue(StringUtils.getValue(datas, "styling", "jqueryui"));
 		settings.getText().setValue(datas.get("message"));

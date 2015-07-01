@@ -9,7 +9,10 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.util.time.Duration;
+
 import de.alpharogroup.wicket.base.util.WicketComponentUtils;
+import de.alpharogroup.wicket.js.addon.pnotify.PnotifyJsReference;
+
 import org.wicketstuff.chat.channel.api.IChannelService;
 import org.wicketstuff.chat.channel.examples.application.WicketApplication;
 import org.wicketstuff.chat.channel.examples.panels.ChatPanel;
@@ -17,7 +20,6 @@ import org.wicketstuff.chat.channel.examples.panels.WicketChatPanel;
 import org.wicketstuff.chat.channel.examples.panels.notification.JqueryNotificationPanel;
 import org.wicketstuff.chat.components.notifications.InvitationPanel;
 import org.wicketstuff.chat.model.ChatroomModel;
-import de.alpharogroup.wicket.behaviors.pnotify.PnotifyJsReference;
 
 public class WicketTimerChatPanelPage extends WebPage
 {

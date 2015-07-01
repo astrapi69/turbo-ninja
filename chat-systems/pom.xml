@@ -63,6 +63,7 @@ Inspired from the wicketstuff push project. Many interfaces are took from the wi
 		<!-- WICKET version -->
 		<wicket.version>6.18.0</wicket.version>
 		<wiquery-core.version>6.13.0</wiquery-core.version>
+		<wicket-js-addons.version>${project.version}</wicket-js-addons.version>
 		<!-- JAULP versions -->
 		<jaulp.core.version>3.12.0</jaulp.core.version>
 		<jaulp.lang.version>${jaulp.core.version}</jaulp.lang.version>
@@ -185,6 +186,12 @@ Inspired from the wicketstuff push project. Many interfaces are took from the wi
 				<groupId>de.alpharogroup</groupId>
 				<artifactId>jaulp.lang</artifactId>
 				<version>${jaulp.lang.version}</version>
+			</dependency>
+			<!-- WICKET-JS-ADDONS DEPENDENCIES -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>wicket-pnotify</artifactId>
+				<version>${wicket-js-addons.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

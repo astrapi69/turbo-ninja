@@ -33,10 +33,8 @@ import org.apache.wicket.WicketRuntimeException;
 import org.apache.wicket.ajax.AbstractAjaxTimerBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.head.IHeaderResponse;
-//import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.util.time.Duration;
 import org.apache.wicket.util.time.Time;
-import org.wicketstuff.chat.channel.api.IChannelService;
 import org.wicketstuff.chat.channel.api.IPushTarget;
 
 /**
