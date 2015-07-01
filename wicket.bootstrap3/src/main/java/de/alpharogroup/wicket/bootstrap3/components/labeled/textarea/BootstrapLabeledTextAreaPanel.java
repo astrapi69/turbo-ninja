@@ -1,10 +1,10 @@
 package de.alpharogroup.wicket.bootstrap3.components.labeled.textarea;
+
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.model.IModel;
 import de.alpharogroup.wicket.behaviors.JQueryJsAppenderBehavior;
 
 import de.alpharogroup.wicket.components.labeled.textarea.LabeledTextAreaPanel;
-
 
 public class BootstrapLabeledTextAreaPanel<T> extends LabeledTextAreaPanel<T> {
 
