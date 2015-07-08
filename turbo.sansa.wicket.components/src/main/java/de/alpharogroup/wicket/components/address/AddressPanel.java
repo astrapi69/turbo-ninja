@@ -54,6 +54,13 @@ public class AddressPanel extends GenericPanel<AddressBean>
 		
 	}
 
+	/**
+	 * Factory method for create a new {@link Component} for zipcode and city.
+	 *
+	 * @param id the id
+	 * @param model the model
+	 * @return the component
+	 */
 	protected Component newZipcodeCityPanel(final String id, final IModel<AddressBean> model)
 	{
 		final String betweenLabel = AddressPanel.this.newBetweenLabelModel().getObject();
@@ -91,6 +98,13 @@ public class AddressPanel extends GenericPanel<AddressBean>
 		return streetNumberPanel;
 	}
 
+	/**
+	 * Factory method for create a new {@link Component} for street and number.
+	 *
+	 * @param id the id
+	 * @param model the model
+	 * @return the component
+	 */
 	protected Component newStreetNumberPanel(final String id, final IModel<AddressBean> model)
 	{
 		final String betweenLabel = AddressPanel.this.newBetweenLabelModel().getObject();
@@ -128,6 +142,13 @@ public class AddressPanel extends GenericPanel<AddressBean>
 		return streetNumberPanel;
 	}
 
+	/**
+	 * Factory method for create a new {@link CountriesProvincesPanel}.
+	 *
+	 * @param id the id
+	 * @param stringTwoDropDownChoicesModel the string two drop down choices model
+	 * @return the countries provinces panel
+	 */
 	protected CountriesProvincesPanel newCountriesProvincesPanel(final String id,
 		StringTwoDropDownChoicesModel stringTwoDropDownChoicesModel)
 	{
@@ -149,8 +170,6 @@ public class AddressPanel extends GenericPanel<AddressBean>
 	/**
 	 * Factory method for create a new Label for what characters will be between the two components.
 	 *
-	 * @param betweenLabel
-	 *            the characters
 	 * @return the {@link IModel} with the characters.
 	 */
 	protected IModel<String> newBetweenLabelModel()
@@ -158,6 +177,12 @@ public class AddressPanel extends GenericPanel<AddressBean>
 		return Model.of("/");
 	}
 
+	/**
+	 * Initialize model.
+	 *
+	 * @param model the model
+	 * @return the string two drop down choices model
+	 */
 	private StringTwoDropDownChoicesModel initializeModel(final IModel<AddressBean> model)
 	{
 		AddressBean modelObject = model.getObject();
