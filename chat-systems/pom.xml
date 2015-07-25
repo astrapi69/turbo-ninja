@@ -59,7 +59,7 @@ Inspired from the wicketstuff push project. Many interfaces are took from the wi
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- JETTY version -->
 		<jetty9.version>9.3.0.v20150612</jetty9.version>
-		<wicket-jetty9-runner.version>1.0.1</wicket-jetty9-runner.version>
+		<wicket-jetty9-runner.version>1.0.2</wicket-jetty9-runner.version>
 		<!-- WICKET version -->
 		<wicket.version>6.20.0</wicket.version>
 		<wiquery-core.version>6.13.0</wiquery-core.version>
