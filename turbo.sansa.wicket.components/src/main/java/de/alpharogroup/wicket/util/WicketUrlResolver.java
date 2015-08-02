@@ -3,7 +3,7 @@ package de.alpharogroup.wicket.util;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import de.alpharogroup.wicket.base.pageparameters.ParameterKeys;
-import de.alpharogroup.wicket.base.util.url.WicketUrlUtils;
+import de.alpharogroup.wicket.base.util.url.WicketUrlExtensions;
 
 /**
  * The Class WicketUrlResolver.
@@ -31,7 +31,7 @@ public class WicketUrlResolver {
 		PageParameters parameters = new PageParameters();
 		parameters.add(ParameterKeys.USERNAME, username);
 		parameters.add(ParameterKeys.CONFIRMATION_CODE, generatedCode);
-		return WicketUrlUtils.absoluteUrlFor(resetPasswordPage, parameters, withServerPort);
+		return WicketUrlExtensions.absoluteUrlFor(resetPasswordPage, parameters, withServerPort);
 	}
 	
 	/**

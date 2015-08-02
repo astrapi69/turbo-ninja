@@ -3,7 +3,7 @@ package de.alpharogroup.wicket.util;
 import java.util.Set;
 
 import org.apache.wicket.markup.html.image.NonCachingImage;
-import de.alpharogroup.wicket.base.util.WicketImageUtils;
+import de.alpharogroup.wicket.base.util.WicketImageExtensions;
 
 import resource.system.application.model.ResourcesModel;
 import resource.system.model.Resources;
@@ -127,10 +127,10 @@ public class WicketNonCachingImageUtils {
 	public static NonCachingImage getNonCachingImage(Resources img, String wicketId) {
 		NonCachingImage image = null;
 		if (img != null && img.getContent() != null) {
-			image = WicketImageUtils.getNonCachingImage(wicketId,
+			image = WicketImageExtensions.getNonCachingImage(wicketId,
 					img.getContentType(), img.getContent());
 		} else {
-			image = WicketImageUtils.getNonCachingImage(wicketId, "jpg",
+			image = WicketImageExtensions.getNonCachingImage(wicketId, "jpg",
 					new byte[] {});
 		}
 		return image;
@@ -149,10 +149,10 @@ public class WicketNonCachingImageUtils {
 	public static NonCachingImage getNonCachingImage(ResourcesModel img, String wicketId) {
 		NonCachingImage image = null;
 		if (img != null && img.getContent() != null) {
-			image = WicketImageUtils.getNonCachingImage(wicketId,
+			image = WicketImageExtensions.getNonCachingImage(wicketId,
 					img.getContentType(), img.getContent());
 		} else {
-			image = WicketImageUtils.getNonCachingImage(wicketId, "jpg",
+			image = WicketImageExtensions.getNonCachingImage(wicketId, "jpg",
 					new byte[] {});
 		}
 		return image;
@@ -167,7 +167,7 @@ public class WicketNonCachingImageUtils {
 	 * @return the non caching image
 	 */
 	public static NonCachingImage getNonCachingImage(String wicketId, byte[] data, String contentType){
-		NonCachingImage image = WicketImageUtils.getNonCachingImage(wicketId, contentType, data);
+		NonCachingImage image = WicketImageExtensions.getNonCachingImage(wicketId, contentType, data);
 		return image;
 	}
 
