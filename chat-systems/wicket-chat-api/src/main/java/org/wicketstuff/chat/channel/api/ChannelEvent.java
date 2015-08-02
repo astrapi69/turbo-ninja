@@ -20,18 +20,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * A event containing data to send by server pushing. This event has to be
- * published by {@link IChannelPublisher} instance.
+ * A event containing data to send by server pushing. This event has to be published by
+ * {@link IChannelPublisher} instance.
  * <p>
- * a pushEvent is specific of a channel represented by a string and can contains
- * some datas to send to the listener.
+ * a pushEvent is specific of a channel represented by a string and can contains some datas to send
+ * to the listener.
  * </p>
  * 
  * 
  * @author Vincent Demay
  * @author Rodolfo Hansen
  */
-public class ChannelEvent {
+public class ChannelEvent
+{
 	private String channel;
 	private final Map<String, String> data;
 	private String id = "0";
@@ -42,9 +43,23 @@ public class ChannelEvent {
 	 * @param channel
 	 *            channel where the event will be sent
 	 */
-	public ChannelEvent(final String channel) {
+	public ChannelEvent(final String channel)
+	{
 		this.channel = channel;
 		data = new HashMap<String, String>();
+	}
+
+	/**
+	 * Add a data in the event. This event will be transfered to all the listener of the channel
+	 * 
+	 * @param key
+	 *            data key
+	 * @param data
+	 *            data to add in the event
+	 */
+	public void addData(final String key, final String data)
+	{
+		this.data.put(key, data);
 	}
 
 	/**
@@ -52,8 +67,24 @@ public class ChannelEvent {
 	 * 
 	 * @return the channel of the event
 	 */
-	public String getChannel() {
+	public String getChannel()
+	{
 		return channel;
+	}
+
+	/**
+	 * Returns all data in the event
+	 * 
+	 * @return all data in the event
+	 */
+	public Map<String, String> getData()
+	{
+		return data;
+	}
+
+	public String getId()
+	{
+		return id;
 	}
 
 	/**
@@ -62,37 +93,13 @@ public class ChannelEvent {
 	 * @param channel
 	 *            event channel
 	 */
-	public void setChannel(final String channel) {
+	public void setChannel(final String channel)
+	{
 		this.channel = channel;
 	}
 
-	/**
-	 * Add a data in the event. This event will be transfered to all the
-	 * listener of the channel
-	 * 
-	 * @param key
-	 *            data key
-	 * @param data
-	 *            data to add in the event
-	 */
-	public void addData(final String key, final String data) {
-		this.data.put(key, data);
-	}
-
-	/**
-	 * Returns all data in the event
-	 * 
-	 * @return all data in the event
-	 */
-	public Map<String, String> getData() {
-		return data;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(final String id) {
+	public void setId(final String id)
+	{
 		this.id = id;
 	}
 

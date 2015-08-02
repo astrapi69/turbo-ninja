@@ -18,12 +18,12 @@ package org.wicketstuff.chat.channel;
 
 import java.io.Serializable;
 
-import org.wicketstuff.chat.channel.api.IChannelPublisher;
 import org.wicketstuff.chat.channel.api.ChannelEvent;
+import org.wicketstuff.chat.channel.api.IChannelPublisher;
 
 /**
- * Publisher that could be associated with a {@link TimerChannelBehavior}
- * for more documentation see {@link TimerChannelBehavior}
+ * Publisher that could be associated with a {@link TimerChannelBehavior} for more documentation see
+ * {@link TimerChannelBehavior}
  * 
  * @author Vincent Demay
  */
@@ -31,7 +31,8 @@ public class TimerChannelPublisher implements IChannelPublisher, Serializable
 {
 	private static final long serialVersionUID = 1L;
 
-	public void publish(ChannelEvent event)
+	@Override
+	public void publish(final ChannelEvent event)
 	{
 		EventStore.get().add(event);
 	}

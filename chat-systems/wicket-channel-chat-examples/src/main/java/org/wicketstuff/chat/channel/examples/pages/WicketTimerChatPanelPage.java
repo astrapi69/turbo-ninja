@@ -7,12 +7,9 @@ import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.util.time.Duration;
-
-import de.alpharogroup.wicket.base.util.WicketComponentExtensions;
-import de.alpharogroup.wicket.js.addon.pnotify.PnotifyJsReference;
-
 import org.wicketstuff.chat.channel.api.IChannelService;
 import org.wicketstuff.chat.channel.examples.application.WicketApplication;
 import org.wicketstuff.chat.channel.examples.panels.ChatPanel;
@@ -21,16 +18,19 @@ import org.wicketstuff.chat.channel.examples.panels.notification.JqueryNotificat
 import org.wicketstuff.chat.components.notifications.InvitationPanel;
 import org.wicketstuff.chat.model.ChatroomModel;
 
+import de.alpharogroup.wicket.base.util.WicketComponentExtensions;
+import de.alpharogroup.wicket.js.addon.pnotify.PnotifyJsReference;
+
 public class WicketTimerChatPanelPage extends WebPage
 {
 	private static final long serialVersionUID = 1L;
 
-	public WicketTimerChatPanelPage(PageParameters parameters)
+	public WicketTimerChatPanelPage(final PageParameters parameters)
 	{
-		ChatroomModel model = new ChatroomModel();
+		final ChatroomModel model = new ChatroomModel();
 		model.setChannel("chatroom3");
 		model.setUser(UUID.randomUUID().toString());
-		IModel<ChatroomModel> crModel = Model.of(model);
+		final IModel<ChatroomModel> crModel = Model.of(model);
 		add(new JqueryNotificationPanel("jqueryNotificationPanel")
 		{
 			/**
@@ -49,9 +49,10 @@ public class WicketTimerChatPanelPage extends WebPage
 		{
 			private static final long serialVersionUID = 1L;
 
+			@Override
 			protected IChannelService getChannelService()
 			{
-				return ((WicketApplication)WicketApplication.get()).getTimerChannelService();
+				return ((WicketApplication)WebApplication.get()).getTimerChannelService();
 			}
 
 		});
@@ -62,7 +63,7 @@ public class WicketTimerChatPanelPage extends WebPage
 	}
 
 	@Override
-	public void renderHead(IHeaderResponse response)
+	public void renderHead(final IHeaderResponse response)
 	{
 		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(PnotifyJsReference.INSTANCE));

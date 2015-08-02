@@ -11,7 +11,8 @@ import de.alpharogroup.wicket.components.labeled.label.LabeledLabelPanel;
  * @param <T>
  *            the generic type
  */
-public class BootstrapLabeledLabelPanel<T> extends LabeledLabelPanel<T> {
+public class BootstrapLabeledLabelPanel<T> extends LabeledLabelPanel<T>
+{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -26,8 +27,9 @@ public class BootstrapLabeledLabelPanel<T> extends LabeledLabelPanel<T> {
 	 * @param labelModel
 	 *            the label model
 	 */
-	public BootstrapLabeledLabelPanel(String id, IModel<T> model,
-			IModel<String> labelModel) {
+	public BootstrapLabeledLabelPanel(final String id, final IModel<T> model,
+		final IModel<String> labelModel)
+	{
 		super(id, model, labelModel);
 		getLabel().add(new AttributeAppender("class", "span2 "));
 	}

@@ -13,7 +13,8 @@ import events.system.model.Topics;
  * 
  * @author Asterios Raptis
  */
-public class TopicsTreeModel implements IClusterable {
+public class TopicsTreeModel implements IClusterable
+{
 
 	/**
 	 * The serialVersionUID.
@@ -26,7 +27,8 @@ public class TopicsTreeModel implements IClusterable {
 	/**
 	 * Instantiates a new topics tree model.
 	 */
-	public TopicsTreeModel() {
+	public TopicsTreeModel()
+	{
 		this(new LinkedHashMap<ITreeNode<Topics>, Boolean>());
 	}
 
@@ -36,7 +38,8 @@ public class TopicsTreeModel implements IClusterable {
 	 * @param topicsMap
 	 *            the topics map
 	 */
-	public TopicsTreeModel(final Map<ITreeNode<Topics>, Boolean> topicsMap) {
+	public TopicsTreeModel(final Map<ITreeNode<Topics>, Boolean> topicsMap)
+	{
 		super();
 		this.topicsMap = topicsMap;
 	}
@@ -46,7 +49,8 @@ public class TopicsTreeModel implements IClusterable {
 	 * 
 	 * @return the topics map
 	 */
-	public Map<ITreeNode<Topics>, Boolean> getTopicsMap() {
+	public Map<ITreeNode<Topics>, Boolean> getTopicsMap()
+	{
 		return topicsMap;
 	}
 
@@ -56,7 +60,8 @@ public class TopicsTreeModel implements IClusterable {
 	 * @param topicsMap
 	 *            the topics map
 	 */
-	public void setTopicsMap(final Map<ITreeNode<Topics>, Boolean> topicsMap) {
+	public void setTopicsMap(final Map<ITreeNode<Topics>, Boolean> topicsMap)
+	{
 		this.topicsMap = topicsMap;
 	}
 

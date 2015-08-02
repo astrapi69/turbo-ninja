@@ -16,35 +16,44 @@ import org.wicketstuff.chat.model.ChatroomModel;
 /**
  * The Class NotificationPanel can notify a message over the channelservice from the application.
  */
-public abstract class NotificationPanel extends Panel {
+public abstract class NotificationPanel extends Panel
+{
 
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-	
+
 	private final Component notification;
-	
-	public Component getNotification() {
+
+	public Component getNotification()
+	{
 		return notification;
 	}
+
 	private final Duration duration;
 
-	public Duration getDuration() {
+	public Duration getDuration()
+	{
 		return duration;
 	}
 
 	/**
 	 * Instantiates a new notification panel.
 	 *
-	 * @param id the id
-	 * @param model the model
-	 * @param duration the duration
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @param duration
+	 *            the duration
 	 */
-	public NotificationPanel(String id, IModel<ChatroomModel> model, Duration duration) {
+	public NotificationPanel(final String id, final IModel<ChatroomModel> model,
+		final Duration duration)
+	{
 		super(id, model);
 		this.duration = duration;
-		add(notification = newNotificationLabel("notification",
-				new PropertyModel<String>(model, "chat")));
+		add(notification = newNotificationLabel("notification", new PropertyModel<String>(model,
+			"chat")));
 		addChannelListener(model);
 	}
 
@@ -54,18 +63,21 @@ public abstract class NotificationPanel extends Panel {
 	 * @param model
 	 *            the model
 	 */
-	protected void addChannelListener(final IModel<ChatroomModel> model) {
-		getChannelService().addChannelListener(this,
-				model.getObject().getChannel(), new IChannelListener() {
-					private static final long serialVersionUID = 1L;
+	protected void addChannelListener(final IModel<ChatroomModel> model)
+	{
+		getChannelService().addChannelListener(this, model.getObject().getChannel(),
+			new IChannelListener()
+			{
+				private static final long serialVersionUID = 1L;
 
-					public void onEvent(final String channel,
-							final Map<String, String> data,
-							final IChannelTarget target) {
-						String pnotify = onGetJavaScript(data);							
-						target.appendJavaScript(pnotify);
-					}
-				});
+				@Override
+				public void onEvent(final String channel, final Map<String, String> data,
+					final IChannelTarget target)
+				{
+					final String pnotify = onGetJavaScript(data);
+					target.appendJavaScript(pnotify);
+				}
+			});
 	}
 
 	/**
@@ -76,21 +88,21 @@ public abstract class NotificationPanel extends Panel {
 	protected abstract IChannelService getChannelService();
 
 	/**
-	 * Factory method for creating the notification component. This method is invoked in
-	 * the constructor from the derived classes and can be overridden so users
-	 * can provide their own version of a notification component.
+	 * Factory method for creating the notification component. This method is invoked in the
+	 * constructor from the derived classes and can be overridden so users can provide their own
+	 * version of a notification component.
 	 * 
 	 * @param id
 	 *            the id
 	 * @return the component
 	 */
-	protected Component newNotificationLabel(String id,
-			final IModel<String> model) {
-		Label label = new Label(id, model);
+	protected Component newNotificationLabel(final String id, final IModel<String> model)
+	{
+		final Label label = new Label(id, model);
 		label.setOutputMarkupId(true);
 		return label;
 	}
-	
+
 	protected abstract String onGetJavaScript(final Map<String, String> data);
 
 }

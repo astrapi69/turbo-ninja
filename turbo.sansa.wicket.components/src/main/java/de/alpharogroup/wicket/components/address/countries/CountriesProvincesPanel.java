@@ -17,7 +17,8 @@ import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesMode
  * 
  * @author Asterios Raptis
  */
-public class CountriesProvincesPanel extends TwoDropDownChoicesPanel<String> {
+public class CountriesProvincesPanel extends TwoDropDownChoicesPanel<String>
+{
 
 	/**
 	 * The Constant serialVersionUID.
@@ -44,30 +45,32 @@ public class CountriesProvincesPanel extends TwoDropDownChoicesPanel<String> {
 	 * @param childRenderer
 	 *            the child renderer
 	 */
-	public CountriesProvincesPanel(String id,
-			StringTwoDropDownChoicesModel stringTwoDropDownChoicesModel,
-			IChoiceRenderer<String> rootRenderer,
-			IChoiceRenderer<String> childRenderer) {
+	public CountriesProvincesPanel(final String id,
+		final StringTwoDropDownChoicesModel stringTwoDropDownChoicesModel,
+		final IChoiceRenderer<String> rootRenderer, final IChoiceRenderer<String> childRenderer)
+	{
 		super(id, stringTwoDropDownChoicesModel, rootRenderer, childRenderer);
 
-		add(new Label("countryLabel", ResourceModelFactory.newResourceModel(ResourceBundleKey.builder()
-			.key("sem.main.address.country.label").build(), this)));
-		
+		add(new Label("countryLabel", ResourceModelFactory.newResourceModel(ResourceBundleKey
+			.builder().key("sem.main.address.country.label").build(), this)));
+
 		add(wmcRootChoice = newWmcRootChoice("wmcRootChoice"));
 		wmcRootChoice.add(this.getRootChoice());
-		
-		add(new Label("federalStateLabel", ResourceModelFactory.newResourceModel(ResourceBundleKey.builder()
-			.key("sem.main.address.federal.state.label").build(), this)));
+
+		add(new Label("federalStateLabel", ResourceModelFactory.newResourceModel(ResourceBundleKey
+			.builder().key("sem.main.address.federal.state.label").build(), this)));
 		wmcChildChoice = newWmcChildChoice("wmcChildChoice");
 		add(wmcChildChoice);
 		wmcChildChoice.add(this.getChildChoice());
 	}
-	
-	protected WebMarkupContainer newWmcRootChoice(final String id) {
+
+	protected WebMarkupContainer newWmcChildChoice(final String id)
+	{
 		return ComponentFactory.newWebMarkupContainer(id);
 	}
-	
-	protected WebMarkupContainer newWmcChildChoice(final String id) {
+
+	protected WebMarkupContainer newWmcRootChoice(final String id)
+	{
 		return ComponentFactory.newWebMarkupContainer(id);
 	}
 

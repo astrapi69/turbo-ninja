@@ -23,8 +23,8 @@ import events.system.model.Topics;
  * 
  * @author Asterios Raptis
  */
-public class CheckedFolderContent implements
-		ICheckFolderContent<ITreeNode<Topics>> {
+public class CheckedFolderContent implements ICheckFolderContent<ITreeNode<Topics>>
+{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -43,14 +43,14 @@ public class CheckedFolderContent implements
 	 * @param topicsMap
 	 *            the topics map
 	 */
-	public CheckedFolderContent(
-			final ITreeProvider<ITreeNode<Topics>> provider,
-			final Map<ITreeNode<Topics>, Boolean> topicsMap) {
+	public CheckedFolderContent(final ITreeProvider<ITreeNode<Topics>> provider,
+		final Map<ITreeNode<Topics>, Boolean> topicsMap)
+	{
 		checked = new ProviderSubset<ITreeNode<Topics>>(provider, false);
 		this.topicsMap = topicsMap;
 		final Set<ITreeNode<Topics>> treenodes = this.topicsMap.keySet();
-		for (final Iterator<ITreeNode<Topics>> iterator = treenodes.iterator(); iterator
-				.hasNext();) {
+		for (final Iterator<ITreeNode<Topics>> iterator = treenodes.iterator(); iterator.hasNext();)
+		{
 			final ITreeNode<Topics> treeNode = iterator.next();
 			check(treeNode, true, RequestCycle.get().find(AjaxRequestTarget.class));
 		}
@@ -68,11 +68,15 @@ public class CheckedFolderContent implements
 	 */
 	@Override
 	public void check(final ITreeNode<Topics> topic, final boolean check,
-			final AjaxRequestTarget target) {
-		if (check) {
+		final AjaxRequestTarget target)
+	{
+		if (check)
+		{
 			checked.add(topic);
 			topicsMap.put(topic, check);
-		} else {
+		}
+		else
+		{
 			checked.remove(topic);
 			topicsMap.remove(topic);
 		}
@@ -86,7 +90,8 @@ public class CheckedFolderContent implements
 	 * @see org.apache.wicket.model.IDetachable#detach()
 	 */
 	@Override
-	public void detach() {
+	public void detach()
+	{
 		checked.detach();
 	}
 
@@ -95,7 +100,8 @@ public class CheckedFolderContent implements
 	 * 
 	 * @return the checked
 	 */
-	public ProviderSubset<ITreeNode<Topics>> getChecked() {
+	public ProviderSubset<ITreeNode<Topics>> getChecked()
+	{
 		return checked;
 	}
 
@@ -104,11 +110,14 @@ public class CheckedFolderContent implements
 	 * 
 	 * @return the checked topics
 	 */
-	public List<Topics> getCheckedTopics() {
-		ProviderSubset<ITreeNode<Topics>> ct = getChecked();
-		List<Topics> checkedTopics = new ArrayList<Topics>();
-		if (ct != null && !ct.isEmpty()) {
-			for (ITreeNode<Topics> iTreeNode : ct) {
+	public List<Topics> getCheckedTopics()
+	{
+		final ProviderSubset<ITreeNode<Topics>> ct = getChecked();
+		final List<Topics> checkedTopics = new ArrayList<Topics>();
+		if (ct != null && !ct.isEmpty())
+		{
+			for (final ITreeNode<Topics> iTreeNode : ct)
+			{
 				checkedTopics.add(iTreeNode.getValue());
 			}
 		}
@@ -123,7 +132,8 @@ public class CheckedFolderContent implements
 	 * @return true, if is checked
 	 */
 	@Override
-	public boolean isChecked(final ITreeNode<Topics> topic) {
+	public boolean isChecked(final ITreeNode<Topics> topic)
+	{
 		return checked.contains(topic);
 	}
 
@@ -132,23 +142,27 @@ public class CheckedFolderContent implements
 	 */
 	@Override
 	public Component newContentComponent(final String id,
-			final AbstractTree<ITreeNode<Topics>> tree,
-			final IModel<ITreeNode<Topics>> model) {
-		return new CheckedFolder<ITreeNode<Topics>>(id, tree, model) {
+		final AbstractTree<ITreeNode<Topics>> tree, final IModel<ITreeNode<Topics>> model)
+	{
+		return new CheckedFolder<ITreeNode<Topics>>(id, tree, model)
+		{
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected IModel<Boolean> newCheckBoxModel(
-					final IModel<ITreeNode<Topics>> model) {
-				return new IModel<Boolean>() {
+			protected IModel<Boolean> newCheckBoxModel(final IModel<ITreeNode<Topics>> model)
+			{
+				return new IModel<Boolean>()
+				{
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public void detach() {
+					public void detach()
+					{
 					}
 
 					@Override
-					public Boolean getObject() {
+					public Boolean getObject()
+					{
 						final ITreeNode<Topics> treeNode = model.getObject();
 						final boolean isChecked = isChecked(treeNode);
 						topicsMap.put(treeNode, new Boolean(isChecked));
@@ -156,9 +170,10 @@ public class CheckedFolderContent implements
 					}
 
 					@Override
-					public void setObject(final Boolean object) {
+					public void setObject(final Boolean object)
+					{
 						check(model.getObject(), object,
-								RequestCycle.get().find(AjaxRequestTarget.class));
+							RequestCycle.get().find(AjaxRequestTarget.class));
 					}
 				};
 			}

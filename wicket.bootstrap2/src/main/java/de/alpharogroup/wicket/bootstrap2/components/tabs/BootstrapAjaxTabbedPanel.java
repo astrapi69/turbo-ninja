@@ -14,70 +14,80 @@ import de.alpharogroup.wicket.components.ajax.editable.tabs.ICloseableTab;
 /**
  * Styled version of {@link TabbedPanel}.
  *
- * @param <T> the generic type
+ * @param <T>
+ *            the generic type
  */
-public class BootstrapAjaxTabbedPanel<T extends ICloseableTab> extends AjaxCloseableTabbedPanel<T> {
+public class BootstrapAjaxTabbedPanel<T extends ICloseableTab> extends AjaxCloseableTabbedPanel<T>
+{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-    public BootstrapAjaxTabbedPanel(String id, List<T> tabs) {
-        super(id, tabs);
+	public BootstrapAjaxTabbedPanel(final String id, final List<T> tabs)
+	{
+		super(id, tabs);
 
-        commonInit();
-    }
+		commonInit();
+	}
 
-    public BootstrapAjaxTabbedPanel(String id, List<T> tabs, IModel<Integer> model) {
-        super(id, tabs, model);
+	public BootstrapAjaxTabbedPanel(final String id, final List<T> tabs, final IModel<Integer> model)
+	{
+		super(id, tabs, model);
 
-        commonInit();
-    }
+		commonInit();
+	}
 
-    /**
-     * common initializer.
-     */
-    private void commonInit() {
-        BootstrapBaseBehavior.addTo(this);
-    }
+	/**
+	 * common initializer.
+	 */
+	private void commonInit()
+	{
+		BootstrapBaseBehavior.addTo(this);
+	}
 
-    /**
-     * On component tag.
-     *
-     * @param tag the tag
-     */
-    @Override
-    protected void onComponentTag(ComponentTag tag) {
-        super.onComponentTag(tag);
-        checkComponentTag(tag, "div");
-        Attributes.addClass(tag, getTabbedPanelCssClass());
-    }
+	/**
+	 * Gets the last tab css class.
+	 *
+	 * @return the last tab css class
+	 */
+	@Override
+	protected String getLastTabCssClass()
+	{
+		return "";
+	}
 
-    /**
-     * Gets the TabbedPanel css class.
-     *
-     * @return the TabbedPanel css class
-     */
-    protected String getTabbedPanelCssClass() {
-        return "tabbable";
-    }
+	/**
+	 * Gets the selected tab css class.
+	 *
+	 * @return the selected tab css class
+	 */
+	@Override
+	protected String getSelectedTabCssClass()
+	{
+		return "active";
+	}
 
-    /**
-     * Gets the selected tab css class.
-     *
-     * @return the selected tab css class
-     */
-    @Override
-    protected String getSelectedTabCssClass() {
-        return "active";
-    }
+	/**
+	 * Gets the TabbedPanel css class.
+	 *
+	 * @return the TabbedPanel css class
+	 */
+	protected String getTabbedPanelCssClass()
+	{
+		return "tabbable";
+	}
 
-    /**
-     * Gets the last tab css class.
-     *
-     * @return the last tab css class
-     */
-    @Override
-    protected String getLastTabCssClass() {
-        return "";
-    }
+	/**
+	 * On component tag.
+	 *
+	 * @param tag
+	 *            the tag
+	 */
+	@Override
+	protected void onComponentTag(final ComponentTag tag)
+	{
+		super.onComponentTag(tag);
+		checkComponentTag(tag, "div");
+		Attributes.addClass(tag, getTabbedPanelCssClass());
+	}
 }

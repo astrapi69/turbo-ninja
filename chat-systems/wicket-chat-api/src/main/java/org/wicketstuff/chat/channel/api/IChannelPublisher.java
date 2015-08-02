@@ -17,8 +17,8 @@
 package org.wicketstuff.chat.channel.api;
 
 /**
- * A class allowing the server to send an event on listener.
- * This publisher is able to send a {@link ChannelEvent}
+ * A class allowing the server to send an event on listener. This publisher is able to send a
+ * {@link ChannelEvent}
  * <p>
  * 
  * @author Vincent Demay
@@ -29,7 +29,9 @@ public interface IChannelPublisher
 {
 	/**
 	 * Publish a {@link ChannelEvent}
-	 * @param event event to publish
+	 * 
+	 * @param event
+	 *            event to publish
 	 */
-	public void publish(ChannelEvent event);
+	public void publish(final ChannelEvent event);
 }

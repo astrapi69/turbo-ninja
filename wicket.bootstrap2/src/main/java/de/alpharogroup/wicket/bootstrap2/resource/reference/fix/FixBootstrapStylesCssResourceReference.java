@@ -8,8 +8,8 @@ import org.apache.wicket.request.resource.CssResourceReference;
  * @author miha
  * @version 1.0
  */
-public class FixBootstrapStylesCssResourceReference extends
-		CssResourceReference {
+public class FixBootstrapStylesCssResourceReference extends CssResourceReference
+{
 
 	/**
 	 * 
@@ -20,7 +20,8 @@ public class FixBootstrapStylesCssResourceReference extends
 	/**
 	 * Construct.
 	 */
-	public FixBootstrapStylesCssResourceReference() {
+	public FixBootstrapStylesCssResourceReference()
+	{
 		super(FixBootstrapStylesCssResourceReference.class, "fix.css");
 	}
 }

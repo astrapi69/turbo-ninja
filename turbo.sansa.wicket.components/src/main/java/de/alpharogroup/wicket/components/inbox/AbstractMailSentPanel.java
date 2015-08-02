@@ -9,7 +9,8 @@ import org.apache.wicket.markup.html.panel.Panel;
  * 
  * @author Asterios Raptis
  */
-public abstract class AbstractMailSentPanel extends Panel {
+public abstract class AbstractMailSentPanel extends Panel
+{
 
 	/**
 	 * The serialVersionUID.
@@ -21,9 +22,11 @@ public abstract class AbstractMailSentPanel extends Panel {
 	/**
 	 * Instantiates a new contacted panel.
 	 *
-	 * @param id the id
+	 * @param id
+	 *            the id
 	 */
-	public AbstractMailSentPanel(final String id) {
+	public AbstractMailSentPanel(final String id)
+	{
 		super(id);
 		add(messagesPanel = newMessagesPanel("messageSentPanel", null));
 	}
@@ -33,18 +36,22 @@ public abstract class AbstractMailSentPanel extends Panel {
 	 *
 	 * @return the messages panel
 	 */
-	public AbstractMessagesPanel getMessagesPanel() {
+	public AbstractMessagesPanel getMessagesPanel()
+	{
 		return messagesPanel;
 	}
 
-	
+
 	/**
 	 * New messages panel.
 	 *
-	 * @param id the id
-	 * @param state the state
+	 * @param id
+	 *            the id
+	 * @param state
+	 *            the state
 	 * @return the abstract messages panel
 	 */
-	protected abstract AbstractMessagesPanel newMessagesPanel(final String id, final MessageState state);
+	protected abstract AbstractMessagesPanel newMessagesPanel(final String id,
+		final MessageState state);
 
 }

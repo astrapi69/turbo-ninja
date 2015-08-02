@@ -3,7 +3,6 @@ package de.alpharogroup.wicket.model.provider;
 import java.util.List;
 
 import message.system.model.Messages;
-
 import de.alpharogroup.wicket.data.provider.AbstractSortableDataProvider;
 
 /**
@@ -11,8 +10,8 @@ import de.alpharogroup.wicket.data.provider.AbstractSortableDataProvider;
  * 
  * @author Asterios Raptis
  */
-public class MessagesProvider extends
-		AbstractSortableDataProvider<Messages, String> {
+public class MessagesProvider extends AbstractSortableDataProvider<Messages, String>
+{
 
 	/**
 	 * The serialVersionUID.
@@ -25,7 +24,8 @@ public class MessagesProvider extends
 	 * @param data
 	 *            the data
 	 */
-	public MessagesProvider(List<Messages> data) {
+	public MessagesProvider(final List<Messages> data)
+	{
 		super(data);
 	}
 

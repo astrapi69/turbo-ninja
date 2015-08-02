@@ -2,17 +2,16 @@ package de.alpharogroup.wicket.model.provider;
 
 import java.util.List;
 
-import de.alpharogroup.wicket.data.provider.AbstractSortableDataProvider;
-
 import address.book.model.Addresses;
+import de.alpharogroup.wicket.data.provider.AbstractSortableDataProvider;
 
 /**
  * The Class AddressesProvider.
  * 
  * @author Asterios Raptis
  */
-public class AddressesProvider extends
-		AbstractSortableDataProvider<Addresses, String> {
+public class AddressesProvider extends AbstractSortableDataProvider<Addresses, String>
+{
 
 	/**
 	 * The serialVersionUID.
@@ -25,7 +24,8 @@ public class AddressesProvider extends
 	 * @param data
 	 *            the data
 	 */
-	public AddressesProvider(List<Addresses> data) {
+	public AddressesProvider(final List<Addresses> data)
+	{
 		super(data);
 	}
 

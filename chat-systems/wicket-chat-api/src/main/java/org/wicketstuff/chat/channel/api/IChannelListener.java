@@ -21,16 +21,19 @@ import java.util.EventListener;
 import java.util.Map;
 
 /**
- * Implementations of this interface can be notified of events
- * triggered by a {@link IChannelPublisher}
+ * Implementations of this interface can be notified of events triggered by a
+ * {@link IChannelPublisher}
  * <p>
  * Implementation example:
+ * 
  * <pre>
- *  	channelService.addChannelListener(this, "channel", new IChannelListener() {
- *  		public void onEvent(String channel, Map datas, IChannelTarget target){
-        		target.addComponent(aComponent);
-        	}
- *  	});
+ * channelService.addChannelListener(this, &quot;channel&quot;, new IChannelListener()
+ * {
+ * 	public void onEvent(String channel, Map datas, IChannelTarget target)
+ * 	{
+ * 		target.addComponent(aComponent);
+ * 	}
+ * });
  * </pre>
  *
  * @author Vincent Demay
@@ -38,17 +41,21 @@ import java.util.Map;
  *
  * @see IChannelService
  */
-public interface IChannelListener extends Serializable, EventListener {
+public interface IChannelListener extends Serializable, EventListener
+{
 	/**
 	 * Method called when an event is triggered on a channel.
 	 *
-	 * Implementations usually use the {@link IChannelTarget}
-	 * to update the web page according to the event triggered.
+	 * Implementations usually use the {@link IChannelTarget} to update the web page according to
+	 * the event triggered.
 	 *
-	 * @param channel channel which be used to listen to event
-	 * @param datas data sent by the event
-	 * @param target see {@link IChannelTarget}
+	 * @param channel
+	 *            channel which be used to listen to event
+	 * @param datas
+	 *            data sent by the event
+	 * @param target
+	 *            see {@link IChannelTarget}
 	 */
-	public abstract void onEvent(String channel, Map<String, String> datas,
-      IChannelTarget target);
+	public abstract void onEvent(final String channel, final Map<String, String> datas,
+		final IChannelTarget target);
 }

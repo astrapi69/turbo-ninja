@@ -11,7 +11,8 @@ import de.alpharogroup.wicket.components.labeled.label.LabeledEnumLabelPanel;
  * @param <T>
  *            the generic type
  */
-public class BootstrapLabeledEnumLabelPanel<T> extends LabeledEnumLabelPanel<T> {
+public class BootstrapLabeledEnumLabelPanel<T> extends LabeledEnumLabelPanel<T>
+{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -26,8 +27,9 @@ public class BootstrapLabeledEnumLabelPanel<T> extends LabeledEnumLabelPanel<T> 
 	 * @param labelModel
 	 *            the label model
 	 */
-	public BootstrapLabeledEnumLabelPanel(String id, IModel<T> model,
-			IModel<String> labelModel) {
+	public BootstrapLabeledEnumLabelPanel(final String id, final IModel<T> model,
+		final IModel<String> labelModel)
+	{
 		super(id, model, labelModel);
 		getLabel().add(new AttributeAppender("class", "span2 "));
 	}

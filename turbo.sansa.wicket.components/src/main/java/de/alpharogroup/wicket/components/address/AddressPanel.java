@@ -51,148 +51,26 @@ public class AddressPanel extends GenericPanel<AddressBean>
 		add(newZipcodeCityPanel("zipcodeCityPanel", model));
 
 		add(newCountriesProvincesPanel("countriesProvincesPanel", initializeModel(model)));
-		
-	}
 
-	/**
-	 * Factory method for create a new {@link Component} for zipcode and city.
-	 *
-	 * @param id the id
-	 * @param model the model
-	 * @return the component
-	 */
-	protected Component newZipcodeCityPanel(final String id, final IModel<AddressBean> model)
-	{
-		final String betweenLabel = AddressPanel.this.newBetweenLabelModel().getObject();
-		LabeledTwoFormComponentPanel<String, String> streetNumberPanel = new LabeledTwoFormComponentPanel<String, String>(
-			id, ResourceModelFactory.newResourceModel(
-				ResourceBundleKey.builder().key("sem.main.address.zipcode.and.city.label")
-				.parameters(ListExtensions.toObjectArray(betweenLabel))
-					.defaultValue("Zipcode, City:").build(), this))
-		{
-			/**
-			 * The serialVersionUID
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			protected FormComponent<String> newLeftFormComponent(String id, IModel<String> model)
-			{
-				return ComponentFactory.newTextField(id, new PropertyModel<String>(
-					AddressPanel.this.getModelObject(), "address.zipcode.zipcode"));
-			}
-
-			@Override
-			protected FormComponent<String> newRightFormComponent(String id, IModel<String> model)
-			{
-				return ComponentFactory.newTextField(id, new PropertyModel<String>(
-					AddressPanel.this.getModelObject(), "address.zipcode.city"));
-			}
-			
-			@Override
-			protected IModel<String> newBetweenLabelModel(String betweenLabel)
-			{
-				return AddressPanel.this.newBetweenLabelModel();
-			}
-		};
-		return streetNumberPanel;
-	}
-
-	/**
-	 * Factory method for create a new {@link Component} for street and number.
-	 *
-	 * @param id the id
-	 * @param model the model
-	 * @return the component
-	 */
-	protected Component newStreetNumberPanel(final String id, final IModel<AddressBean> model)
-	{
-		final String betweenLabel = AddressPanel.this.newBetweenLabelModel().getObject();
-		LabeledTwoFormComponentPanel<String, String> streetNumberPanel = new LabeledTwoFormComponentPanel<String, String>(
-			id, ResourceModelFactory.newResourceModel(
-				ResourceBundleKey.builder().key("sem.main.address.street.and.nr.label")
-				.parameters(ListExtensions.toObjectArray(betweenLabel))
-					.defaultValue("Street, Number:").build(), this))
-		{
-			/**
-			 * The serialVersionUID
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			protected FormComponent<String> newLeftFormComponent(String id, IModel<String> model)
-			{
-				return ComponentFactory.newTextField(id, new PropertyModel<String>(
-					AddressPanel.this.getModelObject(), "address.street"));
-			}
-
-			@Override
-			protected FormComponent<String> newRightFormComponent(String id, IModel<String> model)
-			{
-				return ComponentFactory.newTextField(id, new PropertyModel<String>(
-					AddressPanel.this.getModelObject(), "address.streetnumber"));
-			}
-			
-			@Override
-			protected IModel<String> newBetweenLabelModel(String betweenLabel)
-			{
-				return AddressPanel.this.newBetweenLabelModel();
-			}
-		};
-		return streetNumberPanel;
-	}
-
-	/**
-	 * Factory method for create a new {@link CountriesProvincesPanel}.
-	 *
-	 * @param id the id
-	 * @param stringTwoDropDownChoicesModel the string two drop down choices model
-	 * @return the countries provinces panel
-	 */
-	protected CountriesProvincesPanel newCountriesProvincesPanel(final String id,
-		StringTwoDropDownChoicesModel stringTwoDropDownChoicesModel)
-	{
-		CountriesProvincesPanel countriesProvincesPanel = new CountriesProvincesPanel(
-			"countriesProvincesPanel", stringTwoDropDownChoicesModel, new PropertiesChoiceRenderer(
-				this, AddressPanel.class), new PropertiesChoiceRenderer(this, AddressPanel.class));
-
-		AttributeModifier samWmcRoot = new AttributeModifier("class", "countries");
-		AttributeModifier sam = new AttributeModifier("class", "countries");
-		countriesProvincesPanel.getWmcRootChoice().add(samWmcRoot);
-		countriesProvincesPanel.getRootChoice().add(sam);
-		AttributeModifier samWmcChild = new AttributeModifier("class", "federalstates");
-		countriesProvincesPanel.getWmcChildChoice().add(samWmcChild);
-		countriesProvincesPanel.getChildChoice().add(sam);
-		countriesProvincesPanel.getChildChoice().setRequired(true);
-		return countriesProvincesPanel;
-	}
-
-	/**
-	 * Factory method for create a new Label for what characters will be between the two components.
-	 *
-	 * @return the {@link IModel} with the characters.
-	 */
-	protected IModel<String> newBetweenLabelModel()
-	{
-		return Model.of("/");
 	}
 
 	/**
 	 * Initialize model.
 	 *
-	 * @param model the model
+	 * @param model
+	 *            the model
 	 * @return the string two drop down choices model
 	 */
 	private StringTwoDropDownChoicesModel initializeModel(final IModel<AddressBean> model)
 	{
-		AddressBean modelObject = model.getObject();
-		StringTwoDropDownChoicesModel stringTwoDropDownChoicesModel = modelObject
+		final AddressBean modelObject = model.getObject();
+		final StringTwoDropDownChoicesModel stringTwoDropDownChoicesModel = modelObject
 			.getCountriesAndProvincesDropDownChoicesModel();
-		Addresses address = modelObject.getAddress();
+		final Addresses address = modelObject.getAddress();
 		// Initialize the dropdown choices for the country and federal state...
 		if (address != null)
 		{
-			Federalstates federalState = modelObject.getAddress().getFederalstate();
+			final Federalstates federalState = modelObject.getAddress().getFederalstate();
 			if (federalState != null)
 			{
 				stringTwoDropDownChoicesModel.setSelectedRootOption(federalState.getCountry()
@@ -210,5 +88,138 @@ public class AddressPanel extends GenericPanel<AddressBean>
 			modelObject.setAddress(initialAddress);
 		}
 		return stringTwoDropDownChoicesModel;
+	}
+
+	/**
+	 * Factory method for create a new Label for what characters will be between the two components.
+	 *
+	 * @return the {@link IModel} with the characters.
+	 */
+	protected IModel<String> newBetweenLabelModel()
+	{
+		return Model.of("/");
+	}
+
+	/**
+	 * Factory method for create a new {@link CountriesProvincesPanel}.
+	 *
+	 * @param id
+	 *            the id
+	 * @param stringTwoDropDownChoicesModel
+	 *            the string two drop down choices model
+	 * @return the countries provinces panel
+	 */
+	protected CountriesProvincesPanel newCountriesProvincesPanel(final String id,
+		final StringTwoDropDownChoicesModel stringTwoDropDownChoicesModel)
+	{
+		final CountriesProvincesPanel countriesProvincesPanel = new CountriesProvincesPanel(
+			"countriesProvincesPanel", stringTwoDropDownChoicesModel, new PropertiesChoiceRenderer(
+				this, AddressPanel.class), new PropertiesChoiceRenderer(this, AddressPanel.class));
+
+		final AttributeModifier samWmcRoot = new AttributeModifier("class", "countries");
+		final AttributeModifier sam = new AttributeModifier("class", "countries");
+		countriesProvincesPanel.getWmcRootChoice().add(samWmcRoot);
+		countriesProvincesPanel.getRootChoice().add(sam);
+		final AttributeModifier samWmcChild = new AttributeModifier("class", "federalstates");
+		countriesProvincesPanel.getWmcChildChoice().add(samWmcChild);
+		countriesProvincesPanel.getChildChoice().add(sam);
+		countriesProvincesPanel.getChildChoice().setRequired(true);
+		return countriesProvincesPanel;
+	}
+
+	/**
+	 * Factory method for create a new {@link Component} for street and number.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @return the component
+	 */
+	protected Component newStreetNumberPanel(final String id, final IModel<AddressBean> model)
+	{
+		final String betweenLabel = AddressPanel.this.newBetweenLabelModel().getObject();
+		final LabeledTwoFormComponentPanel<String, String> streetNumberPanel = new LabeledTwoFormComponentPanel<String, String>(
+			id, ResourceModelFactory.newResourceModel(
+				ResourceBundleKey.builder().key("sem.main.address.street.and.nr.label")
+					.parameters(ListExtensions.toObjectArray(betweenLabel))
+					.defaultValue("Street, Number:").build(), this))
+		{
+			/**
+			 * The serialVersionUID
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			protected IModel<String> newBetweenLabelModel(final String betweenLabel)
+			{
+				return AddressPanel.this.newBetweenLabelModel();
+			}
+
+			@Override
+			protected FormComponent<String> newLeftFormComponent(final String id,
+				final IModel<String> model)
+			{
+				return ComponentFactory.newTextField(id, new PropertyModel<String>(
+					AddressPanel.this.getModelObject(), "address.street"));
+			}
+
+			@Override
+			protected FormComponent<String> newRightFormComponent(final String id,
+				final IModel<String> model)
+			{
+				return ComponentFactory.newTextField(id, new PropertyModel<String>(
+					AddressPanel.this.getModelObject(), "address.streetnumber"));
+			}
+		};
+		return streetNumberPanel;
+	}
+
+	/**
+	 * Factory method for create a new {@link Component} for zipcode and city.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @return the component
+	 */
+	protected Component newZipcodeCityPanel(final String id, final IModel<AddressBean> model)
+	{
+		final String betweenLabel = AddressPanel.this.newBetweenLabelModel().getObject();
+		final LabeledTwoFormComponentPanel<String, String> streetNumberPanel = new LabeledTwoFormComponentPanel<String, String>(
+			id, ResourceModelFactory.newResourceModel(
+				ResourceBundleKey.builder().key("sem.main.address.zipcode.and.city.label")
+					.parameters(ListExtensions.toObjectArray(betweenLabel))
+					.defaultValue("Zipcode, City:").build(), this))
+		{
+			/**
+			 * The serialVersionUID
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			protected IModel<String> newBetweenLabelModel(final String betweenLabel)
+			{
+				return AddressPanel.this.newBetweenLabelModel();
+			}
+
+			@Override
+			protected FormComponent<String> newLeftFormComponent(final String id,
+				final IModel<String> model)
+			{
+				return ComponentFactory.newTextField(id, new PropertyModel<String>(
+					AddressPanel.this.getModelObject(), "address.zipcode.zipcode"));
+			}
+
+			@Override
+			protected FormComponent<String> newRightFormComponent(final String id,
+				final IModel<String> model)
+			{
+				return ComponentFactory.newTextField(id, new PropertyModel<String>(
+					AddressPanel.this.getModelObject(), "address.zipcode.city"));
+			}
+		};
+		return streetNumberPanel;
 	}
 }

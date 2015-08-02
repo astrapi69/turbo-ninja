@@ -16,9 +16,11 @@ import user.management.model.Users;
  * The Class WicketSession is the session object for this application.
  *
  * @author Asterios Raptis
- * @param <USERID> the generic type for the user id.
+ * @param <USERID>
+ *            the generic type for the user id.
  */
-public abstract class AbstractWicketSession<USERID> extends WebSession {
+public abstract class AbstractWicketSession<USERID> extends WebSession
+{
 
 	/**
 	 * The serialVersionUID.
@@ -31,13 +33,14 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 * @return the current WicketSession object.
 	 */
 	@SuppressWarnings("rawtypes")
-	public static AbstractWicketSession get() {
-		return ((AbstractWicketSession) Session.get());
+	public static AbstractWicketSession get()
+	{
+		return ((AbstractWicketSession)Session.get());
 	}
 
 	/** The roles. */
 	private List<Roles> roles;
-	
+
 	/**
 	 * The user attributes. Holds data for the user session.
 	 **/
@@ -52,7 +55,8 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 * @param request
 	 *            The current request
 	 */
-	public AbstractWicketSession(Request request) {
+	public AbstractWicketSession(final Request request)
+	{
 		super(request);
 	}
 
@@ -61,7 +65,8 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 * 
 	 * @return the roles
 	 */
-	public synchronized List<Roles> getRoles() {
+	public synchronized List<Roles> getRoles()
+	{
 		return roles;
 	}
 
@@ -71,13 +76,6 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 * @return the user
 	 */
 	public abstract Users getUser();
-	
-	/**
-	 * Sets the user.
-	 *
-	 * @param user the user
-	 */
-	public abstract void setUser(final Users user);
 
 	/**
 	 * Gets the user attribute.
@@ -86,7 +84,8 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 *            the key
 	 * @return the user attribute
 	 */
-	public synchronized Serializable getUserAttribute(final String key) {
+	public synchronized Serializable getUserAttribute(final String key)
+	{
 		return userAttributes.get(key);
 	}
 
@@ -95,7 +94,8 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 *
 	 * @return the user id
 	 */
-	public synchronized USERID getUserId() {
+	public synchronized USERID getUserId()
+	{
 		return userId;
 	}
 
@@ -103,7 +103,8 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public synchronized void invalidate() {
+	public synchronized void invalidate()
+	{
 		super.invalidate();
 		setUserId(null);
 		setUser(null);
@@ -113,10 +114,21 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public synchronized void invalidateNow() {
+	public synchronized void invalidateNow()
+	{
 		super.invalidateNow();
 		setUserId(null);
 		setUser(null);
+	}
+
+	/**
+	 * Checks if the user is a guest.
+	 *
+	 * @return true, the user is a guest.
+	 */
+	public synchronized boolean isGuest()
+	{
+		return !isSignedIn();
 	}
 
 	/**
@@ -126,10 +138,13 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 *            the role
 	 * @return true, if successful
 	 */
-	public synchronized boolean isInRole(final Roles role) {
+	public synchronized boolean isInRole(final Roles role)
+	{
 		final List<Roles> roles = getRoles();
-		if (roles != null && !roles.isEmpty()) {
-			if (roles.contains(role)) {
+		if (roles != null && !roles.isEmpty())
+		{
+			if (roles.contains(role))
+			{
 				return true;
 			}
 		}
@@ -143,11 +158,15 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 *            the role name
 	 * @return true, if successful
 	 */
-	public synchronized boolean isInRole(final String rolename) {
+	public synchronized boolean isInRole(final String rolename)
+	{
 		final List<Roles> roles = getRoles();
-		if (null != roles && (!roles.isEmpty())) {
-			for (final Roles role : roles) {
-				if (role.getRolename().equals(rolename)) {
+		if (null != roles && (!roles.isEmpty()))
+		{
+			for (final Roles role : roles)
+			{
+				if (role.getRolename().equals(rolename))
+				{
 					return true;
 				}
 			}
@@ -160,17 +179,16 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 * 
 	 * @return true, if is user signed in
 	 */
-	public synchronized boolean isSignedIn() {
+	public synchronized boolean isSignedIn()
+	{
 		return (userId != null);
 	}
 
 	/**
-	 * Checks if the user is a guest.
-	 *
-	 * @return true, the user is a guest.
+	 * Hook method that can be used when a user signs out from the application.
 	 */
-	public synchronized boolean isGuest() {
-		return !isSignedIn();
+	public synchronized void onSignOut()
+	{
 	}
 
 	/**
@@ -180,7 +198,8 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 *            the key
 	 * @return the user attribute
 	 */
-	public synchronized Serializable removeUserAttribute(final String key) {
+	public synchronized Serializable removeUserAttribute(final String key)
+	{
 		return userAttributes.remove(key);
 	}
 
@@ -190,9 +209,18 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 * @param roles
 	 *            the new roles
 	 */
-	public synchronized void setRoles(final List<Roles> roles) {
+	public synchronized void setRoles(final List<Roles> roles)
+	{
 		this.roles = roles;
 	}
+
+	/**
+	 * Sets the user.
+	 *
+	 * @param user
+	 *            the user
+	 */
+	public abstract void setUser(final Users user);
 
 	/**
 	 * Sets the user attribute.
@@ -202,24 +230,20 @@ public abstract class AbstractWicketSession<USERID> extends WebSession {
 	 * @param value
 	 *            the value
 	 */
-	public synchronized void setUserAttribute(final String key,
-			final Serializable value) {
+	public synchronized void setUserAttribute(final String key, final Serializable value)
+	{
 		userAttributes.put(key, value);
 	}
 
 	/**
 	 * Sets the user id.
 	 *
-	 * @param userId the new user id
+	 * @param userId
+	 *            the new user id
 	 */
-	public synchronized void setUserId(USERID userId) {		
+	public synchronized void setUserId(final USERID userId)
+	{
 		this.userId = userId;
-	}
-	
-	/**
-	 * Hook method that can be used when a user signs out from the application.
-	 */
-	public synchronized void onSignOut() {
 	}
 
 }

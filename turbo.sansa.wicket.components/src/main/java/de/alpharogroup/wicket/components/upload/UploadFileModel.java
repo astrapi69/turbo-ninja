@@ -12,7 +12,8 @@ import resource.system.application.model.ResourcesModel;
  * 
  * @author Asterios Raptis
  */
-public class UploadFileModel extends ResourcesModel {
+public class UploadFileModel extends ResourcesModel
+{
 
 	/**
 	 * The serialVersionUID.
@@ -24,15 +25,18 @@ public class UploadFileModel extends ResourcesModel {
 	/**
 	 * Instantiates a new upload file model.
 	 */
-	public UploadFileModel() {
+	public UploadFileModel()
+	{
 		super();
 	}
 
-	public List<FileUpload> getFileInput() {
+	public List<FileUpload> getFileInput()
+	{
 		return fileInput;
 	}
 
-	public void setFileInput(List<FileUpload> fileInput) {
+	public void setFileInput(final List<FileUpload> fileInput)
+	{
 		this.fileInput = fileInput;
 	}
 

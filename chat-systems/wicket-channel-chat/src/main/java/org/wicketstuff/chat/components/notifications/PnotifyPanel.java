@@ -14,39 +14,43 @@ import de.alpharogroup.wicket.js.addon.pnotify.PnotifyJsGenerator;
 import de.alpharogroup.wicket.js.addon.pnotify.PnotifyJsReference;
 import de.alpharogroup.wicket.js.addon.pnotify.PnotifySettings;
 
-public abstract class PnotifyPanel extends NotificationPanel {
+public abstract class PnotifyPanel extends NotificationPanel
+{
 
 	private static final long serialVersionUID = 1L;
 
 
-	public PnotifyPanel(String id, IModel<ChatroomModel> model,
-			Duration duration) {
+	public PnotifyPanel(final String id, final IModel<ChatroomModel> model, final Duration duration)
+	{
 		super(id, model, duration);
 	}
 
 	@Override
-	protected String onGetJavaScript(Map<String, String> data) {
+	protected String onGetJavaScript(final Map<String, String> data)
+	{
 		return onGetPnotifyJsScript(data);
 	}
-	
 
-	protected String onGetPnotifyJsScript(final Map<String, String> datas) {
-		PnotifySettings settings = PnotifySettings.builder().build();
+
+	protected String onGetPnotifyJsScript(final Map<String, String> datas)
+	{
+		final PnotifySettings settings = PnotifySettings.builder().build();
 		settings.getTitle().setValue(StringUtils.getValue(datas, "title", "Notification"));
 		settings.getStyling().setValue(StringUtils.getValue(datas, "styling", "jqueryui"));
 		settings.getText().setValue(datas.get("message"));
 		settings.getDelay().setValue((int)getDuration().getMilliseconds());
-		PnotifyJsGenerator generator = new PnotifyJsGenerator(settings);
+		final PnotifyJsGenerator generator = new PnotifyJsGenerator(settings);
 		generator.generateJs();
 		return generator.generateJs();
 	}
-	
+
 	@Override
-	public void renderHead(IHeaderResponse response) {
-		super.renderHead(response);		
+	public void renderHead(final IHeaderResponse response)
+	{
+		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(Application.get()
 			.getJavaScriptLibrarySettings().getJQueryReference()));
-		 response.render(JavaScriptHeaderItem.forReference(PnotifyJsReference.INSTANCE));		
+		response.render(JavaScriptHeaderItem.forReference(PnotifyJsReference.INSTANCE));
 	}
 
 }

@@ -22,13 +22,11 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 /**
  * Defines an interface to trigger client updates on server side events.
  * <p>
- * This interface is very similar to the API of the {@link AjaxRequestTarget},
- * so users already familiar with {@link AjaxRequestTarget} should easily
- * find their way with this interface.
+ * This interface is very similar to the API of the {@link AjaxRequestTarget}, so users already
+ * familiar with {@link AjaxRequestTarget} should easily find their way with this interface.
  * </p>
  * <p>
- * A {@link IChannelTarget} implementation can be used in {@link IChannelListener}
- * implementations.
+ * A {@link IChannelTarget} implementation can be used in {@link IChannelListener} implementations.
  * </p>
  * 
  * @author Xavier Hanin
@@ -42,8 +40,8 @@ public interface IChannelTarget
 	 * @param component
 	 *            component to be rendered
 	 */
-	public void addComponent(Component component);
-	
+	public void addComponent(final Component component);
+
 	/**
 	 * Adds a component to the list of components to be rendered
 	 * 
@@ -53,30 +51,29 @@ public interface IChannelTarget
 	 * @param component
 	 *            component to be rendered
 	 */
-	public void addComponent(Component component, String markupId);
-	
+	public void addComponent(final Component component, final String markupId);
+
 	/**
-	 * Sets the focus in the browser to the given component.
-	 * The markup id must be set.
+	 * Sets the focus in the browser to the given component. The markup id must be set.
 	 * 
 	 * @param component
-	 * 			The component to get the focus.         
+	 *            The component to get the focus.
 	 */
-	public void focusComponent(Component component);
-	
+	public void focusComponent(final Component component);
+
 	/**
-	 * Adds javascript that will be evaluated on the client side after
-	 * components are replaced
+	 * Adds javascript that will be evaluated on the client side after components are replaced
 	 * 
-	 * @param javascript The js to append
+	 * @param javascript
+	 *            The js to append
 	 */
-	public void appendJavaScript(String javascript);
-	
+	public void appendJavaScript(final String javascript);
+
 	/**
-	 * Adds javascript that will be evaluated on the client side before
-	 * components are replaced
+	 * Adds javascript that will be evaluated on the client side before components are replaced
 	 * 
-	 * @param javascript The js to prepend
+	 * @param javascript
+	 *            The js to prepend
 	 */
-	public void prependJavaScript(String javascript);
+	public void prependJavaScript(final String javascript);
 }

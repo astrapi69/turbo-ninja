@@ -14,6 +14,14 @@ public class CustomTheme extends Theme
 
 	/**
 	 * Instantiates a new custum theme.
+	 */
+	public CustomTheme()
+	{
+		this("customTheme", "css/customTheme-bootstrap.less");
+	}
+
+	/**
+	 * Instantiates a new custum theme.
 	 *
 	 * @param themeName
 	 *            the theme name
@@ -23,13 +31,5 @@ public class CustomTheme extends Theme
 	public CustomTheme(final String themeName, final String lessfilePath)
 	{
 		super(themeName, new LessResourceReference(CustomTheme.class, lessfilePath));
-	}
-
-	/**
-	 * Instantiates a new custum theme.
-	 */
-	public CustomTheme()
-	{
-		this("customTheme", "css/customTheme-bootstrap.less");
 	}
 }

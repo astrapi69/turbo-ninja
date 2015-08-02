@@ -22,16 +22,16 @@ import events.system.model.Topics;
  * 
  * @author Asterios Raptis
  */
-public class TopicTreeNodeProvider implements
-		ISortableTreeProvider<ITreeNode<Topics>, String> {
+public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<Topics>, String>
+{
 
 	/**
 	 * The Class TreeNodeModel.
 	 * 
 	 * @author Asterios Raptis
 	 */
-	private class TreeNodeModel extends
-			LoadableDetachableModel<ITreeNode<Topics>> {
+	private class TreeNodeModel extends LoadableDetachableModel<ITreeNode<Topics>>
+	{
 
 		/**
 		 * The serialVersionUID.
@@ -47,14 +47,15 @@ public class TopicTreeNodeProvider implements
 		 * @param treeNode
 		 *            the tree node
 		 */
-		public TreeNodeModel(final ITreeNode<Topics> treeNode) {
+		public TreeNodeModel(final ITreeNode<Topics> treeNode)
+		{
 			super(treeNode);
 			id = treeNode.getValue().getId().toString();
 			final String propertiesKey = treeNode.getValue().getName();
-			String topicTreeName = ResourceBundleUtils.getString(ResourceBundle.getBundle(
-					TopicsTreePanel.class.getName(), Session.get().getLocale()), propertiesKey);
+			final String topicTreeName = ResourceBundleUtils.getString(ResourceBundle.getBundle(
+				TopicsTreePanel.class.getName(), Session.get().getLocale()), propertiesKey);
 			treeNode.setDisplayValue(topicTreeName);
-		}	
+		}
 
 		/**
 		 * {@inheritDoc}.
@@ -65,9 +66,11 @@ public class TopicTreeNodeProvider implements
 		 * @see java.lang.Object#equals(java.lang.Object)
 		 */
 		@Override
-		public boolean equals(final Object obj) {
-			if (obj instanceof TreeNodeModel) {
-				return ((TreeNodeModel) obj).id.equals(id);
+		public boolean equals(final Object obj)
+		{
+			if (obj instanceof TreeNodeModel)
+			{
+				return ((TreeNodeModel)obj).id.equals(id);
 			}
 			return false;
 		}
@@ -79,7 +82,8 @@ public class TopicTreeNodeProvider implements
 		 * @see java.lang.Object#hashCode()
 		 */
 		@Override
-		public int hashCode() {
+		public int hashCode()
+		{
 			final int prime = 31;
 			int result = 1;
 			result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -93,7 +97,8 @@ public class TopicTreeNodeProvider implements
 		 * @see org.apache.wicket.model.LoadableDetachableModel#load()
 		 */
 		@Override
-		protected ITreeNode<Topics> load() {
+		protected ITreeNode<Topics> load()
+		{
 			return get(id);
 		}
 	}
@@ -117,7 +122,8 @@ public class TopicTreeNodeProvider implements
 	 * @param root
 	 *            the root
 	 */
-	public TopicTreeNodeProvider(final ITreeNode<Topics> root) {
+	public TopicTreeNodeProvider(final ITreeNode<Topics> root)
+	{
 		super();
 		roots = new ArrayList<ITreeNode<Topics>>();
 		roots.add(root);
@@ -130,7 +136,8 @@ public class TopicTreeNodeProvider implements
 	 * @see org.apache.wicket.model.IDetachable#detach()
 	 */
 	@Override
-	public void detach() {
+	public void detach()
+	{
 		// Not implemented...
 	}
 
@@ -143,15 +150,18 @@ public class TopicTreeNodeProvider implements
 	 *            the id
 	 * @return the tree node
 	 */
-	private ITreeNode<Topics> get(final List<ITreeNode<Topics>> treeNodes,
-			final String id) {
-		for (final ITreeNode<Topics> treeNode : treeNodes) {
-			if (treeNode.getValue().getId().toString().equals(id)) {
+	private ITreeNode<Topics> get(final List<ITreeNode<Topics>> treeNodes, final String id)
+	{
+		for (final ITreeNode<Topics> treeNode : treeNodes)
+		{
+			if (treeNode.getValue().getId().toString().equals(id))
+			{
 				return treeNode;
 			}
 
 			final ITreeNode<Topics> tmp = get(treeNode.getChildren(), id);
-			if (tmp != null) {
+			if (tmp != null)
+			{
 				return tmp;
 			}
 		}
@@ -165,7 +175,8 @@ public class TopicTreeNodeProvider implements
 	 *            the id
 	 * @return the topics
 	 */
-	public ITreeNode<Topics> get(final String id) {
+	public ITreeNode<Topics> get(final String id)
+	{
 		return get(roots, id);
 	}
 
@@ -173,8 +184,8 @@ public class TopicTreeNodeProvider implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterator<? extends ITreeNode<Topics>> getChildren(
-			final ITreeNode<Topics> treeNode) {
+	public Iterator<? extends ITreeNode<Topics>> getChildren(final ITreeNode<Topics> treeNode)
+	{
 		return treeNode.getChildren().iterator();
 	}
 
@@ -182,7 +193,8 @@ public class TopicTreeNodeProvider implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterator<? extends ITreeNode<Topics>> getRoots() {
+	public Iterator<? extends ITreeNode<Topics>> getRoots()
+	{
 		return roots.iterator();
 	}
 
@@ -191,7 +203,8 @@ public class TopicTreeNodeProvider implements
 	 * 
 	 * @return current sort sortState
 	 */
-	public SortParam<String> getSort() {
+	public SortParam<String> getSort()
+	{
 		return sortState.getSort();
 	}
 
@@ -201,7 +214,8 @@ public class TopicTreeNodeProvider implements
 	 * @return the sort state
 	 */
 	@Override
-	public final ISortState<String> getSortState() {
+	public final ISortState<String> getSortState()
+	{
 		return sortState;
 	}
 
@@ -209,7 +223,8 @@ public class TopicTreeNodeProvider implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean hasChildren(final ITreeNode<Topics> treeNode) {
+	public boolean hasChildren(final ITreeNode<Topics> treeNode)
+	{
 		return treeNode.hasChildren();
 	}
 
@@ -217,7 +232,8 @@ public class TopicTreeNodeProvider implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IModel<ITreeNode<Topics>> model(final ITreeNode<Topics> treeNode) {
+	public IModel<ITreeNode<Topics>> model(final ITreeNode<Topics> treeNode)
+	{
 		return new TreeNodeModel(treeNode);
 	}
 
@@ -227,7 +243,8 @@ public class TopicTreeNodeProvider implements
 	 * @param param
 	 *            parameter containing new sorting information
 	 */
-	public void setSort(final SortParam<String> param) {
+	public void setSort(final SortParam<String> param)
+	{
 		sortState.setSort(param);
 	}
 
@@ -239,7 +256,8 @@ public class TopicTreeNodeProvider implements
 	 * @param ascending
 	 *            sort direction
 	 */
-	public void setSort(final String property, final boolean ascending) {
+	public void setSort(final String property, final boolean ascending)
+	{
 		setSort(new SortParam<String>(property, ascending));
 	}
 
@@ -249,14 +267,15 @@ public class TopicTreeNodeProvider implements
 	 * @param state
 	 *            the new sort state
 	 */
-	public final void setSortState(final ISortState<String> state) {
-		if (!(state instanceof SingleSortState)) {
+	public final void setSortState(final ISortState<String> state)
+	{
+		if (!(state instanceof SingleSortState))
+		{
 			throw new IllegalArgumentException(
-					"argument [sortState] must be an instance of SingleSortState, but it is ["
-							+ state.getClass().getName() + "]:["
-							+ state.toString() + "]");
+				"argument [sortState] must be an instance of SingleSortState, but it is ["
+					+ state.getClass().getName() + "]:[" + state.toString() + "]");
 		}
-		sortState = (SingleSortState<String>) state;
+		sortState = (SingleSortState<String>)state;
 	}
 
 }

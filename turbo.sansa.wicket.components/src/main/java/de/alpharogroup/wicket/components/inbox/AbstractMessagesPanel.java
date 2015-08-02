@@ -27,7 +27,8 @@ import de.alpharogroup.wicket.model.provider.MessagesProvider;
  * 
  * @author Asterios Raptis
  */
-public abstract class AbstractMessagesPanel extends Panel {
+public abstract class AbstractMessagesPanel extends Panel
+{
 
 	/**
 	 * The serialVersionUID.
@@ -42,74 +43,83 @@ public abstract class AbstractMessagesPanel extends Panel {
 	 * @param state
 	 *            the message state
 	 */
-	public AbstractMessagesPanel(final String id, final MessageState state) {
+	public AbstractMessagesPanel(final String id, final MessageState state)
+	{
 		super(id);
 		final List<Messages> inboxMessages = getInboxMessages(state);
-		
-		
-		final MessagesProvider dataProvider = new MessagesProvider(
-				inboxMessages) {
+
+
+		final MessagesProvider dataProvider = new MessagesProvider(inboxMessages)
+		{
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			public List<Messages> getData() {
+			public List<Messages> getData()
+			{
 				return getInboxMessages(state);
 			}
 		};
 		dataProvider.setSort("sentDate", SortOrder.ASCENDING);
 
-		WebMarkupContainer noresults = new WebMarkupContainer("noresults");
+		final WebMarkupContainer noresults = new WebMarkupContainer("noresults");
 		add(noresults);
-		WebMarkupContainer results = new WebMarkupContainer("results");
+		final WebMarkupContainer results = new WebMarkupContainer("results");
 		add(results);
 		// Set visibility...
-		if (0 < dataProvider.size()) {
+		if (0 < dataProvider.size())
+		{
 			results.setVisible(true);
 			noresults.setVisible(false);
 			noresults.add(new AttributeAppender("class", "displaynone"));
-		} else {
+		}
+		else
+		{
 			results.setVisible(false);
 			results.add(new AttributeAppender("class", "displaynone"));
 			noresults.setVisible(true);
 		}
 
-		final DataView<Messages> dataView = new DataView<Messages>("dataView",
-				dataProvider) {
+		final DataView<Messages> dataView = new DataView<Messages>("dataView", dataProvider)
+		{
 			/**
 			 * The serialVersionUID.
 			 */
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected void populateItem(final Item<Messages> item) {
+			protected void populateItem(final Item<Messages> item)
+			{
 
 				final Messages messageModel = item.getModelObject();
-				item.setDefaultModel(new CompoundPropertyModel<Messages>(
-						messageModel));
+				item.setDefaultModel(new CompoundPropertyModel<Messages>(messageModel));
 				item.add(new Label("state"));
 				item.add(new Label("sender.username"));
 				item.add(new Label("subject"));
 				item.add(new Label("sentDate"));
 
-				item.add(new Link<String>("readMessageLink") {
+				item.add(new Link<String>("readMessageLink")
+				{
 					/**
 					 * The serialVersionUID.
 					 */
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public void onClick() {
+					public void onClick()
+					{
 						onRead(messageModel);
 					}
 				});
-				item.add(new Link<String>("deleteMessageLink") {
+				item.add(new Link<String>("deleteMessageLink")
+				{
 					/**
 					 * The serialVersionUID.
 					 */
 					private static final long serialVersionUID = 1L;
 
 					@Override
-					public void onClick() {
+					public void onClick()
+					{
 						onDelete(messageModel);
 					}
 				});
@@ -121,20 +131,19 @@ public abstract class AbstractMessagesPanel extends Panel {
 		results.add(new PagingNavigator("navigator", dataView));
 
 		results.add(new OrderByLink<String>("sortState", "state", dataProvider));
-		results.add(new OrderByLink<String>("sortSenderUsername",
-				"sender.username", dataProvider));
-		results.add(new OrderByLink<String>("sortSubject", "subject",
-				dataProvider));
+		results.add(new OrderByLink<String>("sortSenderUsername", "sender.username", dataProvider));
+		results.add(new OrderByLink<String>("sortSubject", "subject", dataProvider));
 
-		results.add(new OrderByLink<String>("sortSentDate", "sentDate",
-				dataProvider));
+		results.add(new OrderByLink<String>("sortSentDate", "sentDate", dataProvider));
 
 		results.add(dataView);
 
 	}
 
 	protected abstract List<Messages> getInboxMessages(final MessageState state);
+
 	protected abstract void onDelete(final Messages message);
+
 	protected abstract void onRead(final Messages message);
 
 }

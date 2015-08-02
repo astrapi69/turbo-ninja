@@ -12,7 +12,8 @@ import de.alpharogroup.wicket.components.tree.model.Content;
  *            the generic type
  * @author Asterios Raptis
  */
-public interface ICheckFolderContent<T> extends Content<T> {
+public interface ICheckFolderContent<T> extends Content<T>
+{
 
 	/**
 	 * Check.
@@ -24,8 +25,7 @@ public interface ICheckFolderContent<T> extends Content<T> {
 	 * @param target
 	 *            the target
 	 */
-	void check(final T content, final boolean check,
-			final AjaxRequestTarget target);
+	void check(final T content, final boolean check, final AjaxRequestTarget target);
 
 	/**
 	 * Checks if is checked.

@@ -22,8 +22,8 @@ import events.system.model.Topics;
  * 
  * @author Asterios Raptis
  */
-public class TopicsTreePanel extends
-		AbstractTreeFormComponentPanel<ITreeNode<Topics>> {
+public class TopicsTreePanel extends AbstractTreeFormComponentPanel<ITreeNode<Topics>>
+{
 
 	/**
 	 * The serialVersionUID.
@@ -45,10 +45,9 @@ public class TopicsTreePanel extends
 	 * @param content
 	 *            the content
 	 */
-	public TopicsTreePanel(final String id,
-			final ITreeProvider<ITreeNode<Topics>> provider,
-			final ProviderSubset<ITreeNode<Topics>> state,
-			final CheckedFolderContent content) {
+	public TopicsTreePanel(final String id, final ITreeProvider<ITreeNode<Topics>> provider,
+		final ProviderSubset<ITreeNode<Topics>> state, final CheckedFolderContent content)
+	{
 		super(id, provider, state, content);
 
 		add(getTree());
@@ -67,14 +66,16 @@ public class TopicsTreePanel extends
 	 */
 	@Override
 	protected AbstractTree<ITreeNode<Topics>> createTree(
-			final ITreeProvider<ITreeNode<Topics>> provider,
-			final IModel<Set<ITreeNode<Topics>>> state) {
-		tree = new NestedTree<ITreeNode<Topics>>("tree", provider, state) {
+		final ITreeProvider<ITreeNode<Topics>> provider, final IModel<Set<ITreeNode<Topics>>> state)
+	{
+		tree = new NestedTree<ITreeNode<Topics>>("tree", provider, state)
+		{
 			private static final long serialVersionUID = 1L;
 
 			@Override
 			protected Component newContentComponent(final String id,
-					final IModel<ITreeNode<Topics>> model) {
+				final IModel<ITreeNode<Topics>> model)
+			{
 				return TopicsTreePanel.this.newContentComponent(id, model);
 			}
 		};
@@ -88,7 +89,8 @@ public class TopicsTreePanel extends
 	 *            the new contents
 	 */
 	@Override
-	protected void setContents(final List<Content<ITreeNode<Topics>>> contents) {
+	protected void setContents(final List<Content<ITreeNode<Topics>>> contents)
+	{
 		this.contents = contents;
 	}
 

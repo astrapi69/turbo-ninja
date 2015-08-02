@@ -5,7 +5,8 @@ import java.io.Serializable;
 /**
  * The Interface IChatUser.
  */
-public interface IChatUser extends Serializable {
+public interface IChatUser extends Serializable
+{
 
 	/**
 	 * Gets the username.
@@ -17,8 +18,9 @@ public interface IChatUser extends Serializable {
 	/**
 	 * Sets the username.
 	 *
-	 * @param username the new username
+	 * @param username
+	 *            the new username
 	 */
-	void setUsername(String username);
+	void setUsername(final String username);
 
 }

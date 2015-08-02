@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.form.upload.FileUploadField;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.lang.Bytes;
+
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 
 /**
@@ -18,7 +19,8 @@ import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
  * 
  * @author Asterios Raptis
  */
-public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
+public abstract class UploadFilePanel extends GenericPanel<UploadFileModel>
+{
 
 	/**
 	 * The serialVersionUID.
@@ -51,24 +53,25 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	 * @param model
 	 *            the model
 	 */
-	public UploadFilePanel(final String id, final IModel<UploadFileModel> model) {
+	public UploadFilePanel(final String id, final IModel<UploadFileModel> model)
+	{
 		super(id, model);
 		this.setOutputMarkupId(true);
 		this.maxSize = newMaxSize();
 		add(form = newForm("form", model));
-		form.add(fileInputLabel = newFileInputLabel("fileInputLabel",
-				"upload.file.input.label", "File", this));
+		form.add(fileInputLabel = newFileInputLabel("fileInputLabel", "upload.file.input.label",
+			"File", this));
 		form.add(fileUploadField = newFileUploadField("fileInput"));
 		form.add(submitButton = newButton("submitButton", form));
 		submitButton.add(buttonLabel = newButtonLabel("buttonLabel",
-				"upload.file.submit.value.label", "Send", this));
+			"upload.file.submit.value.label", "Send", this));
 	}
 
 
 	/**
-	 * Factory method for creating the fileInput Label. This method is invoked in the
-	 * constructor from the derived classes and can be overridden so users can
-	 * provide their own version of the fileInput Label.
+	 * Factory method for creating the fileInput Label. This method is invoked in the constructor
+	 * from the derived classes and can be overridden so users can provide their own version of the
+	 * fileInput Label.
 	 * 
 	 * @param id
 	 *            the id
@@ -81,32 +84,38 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	 * @return the label
 	 */
 	protected Label newFileInputLabel(final String id, final String resourceKey,
-			final String defaultValue, final Component component) {
-		final IModel<String> labelModel = ResourceModelFactory
-				.newResourceModel(resourceKey, component, defaultValue);
-		Label label = new Label(id, labelModel);
+		final String defaultValue, final Component component)
+	{
+		final IModel<String> labelModel = ResourceModelFactory.newResourceModel(resourceKey,
+			component, defaultValue);
+		final Label label = new Label(id, labelModel);
 		label.setOutputMarkupId(true);
 		return label;
 	}
-	
+
 	/**
-	 * Factory method for creating the UploadProgressBar. This method is invoked in the
-	 * constructor from the derived classes and can be overridden so users can
-	 * provide their own version of a UploadProgressBar.
+	 * Factory method for creating the UploadProgressBar. This method is invoked in the constructor
+	 * from the derived classes and can be overridden so users can provide their own version of a
+	 * UploadProgressBar.
 	 *
-	 * @param id the id
-	 * @param form the form
-	 * @param uploadField the upload field
+	 * @param id
+	 *            the id
+	 * @param form
+	 *            the form
+	 * @param uploadField
+	 *            the upload field
 	 * @return the upload progress bar
 	 */
-	protected UploadProgressBar newUploadProgressBar(final String id, final Form<?> form, final FileUploadField uploadField) {
-		return new UploadProgressBar(id, form,	uploadField);		
+	protected UploadProgressBar newUploadProgressBar(final String id, final Form<?> form,
+		final FileUploadField uploadField)
+	{
+		return new UploadProgressBar(id, form, uploadField);
 	}
 
 	/**
-	 * Factory method for creating the button Label. This method is invoked in the
-	 * constructor from the derived classes and can be overridden so users can
-	 * provide their own version of the button Label.
+	 * Factory method for creating the button Label. This method is invoked in the constructor from
+	 * the derived classes and can be overridden so users can provide their own version of the
+	 * button Label.
 	 * 
 	 * @param id
 	 *            the id
@@ -119,10 +128,11 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	 * @return the label
 	 */
 	protected Label newButtonLabel(final String id, final String resourceKey,
-			final String defaultValue, final Component component) {
-		final IModel<String> labelModel = ResourceModelFactory
-				.newResourceModel(resourceKey, component, defaultValue);
-		Label label = new Label(id, labelModel);
+		final String defaultValue, final Component component)
+	{
+		final IModel<String> labelModel = ResourceModelFactory.newResourceModel(resourceKey,
+			component, defaultValue);
+		final Label label = new Label(id, labelModel);
 		label.setOutputMarkupId(true);
 		return label;
 	}
@@ -132,16 +142,18 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	 *
 	 * @return the file input label
 	 */
-	public Label getFileInputLabel() {
+	public Label getFileInputLabel()
+	{
 		return fileInputLabel;
 	}
-	
+
 	/**
 	 * Gets the file upload field.
 	 *
 	 * @return the file upload field
 	 */
-	public FileUploadField getFileUploadField() {
+	public FileUploadField getFileUploadField()
+	{
 		return fileUploadField;
 	}
 
@@ -150,7 +162,8 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	 *
 	 * @return the button label
 	 */
-	public Label getButtonLabel() {
+	public Label getButtonLabel()
+	{
 		return buttonLabel;
 	}
 
@@ -159,7 +172,8 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	 *
 	 * @return the form
 	 */
-	public Form<?> getForm() {
+	public Form<?> getForm()
+	{
 		return form;
 	}
 
@@ -168,7 +182,8 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	 *
 	 * @return the submit button
 	 */
-	public Button getSubmitButton() {
+	public Button getSubmitButton()
+	{
 		return submitButton;
 	}
 
@@ -177,15 +192,15 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	 *
 	 * @return the max size
 	 */
-	public Bytes getMaxSize() {
+	public Bytes getMaxSize()
+	{
 		return maxSize;
 	}
 
 	/**
 	 * 
-	 * Factory method for creating the Button. This method is invoked in the
-	 * constructor from the derived classes and can be overridden so users can
-	 * provide their own version of a Button.
+	 * Factory method for creating the Button. This method is invoked in the constructor from the
+	 * derived classes and can be overridden so users can provide their own version of a Button.
 	 *
 	 * @param id
 	 *            the id
@@ -193,45 +208,48 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	 *            the form
 	 * @return the button
 	 */
-	protected Button newButton(final String id, final Form<?> form) {		
-		return new IndicatingAjaxButton(id, form) {
+	protected Button newButton(final String id, final Form<?> form)
+	{
+		return new IndicatingAjaxButton(id, form)
+		{
 			/**
 			 * The serialVersionUID.
 			 */
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected void onSubmit(final AjaxRequestTarget target,
-					final Form<?> form) {
-				target.add(form);				
-				onUpload(target, form, false);
+			protected void onError(final AjaxRequestTarget target, final Form<?> form)
+			{
+				target.add(form);
+				onUpload(target, form, true);
 			}
 
 			@Override
-			protected void onError(AjaxRequestTarget target, Form<?> form) {
+			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
+			{
 				target.add(form);
-				onUpload(target, form, true);
+				onUpload(target, form, false);
 			}
 		};
 	}
 
 	/**
-	 * Factory method for creating the FileUploadField. This method is invoked
-	 * in the constructor from the derived classes and can be overridden so
-	 * users can provide their own version of a FileUploadField.
+	 * Factory method for creating the FileUploadField. This method is invoked in the constructor
+	 * from the derived classes and can be overridden so users can provide their own version of a
+	 * FileUploadField.
 	 *
 	 * @param id
 	 *            the id
 	 * @return the file upload field
 	 */
-	protected FileUploadField newFileUploadField(final String id) {
+	protected FileUploadField newFileUploadField(final String id)
+	{
 		return new FileUploadField(id);
 	}
 
 	/**
-	 * Factory method for creating the Form. This method is invoked in the
-	 * constructor from the derived classes and can be overridden so users can
-	 * provide their own version of a Form.
+	 * Factory method for creating the Form. This method is invoked in the constructor from the
+	 * derived classes and can be overridden so users can provide their own version of a Form.
 	 * 
 	 * @param id
 	 *            the id
@@ -240,9 +258,10 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	 * @return the form
 	 */
 	@SuppressWarnings("unchecked")
-	protected Form<?> newForm(final String id, final IModel<?> model) {
-		Form<UploadFileModel> form = new Form<UploadFileModel>(id,
-				(IModel<UploadFileModel>) model);
+	protected Form<?> newForm(final String id, final IModel<?> model)
+	{
+		final Form<UploadFileModel> form = new Form<UploadFileModel>(id,
+			(IModel<UploadFileModel>)model);
 		form.setOutputMarkupId(true);
 		// Set to true to use enctype='multipart/form-data',
 		// and to process file uploads by default multiPart = false
@@ -253,22 +272,21 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	}
 
 	/**
-	 * Factory method for that sets the maximum size of the uploaded file. This
-	 * method is invoked in the constructor from the derived classes and can be
-	 * overridden so users can provide their own version of the maximum size of
-	 * the uploaded file.
+	 * Factory method for that sets the maximum size of the uploaded file. This method is invoked in
+	 * the constructor from the derived classes and can be overridden so users can provide their own
+	 * version of the maximum size of the uploaded file.
 	 *
 	 * @return the bytes
 	 */
-	protected Bytes newMaxSize() {
+	protected Bytes newMaxSize()
+	{
 		return Bytes.kilobytes(500);
 	}
 
 	/**
-	 * Template method that must be implemented from all derived classes. Here
-	 * comes the logic what shell happen when an upload is started. Note: Add
-	 * the feedback to the target so the info and error messages will be
-	 * displayed.
+	 * Template method that must be implemented from all derived classes. Here comes the logic what
+	 * shell happen when an upload is started. Note: Add the feedback to the target so the info and
+	 * error messages will be displayed.
 	 *
 	 * @param target
 	 *            the target
@@ -277,7 +295,7 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel> {
 	 * @param error
 	 *            flag that indicates that an error occured.
 	 */
-	protected abstract void onUpload(final AjaxRequestTarget target,
-			final Form<?> form, final boolean error);
+	protected abstract void onUpload(final AjaxRequestTarget target, final Form<?> form,
+		final boolean error);
 
 }

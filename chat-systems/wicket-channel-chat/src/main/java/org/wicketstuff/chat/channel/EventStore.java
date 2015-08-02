@@ -23,36 +23,39 @@ import org.wicketstuff.chat.channel.api.ChannelEvent;
 import org.wicketstuff.chat.channel.api.EventStoreListener;
 
 /**
- * Here we are simulating a bus with this event store It is an Internal class
- * (volontary package)
+ * Here we are simulating a bus with this event store It is an Internal class (volontary package)
  * 
  * 
  * @author Vincent Demay
  */
-class EventStore {
-	
-	private transient final List<EventStoreListener> listenerList = new ArrayList<EventStoreListener>();
+class EventStore
+{
 
 	private final static EventStore eventStore = new EventStore();
 
-	public void add(final ChannelEvent value) {
-		for (final EventStoreListener listener : listenerList) {
+	public static EventStore get()
+	{
+		return eventStore;
+	}
+
+	private transient final List<EventStoreListener> listenerList = new ArrayList<EventStoreListener>();
+
+	public void add(final ChannelEvent value)
+	{
+		for (final EventStoreListener listener : listenerList)
+		{
 			listener.eventTriggered(value.getChannel(), value.getData());
 		}
 	}
 
-	public static EventStore get() {
-		return eventStore;
-	}
-
 	/**
-	 * Adds a listener to this list which will be notified whenever the list is
-	 * modified
+	 * Adds a listener to this list which will be notified whenever the list is modified
 	 * 
 	 * @param listener
 	 *            the listener to add
 	 */
-	public void addEventStoreListener(final EventStoreListener listener) {
+	public void addEventStoreListener(final EventStoreListener listener)
+	{
 		listenerList.add(listener);
 	}
 }

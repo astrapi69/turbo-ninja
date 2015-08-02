@@ -10,7 +10,8 @@ import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesMode
  *
  * @author Asterios Raptis
  */
-public abstract class AddressBean implements Serializable {
+public abstract class AddressBean implements Serializable
+{
 
 	/**
 	 * The serialVersionUID.
@@ -23,37 +24,63 @@ public abstract class AddressBean implements Serializable {
 	private StringTwoDropDownChoicesModel countriesAndProvincesDropDownChoicesModel;
 
 	/**
-	 * Instantiates a new address model with the given .
-	 *
-	 * @param countriesAndProvincesDropDownChoicesModel the countries and provinces drop down choices model
-	 */
-	public AddressBean(StringTwoDropDownChoicesModel countriesAndProvincesDropDownChoicesModel) {
-		this.countriesAndProvincesDropDownChoicesModel = countriesAndProvincesDropDownChoicesModel;
-	}
-
-	/**
 	 * Instantiates a new address model.
 	 */
-	public AddressBean() {
+	public AddressBean()
+	{
 		this.countriesAndProvincesDropDownChoicesModel = newCountriesAndProvincesDropDownChoicesModel();
 	}
 
-	public Addresses getAddress() {
+	/**
+	 * Instantiates a new address model with the given .
+	 *
+	 * @param countriesAndProvincesDropDownChoicesModel
+	 *            the countries and provinces drop down choices model
+	 */
+	public AddressBean(final StringTwoDropDownChoicesModel countriesAndProvincesDropDownChoicesModel)
+	{
+		this.countriesAndProvincesDropDownChoicesModel = countriesAndProvincesDropDownChoicesModel;
+	}
+
+	public Addresses getAddress()
+	{
 		return address;
 	}
-	
-	protected abstract StringTwoDropDownChoicesModel newCountriesAndProvincesDropDownChoicesModel();
 
 	/**
 	 * Gets the countries and provinces drop down choices model.
 	 *
 	 * @return the countries and provinces drop down choices model
 	 */
-	public StringTwoDropDownChoicesModel getCountriesAndProvincesDropDownChoicesModel() {
+	public StringTwoDropDownChoicesModel getCountriesAndProvincesDropDownChoicesModel()
+	{
 		return countriesAndProvincesDropDownChoicesModel;
 	}
 
-	public void setAddress(final Addresses address) {
+	public String getGeohashSearchvalue()
+	{
+		final String street = getAddress().getStreet() == null ? "" : getAddress().getStreet();
+		final String streetnumber = getAddress().getStreetnumber() == null ? "" : getAddress()
+			.getStreetnumber();
+		final String zipcode = getAddress().getZipcode().getZipcode() == null ? "" : getAddress()
+			.getZipcode().getZipcode();
+		final String city = getAddress().getZipcode().getCity() == null ? "" : getAddress()
+			.getZipcode().getCity();
+		final StringBuilder sb = new StringBuilder();
+		if (0 < street.length())
+		{
+			sb.append(street + " ");
+			sb.append(streetnumber + " ");
+		}
+		sb.append(zipcode + " ");
+		sb.append(city + " ");
+		return sb.toString().trim();
+	}
+
+	protected abstract StringTwoDropDownChoicesModel newCountriesAndProvincesDropDownChoicesModel();
+
+	public void setAddress(final Addresses address)
+	{
 		this.address = address;
 	}
 
@@ -64,23 +91,9 @@ public abstract class AddressBean implements Serializable {
 	 *            the new countries and provinces drop down choices model
 	 */
 	public void setCountriesAndProvincesDropDownChoicesModel(
-			final StringTwoDropDownChoicesModel countriesAndProvincesDropDownChoicesModel) {
+		final StringTwoDropDownChoicesModel countriesAndProvincesDropDownChoicesModel)
+	{
 		this.countriesAndProvincesDropDownChoicesModel = countriesAndProvincesDropDownChoicesModel;
-	}
-
-	public String getGeohashSearchvalue() {
-		String street = getAddress().getStreet()== null ? "": getAddress().getStreet();
-		String streetnumber =getAddress().getStreetnumber()== null ? "": getAddress().getStreetnumber();
-		String zipcode = getAddress().getZipcode().getZipcode()== null ? "": getAddress().getZipcode().getZipcode();
-		String city = getAddress().getZipcode().getCity()== null ? "": getAddress().getZipcode().getCity();
-		StringBuilder sb = new StringBuilder();
-		if(0 < street.length()) {
-			sb.append(street + " ");
-			sb.append(streetnumber + " ");
-		}
-		sb.append(zipcode + " ");
-		sb.append(city + " ");
-		return sb.toString().trim();
 	}
 
 }

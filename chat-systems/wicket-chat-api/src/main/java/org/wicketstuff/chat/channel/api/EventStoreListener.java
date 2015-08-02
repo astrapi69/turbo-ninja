@@ -19,13 +19,13 @@ package org.wicketstuff.chat.channel.api;
 import java.util.Map;
 
 /**
- * Listener to add in EventStore. It is for internal use only (volontary
- * package)
+ * Listener to add in EventStore. It is for internal use only (volontary package)
  * 
  * @author Vincent Demay
  */
-public interface EventStoreListener {
+public interface EventStoreListener
+{
 
-	void eventTriggered(String channel, Map<String, String> data);
+	void eventTriggered(final String channel, final Map<String, String> data);
 
 }

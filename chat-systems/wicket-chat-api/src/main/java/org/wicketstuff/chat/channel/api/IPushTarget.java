@@ -22,23 +22,22 @@ package org.wicketstuff.chat.channel.api;
  * <p>
  * Instance of this interface are usually obtained by an IPushService.
  * <p>
- * This interface extends IChannelTarget, and thus provides
- * methods familiar to {@link org.apache.wicket.ajax.AjaxRequestTarget} users.
+ * This interface extends IChannelTarget, and thus provides methods familiar to
+ * {@link org.apache.wicket.ajax.AjaxRequestTarget} users.
  * <p>
- * The specificities of IPushTarget is that you have to call
- *  #trigger() excplictly when you want the events to actually be send
- * to the client. Until the #trigger() method is called, events are 
+ * The specificities of IPushTarget is that you have to call #trigger() excplictly when you want the
+ * events to actually be send to the client. Until the #trigger() method is called, events are
  * simply queued.
  * <p>
- * The #isConnected() method allows to check if the target is still connected
- * to the client. It is up to the user to call this method before calling
- * any method asking for clients updates.
+ * The #isConnected() method allows to check if the target is still connected to the client. It is
+ * up to the user to call this method before calling any method asking for clients updates.
  * 
  * @author Xavier Hanin
  */
-public interface IPushTarget extends IChannelTarget {
-	
+public interface IPushTarget extends IChannelTarget
+{
+
 	void trigger();
-	
+
 	boolean isConnected();
 }

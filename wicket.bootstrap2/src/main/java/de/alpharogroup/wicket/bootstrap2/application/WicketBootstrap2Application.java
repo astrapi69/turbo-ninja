@@ -12,7 +12,6 @@ import org.apache.wicket.request.resource.caching.NoOpResourceCachingStrategy;
 import org.apache.wicket.request.resource.caching.version.CachingResourceVersion;
 import org.apache.wicket.serialize.java.DeflatedJavaSerializer;
 import org.apache.wicket.util.string.Strings;
-import de.alpharogroup.wicket.base.application.seo.DisableJSessionIDinUrlApplication;
 import org.wicketstuff.annotation.scan.AnnotatedMountScanner;
 
 import com.google.javascript.jscomp.CompilationLevel;
@@ -40,15 +39,16 @@ import de.agilecoders.wicket.themes.markup.html.google.GoogleTheme;
 import de.agilecoders.wicket.themes.markup.html.metro.MetroTheme;
 import de.agilecoders.wicket.themes.markup.html.wicket.WicketTheme;
 import de.agilecoders.wicket.themes.settings.BootswatchThemeProvider;
+import de.alpharogroup.wicket.base.application.seo.DisableJSessionIDinUrlApplication;
 import de.alpharogroup.wicket.bootstrap2.resource.reference.fix.FixBootstrapStylesCssResourceReference;
 
 /**
- * Application instance for wicket bootstrap version 0.8.4. Note: Do not try it with a newer version.
+ * Application instance for wicket bootstrap version 0.8.4. Note: Do not try it with a newer
+ * version.
  */
-public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrlApplication {
-	
-	/** The properties. */
-	private Properties properties;
+public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrlApplication
+{
+
 	// http://www.wicket-library.com/wicket-examples/resourceaggregation/wicket/bookmarkable/org.apache.wicket.examples.source.SourcesPage?0&SourcesPage_class=org.apache.wicket.examples.resourcedecoration.HomePage&source=HomePage.java
 	public static final String FOOTER_FILTER_NAME = "footer-container";
 
@@ -57,125 +57,26 @@ public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrl
 	 * 
 	 * @return The current thread's Application
 	 */
-	public static WicketBootstrap2Application get() {
-		return (WicketBootstrap2Application) Application.get();
+	public static WicketBootstrap2Application get()
+	{
+		return (WicketBootstrap2Application)Application.get();
 	}
+
+	/** The properties. */
+	private Properties properties;
 
 	/**
 	 * Constructor.
 	 */
-	public WicketBootstrap2Application() {
+	public WicketBootstrap2Application()
+	{
 		properties = loadProperties();
 	}
 
-	/**
-	 * Inits the.
-	 *
-	 * @see org.apache.wicket.Application#init()
-	 */
-	@Override
-	public void init() {
-		super.init();
-
-		// deactivate ajax debug mode
-//		getDebugSettings().setAjaxDebugModeEnabled(false);
-
-		configureBootstrap();
-		configureResourceBundles();
-
-		optimizeForWebPerformance();
-
-		new AnnotatedMountScanner().scanPackage(getPackageToScan()).mount(this);
-	    if (Strings.isTrue(properties.getProperty("cdn.useCdn"))) {
-            final String cdn = properties.getProperty("cdn.baseUrl");
-            StaticResourceRewriteMapper.withBaseUrl(cdn).install(this);
-        }
-	}
-	
-	/**
-	 * Gets the package to scan.
-	 *
-	 * @return the package to scan
-	 */
-	public abstract String getPackageToScan();
-
-	/**
-	 * optimize wicket for a better web performance.
-	 */
-	private void optimizeForWebPerformance() {
-        if (usesDeploymentConfig()) {
-            getResourceSettings().setCachingStrategy(new FilenameWithVersionResourceCachingStrategy(
-                    "-v-",
-                    new CachingResourceVersion(new Adler32ResourceVersion())
-            ));
-
-            getResourceSettings().setJavaScriptCompressor(new GoogleClosureJavaScriptCompressor(CompilationLevel.SIMPLE_OPTIMIZATIONS));
-            getResourceSettings().setCssCompressor(new YuiCssCompressor());
-
-            getFrameworkSettings().setSerializer(new DeflatedJavaSerializer(getApplicationKey()));
-        } else {
-            getResourceSettings().setCachingStrategy(new NoOpResourceCachingStrategy());
-        }
-
-        setHeaderResponseDecorator(new RenderJavaScriptToFooterHeaderResponseDecorator());
-        getRequestCycleSettings().setRenderStrategy(org.apache.wicket.settings.IRequestCycleSettings.RenderStrategy.ONE_PASS_RENDER);
-	}
-
-	/**
-	 * configure all resource bundles (css and js).
-	 */
-	private void configureResourceBundles() {
-		getResourceBundles()
-				.addJavaScriptBundle(
-						WicketBootstrap2Application.class,
-						"core.js",
-						(JavaScriptResourceReference) getJavaScriptLibrarySettings()
-								.getJQueryReference(),
-						(JavaScriptResourceReference) getJavaScriptLibrarySettings()
-								.getWicketEventReference(),
-						(JavaScriptResourceReference) getJavaScriptLibrarySettings()
-								.getWicketAjaxReference(),
-						(JavaScriptResourceReference) ModernizrJavaScriptReference.INSTANCE);
-
-		getResourceBundles()
-				.addJavaScriptBundle(
-						WicketBootstrap2Application.class,
-						"bootstrap.js",
-						(JavaScriptResourceReference) Bootstrap.getSettings()
-								.getJsResourceReference(),
-						(JavaScriptResourceReference) BootstrapPrettifyJavaScriptReference.INSTANCE);
-
-		getResourceBundles().addJavaScriptBundle(
-				WicketBootstrap2Application.class, "bootstrap-extensions.js",
-				JQueryUIJavaScriptReference.instance(),
-				Html5PlayerJavaScriptReference.instance());
-
-		getResourceBundles().addCssBundle(WicketBootstrap2Application.class,
-				"bootstrap-extensions.css", Html5PlayerCssReference.instance(),
-				OpenWebIconsCssReference.instance());
-
-		getResourceBundles().addCssBundle(WicketBootstrap2Application.class,
-				"application.css",
-				(CssResourceReference) BootstrapPrettifyCssReference.INSTANCE,
-				FixBootstrapStylesCssResourceReference.INSTANCE);
-	}
-
-	/**
-	 * configures wicket-bootstrap and installs the settings.
-	 *
-	 * @param theme the theme
-	 */
-	protected void configureBootstrap(final Theme theme) {
-		final ThemeProvider themeProvider = new BootswatchThemeProvider() {
-			{
-				defaultTheme(theme);
-			}
-		};
-		configureBootstrap(themeProvider);
-	}
-
-	protected void configureBootstrap() {
-		final ThemeProvider themeProvider = new BootswatchThemeProvider() {
+	protected void configureBootstrap()
+	{
+		final ThemeProvider themeProvider = new BootswatchThemeProvider()
+		{
 			{
 				add(new MetroTheme());
 				add(new GoogleTheme());
@@ -186,54 +87,165 @@ public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrl
 		};
 		configureBootstrap(themeProvider);
 	}
-	
-	protected void configureBootstrap(final ThemeProvider themeProvider) {
+
+	/**
+	 * configures wicket-bootstrap and installs the settings.
+	 *
+	 * @param theme
+	 *            the theme
+	 */
+	protected void configureBootstrap(final Theme theme)
+	{
+		final ThemeProvider themeProvider = new BootswatchThemeProvider()
+		{
+			{
+				defaultTheme(theme);
+			}
+		};
+		configureBootstrap(themeProvider);
+	}
+
+	protected void configureBootstrap(final ThemeProvider themeProvider)
+	{
 		initBootstrap(themeProvider);
 	}
 
-	private void initBootstrap(final ThemeProvider themeProvider) {
-		final BootstrapSettings settings = new BootstrapSettings();
-		settings.setJsResourceFilterName(FOOTER_FILTER_NAME).setThemeProvider(
-				themeProvider);
-		Bootstrap.install(this, settings);
-		BootstrapLess.install(this);
+	/**
+	 * configure all resource bundles (css and js).
+	 */
+	private void configureResourceBundles()
+	{
+		getResourceBundles().addJavaScriptBundle(WicketBootstrap2Application.class, "core.js",
+			(JavaScriptResourceReference)getJavaScriptLibrarySettings().getJQueryReference(),
+			(JavaScriptResourceReference)getJavaScriptLibrarySettings().getWicketEventReference(),
+			(JavaScriptResourceReference)getJavaScriptLibrarySettings().getWicketAjaxReference(),
+			(JavaScriptResourceReference)ModernizrJavaScriptReference.INSTANCE);
+
+		getResourceBundles().addJavaScriptBundle(WicketBootstrap2Application.class, "bootstrap.js",
+			(JavaScriptResourceReference)Bootstrap.getSettings().getJsResourceReference(),
+			(JavaScriptResourceReference)BootstrapPrettifyJavaScriptReference.INSTANCE);
+
+		getResourceBundles().addJavaScriptBundle(WicketBootstrap2Application.class,
+			"bootstrap-extensions.js", JQueryUIJavaScriptReference.instance(),
+			Html5PlayerJavaScriptReference.instance());
+
+		getResourceBundles().addCssBundle(WicketBootstrap2Application.class,
+			"bootstrap-extensions.css", Html5PlayerCssReference.instance(),
+			OpenWebIconsCssReference.instance());
+
+		getResourceBundles().addCssBundle(WicketBootstrap2Application.class, "application.css",
+			(CssResourceReference)BootstrapPrettifyCssReference.INSTANCE,
+			FixBootstrapStylesCssResourceReference.INSTANCE);
 	}
 
-	
 	/**
-	 * Factory method for set the default theme of the application. This method
-	 * is invoked in the {@code WicketBootstrapApplication.configureBootstrap()}
-	 * method and can be overridden from the derived classes so users can
-	 * provide their own version of the default theme of the application.
+	 * Gets the package to scan.
 	 *
-	 * @return the default theme as string.
+	 * @return the package to scan
 	 */
-	protected String newDefaultTheme() {
-		return BootswatchTheme.CERULEAN.name();
-	}
+	public abstract String getPackageToScan();
 
 	/**
 	 * Gets the properties.
 	 *
 	 * @return used configuration properties
 	 */
-	public Properties getProperties() {
+	public Properties getProperties()
+	{
 		return properties;
 	}
+
+	/**
+	 * Inits the.
+	 *
+	 * @see org.apache.wicket.Application#init()
+	 */
+	@Override
+	public void init()
+	{
+		super.init();
+
+		// deactivate ajax debug mode
+		// getDebugSettings().setAjaxDebugModeEnabled(false);
+
+		configureBootstrap();
+		configureResourceBundles();
+
+		optimizeForWebPerformance();
+
+		new AnnotatedMountScanner().scanPackage(getPackageToScan()).mount(this);
+		if (Strings.isTrue(properties.getProperty("cdn.useCdn")))
+		{
+			final String cdn = properties.getProperty("cdn.baseUrl");
+			StaticResourceRewriteMapper.withBaseUrl(cdn).install(this);
+		}
+	}
+
+	private void initBootstrap(final ThemeProvider themeProvider)
+	{
+		final BootstrapSettings settings = new BootstrapSettings();
+		settings.setJsResourceFilterName(FOOTER_FILTER_NAME).setThemeProvider(themeProvider);
+		Bootstrap.install(this, settings);
+		BootstrapLess.install(this);
+	}
+
 
 	/**
 	 * loads all configuration properties from disk.
 	 *
 	 * @return configuration properties
 	 */
-	private Properties loadProperties() {
-		Properties properties = new Properties();
-		try {
-			properties.load(getClass()
-					.getResourceAsStream("/config.properties"));
-		} catch (IOException e) {
+	private Properties loadProperties()
+	{
+		final Properties properties = new Properties();
+		try
+		{
+			properties.load(getClass().getResourceAsStream("/config.properties"));
+		}
+		catch (final IOException e)
+		{
 			throw new WicketRuntimeException(e);
 		}
 		return properties;
+	}
+
+	/**
+	 * Factory method for set the default theme of the application. This method is invoked in the
+	 * {@code WicketBootstrapApplication.configureBootstrap()} method and can be overridden from the
+	 * derived classes so users can provide their own version of the default theme of the
+	 * application.
+	 *
+	 * @return the default theme as string.
+	 */
+	protected String newDefaultTheme()
+	{
+		return BootswatchTheme.CERULEAN.name();
+	}
+
+	/**
+	 * optimize wicket for a better web performance.
+	 */
+	private void optimizeForWebPerformance()
+	{
+		if (usesDeploymentConfig())
+		{
+			getResourceSettings().setCachingStrategy(
+				new FilenameWithVersionResourceCachingStrategy("-v-", new CachingResourceVersion(
+					new Adler32ResourceVersion())));
+
+			getResourceSettings().setJavaScriptCompressor(
+				new GoogleClosureJavaScriptCompressor(CompilationLevel.SIMPLE_OPTIMIZATIONS));
+			getResourceSettings().setCssCompressor(new YuiCssCompressor());
+
+			getFrameworkSettings().setSerializer(new DeflatedJavaSerializer(getApplicationKey()));
+		}
+		else
+		{
+			getResourceSettings().setCachingStrategy(new NoOpResourceCachingStrategy());
+		}
+
+		setHeaderResponseDecorator(new RenderJavaScriptToFooterHeaderResponseDecorator());
+		getRequestCycleSettings().setRenderStrategy(
+			org.apache.wicket.settings.IRequestCycleSettings.RenderStrategy.ONE_PASS_RENDER);
 	}
 }

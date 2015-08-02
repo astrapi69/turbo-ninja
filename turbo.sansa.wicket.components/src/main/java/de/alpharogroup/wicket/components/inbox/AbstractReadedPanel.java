@@ -9,7 +9,8 @@ import org.apache.wicket.markup.html.panel.Panel;
  * 
  * @author Asterios Raptis
  */
-public abstract class AbstractReadedPanel extends Panel {
+public abstract class AbstractReadedPanel extends Panel
+{
 
 	/**
 	 * The serialVersionUID.
@@ -22,13 +23,15 @@ public abstract class AbstractReadedPanel extends Panel {
 	 * @param id
 	 *            the id
 	 */
-	public AbstractReadedPanel(final String id) {
+	public AbstractReadedPanel(final String id)
+	{
 		super(id);
-		final AbstractMessagesPanel messagesPanel = newMessagesPanel(
-				"contactedMessagePanel", MessageState.CONTACTED);
+		final AbstractMessagesPanel messagesPanel = newMessagesPanel("contactedMessagePanel",
+			MessageState.CONTACTED);
 		add(messagesPanel);
 	}
-	
-	protected abstract AbstractMessagesPanel newMessagesPanel(final String id, final MessageState state);
+
+	protected abstract AbstractMessagesPanel newMessagesPanel(final String id,
+		final MessageState state);
 
 }

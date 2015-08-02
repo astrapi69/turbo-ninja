@@ -12,27 +12,34 @@ import org.wicketstuff.chat.channel.api.IChannelPublisher;
 import org.wicketstuff.chat.channel.api.IChannelService;
 import org.wicketstuff.chat.channel.api.IPushTarget;
 
-public class TimerChannelService implements IChannelService, Serializable {
+public class TimerChannelService implements IChannelService, Serializable
+{
 	private static final long serialVersionUID = 1L;
 
 	private final Duration duration;
 	private final IChannelPublisher publisher = new TimerChannelPublisher();
 
-	public TimerChannelService(final Duration duration) {
+	public TimerChannelService(final Duration duration)
+	{
 		this.duration = duration;
 	}
 
-	public void addChannelListener(final Component component,
-			final String listenerChannel, final IChannelListener listener) {
-		
-		final TimerChannelBehavior timerChannelBehavior = new TimerChannelBehavior(
-				duration);
+	@Override
+	public void addChannelListener(final Component component, final String listenerChannel,
+		final IChannelListener listener)
+	{
+
+		final TimerChannelBehavior timerChannelBehavior = new TimerChannelBehavior(duration);
 		final IPushTarget pushTarget = timerChannelBehavior.newPushTarget();
 		component.add(timerChannelBehavior);
-		EventStore.get().addEventStoreListener(new EventStoreListener() {
-			public void eventTriggered(final String eventChannel,
-					final Map<String, String> data) {
-				if (eventChannel != null && !eventChannel.isEmpty() && listenerChannel != null && listenerChannel.equals(eventChannel)) {
+		EventStore.get().addEventStoreListener(new EventStoreListener()
+		{
+			@Override
+			public void eventTriggered(final String eventChannel, final Map<String, String> data)
+			{
+				if (eventChannel != null && !eventChannel.isEmpty() && listenerChannel != null
+					&& listenerChannel.equals(eventChannel))
+				{
 					listener.onEvent(listenerChannel, data, pushTarget);
 					pushTarget.trigger();
 				}
@@ -40,7 +47,9 @@ public class TimerChannelService implements IChannelService, Serializable {
 		});
 	}
 
-	public void publish(final ChannelEvent event) {
+	@Override
+	public void publish(final ChannelEvent event)
+	{
 		publisher.publish(event);
 	}
 

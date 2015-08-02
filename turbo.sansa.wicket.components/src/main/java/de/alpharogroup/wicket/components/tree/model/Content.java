@@ -12,7 +12,8 @@ import org.apache.wicket.model.IModel;
  *            the generic type
  * @author Asterios Raptis
  */
-public interface Content<T> extends IDetachable {
+public interface Content<T> extends IDetachable
+{
 
 	/**
 	 * New content component.
@@ -25,6 +26,6 @@ public interface Content<T> extends IDetachable {
 	 *            the model
 	 * @return the component
 	 */
-	Component newContentComponent(String id, AbstractTree<T> tree, IModel<T> model);
+	Component newContentComponent(final String id, final AbstractTree<T> tree, final IModel<T> model);
 
 }

@@ -11,19 +11,23 @@ import address.book.model.Addresses;
 import de.alpharogroup.auth.models.BaseUsernameSignUpModel;
 
 
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper = true)
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class SignUpModel extends BaseUsernameSignUpModel implements LocationModel {
+public class SignUpModel extends BaseUsernameSignUpModel implements LocationModel
+{
 
 	private static final long serialVersionUID = 1L;
-	@Getter	@Setter
+	@Getter
+	@Setter
 	private Addresses address;
-	@Getter	@Setter
+	@Getter
+	@Setter
 	private String location;
-	@Getter	@Setter
+	@Getter
+	@Setter
 	private String selectedCountryName;
-	
+
 
 }
