@@ -5,12 +5,13 @@ import lombok.Getter;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.IChoiceRenderer;
+import org.apache.wicket.model.IModel;
 
 import de.alpharogroup.locale.ResourceBundleKey;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.components.factory.ComponentFactory;
 import de.alpharogroup.wicket.components.i18n.dropdownchoice.panels.TwoDropDownChoicesPanel;
-import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
+import de.alpharogroup.wicket.model.dropdownchoices.TwoDropDownChoicesModel;
 
 /**
  * The class CountriesProvincesPanel.
@@ -46,7 +47,7 @@ public class CountriesProvincesPanel extends TwoDropDownChoicesPanel<String>
 	 *            the child renderer
 	 */
 	public CountriesProvincesPanel(final String id,
-		final StringTwoDropDownChoicesModel stringTwoDropDownChoicesModel,
+		final IModel<TwoDropDownChoicesModel<String>> stringTwoDropDownChoicesModel,
 		final IChoiceRenderer<String> rootRenderer, final IChoiceRenderer<String> childRenderer)
 	{
 		super(id, stringTwoDropDownChoicesModel, rootRenderer, childRenderer);

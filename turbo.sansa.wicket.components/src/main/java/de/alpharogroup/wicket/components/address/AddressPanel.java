@@ -19,7 +19,7 @@ import de.alpharogroup.wicket.components.address.countries.CountriesProvincesPan
 import de.alpharogroup.wicket.components.factory.ComponentFactory;
 import de.alpharogroup.wicket.components.i18n.dropdownchoice.renderers.PropertiesChoiceRenderer;
 import de.alpharogroup.wicket.components.labeled.LabeledTwoFormComponentPanel;
-import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
+import de.alpharogroup.wicket.model.dropdownchoices.TwoDropDownChoicesModel;
 
 /**
  * The class AddressPanel.
@@ -50,44 +50,8 @@ public class AddressPanel extends GenericPanel<AddressBean>
 
 		add(newZipcodeCityPanel("zipcodeCityPanel", model));
 
-		add(newCountriesProvincesPanel("countriesProvincesPanel", initializeModel(model)));
+		add(newCountriesProvincesPanel("countriesProvincesPanel", newTwoDropDownChoicesModel(model)));
 
-	}
-
-	/**
-	 * Initialize model.
-	 *
-	 * @param model
-	 *            the model
-	 * @return the string two drop down choices model
-	 */
-	private StringTwoDropDownChoicesModel initializeModel(final IModel<AddressBean> model)
-	{
-		final AddressBean modelObject = model.getObject();
-		final StringTwoDropDownChoicesModel stringTwoDropDownChoicesModel = modelObject
-			.getCountriesAndProvincesDropDownChoicesModel();
-		final Addresses address = modelObject.getAddress();
-		// Initialize the dropdown choices for the country and federal state...
-		if (address != null)
-		{
-			final Federalstates federalState = modelObject.getAddress().getFederalstate();
-			if (federalState != null)
-			{
-				stringTwoDropDownChoicesModel.setSelectedRootOption(federalState.getCountry()
-					.getName());
-				stringTwoDropDownChoicesModel.setSelectedChildOption(federalState
-					.getIso3166A2code());
-
-			}
-		}
-		else
-		{
-			final Zipcodes zc = AddressBookFactory.getInstance().newZipcodes(null, "", "");
-			final Addresses initialAddress = AddressBookFactory.getInstance().newAddresses("",
-				null, null, null, null, "", "", zc);
-			modelObject.setAddress(initialAddress);
-		}
-		return stringTwoDropDownChoicesModel;
 	}
 
 	/**
@@ -110,7 +74,7 @@ public class AddressPanel extends GenericPanel<AddressBean>
 	 * @return the countries provinces panel
 	 */
 	protected CountriesProvincesPanel newCountriesProvincesPanel(final String id,
-		final StringTwoDropDownChoicesModel stringTwoDropDownChoicesModel)
+		final IModel<TwoDropDownChoicesModel<String>> stringTwoDropDownChoicesModel)
 	{
 		final CountriesProvincesPanel countriesProvincesPanel = new CountriesProvincesPanel(
 			"countriesProvincesPanel", stringTwoDropDownChoicesModel, new PropertiesChoiceRenderer(
@@ -173,6 +137,46 @@ public class AddressPanel extends GenericPanel<AddressBean>
 			}
 		};
 		return streetNumberPanel;
+	}
+
+	/**
+	 * Initialize model.
+	 *
+	 * @param model
+	 *            the model
+	 * @return the string two drop down choices model
+	 */
+	private IModel<TwoDropDownChoicesModel<String>> newTwoDropDownChoicesModel(
+		final IModel<AddressBean> model)
+	{
+		final AddressBean modelObject = model.getObject();
+		final TwoDropDownChoicesModel<String> stringTwoDropDownChoicesModel = modelObject
+			.getCountriesAndProvincesDropDownChoicesModel();
+		final Addresses address = modelObject.getAddress();
+		// Initialize the dropdown choices for the country and federal state...
+		if (address != null)
+		{
+			final Federalstates federalState = modelObject.getAddress().getFederalstate();
+			if (federalState != null)
+			{
+				stringTwoDropDownChoicesModel.setSelectedRootOption(federalState.getCountry()
+					.getName());
+				stringTwoDropDownChoicesModel.setSelectedChildOption(federalState
+					.getIso3166A2code());
+
+			}
+		}
+		else
+		{
+			final Zipcodes zc = AddressBookFactory.getInstance().newZipcodes(null, "", "");
+			final Addresses initialAddress = AddressBookFactory.getInstance().newAddresses("",
+				null, null, null, null, "", "", zc);
+			modelObject.setAddress(initialAddress);
+		}
+
+		final IModel<TwoDropDownChoicesModel<String>> twoDropDownChoicesModel = Model
+			.of(stringTwoDropDownChoicesModel);
+		return twoDropDownChoicesModel;
 	}
 
 	/**
