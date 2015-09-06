@@ -14,7 +14,7 @@ import user.management.application.models.InfringementModel;
 import de.alpharogroup.locale.ResourceBundleKey;
 import de.alpharogroup.wicket.base.util.properties.ComponentPropertiesKeysListResolver;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
-import de.alpharogroup.wicket.components.i18n.content.ContentModel;
+import de.alpharogroup.wicket.components.i18n.content.ContentModelBean;
 import de.alpharogroup.wicket.components.i18n.content.ContentPanel;
 import de.alpharogroup.wicket.components.i18n.list.UnorderedListPanel;
 import de.alpharogroup.wicket.components.infringement.form.InfringementFormPanel;
@@ -136,10 +136,11 @@ public abstract class InfringementPanel extends Panel
 	 */
 	protected Component newIntroductionPanel(final String id, final IModel<?> model)
 	{
-		final ContentPanel introductionPanel = new ContentPanel(id, Model.of(ContentModel.builder()
+		final ContentModelBean modelBean = ContentModelBean.builder()
 			.headerResourceKey(ResourceBundleKey.builder().key("header.label").build())
 			.contentResourceKey(ResourceBundleKey.builder().key("introduction.label").build())
-			.build()));
+			.build();
+		final ContentPanel introductionPanel = new ContentPanel(id, Model.of(modelBean));
 		return introductionPanel;
 	}
 

@@ -62,7 +62,7 @@
 		<wicket-bootstrap.version>0.9.8</wicket-bootstrap.version>
 		<google-closure.version>r2180</google-closure.version>
 		<!-- TURBO-SANSA DB MODULES versions -->
-		<db.modules.version>2.2.0</db.modules.version>
+		<db.modules.version>3.0.0</db.modules.version>
 		<address.book.version>${db.modules.version}</address.book.version>
 		<dao.api.version>${db.modules.version}</dao.api.version>
 		<db.resource.bundles.version>${db.modules.version}</db.resource.bundles.version>
@@ -73,7 +73,7 @@
 		<user.management.version>${db.modules.version}</user.management.version>
 		<events.system.version>${db.modules.version}</events.system.version>
 		<!-- JAULP versions -->
-		<jaulp.core.version>3.12.0</jaulp.core.version>
+		<jaulp.core.version>4.0.0</jaulp.core.version>
 		<jaulp.generic.tree.version>${jaulp.core.version}</jaulp.generic.tree.version>
 		<!-- MAVEN PLUGIN versions -->
 		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
