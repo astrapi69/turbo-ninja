@@ -131,33 +131,6 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 		return properties;
 	}
 
-	/**
-	 * Inits the.
-	 *
-	 * @see org.apache.wicket.Application#init()
-	 */
-	@Override
-	public void init()
-	{
-		super.init();
-
-		getApplicationSettings().setUploadProgressUpdatesEnabled(true);
-		// deactivate ajax debug mode
-		// getDebugSettings().setAjaxDebugModeEnabled(false);
-
-		configureBootstrap();
-		configureResourceBundles();
-
-		optimizeForWebPerformance();
-
-		new AnnotatedMountScanner().scanPackage(getPackageToScan()).mount(this);
-		if (Strings.isTrue(properties.getProperty("cdn.useCdn")))
-		{
-			final String cdn = properties.getProperty("cdn.baseUrl");
-			StaticResourceRewriteMapper.withBaseUrl(cdn).install(this);
-		}
-	}
-
 	private void initBootstrap(final ThemeProvider themeProvider)
 	{
 		final BootstrapSettings settings = new BootstrapSettings();
@@ -198,7 +171,6 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 		return "Cerulean";
 	}
 
-
 	protected Theme newTheme()
 	{
 		return null;
@@ -212,6 +184,35 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 			return new SingleThemeProvider(customTheme);
 		}
 		return new BootswatchThemeProvider(newDefaultTheme());
+	}
+
+
+	@Override
+	protected void onDeploymentModeSettings()
+	{
+		super.onDeploymentModeSettings();
+	}
+
+	@Override
+	protected void onGlobalSettings()
+	{
+		super.onGlobalSettings();
+
+		getApplicationSettings().setUploadProgressUpdatesEnabled(true);
+		// deactivate ajax debug mode
+		// getDebugSettings().setAjaxDebugModeEnabled(false);
+
+		configureBootstrap();
+		configureResourceBundles();
+
+		optimizeForWebPerformance();
+
+		new AnnotatedMountScanner().scanPackage(getPackageToScan()).mount(this);
+		if (Strings.isTrue(properties.getProperty("cdn.useCdn")))
+		{
+			final String cdn = properties.getProperty("cdn.baseUrl");
+			StaticResourceRewriteMapper.withBaseUrl(cdn).install(this);
+		}
 	}
 
 	/**

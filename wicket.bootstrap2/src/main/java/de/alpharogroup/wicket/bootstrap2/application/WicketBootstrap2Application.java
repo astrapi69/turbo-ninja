@@ -155,32 +155,6 @@ public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrl
 		return properties;
 	}
 
-	/**
-	 * Inits the.
-	 *
-	 * @see org.apache.wicket.Application#init()
-	 */
-	@Override
-	public void init()
-	{
-		super.init();
-
-		// deactivate ajax debug mode
-		// getDebugSettings().setAjaxDebugModeEnabled(false);
-
-		configureBootstrap();
-		configureResourceBundles();
-
-		optimizeForWebPerformance();
-
-		new AnnotatedMountScanner().scanPackage(getPackageToScan()).mount(this);
-		if (Strings.isTrue(properties.getProperty("cdn.useCdn")))
-		{
-			final String cdn = properties.getProperty("cdn.baseUrl");
-			StaticResourceRewriteMapper.withBaseUrl(cdn).install(this);
-		}
-	}
-
 	private void initBootstrap(final ThemeProvider themeProvider)
 	{
 		final BootstrapSettings settings = new BootstrapSettings();
@@ -188,7 +162,6 @@ public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrl
 		Bootstrap.install(this, settings);
 		BootstrapLess.install(this);
 	}
-
 
 	/**
 	 * loads all configuration properties from disk.
@@ -209,6 +182,7 @@ public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrl
 		return properties;
 	}
 
+
 	/**
 	 * Factory method for set the default theme of the application. This method is invoked in the
 	 * {@code WicketBootstrapApplication.configureBootstrap()} method and can be overridden from the
@@ -220,6 +194,26 @@ public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrl
 	protected String newDefaultTheme()
 	{
 		return BootswatchTheme.CERULEAN.name();
+	}
+
+	@Override
+	protected void onGlobalSettings()
+	{
+		// deactivate ajax debug mode
+		// getDebugSettings().setAjaxDebugModeEnabled(false);
+
+		configureBootstrap();
+		configureResourceBundles();
+
+		optimizeForWebPerformance();
+
+		new AnnotatedMountScanner().scanPackage(getPackageToScan()).mount(this);
+		if (Strings.isTrue(properties.getProperty("cdn.useCdn")))
+		{
+			final String cdn = properties.getProperty("cdn.baseUrl");
+			StaticResourceRewriteMapper.withBaseUrl(cdn).install(this);
+		}
+		super.onGlobalSettings();
 	}
 
 	/**
