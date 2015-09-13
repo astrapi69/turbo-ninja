@@ -18,7 +18,7 @@ import org.wicketstuff.chat.channel.examples.panels.notification.JqueryNotificat
 import org.wicketstuff.chat.components.notifications.InvitationPanel;
 import org.wicketstuff.chat.model.ChatroomModel;
 
-import de.alpharogroup.wicket.base.util.WicketComponentExtensions;
+import de.alpharogroup.wicket.header.contributors.HeaderResponseExtensions;
 import de.alpharogroup.wicket.js.addon.pnotify.PnotifyJsReference;
 
 public class WicketTimerChatPanelPage extends WebPage
@@ -67,7 +67,7 @@ public class WicketTimerChatPanelPage extends WebPage
 	{
 		super.renderHead(response);
 		response.render(JavaScriptHeaderItem.forReference(PnotifyJsReference.INSTANCE));
-		WicketComponentExtensions.renderHeaderResponse(response, this.getClass());
+		HeaderResponseExtensions.renderHeaderResponse(response, this.getClass());
 	}
 
 }

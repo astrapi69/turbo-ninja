@@ -6,7 +6,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 
 import de.alpharogroup.io.annotations.ImportResource;
 import de.alpharogroup.io.annotations.ImportResources;
-import de.alpharogroup.wicket.base.util.WicketComponentExtensions;
+import de.alpharogroup.wicket.header.contributors.HeaderResponseExtensions;
 
 @ImportResources(resources = { @ImportResource(resourceName = "notification.css", resourceType = "css", index = 0) })
 public class JqueryNotificationPanel extends Panel
@@ -33,7 +33,7 @@ public class JqueryNotificationPanel extends Panel
 	public void renderHead(final IHeaderResponse response)
 	{
 		super.renderHead(response);
-		WicketComponentExtensions.renderHeaderResponse(response, this.getClass());
+		HeaderResponseExtensions.renderHeaderResponse(response, this.getClass());
 	}
 
 }
