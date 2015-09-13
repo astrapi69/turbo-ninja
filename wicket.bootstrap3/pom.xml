@@ -9,7 +9,7 @@
 	</parent>
 
 	<artifactId>wicket.bootstrap3</artifactId>
-	<version>6.20.0</version>
+	<version>6.20.1</version>
 
 	<name>${project.artifactId}</name>
 
@@ -56,6 +56,7 @@
 		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 		<!-- WICKET version -->
 		<wicket.version>6.20.0</wicket.version>
+		<jaulp.wicket.version>6.20.1</jaulp.wicket.version>
 		<!-- WICKET EXTENSION LIBRARIES versions -->
 		<wicketstuff.version>6.20.0</wicketstuff.version>
 		<wicket-modelfactory.version>0.9.8</wicket-modelfactory.version>
@@ -63,9 +64,9 @@
 		<google-closure.version>v20130603</google-closure.version>
 		<!-- MAVEN PLUGIN versions -->
 		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
-		<maven-compiler-plugin.source.version>1.7</maven-compiler-plugin.source.version>
-		<maven-compiler-plugin.target.version>1.7</maven-compiler-plugin.target.version>
-		<maven-compiler-plugin.compilerVersion>1.7</maven-compiler-plugin.compilerVersion>
+		<maven-compiler-plugin.source.version>1.8</maven-compiler-plugin.source.version>
+		<maven-compiler-plugin.target.version>1.8</maven-compiler-plugin.target.version>
+		<maven-compiler-plugin.compilerVersion>1.8</maven-compiler-plugin.compilerVersion>
 		<maven-compiler-plugin.encoding>UTF-8</maven-compiler-plugin.encoding>
 		<maven-compiler-plugin.optimize>true</maven-compiler-plugin.optimize>
 		<maven-compiler-plugin.showWarnings>true</maven-compiler-plugin.showWarnings>
@@ -140,13 +141,13 @@
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
 				<artifactId>jaulp.wicket.base</artifactId>
-				<version>${wicket.version}</version>
+				<version>${jaulp.wicket.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
 				<artifactId>jaulp.wicket.components</artifactId>
-				<version>${wicket.version}</version>
+				<version>${jaulp.wicket.version}</version>
 			</dependency>
 
 		</dependencies>

@@ -9,7 +9,7 @@
 	</parent>
 
 	<artifactId>wicket.bootstrap2</artifactId>
-	<version>6.20.0</version>
+	<version>6.20.1</version>
 
 	<name>${project.artifactId}</name>
 
@@ -56,6 +56,7 @@
 		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 		<!-- WICKET version -->
 		<wicket.version>6.20.0</wicket.version>
+		<jaulp.wicket.version>6.20.1</jaulp.wicket.version>
 		<!-- WICKET EXTENSION LIBRARIES versions -->
 		<wicketstuff.version>6.20.0</wicketstuff.version>
 		<wicket-modelfactory.version>0.9.4</wicket-modelfactory.version>
@@ -146,13 +147,13 @@
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
 				<artifactId>jaulp.wicket.base</artifactId>
-				<version>${wicket.version}</version>
+				<version>${jaulp.wicket.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
 				<artifactId>jaulp.wicket.components</artifactId>
-				<version>${wicket.version}</version>
+				<version>${jaulp.wicket.version}</version>
 			</dependency>
 
 		</dependencies>
