@@ -3,15 +3,21 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>chat-systems</artifactId>
 		<version>6.20.0</version>
 	</parent>
+	
 	<artifactId>wicket-chat-api</artifactId>
+	
 	<name>${project.artifactId}</name>
-	<description>This project holds interfaces for the chat communication.
-Inspired from the wicketstuff push project. Many interfaces are took from the wicketstuff push project. </description>
+	
+	<description>
+		This project holds interfaces for the chat communication.
+		Inspired from the wicketstuff push project. Many interfaces are took from the wicketstuff push project. 
+	</description>
 
 	<dependencies>
 			<!-- WICKET DEPENDENCIES -->
