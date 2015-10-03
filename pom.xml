@@ -68,7 +68,10 @@
 		<!-- JAULP versions -->
 		<jaulp.core.version>4.1.0</jaulp.core.version>
 		<jaulp.lang.version>${jaulp.core.version}</jaulp.lang.version>
-		<jaulp.time.version>${jaulp.core.version}</jaulp.time.version>		
+		<jaulp.time.version>${jaulp.core.version}</jaulp.time.version>	
+		<!-- SERVLET-API version -->
+		<javax.servlet-api.version>3.0.1</javax.servlet-api.version>
+			
 	</properties>
 
 	<build>
