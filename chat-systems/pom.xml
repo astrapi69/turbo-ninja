@@ -38,38 +38,7 @@
 	</properties>
 
 	<dependencyManagement>
-		<dependencies>
-			<!-- JETTY 9 DEPENDENCIES FOR TESTING -->
-			<dependency>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-server</artifactId>
-				<version>${jetty9.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-webapp</artifactId>
-				<version>${jetty9.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-util</artifactId>
-				<version>${jetty9.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-jmx</artifactId>
-				<version>${jetty9.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-deploy</artifactId>
-				<version>${jetty9.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>wicket-jetty9-runner</artifactId>
-				<version>${wicket-jetty9-runner.version}</version>
-			</dependency>
+		<dependencies>			
 			<!-- WICKET DEPENDENCIES -->
 			<dependency>
 				<groupId>org.apache.wicket</groupId>
@@ -180,27 +149,6 @@
 			</testResource>
 		</testResources>
 
-		<pluginManagement>
-
-			<plugins>
-
-				<plugin>
-					<groupId>org.apache.tomcat.maven</groupId>
-					<artifactId>tomcat7-maven-plugin</artifactId>
-					<version>${tomcat7-maven-plugin.version}</version>
-					<configuration>
-						<path>/</path>
-						<port>8180</port>
-						<httpsPort>8443</httpsPort>
-						<keystoreFile>${project.build.directory}/test-classes/keystore</keystoreFile>
-						<keystorePass>wicket</keystorePass>
-					</configuration>
-				</plugin>
-
-			</plugins>
-
-		</pluginManagement>
-
 		<plugins>
 
 			<plugin>
@@ -216,18 +164,6 @@
 			<plugin>
 				<inherited>true</inherited>
 				<artifactId>maven-eclipse-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<inherited>true</inherited>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<inherited>true</inherited>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
 			</plugin>
 
 		</plugins>

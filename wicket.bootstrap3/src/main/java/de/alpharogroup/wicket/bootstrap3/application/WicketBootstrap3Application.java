@@ -53,7 +53,7 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 
 	/**
 	 * Get Application for current thread.
-	 * 
+	 *
 	 * @return The current thread's Application
 	 */
 	public static WicketBootstrap3Application get()
@@ -115,7 +115,7 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 	}
 
 	/**
-	 * Gets the package to scan.
+	 * Gets the package to scan. Is called with the {@link AnnotatedMountScanner} to mount pages.
 	 *
 	 * @return the package to scan
 	 */

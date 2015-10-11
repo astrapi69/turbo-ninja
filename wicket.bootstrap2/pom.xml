@@ -40,7 +40,7 @@
 		<wicket-modelfactory.version>0.9.4</wicket-modelfactory.version>
 		<wicket-bootstrap.version>0.8.4</wicket-bootstrap.version>
 		<google-closure.version>r2180</google-closure.version>
-		
+
 	</properties>
 
 	<dependencyManagement>
@@ -110,6 +110,12 @@
 				<artifactId>jaulp.wicket.base</artifactId>
 				<version>${jaulp.wicket.version}</version>
 			</dependency>
+			
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.wicket.behaviors</artifactId>
+				<version>${jaulp.wicket.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
@@ -131,6 +137,11 @@
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket-core</artifactId>
+		</dependency>
+		<!-- WICKETSTUFF DEPENDENCIES -->
+		<dependency>
+			<groupId>org.wicketstuff</groupId>
+			<artifactId>wicketstuff-annotation</artifactId>
 		</dependency>
 		<!-- WICKET-BOOTSTRAP DEPENDENCIES -->
 		<dependency>
@@ -161,6 +172,11 @@
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jaulp.wicket.base</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>jaulp.wicket.behaviors</artifactId>
 		</dependency>
 
 		<dependency>

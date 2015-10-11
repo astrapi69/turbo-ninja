@@ -170,6 +170,11 @@
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket-core</artifactId>
 		</dependency>
+		<!-- WIQUERY DEPENDENCIES -->
+		<dependency>
+			<groupId>org.odlabs.wiquery</groupId>
+			<artifactId>wiquery-core</artifactId>
+		</dependency>
 		<!-- JAULP-WICKET DEPENDENCIES -->
 		<dependency>
 			<groupId>de.alpharogroup</groupId>

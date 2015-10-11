@@ -70,7 +70,7 @@
 		<jaulp.lang.version>${jaulp.core.version}</jaulp.lang.version>
 		<jaulp.time.version>${jaulp.core.version}</jaulp.time.version>	
 		<!-- SERVLET-API version -->
-		<javax.servlet-api.version>3.0.1</javax.servlet-api.version>
+		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 			
 	</properties>
 
@@ -111,27 +111,6 @@
 			</testResource>
 		</testResources>
 
-		<pluginManagement>
-
-			<plugins>
-
-				<plugin>
-					<groupId>org.apache.tomcat.maven</groupId>
-					<artifactId>tomcat7-maven-plugin</artifactId>
-					<version>${tomcat7-maven-plugin.version}</version>
-					<configuration>
-						<path>/</path>
-						<port>8180</port>
-						<httpsPort>8443</httpsPort>
-						<keystoreFile>${project.build.directory}/test-classes/keystore</keystoreFile>
-						<keystorePass>wicket</keystorePass>
-					</configuration>
-				</plugin>
-
-			</plugins>
-
-		</pluginManagement>
-
 		<plugins>
 
 			<plugin>
@@ -147,18 +126,6 @@
 			<plugin>
 				<inherited>true</inherited>
 				<artifactId>maven-eclipse-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<inherited>true</inherited>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<inherited>true</inherited>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
 			</plugin>
 
 		</plugins>
