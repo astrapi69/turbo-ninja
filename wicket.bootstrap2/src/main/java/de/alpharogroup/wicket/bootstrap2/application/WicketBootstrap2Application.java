@@ -54,7 +54,7 @@ public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrl
 
 	/**
 	 * Get Application for current thread.
-	 * 
+	 *
 	 * @return The current thread's Application
 	 */
 	public static WicketBootstrap2Application get()
@@ -240,6 +240,6 @@ public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrl
 
 		setHeaderResponseDecorator(new RenderJavaScriptToFooterHeaderResponseDecorator());
 		getRequestCycleSettings().setRenderStrategy(
-			org.apache.wicket.settings.IRequestCycleSettings.RenderStrategy.ONE_PASS_RENDER);
+			org.apache.wicket.settings.RequestCycleSettings.RenderStrategy.ONE_PASS_RENDER);
 	}
 }

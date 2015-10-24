@@ -15,10 +15,12 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import de.alpharogroup.io.annotations.ImportResource;
 import de.alpharogroup.io.annotations.ImportResources;
+import de.alpharogroup.locale.ResourceBundleKey;
+import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 
 /**
  * The Class MemberInboxPanel.
- * 
+ *
  * @author Asterios Raptis
  */
 @ImportResources(resources = { @ImportResource(resourceName = "MemberInboxPanel.css", resourceType = "css") })
@@ -50,8 +52,8 @@ public abstract class AbstractMemberInboxPanel extends Panel
 		final List<Messages> contactedList = onFindContactedMessages();
 
 		final Object[] paramsinbox = { unrepliedList.size() };
-		final IModel<String> inboxModel = new StringResourceModel("global.inbox.tab.info", this,
-			null, paramsinbox);
+		final IModel<String> inboxModel = ResourceModelFactory.newResourceModel(ResourceBundleKey
+			.builder().key("global.inbox.tab.info").parameters(paramsinbox).build(), this);
 		tabs.add(new AbstractTab(inboxModel)
 		{
 			/**
@@ -67,8 +69,8 @@ public abstract class AbstractMemberInboxPanel extends Panel
 		});
 
 		final Object[] paramsSent = { sentList.size() };
-		final IModel<String> sentModel = new StringResourceModel("global.inbox.sent.tab.info",
-			this, null, paramsSent);
+		final IModel<String> sentModel = ResourceModelFactory.newResourceModel(ResourceBundleKey
+			.builder().key("global.inbox.sent.tab.info").parameters(paramsSent).build(), this);
 		tabs.add(new AbstractTab(sentModel)
 		{
 			/**
@@ -83,8 +85,9 @@ public abstract class AbstractMemberInboxPanel extends Panel
 			}
 		});
 		final Object[] paramsreaded = { contactedList.size() };
-		final IModel<String> readedModel = new StringResourceModel("global.inbox.readed.tab.info",
-			this, null, paramsreaded);
+		final IModel<String> readedModel = ResourceModelFactory.newResourceModel(ResourceBundleKey
+			.builder().key("global.inbox.readed.tab.info").parameters(paramsreaded).build(), this);
+
 		tabs.add(new AbstractTab(readedModel)
 		{
 			/**

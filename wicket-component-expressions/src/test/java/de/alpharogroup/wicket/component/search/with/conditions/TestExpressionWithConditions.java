@@ -1,4 +1,4 @@
-package de.alpharogroup.wicket.component.search;
+package de.alpharogroup.wicket.component.search.with.conditions;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,6 +7,8 @@ import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.alpharogroup.wicket.component.search.ComponentExpression;
+
 public class TestExpressionWithConditions
 {
 
@@ -14,7 +16,7 @@ public class TestExpressionWithConditions
 	 * one1 -> two1 -> two2 -> three1 -> four1
 	 */
 
-	WebMarkupContainer parent;
+	TestExpressionWithConditionsPanel parent;
 	WebMarkupContainer one1;
 	WebMarkupContainer two1;
 	WebMarkupContainer two2;
@@ -23,23 +25,20 @@ public class TestExpressionWithConditions
 
 	WicketTester tester;
 
-	@SuppressWarnings("deprecation")
 	@Before
 	public void setup()
 	{
 
 		tester = new WicketTester();
 
-		parent = new WebMarkupContainer("parent");
-		one1 = new WebMarkupContainer("one1");
-		two1 = new WebMarkupContainer("two1");
-		two2 = new WebMarkupContainer("two2");
-		three1 = new WebMarkupContainer("three1");
-		four1 = new WebMarkupContainer("four1");
+		parent = new TestExpressionWithConditionsPanel("parent");
+		one1 = parent.getOne1();
+		two1 = parent.getTwo1();
+		two2 = parent.getTwo2();
+		three1 = parent.getThree1();
+		four1 = parent.getFour1();
 
-		parent.add(one1.add(two1, two2.add(three1.add(four1))));
-
-		tester.startComponent(parent);
+		tester.startComponentInPage(parent);
 	}
 
 	@Test
