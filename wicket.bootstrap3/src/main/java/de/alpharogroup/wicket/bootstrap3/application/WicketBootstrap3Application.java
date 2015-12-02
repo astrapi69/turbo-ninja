@@ -5,6 +5,8 @@ import java.util.Properties;
 
 import org.apache.wicket.Application;
 import org.apache.wicket.WicketRuntimeException;
+import org.apache.wicket.markup.html.IPackageResourceGuard;
+import org.apache.wicket.markup.html.SecurePackageResourceGuard;
 import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
 import org.apache.wicket.request.resource.caching.FilenameWithVersionResourceCachingStrategy;
@@ -23,6 +25,8 @@ import de.agilecoders.wicket.core.markup.html.bootstrap.block.prettyprint.Pretti
 import de.agilecoders.wicket.core.markup.html.references.ModernizrJavaScriptReference;
 import de.agilecoders.wicket.core.request.resource.caching.version.Adler32ResourceVersion;
 import de.agilecoders.wicket.core.settings.BootstrapSettings;
+import de.agilecoders.wicket.core.settings.IBootstrapSettings;
+import de.agilecoders.wicket.core.settings.SessionThemeProvider;
 import de.agilecoders.wicket.core.settings.SingleThemeProvider;
 import de.agilecoders.wicket.core.settings.Theme;
 import de.agilecoders.wicket.core.settings.ThemeProvider;
@@ -133,8 +137,10 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 
 	private void initBootstrap(final ThemeProvider themeProvider)
 	{
-		final BootstrapSettings settings = new BootstrapSettings();
-		settings.setJsResourceFilterName(FOOTER_FILTER_NAME).setThemeProvider(themeProvider);
+		final IBootstrapSettings settings = new BootstrapSettings();
+		settings.setJsResourceFilterName(FOOTER_FILTER_NAME)
+		.setThemeProvider(themeProvider)
+        .setActiveThemeProvider(new SessionThemeProvider());
 		Bootstrap.install(this, settings);
 		BootstrapLess.install(this);
 	}
@@ -203,7 +209,7 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 		// getDebugSettings().setAjaxDebugModeEnabled(false);
 
 		configureBootstrap();
-		configureResourceBundles();
+//		configureResourceBundles();
 
 		optimizeForWebPerformance();
 
@@ -213,6 +219,12 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 			final String cdn = properties.getProperty("cdn.baseUrl");
 			StaticResourceRewriteMapper.withBaseUrl(cdn).install(this);
 		}
+
+        IPackageResourceGuard packageResourceGuard = getResourceSettings().getPackageResourceGuard();
+        if (packageResourceGuard instanceof SecurePackageResourceGuard) {
+            SecurePackageResourceGuard securePackageResourceGuard = (SecurePackageResourceGuard) packageResourceGuard;
+            securePackageResourceGuard.addPattern("+*.woff2");
+        }
 	}
 
 	/**

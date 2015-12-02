@@ -19,7 +19,7 @@
 
 	<properties>
 		<!-- WICKET EXTENSION LIBRARIES versions -->
-		<wicket-bootstrap.version>0.9.8</wicket-bootstrap.version>
+		<wicket-bootstrap.version>0.10.3</wicket-bootstrap.version>
 		<google-closure.version>v20130603</google-closure.version>
 	</properties>
 
