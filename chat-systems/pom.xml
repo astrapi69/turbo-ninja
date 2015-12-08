@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>chat-systems</artifactId>
-	<version>7.0.0</version>
+	<version>7.1.0</version>
 	<packaging>pom</packaging>
 
 	<name>${project.artifactId}</name>
@@ -26,8 +26,8 @@
 	</description>
 
 	<dependencyManagement>
-		<dependencies>			
-			
+		<dependencies>
+
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
 				<artifactId>wicket-chat-api</artifactId>
@@ -58,11 +58,6 @@
 				<version>${jaulp.wicket.version}</version>
 			</dependency>
 
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>jaulp.lang</artifactId>
-				<version>${jaulp.lang.version}</version>
-			</dependency>
 			<!-- WICKET-JS-ADDONS DEPENDENCIES -->
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
@@ -70,7 +65,7 @@
 				<version>${wicket-js-addons.version}</version>
 			</dependency>
 		</dependencies>
-		
+
 	</dependencyManagement>
 
 	<build>

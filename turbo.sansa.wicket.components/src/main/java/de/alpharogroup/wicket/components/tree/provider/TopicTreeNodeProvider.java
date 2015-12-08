@@ -13,13 +13,13 @@ import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import de.alpharogroup.locale.ResourceBundleUtils;
 import de.alpharogroup.tree.ifaces.ITreeNode;
-import events.system.model.Topics;
+import de.alpharogroup.event.system.entities.Topics;
+import de.alpharogroup.resourcebundle.locale.ResourceBundleExtensions;
 
 /**
  * The Class TopicTreeNodeProvider.
- * 
+ *
  * @author Asterios Raptis
  */
 public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<Topics>, String>
@@ -27,7 +27,7 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 
 	/**
 	 * The Class TreeNodeModel.
-	 * 
+	 *
 	 * @author Asterios Raptis
 	 */
 	private class TreeNodeModel extends LoadableDetachableModel<ITreeNode<Topics>>
@@ -39,11 +39,11 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 		private static final long serialVersionUID = 1L;
 
 		/** The id. */
-		private String id;
+		private final String id;
 
 		/**
 		 * Instantiates a new tree node model.
-		 * 
+		 *
 		 * @param treeNode
 		 *            the tree node
 		 */
@@ -52,14 +52,14 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 			super(treeNode);
 			id = treeNode.getValue().getId().toString();
 			final String propertiesKey = treeNode.getValue().getName();
-			final String topicTreeName = ResourceBundleUtils.getString(ResourceBundle.getBundle(
+			final String topicTreeName = ResourceBundleExtensions.getString(ResourceBundle.getBundle(
 				TopicsTreePanel.class.getName(), Session.get().getLocale()), propertiesKey);
 			treeNode.setDisplayValue(topicTreeName);
 		}
 
 		/**
 		 * {@inheritDoc}.
-		 * 
+		 *
 		 * @param obj
 		 *            the obj
 		 * @return true, if successful
@@ -77,7 +77,7 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 
 		/**
 		 * {@inheritDoc}.
-		 * 
+		 *
 		 * @return the int
 		 * @see java.lang.Object#hashCode()
 		 */
@@ -92,7 +92,7 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 
 		/**
 		 * {@inheritDoc}.
-		 * 
+		 *
 		 * @return the tree node
 		 * @see org.apache.wicket.model.LoadableDetachableModel#load()
 		 */
@@ -111,14 +111,14 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 	/**
 	 * All root {@link Topics}s.
 	 */
-	private List<ITreeNode<Topics>> roots;
+	private final List<ITreeNode<Topics>> roots;
 
 	/** The sort state. */
 	private SingleSortState<String> sortState;
 
 	/**
 	 * Instantiates a new topic tree node provider.
-	 * 
+	 *
 	 * @param root
 	 *            the root
 	 */
@@ -132,7 +132,7 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 
 	/**
 	 * {@inheritDoc}.
-	 * 
+	 *
 	 * @see org.apache.wicket.model.IDetachable#detach()
 	 */
 	@Override
@@ -143,7 +143,7 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 
 	/**
 	 * Gets the.
-	 * 
+	 *
 	 * @param treeNodes
 	 *            the tree nodes
 	 * @param id
@@ -170,7 +170,7 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 
 	/**
 	 * Get by its id.
-	 * 
+	 *
 	 * @param id
 	 *            the id
 	 * @return the topics
@@ -200,7 +200,7 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 
 	/**
 	 * Returns current sort sortState.
-	 * 
+	 *
 	 * @return current sort sortState
 	 */
 	public SortParam<String> getSort()
@@ -210,7 +210,7 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 
 	/**
 	 * Gets the sort state.
-	 * 
+	 *
 	 * @return the sort state
 	 */
 	@Override
@@ -239,7 +239,7 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 
 	/**
 	 * Sets the current sort sortState.
-	 * 
+	 *
 	 * @param param
 	 *            parameter containing new sorting information
 	 */
@@ -250,7 +250,7 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 
 	/**
 	 * Sets the current sort sortState.
-	 * 
+	 *
 	 * @param property
 	 *            sort property
 	 * @param ascending
@@ -263,7 +263,7 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 
 	/**
 	 * Sets the sort state.
-	 * 
+	 *
 	 * @param state
 	 *            the new sort state
 	 */

@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 
-import resource.system.application.model.ResourcesModel;
+import de.alpharogroup.resource.system.application.model.ResourcesModel;
+
 
 
 /**
  * The Class UploadFileModel.
- * 
+ *
  * @author Asterios Raptis
  */
 public class UploadFileModel extends ResourcesModel

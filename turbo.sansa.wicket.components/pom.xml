@@ -9,7 +9,7 @@
 	</parent>
 
 	<artifactId>turbo.sansa.wicket.components</artifactId>
-	<version>7.0.0</version>
+	<version>7.1.0</version>
 
 	<name>${project.artifactId}</name>
 
@@ -20,20 +20,6 @@
 	<properties>
 		<wicket-bootstrap.version>0.10.3</wicket-bootstrap.version>
 		<google-closure.version>r2180</google-closure.version>
-		<!-- TURBO-SANSA DB MODULES versions -->
-		<db.modules.version>3.0.0</db.modules.version>
-		<address.book.version>${db.modules.version}</address.book.version>
-		<dao.api.version>${db.modules.version}</dao.api.version>
-		<db.resource.bundles.version>${db.modules.version}</db.resource.bundles.version>
-		<message.system.version>${db.modules.version}</message.system.version>
-		<payment.module.version>${db.modules.version}</payment.module.version>
-		<rating.system.version>${db.modules.version}</rating.system.version>
-		<resource.system.version>${db.modules.version}</resource.system.version>
-		<user.management.version>${db.modules.version}</user.management.version>
-		<events.system.version>${db.modules.version}</events.system.version>
-		<!-- JAULP versions -->
-		<jaulp.core.version>4.0.0</jaulp.core.version>
-		<jaulp.generic.tree.version>${jaulp.core.version}</jaulp.generic.tree.version>		
 	</properties>
 
 	<dependencyManagement>
@@ -91,66 +77,6 @@
 				<artifactId>wicket.bootstrap3</artifactId>
 				<version>${jaulp.wicket.version}</version>
 			</dependency>
-			<!-- DB-MODULES DEPENDENCIES -->
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>message.system</artifactId>
-				<version>${message.system.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>db.resource.bundles</artifactId>
-				<version>${db.resource.bundles.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>address.book</artifactId>
-				<version>${address.book.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>dao.api</artifactId>
-				<version>${dao.api.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>user.management</artifactId>
-				<version>${user.management.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>resource.system</artifactId>
-				<version>${resource.system.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>events.system</artifactId>
-				<version>${events.system.version}</version>
-			</dependency>
-			<!-- JAULP DEPENDENCIES -->
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>jaulp.generic.tree</artifactId>
-				<version>${jaulp.generic.tree.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>jaulp.lang</artifactId>
-				<version>${jaulp.lang.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>jaulp.time</artifactId>
-				<version>${jaulp.time.version}</version>
-			</dependency>
 
 		</dependencies>
 
@@ -195,32 +121,41 @@
 		<!-- DB-MODULES DEPENDENCIES -->
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>message.system</artifactId>
+			<artifactId>message-system-business</artifactId>
+			<version>3.1.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>db.resource.bundles</artifactId>
+			<artifactId>resource-system-entities</artifactId>
+			<version>3.1.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>events.system</artifactId>
-		</dependency>
-		<!-- JAULP DEPENDENCIES -->
-		<dependency>
-			<groupId>de.alpharogroup</groupId>
-			<artifactId>jaulp.generic.tree</artifactId>
+			<artifactId>resource-bundles-business</artifactId>
+			<version>3.5.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>jaulp.lang</artifactId>
+			<artifactId>event-system-entities</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<!-- NEW EXTENSIONS LIB DEPENDENCIES -->
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>gen-tree</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>jaulp.time</artifactId>
+			<artifactId>jcommons-lang</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>vintage-time</artifactId>
 		</dependency>
 
 	</dependencies>

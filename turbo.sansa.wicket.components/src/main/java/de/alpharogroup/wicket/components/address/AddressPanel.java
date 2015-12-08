@@ -8,12 +8,13 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
-import address.book.factories.AddressBookFactory;
-import address.book.model.Addresses;
-import address.book.model.Federalstates;
-import address.book.model.Zipcodes;
+import de.alpharogroup.address.book.entities.Addresses;
+import de.alpharogroup.address.book.entities.Federalstates;
+import de.alpharogroup.address.book.entities.Zipcodes;
+import de.alpharogroup.address.book.factories.AddressBookFactory;
+
 import de.alpharogroup.collections.ListExtensions;
-import de.alpharogroup.locale.ResourceBundleKey;
+import de.alpharogroup.resourcebundle.locale.ResourceBundleKey;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.components.address.countries.CountriesProvincesPanel;
 import de.alpharogroup.wicket.components.factory.ComponentFactory;
@@ -23,7 +24,7 @@ import de.alpharogroup.wicket.model.dropdownchoices.TwoDropDownChoicesModel;
 
 /**
  * The class AddressPanel.
- * 
+ *
  * @author Asterios Raptis
  */
 public class AddressPanel extends GenericPanel<AddressBean>
@@ -36,7 +37,7 @@ public class AddressPanel extends GenericPanel<AddressBean>
 
 	/**
 	 * Instantiates a new address panel.
-	 * 
+	 *
 	 * @param id
 	 *            the id
 	 * @param model

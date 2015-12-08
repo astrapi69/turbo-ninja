@@ -1,21 +1,20 @@
 package de.alpharogroup.wicket.components.address.countries;
 
-import lombok.Getter;
-
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.IChoiceRenderer;
 import org.apache.wicket.model.IModel;
 
-import de.alpharogroup.locale.ResourceBundleKey;
+import de.alpharogroup.resourcebundle.locale.ResourceBundleKey;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.components.factory.ComponentFactory;
 import de.alpharogroup.wicket.components.i18n.dropdownchoice.panels.TwoDropDownChoicesPanel;
 import de.alpharogroup.wicket.model.dropdownchoices.TwoDropDownChoicesModel;
+import lombok.Getter;
 
 /**
  * The class CountriesProvincesPanel.
- * 
+ *
  * @author Asterios Raptis
  */
 public class CountriesProvincesPanel extends TwoDropDownChoicesPanel<String>
@@ -32,11 +31,11 @@ public class CountriesProvincesPanel extends TwoDropDownChoicesPanel<String>
 
 	/** The wmc child choice. */
 	@Getter
-	private WebMarkupContainer wmcChildChoice;
+	private final WebMarkupContainer wmcChildChoice;
 
 	/**
 	 * Instantiates a new countries provinces panel.
-	 * 
+	 *
 	 * @param id
 	 *            the id
 	 * @param stringTwoDropDownChoicesModel

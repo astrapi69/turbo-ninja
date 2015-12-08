@@ -1,21 +1,21 @@
 package de.alpharogroup.wicket.components.sign.up;
 
+import de.alpharogroup.address.book.application.model.LocationModel;
+import de.alpharogroup.address.book.entities.Addresses;
+import de.alpharogroup.auth.models.BaseUsernameSignUpModel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import address.book.application.model.LocationModel;
-import address.book.model.Addresses;
-import de.alpharogroup.auth.models.BaseUsernameSignUpModel;
 
 
 @EqualsAndHashCode(callSuper = true)
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class SignUpModel extends BaseUsernameSignUpModel implements LocationModel
+public class SignUpModel extends BaseUsernameSignUpModel implements LocationModel<Addresses>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -28,6 +28,5 @@ public class SignUpModel extends BaseUsernameSignUpModel implements LocationMode
 	@Getter
 	@Setter
 	private String selectedCountryName;
-
 
 }

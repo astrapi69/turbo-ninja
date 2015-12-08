@@ -15,7 +15,7 @@ import de.alpharogroup.tree.ifaces.ITreeNode;
 import de.alpharogroup.wicket.components.tree.content.CheckedFolderContent;
 import de.alpharogroup.wicket.components.tree.model.Content;
 import de.alpharogroup.wicket.components.tree.panel.AbstractTreeFormComponentPanel;
-import events.system.model.Topics;
+import de.alpharogroup.event.system.entities.Topics;
 
 /**
  * The Class TopicsTreePanel.

@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-wicket-parent</artifactId>
-		<version>7.0.0</version>
+		<version>7.1.2</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -63,18 +63,14 @@
 
 	<properties>
 		<!-- WICKET version -->
-		<wicket.version>7.0.0</wicket.version>
+		<wicket.version>7.1.0</wicket.version>
 		<!-- JAULP-WICKET version -->
-		<jaulp.wicket.version>7.0.0</jaulp.wicket.version>
+		<jaulp.wicket.version>7.1.0</jaulp.wicket.version>
 		<!-- WICKET-JS-ADDONS version -->
-		<wicket-js-addons.version>7.0.0</wicket-js-addons.version>
-		<!-- JAULP versions -->
-		<jaulp.core.version>4.2.0</jaulp.core.version>
-		<jaulp.lang.version>${jaulp.core.version}</jaulp.lang.version>
-		<jaulp.time.version>${jaulp.core.version}</jaulp.time.version>	
+		<wicket-js-addons.version>7.1.0</wicket-js-addons.version>
 		<!-- SERVLET-API version -->
 		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
-			
+
 	</properties>
 
 	<build>

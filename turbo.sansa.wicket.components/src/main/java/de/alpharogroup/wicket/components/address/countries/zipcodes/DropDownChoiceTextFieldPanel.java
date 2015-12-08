@@ -19,13 +19,14 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.util.string.Strings;
 
-import address.book.application.model.LocationModel;
+import de.alpharogroup.address.book.application.model.LocationModel;
+import de.alpharogroup.address.book.entities.Addresses;
 import de.alpharogroup.wicket.components.i18n.dropdownchoice.LocalisedDropDownChoice;
 import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
 
 /**
  * The Class DropDownChoiceTextFieldPanel.
- * 
+ *
  * @author Asterios Raptis
  */
 public class DropDownChoiceTextFieldPanel extends Panel
@@ -72,7 +73,7 @@ public class DropDownChoiceTextFieldPanel extends Panel
 	public DropDownChoiceTextFieldPanel(final String id,
 		final StringTwoDropDownChoicesModel stringTwoDropDownChoicesModel,
 		final IChoiceRenderer<String> rootRenderer, final IModel<String> rootLabelModel,
-		final IModel<String> childLabelModel, final IModel<LocationModel> locationModel)
+		final IModel<String> childLabelModel, final IModel<LocationModel<Addresses>> locationModel)
 	{
 		super(id);
 		this.stringTwoDropDownChoicesModel = stringTwoDropDownChoicesModel;
@@ -156,7 +157,7 @@ public class DropDownChoiceTextFieldPanel extends Panel
 		return new DefaultCssAutoCompleteTextField<String>(id, model)
 		{
 			/**
-			 * 
+			 *
 			 */
 			private static final long serialVersionUID = 1L;
 
@@ -192,7 +193,7 @@ public class DropDownChoiceTextFieldPanel extends Panel
 	/**
 	 * Factory method for creating the root Label. This method is invoked in the constructor from
 	 * the derived classes and can be overridden so users can provide their own version of a Label.
-	 * 
+	 *
 	 * @param forId
 	 *            the for id
 	 * @param model
@@ -207,7 +208,7 @@ public class DropDownChoiceTextFieldPanel extends Panel
 	/**
 	 * Factory method for creating the Label. This method is invoked in the constructor from the
 	 * derived classes and can be overridden so users can provide their own version of a Label.
-	 * 
+	 *
 	 * @param id
 	 *            the id
 	 * @param forId
@@ -233,7 +234,7 @@ public class DropDownChoiceTextFieldPanel extends Panel
 	/**
 	 * Factory method for creating the root Label. This method is invoked in the constructor from
 	 * the derived classes and can be overridden so users can provide their own version of a Label.
-	 * 
+	 *
 	 * @param forId
 	 *            the for id
 	 * @param model

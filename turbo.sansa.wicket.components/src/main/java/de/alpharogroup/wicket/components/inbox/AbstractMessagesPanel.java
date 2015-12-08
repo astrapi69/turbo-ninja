@@ -2,9 +2,6 @@ package de.alpharogroup.wicket.components.inbox;
 
 import java.util.List;
 
-import message.system.enums.MessageState;
-import message.system.model.Messages;
-
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.extensions.markup.html.repeater.data.sort.OrderByLink;
 import org.apache.wicket.extensions.markup.html.repeater.data.sort.SortOrder;
@@ -18,13 +15,13 @@ import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
 import org.apache.wicket.model.CompoundPropertyModel;
 
+import de.alpharogroup.message.system.entities.Messages;
+import de.alpharogroup.message.system.enums.MessageState;
 import de.alpharogroup.wicket.model.provider.MessagesProvider;
-
-//import wicket.app.base.model.provider.MessagesProvider;
 
 /**
  * The Class MessagesPanel.
- * 
+ *
  * @author Asterios Raptis
  */
 public abstract class AbstractMessagesPanel extends Panel
@@ -37,7 +34,7 @@ public abstract class AbstractMessagesPanel extends Panel
 
 	/**
 	 * Instantiates a new messages panel.
-	 * 
+	 *
 	 * @param id
 	 *            the id
 	 * @param state

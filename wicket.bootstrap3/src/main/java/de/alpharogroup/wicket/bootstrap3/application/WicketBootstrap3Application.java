@@ -66,7 +66,7 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 	}
 
 	/** The properties. */
-	private Properties properties;
+	private final Properties properties;
 
 	/**
 	 * Constructor.
@@ -89,7 +89,7 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 	/**
 	 * configure all resource bundles (css and js).
 	 */
-	private void configureResourceBundles()
+	protected void configureResourceBundles()
 	{
 		getResourceBundles().addJavaScriptBundle(WicketBootstrap3Application.class, "core.js",
 			(JavaScriptResourceReference)getJavaScriptLibrarySettings().getJQueryReference(),
@@ -220,9 +220,9 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 			StaticResourceRewriteMapper.withBaseUrl(cdn).install(this);
 		}
 
-        IPackageResourceGuard packageResourceGuard = getResourceSettings().getPackageResourceGuard();
+        final IPackageResourceGuard packageResourceGuard = getResourceSettings().getPackageResourceGuard();
         if (packageResourceGuard instanceof SecurePackageResourceGuard) {
-            SecurePackageResourceGuard securePackageResourceGuard = (SecurePackageResourceGuard) packageResourceGuard;
+            final SecurePackageResourceGuard securePackageResourceGuard = (SecurePackageResourceGuard) packageResourceGuard;
             securePackageResourceGuard.addPattern("+*.woff2");
         }
 	}

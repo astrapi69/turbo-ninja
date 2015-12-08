@@ -4,9 +4,9 @@ import java.util.Set;
 
 import org.apache.wicket.markup.html.image.NonCachingImage;
 
-import resource.system.application.model.ResourcesModel;
-import resource.system.model.Resources;
-import user.management.model.Users;
+import de.alpharogroup.resource.system.application.model.ResourcesModel;
+import de.alpharogroup.resource.system.entities.Resources;
+import de.alpharogroup.user.management.entities.Users;
 import de.alpharogroup.wicket.base.util.WicketImageExtensions;
 
 /**
@@ -17,7 +17,7 @@ public class WicketNonCachingImageExtensions
 
 	/**
 	 * Gets the first Images object from the given Set or null if the given Set is null or empty.
-	 * 
+	 *
 	 * @param images
 	 *            the Set of Images objects.
 	 * @return the first Images object from the given Set or null if the given Set is null or empty.
@@ -35,7 +35,7 @@ public class WicketNonCachingImageExtensions
 
 	/**
 	 * Gets the first image from the given Set with the default wicket:id="image".
-	 * 
+	 *
 	 * @param images
 	 *            the Set of images
 	 * @return the first image in the Set or an empty image.
@@ -47,7 +47,7 @@ public class WicketNonCachingImageExtensions
 
 	/**
 	 * Gets the wicket image from the given db Images object.
-	 * 
+	 *
 	 * @param img
 	 *            the given db Images object.
 	 * @param wicketId
@@ -72,7 +72,7 @@ public class WicketNonCachingImageExtensions
 
 	/**
 	 * Gets the wicket image from the given db Images object.
-	 * 
+	 *
 	 * @param img
 	 *            the given db Images object.
 	 * @param wicketId
@@ -97,7 +97,7 @@ public class WicketNonCachingImageExtensions
 
 	/**
 	 * Gets the first image from the given Set.
-	 * 
+	 *
 	 * @param images
 	 *            the Set of images
 	 * @param wicketId
@@ -135,7 +135,7 @@ public class WicketNonCachingImageExtensions
 
 	/**
 	 * Gets the user image with the default wicket:id="image".
-	 * 
+	 *
 	 * @param user
 	 *            the user
 	 * @return the user image
@@ -148,7 +148,7 @@ public class WicketNonCachingImageExtensions
 
 	/**
 	 * Gets the user image.
-	 * 
+	 *
 	 * @param user
 	 *            the user
 	 * @param wicketId
@@ -164,7 +164,7 @@ public class WicketNonCachingImageExtensions
 	/**
 	 * Gets the Images object from the given user or null if the user does not have any Images
 	 * objects in the database.
-	 * 
+	 *
 	 * @param user
 	 *            the user
 	 * @return the user images
@@ -177,7 +177,7 @@ public class WicketNonCachingImageExtensions
 
 	/**
 	 * Gets the user image.
-	 * 
+	 *
 	 * @param user
 	 *            the user
 	 * @param wicketId

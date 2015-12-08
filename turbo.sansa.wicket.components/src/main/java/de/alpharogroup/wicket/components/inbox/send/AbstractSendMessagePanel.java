@@ -1,7 +1,5 @@
 package de.alpharogroup.wicket.components.inbox.send;
 
-import message.system.application.models.send.SendMessagePanelModel;
-
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.basic.Label;
@@ -14,6 +12,7 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.StringResourceModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
+import de.alpharogroup.message.system.application.models.send.SendMessagePanelModel;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.components.labeled.textarea.LabeledTextAreaPanel;
 import de.alpharogroup.wicket.components.labeled.textfield.LabeledTextFieldPanel;

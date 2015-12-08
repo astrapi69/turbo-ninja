@@ -9,8 +9,8 @@ import org.apache.wicket.Session;
 import org.apache.wicket.protocol.http.WebSession;
 import org.apache.wicket.request.Request;
 
-import user.management.model.Roles;
-import user.management.model.Users;
+import de.alpharogroup.user.management.entities.Roles;
+import de.alpharogroup.user.management.entities.Users;
 
 /**
  * The Class WicketSession is the session object for this application.
@@ -29,7 +29,7 @@ public abstract class AbstractWicketSession<USERID> extends WebSession
 
 	/**
 	 * Gets the WicketSession for this application.
-	 * 
+	 *
 	 * @return the current WicketSession object.
 	 */
 	@SuppressWarnings("rawtypes")
@@ -44,14 +44,14 @@ public abstract class AbstractWicketSession<USERID> extends WebSession
 	/**
 	 * The user attributes. Holds data for the user session.
 	 **/
-	private Map<String, Serializable> userAttributes = new LinkedHashMap<String, Serializable>();
+	private final Map<String, Serializable> userAttributes = new LinkedHashMap<String, Serializable>();
 
 	/** The user id. */
 	protected USERID userId;
 
 	/**
 	 * Instantiates a new WicketSession.
-	 * 
+	 *
 	 * @param request
 	 *            The current request
 	 */
@@ -62,7 +62,7 @@ public abstract class AbstractWicketSession<USERID> extends WebSession
 
 	/**
 	 * Gets the roles.
-	 * 
+	 *
 	 * @return the roles
 	 */
 	public synchronized List<Roles> getRoles()
@@ -72,14 +72,14 @@ public abstract class AbstractWicketSession<USERID> extends WebSession
 
 	/**
 	 * Gets the user.
-	 * 
+	 *
 	 * @return the user
 	 */
 	public abstract Users getUser();
 
 	/**
 	 * Gets the user attribute.
-	 * 
+	 *
 	 * @param key
 	 *            the key
 	 * @return the user attribute
@@ -133,7 +133,7 @@ public abstract class AbstractWicketSession<USERID> extends WebSession
 
 	/**
 	 * Checks if the user is in the given Roles object.
-	 * 
+	 *
 	 * @param role
 	 *            the role
 	 * @return true, if successful
@@ -153,7 +153,7 @@ public abstract class AbstractWicketSession<USERID> extends WebSession
 
 	/**
 	 * Checks if the user is in the role lookup is made over the role name.
-	 * 
+	 *
 	 * @param rolename
 	 *            the role name
 	 * @return true, if successful
@@ -176,7 +176,7 @@ public abstract class AbstractWicketSession<USERID> extends WebSession
 
 	/**
 	 * Checks if is user signed in.
-	 * 
+	 *
 	 * @return true, if is user signed in
 	 */
 	public synchronized boolean isSignedIn()
@@ -193,7 +193,7 @@ public abstract class AbstractWicketSession<USERID> extends WebSession
 
 	/**
 	 * Removes the user attribute.
-	 * 
+	 *
 	 * @param key
 	 *            the key
 	 * @return the user attribute
@@ -205,7 +205,7 @@ public abstract class AbstractWicketSession<USERID> extends WebSession
 
 	/**
 	 * Sets the roles.
-	 * 
+	 *
 	 * @param roles
 	 *            the new roles
 	 */
@@ -224,7 +224,7 @@ public abstract class AbstractWicketSession<USERID> extends WebSession
 
 	/**
 	 * Sets the user attribute.
-	 * 
+	 *
 	 * @param key
 	 *            the key
 	 * @param value

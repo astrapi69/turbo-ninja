@@ -2,12 +2,12 @@ package de.alpharogroup.wicket.model.provider;
 
 import java.util.List;
 
-import message.system.model.Messages;
+import de.alpharogroup.message.system.entities.Messages;
 import de.alpharogroup.wicket.data.provider.AbstractSortableDataProvider;
 
 /**
  * The Class MessagesProvider.
- * 
+ *
  * @author Asterios Raptis
  */
 public class MessagesProvider extends AbstractSortableDataProvider<Messages, String>
@@ -20,7 +20,7 @@ public class MessagesProvider extends AbstractSortableDataProvider<Messages, Str
 
 	/**
 	 * Instantiates a new messages provider.
-	 * 
+	 *
 	 * @param data
 	 *            the data
 	 */

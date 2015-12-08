@@ -1,17 +1,16 @@
 package de.alpharogroup.wicket.components.inbox;
 
-import message.system.enums.MessageState;
-
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
+import de.alpharogroup.message.system.enums.MessageState;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 
 /**
  * The Class AbstractInboxPanel.
- * 
+ *
  * @author Asterios Raptis
  */
 public abstract class AbstractInboxPanel extends Panel
@@ -33,7 +32,7 @@ public abstract class AbstractInboxPanel extends Panel
 
 	/**
 	 * Constructor for the AbstractInboxPanel.
-	 * 
+	 *
 	 * @param id
 	 *            the id
 	 */

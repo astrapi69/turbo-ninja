@@ -1,12 +1,12 @@
 package de.alpharogroup.wicket.components.inbox;
 
-import message.system.enums.MessageState;
-
 import org.apache.wicket.markup.html.panel.Panel;
+
+import de.alpharogroup.message.system.enums.MessageState;
 
 /**
  * The Class ContactedPanel.
- * 
+ *
  * @author Asterios Raptis
  */
 public abstract class AbstractReadedPanel extends Panel
@@ -19,7 +19,7 @@ public abstract class AbstractReadedPanel extends Panel
 
 	/**
 	 * Instantiates a new contacted panel.
-	 * 
+	 *
 	 * @param id
 	 *            the id
 	 */

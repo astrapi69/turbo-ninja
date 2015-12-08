@@ -1,8 +1,8 @@
 package de.alpharogroup.wicket.components.inbox.send.response;
 
-import message.system.application.models.ReplyMessageModel;
-import message.system.application.models.utlis.MessageModelConverter;
-import message.system.model.Messages;
+import de.alpharogroup.message.system.application.models.ReplyMessageModel;
+import de.alpharogroup.message.system.application.models.utils.MessageModelConverter;
+import de.alpharogroup.message.system.entities.Messages;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;

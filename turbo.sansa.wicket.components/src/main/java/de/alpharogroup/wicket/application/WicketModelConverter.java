@@ -6,12 +6,12 @@ import org.apache.commons.lang.ArrayUtils;
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.apache.wicket.model.util.ListModel;
 
-import resource.system.application.model.ResourcesModel;
-import resource.system.application.util.ModelConverter;
-import resource.system.model.Resources;
-import de.alpharogroup.date.CreateDateUtils;
+import de.alpharogroup.date.CreateDateExtensions;
 import de.alpharogroup.file.checksum.Algorithm;
-import de.alpharogroup.file.checksum.ChecksumUtils;
+import de.alpharogroup.file.checksum.ChecksumExtensions;
+import de.alpharogroup.resource.system.application.model.ResourcesModel;
+import de.alpharogroup.resource.system.application.util.ModelConverter;
+import de.alpharogroup.resource.system.entities.Resources;
 
 /**
  * The Class WicketModelConverter.
@@ -51,8 +51,8 @@ public class WicketModelConverter
 		model.setDescription(description);
 		model.setFilename(upload.getClientFileName());
 		model.setFilesize(upload.getSize() + "");
-		model.setCreated(CreateDateUtils.now());
-		model.setChecksum(ChecksumUtils.getChecksumQuietly(upload.getBytes(),
+		model.setCreated(CreateDateExtensions.now());
+		model.setChecksum(ChecksumExtensions.getChecksumQuietly(upload.getBytes(),
 			Algorithm.SHA_256.getAlgorithm()));
 		model.setDeletedFlag(Boolean.FALSE);
 		return model;

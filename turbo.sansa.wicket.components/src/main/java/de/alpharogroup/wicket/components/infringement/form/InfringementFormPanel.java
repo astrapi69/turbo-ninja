@@ -7,7 +7,7 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
-import user.management.application.models.InfringementModel;
+import de.alpharogroup.user.management.application.models.InfringementModel;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.components.infringement.input.InfringementInputPanel;
 
@@ -83,7 +83,7 @@ public abstract class InfringementFormPanel extends Panel
 	/**
 	 * Factory method for creating the Label. This method is invoked in the constructor from the
 	 * derived classes and can be overridden so users can provide their own version of a Label.
-	 * 
+	 *
 	 * @param id
 	 *            the id
 	 * @param resourceKey
@@ -106,7 +106,7 @@ public abstract class InfringementFormPanel extends Panel
 
 	/**
 	 * New form.
-	 * 
+	 *
 	 * @param id
 	 *            the id
 	 * @param model

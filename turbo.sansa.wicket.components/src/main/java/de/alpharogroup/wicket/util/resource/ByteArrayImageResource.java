@@ -2,7 +2,7 @@ package de.alpharogroup.wicket.util.resource;
 
 import org.apache.commons.lang.ArrayUtils;
 
-import resource.system.model.Resources;
+import de.alpharogroup.resource.system.entities.Resources;
 import de.alpharogroup.wicket.base.util.resource.DatabaseImageResource;
 
 public class ByteArrayImageResource extends DatabaseImageResource

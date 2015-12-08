@@ -4,18 +4,18 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>chat-systems</artifactId>
-		<version>7.0.0</version>
+		<version>7.1.0</version>
 	</parent>
 	<artifactId>wicket-channel-chat</artifactId>
-	
+
 	<dependencies>
-	
+
 		<!-- WIQUERY DEPENDENCIES -->
 		<dependency>
 			<groupId>org.odlabs.wiquery</groupId>
 			<artifactId>wiquery-core</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>wicket-chat-api</artifactId>
@@ -23,7 +23,7 @@
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>jaulp.lang</artifactId>
+			<artifactId>jcommons-lang</artifactId>
 		</dependency>
 
 		<dependency>
@@ -45,6 +45,6 @@
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>wicket-pnotify</artifactId>
 		</dependency>
-		
+
 	</dependencies>
 </project>

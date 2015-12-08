@@ -9,7 +9,8 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
-import address.book.application.model.LocationModel;
+import de.alpharogroup.address.book.application.model.LocationModel;
+import de.alpharogroup.address.book.entities.Addresses;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.components.sign.up.SignUpModel;
 
@@ -28,7 +29,7 @@ public abstract class SearchLocationFormPanel extends Panel
 
 	private final Form<SignUpModel> form;
 
-	public SearchLocationFormPanel(final String id, final IModel<LocationModel> model)
+	public SearchLocationFormPanel(final String id, final IModel<LocationModel<Addresses>> model)
 	{
 		super(id);
 
@@ -45,9 +46,9 @@ public abstract class SearchLocationFormPanel extends Panel
 	}
 
 	protected abstract LocationPanel newLocationPanel(final String id,
-		final IModel<? extends LocationModel> model);
+		final IModel<? extends LocationModel<Addresses>> model);
 
-	protected AjaxButton newButton(final String id, final IModel<LocationModel> model)
+	protected AjaxButton newButton(final String id, final IModel<LocationModel<Addresses>> model)
 	{
 
 		return new IndicatingAjaxButton(id, form)
@@ -66,7 +67,7 @@ public abstract class SearchLocationFormPanel extends Panel
 			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 				target.add(form);
-				final LocationModel object = model.getObject();
+				final LocationModel<Addresses> object = model.getObject();
 				final String countryName = locationPanel.getDropDownChoiceTextFieldPanel()
 					.getStringTwoDropDownChoicesModel().getSelectedRootOption();
 				object.setSelectedCountryName(countryName);
@@ -81,7 +82,7 @@ public abstract class SearchLocationFormPanel extends Panel
 
 	/**
 	 * New form.
-	 * 
+	 *
 	 * @param id
 	 *            the id
 	 * @return the form
@@ -96,7 +97,7 @@ public abstract class SearchLocationFormPanel extends Panel
 	/**
 	 * Factory method for creating the Label. This method is invoked in the constructor from the
 	 * derived classes and can be overridden so users can provide their own version of a Label.
-	 * 
+	 *
 	 * @param id
 	 *            the id
 	 * @param resourceKey
@@ -127,6 +128,6 @@ public abstract class SearchLocationFormPanel extends Panel
 		return submitButton;
 	}
 
-	public abstract void onSearch(final AjaxRequestTarget target, final LocationModel object);
+	public abstract void onSearch(final AjaxRequestTarget target, final LocationModel<Addresses> object);
 
 }

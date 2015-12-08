@@ -17,11 +17,8 @@ package de.alpharogroup.wicket.component.search.on.list;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Arrays;
-
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.Before;
@@ -37,7 +34,7 @@ public class TestComponentExpressionOnList
 	 * one1 -> two1 -> two2 -> three1 -> four1
 	 */
 
-	private static class WMCSubClass extends WebMarkupContainer
+	protected static class WMCSubClass extends WebMarkupContainer
 	{
 
 		private static final long serialVersionUID = 1L;

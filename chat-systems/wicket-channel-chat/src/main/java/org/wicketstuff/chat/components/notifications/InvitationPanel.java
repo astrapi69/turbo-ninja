@@ -7,7 +7,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.time.Duration;
 import org.wicketstuff.chat.model.ChatroomModel;
 
-import de.alpharogroup.string.StringUtils;
+import de.alpharogroup.string.StringExtensions;
 
 public abstract class InvitationPanel extends NotificationPanel
 {
@@ -20,7 +20,7 @@ public abstract class InvitationPanel extends NotificationPanel
 	public static final String CHAT_LINK = "chatLink";
 	public static final String INVITATION_LABEL = "invitationLabel";
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -34,15 +34,15 @@ public abstract class InvitationPanel extends NotificationPanel
 	protected String onGetJavaScript(final Map<String, String> data)
 	{
 		final long delay = getDuration().getMilliseconds();
-		final String invitationLabel = StringUtils.getValue(data, INVITATION_LABEL,
+		final String invitationLabel = StringExtensions.getValue(data, INVITATION_LABEL,
 			"Chat invitation ");
-		final String chatLinkAddress = StringUtils.getValue(data, CHAT_LINK, "");
-		final String chatLinkLabel = StringUtils.getValue(data, CHAT_LINK_LABEL, "Chat now");
-		final String profileLinkAddress = StringUtils.getValue(data, PROFILE_LINK, "");
-		final String profileLinkLabel = StringUtils.getValue(data, PROFILE_LINK_LABEL,
+		final String chatLinkAddress = StringExtensions.getValue(data, CHAT_LINK, "");
+		final String chatLinkLabel = StringExtensions.getValue(data, CHAT_LINK_LABEL, "Chat now");
+		final String profileLinkAddress = StringExtensions.getValue(data, PROFILE_LINK, "");
+		final String profileLinkLabel = StringExtensions.getValue(data, PROFILE_LINK_LABEL,
 			"Show profile");
-		final String closeLinkLabel = StringUtils.getValue(data, CLOSE_LINK_LABEL, "Close");
-		final String chatroom = StringUtils.getValue(data, CHATROOM, UUID.randomUUID().toString()
+		final String closeLinkLabel = StringExtensions.getValue(data, CLOSE_LINK_LABEL, "Close");
+		final String chatroom = StringExtensions.getValue(data, CHATROOM, UUID.randomUUID().toString()
 			.substring(0, 7));
 		final String divId = getNotification().getMarkupId() + "_" + chatroom;
 		final String closeId = divId + "_close";

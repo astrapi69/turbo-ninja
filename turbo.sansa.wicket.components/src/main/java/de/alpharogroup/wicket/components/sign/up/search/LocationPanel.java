@@ -7,7 +7,8 @@ import org.apache.wicket.markup.html.basic.MultiLineLabel;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
-import address.book.application.model.LocationModel;
+import de.alpharogroup.address.book.application.model.LocationModel;
+import de.alpharogroup.address.book.entities.Addresses;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.components.address.countries.zipcodes.DropDownChoiceTextFieldPanel;
 import de.alpharogroup.wicket.components.i18n.dropdownchoice.renderers.PropertiesChoiceRenderer;
@@ -20,12 +21,12 @@ public abstract class LocationPanel extends Panel
 	private final MultiLineLabel locationDescriptionLabel;
 
 	@SuppressWarnings("unchecked")
-	public LocationPanel(final String id, final IModel<? extends LocationModel> model)
+	public LocationPanel(final String id, final IModel<? extends LocationModel<Addresses>> model)
 	{
 		super(id);
 		add(locationDescriptionLabel = newLocationDescriptionLabel("locationDescriptionLabel"));
 		add(dropDownChoiceTextFieldPanel = newDropDownChoiceTextFieldPanel(
-			"dropDownChoiceTextFieldPanel", (IModel<LocationModel>)model));
+			"dropDownChoiceTextFieldPanel", (IModel<LocationModel<Addresses>>)model));
 	}
 
 	public DropDownChoiceTextFieldPanel getDropDownChoiceTextFieldPanel()
@@ -41,7 +42,7 @@ public abstract class LocationPanel extends Panel
 	protected abstract Map<String, List<String>> newCountriesToZipcodesMap();
 
 	protected DropDownChoiceTextFieldPanel newDropDownChoiceTextFieldPanel(final String id,
-		final IModel<LocationModel> model)
+		final IModel<LocationModel<Addresses>> model)
 	{
 		final Map<String, List<String>> zipcodesMap = newCountriesToZipcodesMap();
 		// Create the dropdown for countries with label...

@@ -2,12 +2,12 @@ package de.alpharogroup.wicket.model.provider;
 
 import java.util.List;
 
-import address.book.model.Addresses;
+import de.alpharogroup.address.book.entities.Addresses;
 import de.alpharogroup.wicket.data.provider.AbstractSortableDataProvider;
 
 /**
  * The Class AddressesProvider.
- * 
+ *
  * @author Asterios Raptis
  */
 public class AddressesProvider extends AbstractSortableDataProvider<Addresses, String>
@@ -20,7 +20,7 @@ public class AddressesProvider extends AbstractSortableDataProvider<Addresses, S
 
 	/**
 	 * Instantiates a new addresses provider.
-	 * 
+	 *
 	 * @param data
 	 *            the data
 	 */

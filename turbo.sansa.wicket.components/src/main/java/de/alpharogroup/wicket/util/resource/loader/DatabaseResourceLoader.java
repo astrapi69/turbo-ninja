@@ -10,14 +10,15 @@ import org.apache.wicket.Session;
 import org.apache.wicket.WicketRuntimeException;
 import org.apache.wicket.resource.loader.IStringResourceLoader;
 
-import db.resource.bundles.application.DatabaseControl;
+import de.alpharogroup.db.resource.bundles.application.DatabaseControl;
+
 
 /**
  * Implementation of a string resource loader that get the resources from the database. When this
  * loader is created it should be given the name of the resource bundle.
- * 
+ *
  * You can register the custom resource loader in your application's init() method like follows:
- * 
+ *
  * protected void init() { getResourceSettings().addStringResourceLoader(new
  * DatabaseResourceLoader("baseName")); }
  */
@@ -25,7 +26,7 @@ public class DatabaseResourceLoader implements IStringResourceLoader
 {
 
 	/** The bundle name. */
-	private String bundleName;
+	private final String bundleName;
 
 	/**
 	 * Instantiates a new database resource loader.
@@ -57,7 +58,7 @@ public class DatabaseResourceLoader implements IStringResourceLoader
 		ResourceBundle resourceBundle = null;
 		try
 		{
-			resourceBundle = ResourceBundle.getBundle(bundleName, locale, new DatabaseControl());
+			resourceBundle = ResourceBundle.getBundle(bundleName, locale, DatabaseControl.getInstance());
 		}
 		catch (final MissingResourceException e)
 		{

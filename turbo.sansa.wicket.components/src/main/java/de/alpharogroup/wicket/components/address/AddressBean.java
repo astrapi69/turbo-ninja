@@ -2,7 +2,7 @@ package de.alpharogroup.wicket.components.address;
 
 import java.io.Serializable;
 
-import address.book.model.Addresses;
+import de.alpharogroup.address.book.entities.Addresses;
 import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
 
 /**

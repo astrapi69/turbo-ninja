@@ -6,7 +6,7 @@ import java.util.Map;
 import org.apache.wicket.util.io.IClusterable;
 
 import de.alpharogroup.tree.ifaces.ITreeNode;
-import events.system.model.Topics;
+import de.alpharogroup.event.system.entities.Topics;
 
 /**
  * The Class TopicsTreeModel.

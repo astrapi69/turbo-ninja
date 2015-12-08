@@ -11,8 +11,8 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.StringResourceModel;
 
-import user.management.application.models.InfringementModel;
-import user.management.enums.RuleViolationReason;
+import de.alpharogroup.user.management.application.models.InfringementModel;
+import de.alpharogroup.user.management.enums.RuleViolationReason;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.behaviors.JQueryJsAppenderBehavior;
 import de.alpharogroup.wicket.bootstrap3.components.labeled.textarea.BootstrapLabeledTextAreaPanel;

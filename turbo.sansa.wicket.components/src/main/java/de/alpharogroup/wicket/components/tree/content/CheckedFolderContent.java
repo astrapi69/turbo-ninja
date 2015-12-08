@@ -16,7 +16,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
 import de.alpharogroup.tree.ifaces.ITreeNode;
-import events.system.model.Topics;
+import de.alpharogroup.event.system.entities.Topics;
 
 /**
  * The Class CheckedFolderContent.

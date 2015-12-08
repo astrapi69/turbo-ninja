@@ -1,12 +1,12 @@
 package de.alpharogroup.wicket.components.inbox;
 
-import message.system.enums.MessageState;
-
 import org.apache.wicket.markup.html.panel.Panel;
+
+import de.alpharogroup.message.system.enums.MessageState;
 
 /**
  * The Class AbstractMailSentPanel.
- * 
+ *
  * @author Asterios Raptis
  */
 public abstract class AbstractMailSentPanel extends Panel
