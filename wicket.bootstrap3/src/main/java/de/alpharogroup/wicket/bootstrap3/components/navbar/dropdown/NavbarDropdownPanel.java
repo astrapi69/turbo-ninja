@@ -31,37 +31,21 @@ public class NavbarDropdownPanel extends Panel
 	private static final long serialVersionUID = 1L;
 
 	/** The list view. */
-
-	/**
-	 * Gets the list view.
-	 *
-	 * @return the list view
-	 */
 	@Getter
 	private ListView<LinkItem> listView;
 
 	/** The list view container. */
-
-	/**
-	 * Gets the list view container.
-	 *
-	 * @return the list view container
-	 */
 	@Getter
 	private WebMarkupContainer listViewContainer;
 
 	/**
-	 * Gets the dropdown link.
-	 *
-	 * @return the dropdown link
+	 * The dropdown link.
 	 */
 	@Getter
 	private WebMarkupContainer dropdownLink;
 
 	/**
-	 * Gets the dropdown link label.
-	 *
-	 * @return the dropdown link label
+	 * The dropdown link label.
 	 */
 	@Getter
 	private Label dropdownLinkLabel;
