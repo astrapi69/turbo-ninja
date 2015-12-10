@@ -97,11 +97,6 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-			</plugin>
-
-			<plugin>
 				<inherited>true</inherited>
 				<artifactId>maven-eclipse-plugin</artifactId>
 			</plugin>
