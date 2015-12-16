@@ -46,7 +46,7 @@ public class WicketModelConverter
 	public static ResourcesModel toResourcesModel(final FileUpload upload,
 		final ResourcesModel model, final String description)
 	{
-		model.setContent(ArrayUtils.toObject(upload.getBytes()));
+		model.setContent(upload.getBytes());
 		model.setContentType(upload.getContentType());
 		model.setDescription(description);
 		model.setFilename(upload.getClientFileName());
