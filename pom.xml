@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-wicket-parent</artifactId>
-		<version>7.1.7</version>
+		<version>7.1.8</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -72,6 +72,56 @@
 		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 
 	</properties>
+
+	<dependencyManagement>
+
+		<dependencies>
+			<!-- JAULP-WICKET DEPENDENCIES -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.wicket.base</artifactId>
+				<version>${jaulp.wicket.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.wicket.dropdownchoices</artifactId>
+				<version>${jaulp.wicket.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.wicket.components</artifactId>
+				<version>${jaulp.wicket.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.wicket.data.provider</artifactId>
+				<version>${jaulp.wicket.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>jaulp.wicket.behaviors</artifactId>
+				<version>${jaulp.wicket.version}</version>
+			</dependency>
+			<!-- INTERNAL WICKET LIB DEPENDENCIES -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>wicket.bootstrap3</artifactId>
+				<version>${jaulp.wicket.version}</version>
+			</dependency>
+			<!-- JAVAX-SERVLET DEPENDENCIES -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${javax.servlet-api.version}</version>
+			</dependency>
+
+		</dependencies>
+
+	</dependencyManagement>
 
 	<build>
 		<resources>

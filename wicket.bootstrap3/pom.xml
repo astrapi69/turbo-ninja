@@ -26,28 +26,6 @@
 	<dependencyManagement>
 
 		<dependencies>
-			<!-- JAVAX-SERVLET DEPENDENCIES -->
-			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>javax.servlet-api</artifactId>
-				<version>${javax.servlet-api.version}</version>
-			</dependency>
-			<!-- WICKET DEPENDENCIES -->
-			<dependency>
-				<groupId>org.apache.wicket</groupId>
-				<artifactId>wicket-core</artifactId>
-				<version>${wicket.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.slf4j</groupId>
-						<artifactId>slf4j-api</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
 			<!-- WICKET-BOOTSTRAP DEPENDENCIES -->
 			<dependency>
 				<groupId>de.agilecoders.wicket</groupId>
@@ -77,24 +55,6 @@
 				<groupId>com.google.javascript</groupId>
 				<artifactId>closure-compiler</artifactId>
 				<version>${google-closure.version}</version>
-			</dependency>
-			<!-- JAULP-WICKET DEPENDENCIES -->
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>jaulp.wicket.base</artifactId>
-				<version>${jaulp.wicket.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>jaulp.wicket.behaviors</artifactId>
-				<version>${jaulp.wicket.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
-				<artifactId>jaulp.wicket.components</artifactId>
-				<version>${jaulp.wicket.version}</version>
 			</dependency>
 
 		</dependencies>
@@ -196,35 +156,6 @@
 			</testResource>
 
 		</testResources>
-
-		<pluginManagement>
-
-			<plugins>
-
-				<plugin>
-					<groupId>org.eclipse.jetty</groupId>
-					<artifactId>jetty-maven-plugin</artifactId>
-					<version>${jetty9.version}</version>
-					<configuration>
-						<connectors>
-							<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-								<port>8080</port>
-								<maxIdleTime>3600000</maxIdleTime>
-							</connector>
-							<connector implementation="org.eclipse.jetty.server.ssl.SslSocketConnector">
-								<port>8443</port>
-								<maxIdleTime>3600000</maxIdleTime>
-								<keystore>${project.build.directory}/test-classes/keystore</keystore>
-								<password>wicket</password>
-								<keyPassword>wicket</keyPassword>
-							</connector>
-						</connectors>
-					</configuration>
-				</plugin>
-
-			</plugins>
-
-		</pluginManagement>
 
 		<plugins>
 

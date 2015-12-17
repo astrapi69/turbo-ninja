@@ -26,6 +26,7 @@
 	</description>
 
 	<dependencyManagement>
+
 		<dependencies>
 
 			<dependency>

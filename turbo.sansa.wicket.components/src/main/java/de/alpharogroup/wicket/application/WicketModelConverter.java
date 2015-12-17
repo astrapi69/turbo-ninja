@@ -2,7 +2,6 @@ package de.alpharogroup.wicket.application;
 
 import java.util.List;
 
-import org.apache.commons.lang.ArrayUtils;
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.apache.wicket.model.util.ListModel;
 
