@@ -1,10 +1,8 @@
 package de.alpharogroup.wicket.bootstrap3.application;
 
 import java.io.IOException;
-import java.util.Properties;
 
 import org.apache.wicket.Application;
-import org.apache.wicket.WicketRuntimeException;
 import org.apache.wicket.markup.html.IPackageResourceGuard;
 import org.apache.wicket.markup.html.SecurePackageResourceGuard;
 import org.apache.wicket.request.resource.CssResourceReference;
@@ -43,6 +41,7 @@ import de.agilecoders.wicket.extensions.markup.html.bootstrap.jqueryui.JQueryUIW
 import de.agilecoders.wicket.extensions.request.StaticResourceRewriteMapper;
 import de.agilecoders.wicket.less.BootstrapLess;
 import de.agilecoders.wicket.themes.markup.html.bootswatch.BootswatchThemeProvider;
+import de.alpharogroup.wicket.PackageResourceReferences;
 import de.alpharogroup.wicket.base.application.seo.DisableJSessionIDinUrlApplication;
 import de.alpharogroup.wicket.bootstrap3.resource.reference.fix.FixBootstrapStylesCssResourceReference;
 
@@ -63,17 +62,6 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 	public static WicketBootstrap3Application get()
 	{
 		return (WicketBootstrap3Application)Application.get();
-	}
-
-	/** The properties. */
-	private final Properties properties;
-
-	/**
-	 * Constructor.
-	 */
-	public WicketBootstrap3Application()
-	{
-		properties = loadProperties();
 	}
 
 	protected void configureBootstrap()
@@ -125,16 +113,6 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 	 */
 	public abstract String getPackageToScan();
 
-	/**
-	 * Gets the properties.
-	 *
-	 * @return used configuration properties
-	 */
-	public Properties getProperties()
-	{
-		return properties;
-	}
-
 	private void initBootstrap(final ThemeProvider themeProvider)
 	{
 		final IBootstrapSettings settings = new BootstrapSettings();
@@ -143,25 +121,6 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
         .setActiveThemeProvider(new SessionThemeProvider());
 		Bootstrap.install(this, settings);
 		BootstrapLess.install(this);
-	}
-
-	/**
-	 * loads all configuration properties from disk.
-	 *
-	 * @return configuration properties
-	 */
-	private Properties loadProperties()
-	{
-		final Properties properties = new Properties();
-		try
-		{
-			properties.load(getClass().getResourceAsStream("/config.properties"));
-		}
-		catch (final IOException e)
-		{
-			throw new WicketRuntimeException(e);
-		}
-		return properties;
 	}
 
 	/**
@@ -214,9 +173,9 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 		optimizeForWebPerformance();
 
 		new AnnotatedMountScanner().scanPackage(getPackageToScan()).mount(this);
-		if (Strings.isTrue(properties.getProperty("cdn.useCdn")))
+		if (Strings.isTrue(getProperties().getProperty("cdn.useCdn")))
 		{
-			final String cdn = properties.getProperty("cdn.baseUrl");
+			final String cdn = getProperties().getProperty("cdn.baseUrl");
 			StaticResourceRewriteMapper.withBaseUrl(cdn).install(this);
 		}
 
@@ -253,4 +212,65 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 		getRequestCycleSettings().setRenderStrategy(
 			org.apache.wicket.settings.RequestCycleSettings.RenderStrategy.ONE_PASS_RENDER);
 	}
+
+	/**
+	 * Initialize all resources that are returned from the factory callback method {@link WicketBootstrap3Application#newPackagesToScan()}.
+	 *
+	 * @throws ClassNotFoundException
+	 *             the class not found exception
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
+	public void initializeResources() throws ClassNotFoundException, IOException
+	{
+		final PackageResourceReferences prr = PackageResourceReferences.getInstance();
+		prr.initializeResources(newPackagesToScan());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onBeforeApplicationConfigurations()
+	{
+		super.onBeforeApplicationConfigurations();
+		// initialize all header contributors
+		initializeAllHeaderContributors();
+	}
+
+	/**
+	 * Initialize all header contributors.
+	 */
+	private void initializeAllHeaderContributors()
+	{
+		try
+		{
+			initializeResources();
+		}
+		catch (final ClassNotFoundException e)
+		{
+			LOGGER
+				.error(
+					"ClassNotFoundException in the initializeResources-Method from the WicketApplication.",
+					e);
+		}
+		catch (final IOException e)
+		{
+			LOGGER.error(
+				"IOException in the initializeResources-Method from the WicketApplication.", e);
+		}
+	}
+
+	/**
+	 * Factory callback method that returns the packages to scan as a {@link String} array object.
+	 * Note: the first entry is called with the {@link AnnotatedMountScanner} to mount pages.
+	 *
+	 * @return the {@link String} array object with the packages to scan
+	 */
+	protected String[] newPackagesToScan()
+	{
+		final String[] packagesToScan = {""};
+		return packagesToScan;
+	}
+
 }
