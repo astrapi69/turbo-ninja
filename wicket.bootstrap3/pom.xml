@@ -18,7 +18,7 @@
 	</description>
 
 	<properties>
-		<!-- WICKET EXTENSION LIBRARIES versions -->
+		<!-- WICKET BOOTSTRAP LIBRARIES version -->
 		<wicket-bootstrap.version>0.10.3</wicket-bootstrap.version>
 		<google-closure.version>v20130603</google-closure.version>
 	</properties>
