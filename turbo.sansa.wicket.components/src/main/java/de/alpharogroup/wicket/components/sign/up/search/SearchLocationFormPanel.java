@@ -12,7 +12,8 @@ import org.apache.wicket.model.IModel;
 import de.alpharogroup.address.book.application.model.LocationModel;
 import de.alpharogroup.address.book.entities.Addresses;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
-import de.alpharogroup.wicket.components.sign.up.SignUpModel;
+import de.alpharogroup.wicket.components.sign.up.SignupWithLocationModelBean;
+import lombok.Getter;
 
 public abstract class SearchLocationFormPanel extends Panel
 {
@@ -20,14 +21,10 @@ public abstract class SearchLocationFormPanel extends Panel
 	private final AjaxButton submitButton;
 	/** The button label. */
 	private final Label buttonLabel;
+	@Getter
 	private final LocationPanel locationPanel;
 
-	public LocationPanel getLocationPanel()
-	{
-		return locationPanel;
-	}
-
-	private final Form<SignUpModel> form;
+	private final Form<?> form;
 
 	public SearchLocationFormPanel(final String id, final IModel<LocationModel<Addresses>> model)
 	{
@@ -46,7 +43,7 @@ public abstract class SearchLocationFormPanel extends Panel
 	}
 
 	protected abstract LocationPanel newLocationPanel(final String id,
-		final IModel<? extends LocationModel<Addresses>> model);
+		final IModel<LocationModel<Addresses>> model);
 
 	protected AjaxButton newButton(final String id, final IModel<LocationModel<Addresses>> model)
 	{
@@ -68,10 +65,10 @@ public abstract class SearchLocationFormPanel extends Panel
 			{
 				target.add(form);
 				final LocationModel<Addresses> object = model.getObject();
-				final String countryName = locationPanel.getDropDownChoiceTextFieldPanel()
+				final String countryName = locationPanel.getCountryWithZipDropDownChoiceTextFieldPanel()
 					.getStringTwoDropDownChoicesModel().getSelectedRootOption();
 				object.setSelectedCountryName(countryName);
-				final String location = locationPanel.getDropDownChoiceTextFieldPanel()
+				final String location = locationPanel.getCountryWithZipDropDownChoiceTextFieldPanel()
 					.getZipcode().getDefaultModelObjectAsString();
 
 				object.setLocation(location);
@@ -87,9 +84,9 @@ public abstract class SearchLocationFormPanel extends Panel
 	 *            the id
 	 * @return the form
 	 */
-	protected Form<SignUpModel> newForm(final String id)
+	protected Form<?> newForm(final String id)
 	{
-		final Form<SignUpModel> form = new Form<SignUpModel>(id);
+		final Form<SignupWithLocationModelBean<Addresses>> form = new Form<>(id);
 		form.setOutputMarkupId(true);
 		return form;
 	}
