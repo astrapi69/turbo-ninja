@@ -102,7 +102,7 @@ public class DropDownChoiceTextFieldPanel extends Panel
 		wmcChildChoice.add(childLabel = newChildLabel(childMarkupId, childLabelModel));
 		wmcChildChoice.add(zipcode);
 
-		rootChoice.add(new AjaxFormComponentUpdatingBehavior("onchange")
+		rootChoice.add(new AjaxFormComponentUpdatingBehavior("change")
 		{
 
 			/** The Constant serialVersionUID. */
