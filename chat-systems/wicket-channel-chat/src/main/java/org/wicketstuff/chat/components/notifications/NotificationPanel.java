@@ -52,8 +52,8 @@ public abstract class NotificationPanel extends Panel
 	{
 		super(id, model);
 		this.duration = duration;
-		add(notification = newNotificationLabel("notification", new PropertyModel<String>(model,
-			"chat")));
+		add(notification = newNotificationLabel("notification",
+			new PropertyModel<String>(model, "chat")));
 		addChannelListener(model);
 	}
 
@@ -91,9 +91,11 @@ public abstract class NotificationPanel extends Panel
 	 * Factory method for creating the notification component. This method is invoked in the
 	 * constructor from the derived classes and can be overridden so users can provide their own
 	 * version of a notification component.
-	 * 
+	 *
 	 * @param id
 	 *            the id
+	 * @param model
+	 *            the model
 	 * @return the component
 	 */
 	protected Component newNotificationLabel(final String id, final IModel<String> model)
