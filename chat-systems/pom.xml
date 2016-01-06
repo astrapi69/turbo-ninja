@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>chat-systems</artifactId>
-	<version>7.1.0</version>
+	<version>6.21.0</version>
 	<packaging>pom</packaging>
 
 	<name>${project.artifactId}</name>

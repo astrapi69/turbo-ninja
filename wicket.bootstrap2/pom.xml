@@ -9,7 +9,7 @@
 	</parent>
 
 	<artifactId>wicket.bootstrap2</artifactId>
-	<version>7.0.0</version>
+	<version>6.21.0</version>
 
 	<name>${project.artifactId}</name>
 
@@ -103,7 +103,7 @@
 				<artifactId>jaulp.wicket.base</artifactId>
 				<version>${jaulp.wicket.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
 				<artifactId>jaulp.wicket.behaviors</artifactId>
@@ -166,7 +166,7 @@
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jaulp.wicket.base</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jaulp.wicket.behaviors</artifactId>
