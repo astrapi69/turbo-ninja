@@ -15,7 +15,7 @@ import de.alpharogroup.user.management.application.models.InfringementModel;
 import de.alpharogroup.user.management.enums.RuleViolationReason;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.behaviors.JQueryJsAppenderBehavior;
-import de.alpharogroup.wicket.bootstrap3.components.labeled.textarea.BootstrapLabeledTextAreaPanel;
+import de.alpharogroup.wicket.bootstrap2.components.labeled.textarea.BootstrapLabeledTextAreaPanel;
 import de.alpharogroup.wicket.components.i18n.dropdownchoice.EnumLocalizedDropdownChoicePanel;
 
 public class InfringementInputPanel extends Panel

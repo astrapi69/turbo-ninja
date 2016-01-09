@@ -51,7 +51,7 @@
 		<!-- INTERNAL WICKET LIB DEPENDENCIES -->
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>wicket.bootstrap3</artifactId>
+			<artifactId>wicket.bootstrap2</artifactId>
 		</dependency>
 		<!-- DB-MODULES DEPENDENCIES -->
 		<dependency>
