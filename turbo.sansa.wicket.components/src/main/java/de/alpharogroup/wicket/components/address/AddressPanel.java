@@ -2,7 +2,6 @@ package de.alpharogroup.wicket.components.address;
 
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Component;
-import org.apache.wicket.markup.html.form.FormComponent;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
@@ -12,14 +11,11 @@ import de.alpharogroup.address.book.entities.Addresses;
 import de.alpharogroup.address.book.entities.Federalstates;
 import de.alpharogroup.address.book.entities.Zipcodes;
 import de.alpharogroup.address.book.factories.AddressBookFactory;
-
 import de.alpharogroup.collections.ListExtensions;
 import de.alpharogroup.resourcebundle.locale.ResourceBundleKey;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.components.address.countries.CountriesProvincesPanel;
-import de.alpharogroup.wicket.components.factory.ComponentFactory;
 import de.alpharogroup.wicket.components.form.input.TwoFormComponentBean;
-import de.alpharogroup.wicket.components.form.input.TwoFormComponentPanel;
 import de.alpharogroup.wicket.components.i18n.dropdownchoice.renderers.PropertiesChoiceRenderer;
 import de.alpharogroup.wicket.components.labeled.LabeledTwoFormComponentPanel;
 import de.alpharogroup.wicket.model.dropdownchoices.TwoDropDownChoicesModel;
@@ -106,50 +102,19 @@ public class AddressPanel extends GenericPanel<AddressBean>
 	protected Component newStreetNumberPanel(final String id, final IModel<AddressBean> model)
 	{
 		final String betweenLabel = AddressPanel.this.newBetweenLabelModel().getObject();
+
+		final TwoFormComponentBean<String, String> twoFormComponentBean =
+			new TwoFormComponentBean<>(
+				new PropertyModel<String>(AddressPanel.this.getModelObject(), "address.street") ,
+				new PropertyModel<String>(AddressPanel.this.getModelObject(), "address.streetnumber"));
+
+		final IModel<String> labelModel = ResourceModelFactory.newResourceModel(
+			ResourceBundleKey.builder().key("sem.main.address.street.and.nr.label")
+			.parameters(ListExtensions.toObjectArray(betweenLabel))
+			.defaultValue("Street, Number:").build(), this);
+
 		final LabeledTwoFormComponentPanel<String, String, AddressBean> streetNumberPanel = new LabeledTwoFormComponentPanel<String, String, AddressBean>(
-			id, model, ResourceModelFactory.newResourceModel(
-				ResourceBundleKey.builder().key("sem.main.address.street.and.nr.label")
-					.parameters(ListExtensions.toObjectArray(betweenLabel))
-					.defaultValue("Street, Number:").build(), this))
-		{
-			/**
-			 * The serialVersionUID
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			protected IModel<String> newBetweenLabelModel(final String betweenLabel)
-			{
-				return AddressPanel.this.newBetweenLabelModel();
-			}
-
-			@Override
-			protected FormComponent<String> newLeftFormComponent(final String id,
-				final IModel<String> model)
-			{
-				return ComponentFactory.newTextField(id, new PropertyModel<String>(
-					AddressPanel.this.getModelObject(), "address.street"));
-			}
-
-			@Override
-			protected FormComponent<String> newRightFormComponent(final String id,
-				final IModel<String> model)
-			{
-				return ComponentFactory.newTextField(id, new PropertyModel<String>(
-					AddressPanel.this.getModelObject(), "address.streetnumber"));
-			}
-
-			@Override
-			protected TwoFormComponentPanel<String, String> newTwoFormComponentPanel(final String id,
-				final IModel<AddressBean> model)
-			{
-				final TwoFormComponentBean<String, String> bean =  new TwoFormComponentBean<>();
-				bean.setLeftContent(AddressPanel.this.getModelObject().getAddress().getStreet());
-				bean.setRightContent(AddressPanel.this.getModelObject().getAddress().getStreetnumber());
-				final TwoFormComponentPanel<String, String> twoFormComponentPanel = new TwoFormComponentPanel<String, String>(id, Model.of(bean));
-				return twoFormComponentPanel;
-			}
-		};
+			id, model, Model.of(twoFormComponentBean), labelModel);
 		return streetNumberPanel;
 	}
 
@@ -205,51 +170,19 @@ public class AddressPanel extends GenericPanel<AddressBean>
 	protected Component newZipcodeCityPanel(final String id, final IModel<AddressBean> model)
 	{
 		final String betweenLabel = AddressPanel.this.newBetweenLabelModel().getObject();
+
+		final TwoFormComponentBean<String, String> twoFormComponentBean =
+			new TwoFormComponentBean<>(
+				new PropertyModel<String>(AddressPanel.this.getModelObject(), "address.zipcode.zipcode") ,
+				new PropertyModel<String>(AddressPanel.this.getModelObject(), "address.zipcode.city"));
+
+		final IModel<String> labelModel = ResourceModelFactory.newResourceModel(
+			ResourceBundleKey.builder().key("sem.main.address.zipcode.and.city.label")
+			.parameters(ListExtensions.toObjectArray(betweenLabel))
+			.defaultValue("Zipcode, City:").build(), this);
+
 		final LabeledTwoFormComponentPanel<String, String, AddressBean> streetNumberPanel = new LabeledTwoFormComponentPanel<String, String, AddressBean>(
-			id, model, ResourceModelFactory.newResourceModel(
-				ResourceBundleKey.builder().key("sem.main.address.zipcode.and.city.label")
-					.parameters(ListExtensions.toObjectArray(betweenLabel))
-					.defaultValue("Zipcode, City:").build(), this))
-		{
-			/**
-			 * The serialVersionUID
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			protected IModel<String> newBetweenLabelModel(final String betweenLabel)
-			{
-				return AddressPanel.this.newBetweenLabelModel();
-			}
-
-			@Override
-			protected FormComponent<String> newLeftFormComponent(final String id,
-				final IModel<String> model)
-			{
-				return ComponentFactory.newTextField(id, new PropertyModel<String>(
-					AddressPanel.this.getModelObject(), "address.zipcode.zipcode"));
-			}
-
-			@Override
-			protected FormComponent<String> newRightFormComponent(final String id,
-				final IModel<String> model)
-			{
-				return ComponentFactory.newTextField(id, new PropertyModel<String>(
-					AddressPanel.this.getModelObject(), "address.zipcode.city"));
-			}
-
-
-			@Override
-			protected TwoFormComponentPanel<String, String> newTwoFormComponentPanel(final String id,
-				final IModel<AddressBean> model)
-			{
-				final TwoFormComponentBean<String, String> bean =  new TwoFormComponentBean<>();
-				bean.setLeftContent(AddressPanel.this.getModelObject().getAddress().getZipcode().getZipcode());
-				bean.setRightContent(AddressPanel.this.getModelObject().getAddress().getZipcode().getCity());
-				final TwoFormComponentPanel<String, String> twoFormComponentPanel = new TwoFormComponentPanel<String, String>(id, Model.of(bean));
-				return twoFormComponentPanel;
-			}
-		};
+			id, model, Model.of(twoFormComponentBean), labelModel);
 		return streetNumberPanel;
 	}
 }
