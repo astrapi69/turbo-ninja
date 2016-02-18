@@ -9,7 +9,7 @@
 	</parent>
 
 	<artifactId>turbo.sansa.wicket.components</artifactId>
-	<version>6.21.0</version>
+	<version>6.21.1</version>
 
 	<name>${project.artifactId}</name>
 

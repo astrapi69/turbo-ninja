@@ -6,13 +6,13 @@ import org.apache.wicket.model.IModel;
 import de.alpharogroup.wicket.behaviors.JQueryJsAppenderBehavior;
 import de.alpharogroup.wicket.components.labeled.textarea.LabeledTextAreaPanel;
 
-public class BootstrapLabeledTextAreaPanel<T> extends LabeledTextAreaPanel<T>
+public class BootstrapLabeledTextAreaPanel<T, M> extends LabeledTextAreaPanel<T, M>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	public BootstrapLabeledTextAreaPanel(final String id, final IModel<T> model,
+	public BootstrapLabeledTextAreaPanel(final String id, final IModel<M> model,
 		final IModel<String> labelModel, final IModel<String> placeholderModel)
 	{
 		super(id, model, labelModel);

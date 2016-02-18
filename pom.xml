@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-wicket-parent</artifactId>
-		<version>6.21.0</version>
+		<version>6.21.1</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -65,7 +65,7 @@
 		<!-- WICKET version -->
 		<wicket.version>6.21.0</wicket.version>
 		<!-- JAULP-WICKET version -->
-		<jaulp.wicket.version>6.21.0</jaulp.wicket.version>
+		<jaulp.wicket.version>6.21.1</jaulp.wicket.version>
 		<!-- WICKET-JS-ADDONS version -->
 		<wicket-js-addons.version>6.18.0</wicket-js-addons.version>
 		<!-- SERVLET-API version -->

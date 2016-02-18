@@ -52,7 +52,7 @@ public class InfringementInputPanel extends Panel
 			"global.enter.your.rule.violation.reason.description.label", this,
 			"Enter your description for the rule violation");
 
-		final BootstrapLabeledTextAreaPanel<InfringementModel> description = new BootstrapLabeledTextAreaPanel<InfringementModel>(
+		final BootstrapLabeledTextAreaPanel<String, InfringementModel> description = new BootstrapLabeledTextAreaPanel<String, InfringementModel>(
 			"description", model, labelModel, placeholderModel);
 		description.add(new AttributeAppender("class", "pull-left"));
 

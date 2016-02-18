@@ -32,7 +32,7 @@ public abstract class AbstractSendResponseMessagePanel extends Panel
 	protected final Button upperSendButton;
 	protected Component sender;
 	protected Component subject;
-	protected LabeledTextAreaPanel<ReplyMessageModel> messageContent;
+	protected LabeledTextAreaPanel<String, ReplyMessageModel> messageContent;
 	protected final Button lowerSendButton;
 	/** The Label component. */
 	protected final Label replyMessageLabel;
@@ -102,7 +102,7 @@ public abstract class AbstractSendResponseMessagePanel extends Panel
 		// Create the label for content(the content of the message)...
 		final IModel<String> messageContentLabelModel = new StringResourceModel(
 			"inbox.message.content.label", this, null);
-		messageContent = new LabeledTextAreaPanel<ReplyMessageModel>("responseMessage", cpm,
+		messageContent = new LabeledTextAreaPanel<String, ReplyMessageModel>("responseMessage", cpm,
 			messageContentLabelModel);
 		form.add(messageContent);
 
@@ -133,7 +133,7 @@ public abstract class AbstractSendResponseMessagePanel extends Panel
 
 	protected Component newSubjectPanel(final String id, final IModel<ReplyMessageModel> model)
 	{
-		final LabeledTextFieldPanel<ReplyMessageModel> panel = new LabeledTextFieldPanel<ReplyMessageModel>(
+		final LabeledTextFieldPanel<String, ReplyMessageModel> panel = new LabeledTextFieldPanel<>(
 			id, model, ResourceModelFactory.newResourceModel("inbox.subject.label", this));
 		return panel;
 	}

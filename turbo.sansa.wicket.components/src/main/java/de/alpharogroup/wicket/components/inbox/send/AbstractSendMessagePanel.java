@@ -28,7 +28,7 @@ public abstract class AbstractSendMessagePanel extends Panel
 	protected final Form<SendMessagePanelModel> form;
 	protected final Component recipient;
 	protected final Component subject;
-	protected final LabeledTextAreaPanel<SendMessagePanelModel> messageContent;
+	protected final LabeledTextAreaPanel<String, SendMessagePanelModel> messageContent;
 	protected final Button sendButton;
 
 	/** The Label component. */
@@ -56,7 +56,7 @@ public abstract class AbstractSendMessagePanel extends Panel
 		final IModel<String> messageContentModel = new StringResourceModel("inbox.message.label",
 			this, null);
 
-		messageContent = new LabeledTextAreaPanel<SendMessagePanelModel>("messageContent", cpm,
+		messageContent = new LabeledTextAreaPanel<String, SendMessagePanelModel>("messageContent", cpm,
 			messageContentModel);
 		messageContent.getTextArea().add(new AttributeAppender("class", "labeledFormElement"));
 		form.add(messageContent);
@@ -85,7 +85,7 @@ public abstract class AbstractSendMessagePanel extends Panel
 
 	protected Component newRecipientPanel(final String id, final IModel<SendMessagePanelModel> model)
 	{
-		final LabeledTextFieldPanel<SendMessagePanelModel> panel = new LabeledTextFieldPanel<SendMessagePanelModel>(
+		final LabeledTextFieldPanel<String, SendMessagePanelModel> panel = new LabeledTextFieldPanel<>(
 			id, model, ResourceModelFactory.newResourceModel("inbox.recipient.label", this));
 		panel.getTextField().add(new AttributeAppender("class", "labeledFormElement"));
 
@@ -98,7 +98,7 @@ public abstract class AbstractSendMessagePanel extends Panel
 
 	protected Component newSubjectPanel(final String id, final IModel<SendMessagePanelModel> model)
 	{
-		final LabeledTextFieldPanel<SendMessagePanelModel> panel = new LabeledTextFieldPanel<SendMessagePanelModel>(
+		final LabeledTextFieldPanel<String, SendMessagePanelModel> panel = new LabeledTextFieldPanel<String, SendMessagePanelModel>(
 			id, model, ResourceModelFactory.newResourceModel("inbox.subject.label", this));
 		panel.getTextField().add(new AttributeAppender("class", "labeledFormElement"));
 		return panel;

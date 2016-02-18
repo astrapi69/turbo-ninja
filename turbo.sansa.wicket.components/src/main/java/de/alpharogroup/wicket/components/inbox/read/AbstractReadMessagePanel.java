@@ -39,7 +39,7 @@ public abstract class AbstractReadMessagePanel extends BasePanel
 	protected final WicketImage junkmail;
 
 	/** The message content. */
-	protected LabeledTextAreaPanel<Messages> messageContent;
+	protected LabeledTextAreaPanel<String, Messages> messageContent;
 
 	protected final Form<Messages> form;
 
@@ -162,7 +162,7 @@ public abstract class AbstractReadMessagePanel extends BasePanel
 		// Create the label for content(the content of the message)...
 		final IModel<String> messageContentLabelModel = new StringResourceModel(
 			"inbox.message.content.label", this, null);
-		messageContent = new LabeledTextAreaPanel<Messages>("messageContent", cpm,
+		messageContent = new LabeledTextAreaPanel<String, Messages>("messageContent", cpm,
 			messageContentLabelModel);
 		messageContent.getTextArea().setEnabled(false);
 		form.add(messageContent);
