@@ -67,7 +67,7 @@
 		<!-- JAULP-WICKET version -->
 		<jaulp.wicket.version>6.21.1</jaulp.wicket.version>
 		<!-- WICKET-JS-ADDONS version -->
-		<wicket-js-addons.version>6.18.0</wicket-js-addons.version>
+		<wicket-js-addons.version>6.21.0</wicket-js-addons.version>
 		<!-- SERVLET-API version -->
 		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 
