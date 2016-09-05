@@ -5,13 +5,13 @@ import org.apache.wicket.model.IModel;
 
 import de.alpharogroup.wicket.components.labeled.textfield.LabeledTextFieldPanel;
 
-public class BootstrapTextFieldPanel<T> extends LabeledTextFieldPanel<T>
+public class BootstrapTextFieldPanel<T, M> extends LabeledTextFieldPanel<T, M>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	public BootstrapTextFieldPanel(final String id, final IModel<T> model,
+	public BootstrapTextFieldPanel(final String id, final IModel<M> model,
 		final IModel<String> labelModel)
 	{
 		super(id, model, labelModel);

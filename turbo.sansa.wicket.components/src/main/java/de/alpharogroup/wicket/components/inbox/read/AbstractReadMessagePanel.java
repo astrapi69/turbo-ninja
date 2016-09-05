@@ -39,7 +39,7 @@ public abstract class AbstractReadMessagePanel extends BasePanel
 	protected final WicketImage junkmail;
 
 	/** The message content. */
-	protected LabeledTextAreaPanel<Messages> messageContent;
+	protected LabeledTextAreaPanel<String, Messages> messageContent;
 
 	protected final Form<Messages> form;
 
@@ -71,21 +71,22 @@ public abstract class AbstractReadMessagePanel extends BasePanel
 		super(id);
 		final Messages message = onMessageRead(parameters);
 		setDefaultModel(Model.of(message));
-		final CompoundPropertyModel<Messages> cpm = new CompoundPropertyModel<Messages>(message);
+		final CompoundPropertyModel<Messages> cpm = new CompoundPropertyModel<>(message);
 
-		form = new Form<Messages>("form", cpm);
+		this.form = new Form<>("form", cpm);
 		// add the form.
-		add(form);
+		add(this.form);
 
-		form.add(readMessageLabel = newLabel("readMessageLabel", newReadMessageLabelModel()));
+		this.form
+			.add(this.readMessageLabel = newLabel("readMessageLabel", newReadMessageLabelModel()));
 
 		final IModel<String> junkImageModel = Model.of("/images/junkmail.png");
 
-		junkmail = new WicketImage("junkmail", junkImageModel);
-		junkmail.setVisible(message.isSpamFlag());
+		this.junkmail = new WicketImage("junkmail", junkImageModel);
+		this.junkmail.setVisible(message.isSpamFlag());
 
 		// Create inbox button for the form
-		inboxButton = new Button("inboxButton")
+		this.inboxButton = new Button("inboxButton")
 		{
 			/**
 			 * The serialVersionUID.
@@ -99,10 +100,10 @@ public abstract class AbstractReadMessagePanel extends BasePanel
 			}
 		};
 
-		form.add(inboxButton);
+		this.form.add(this.inboxButton);
 
 		// Create delete button for the form
-		deleteButton = new Button("deleteButton")
+		this.deleteButton = new Button("deleteButton")
 		{
 			/**
 			 * The serialVersionUID.
@@ -116,9 +117,9 @@ public abstract class AbstractReadMessagePanel extends BasePanel
 			}
 		};
 
-		form.add(deleteButton);
+		this.form.add(this.deleteButton);
 		// Create junk button for the form
-		junkButton = new Button("junkButton")
+		this.junkButton = new Button("junkButton")
 		{
 			/**
 			 * The serialVersionUID.
@@ -131,11 +132,11 @@ public abstract class AbstractReadMessagePanel extends BasePanel
 				onJunk();
 			}
 		};
-		junkButton.setEnabled(!message.isSpamFlag());
+		this.junkButton.setEnabled(!message.isSpamFlag());
 
-		form.add(junkButton);
+		this.form.add(this.junkButton);
 		// Create 'no junk' button for the form
-		noJunkButton = new Button("noJunkButton")
+		this.noJunkButton = new Button("noJunkButton")
 		{
 			/**
 			 * The serialVersionUID.
@@ -148,27 +149,27 @@ public abstract class AbstractReadMessagePanel extends BasePanel
 				onNoJunk();
 			}
 		};
-		noJunkButton.setEnabled(message.isSpamFlag());
-		form.add(noJunkButton);
+		this.noJunkButton.setEnabled(message.isSpamFlag());
+		this.form.add(this.noJunkButton);
 
-		form.add(junkmail);
+		this.form.add(this.junkmail);
 
-		form.add(sender = newSenderPanel("sender.username", cpm));
+		this.form.add(this.sender = newSenderPanel("sender.username", cpm));
 
-		form.add(sentDate = newSentDatePanel("sentDate", cpm));
+		this.form.add(this.sentDate = newSentDatePanel("sentDate", cpm));
 
-		form.add(subject = newSubjectPanel("subject", cpm));
+		this.form.add(this.subject = newSubjectPanel("subject", cpm));
 
 		// Create the label for content(the content of the message)...
 		final IModel<String> messageContentLabelModel = new StringResourceModel(
 			"inbox.message.content.label", this, null);
-		messageContent = new LabeledTextAreaPanel<Messages>("messageContent", cpm,
+		this.messageContent = new LabeledTextAreaPanel<>("messageContent", cpm,
 			messageContentLabelModel);
-		messageContent.getTextArea().setEnabled(false);
-		form.add(messageContent);
+		this.messageContent.getTextArea().setEnabled(false);
+		this.form.add(this.messageContent);
 
 		// Create 'reply' button for the form
-		replyButton = new Button("replyButton")
+		this.replyButton = new Button("replyButton")
 		{
 			/**
 			 * The serialVersionUID.
@@ -182,28 +183,28 @@ public abstract class AbstractReadMessagePanel extends BasePanel
 			}
 		};
 
-		form.add(replyButton);
+		this.form.add(this.replyButton);
 
 	}
 
 	protected Component newSenderPanel(final String id, final IModel<Messages> model)
 	{
-		final LabeledEnumLabelPanel<Messages> panel = new LabeledEnumLabelPanel<Messages>(id,
-			model, ResourceModelFactory.newResourceModel("inbox.sender.label", this));
+		final LabeledEnumLabelPanel<Messages> panel = new LabeledEnumLabelPanel<>(id, model,
+			ResourceModelFactory.newResourceModel("inbox.sender.label", this));
 		return panel;
 	}
 
 	protected Component newSentDatePanel(final String id, final IModel<Messages> model)
 	{
-		final LabeledEnumLabelPanel<Messages> panel = new LabeledEnumLabelPanel<Messages>(id,
-			model, ResourceModelFactory.newResourceModel("inbox.sent.date.label", this));
+		final LabeledEnumLabelPanel<Messages> panel = new LabeledEnumLabelPanel<>(id, model,
+			ResourceModelFactory.newResourceModel("inbox.sent.date.label", this));
 		return panel;
 	}
 
 	protected Component newSubjectPanel(final String id, final IModel<Messages> model)
 	{
-		final LabeledEnumLabelPanel<Messages> panel = new LabeledEnumLabelPanel<Messages>(id,
-			model, ResourceModelFactory.newResourceModel("inbox.subject.label", this));
+		final LabeledEnumLabelPanel<Messages> panel = new LabeledEnumLabelPanel<>(id, model,
+			ResourceModelFactory.newResourceModel("inbox.subject.label", this));
 		return panel;
 	}
 

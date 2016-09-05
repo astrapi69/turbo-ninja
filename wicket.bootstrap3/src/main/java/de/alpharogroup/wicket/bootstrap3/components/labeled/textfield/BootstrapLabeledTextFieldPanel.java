@@ -6,13 +6,13 @@ import org.apache.wicket.model.IModel;
 import de.alpharogroup.wicket.behaviors.JQueryJsAppenderBehavior;
 import de.alpharogroup.wicket.components.labeled.textfield.LabeledTextFieldPanel;
 
-public class BootstrapLabeledTextFieldPanel<T> extends LabeledTextFieldPanel<T>
+public class BootstrapLabeledTextFieldPanel<T, M> extends LabeledTextFieldPanel<T, M>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	public BootstrapLabeledTextFieldPanel(final String id, final IModel<T> model,
+	public BootstrapLabeledTextFieldPanel(final String id, final IModel<M> model,
 		final IModel<String> labelModel, final IModel<String> placeholderModel)
 	{
 		super(id, model, labelModel);
