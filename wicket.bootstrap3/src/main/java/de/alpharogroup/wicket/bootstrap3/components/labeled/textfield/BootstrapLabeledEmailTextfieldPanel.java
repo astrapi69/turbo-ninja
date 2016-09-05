@@ -7,21 +7,21 @@ import de.alpharogroup.wicket.behaviors.JQueryJsAppenderBehavior;
 import de.alpharogroup.wicket.components.labeled.textfield.LabeledEmailTextFieldPanel;
 
 
-public class BootstrapLabeledEmailTextfieldPanel<T> extends LabeledEmailTextFieldPanel<T>
+public class BootstrapLabeledEmailTextfieldPanel<T, M> extends LabeledEmailTextFieldPanel<T, M>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	public BootstrapLabeledEmailTextfieldPanel(final String id, final IModel<T> model,
+	public BootstrapLabeledEmailTextfieldPanel(final String id, final IModel<M> model,
 		final IModel<String> labelModel, final IModel<String> placeholderModel)
 	{
 		super(id, model, labelModel);
 		// Add bootstrap css...
 		add(new JQueryJsAppenderBehavior("wrap", "<div class=\"control-group\"></div>"));
 		getLabelComponent().add(new AttributeAppender("class", " control-label"));
-		getEmailTextField().add(
-			new JQueryJsAppenderBehavior("wrap", "<div class=\"controls\"></div>"));
+		getEmailTextField()
+			.add(new JQueryJsAppenderBehavior("wrap", "<div class=\"controls\"></div>"));
 		getEmailTextField().add(new AttributeAppender("class", " input-xlarge"));
 		if (placeholderModel != null)
 		{

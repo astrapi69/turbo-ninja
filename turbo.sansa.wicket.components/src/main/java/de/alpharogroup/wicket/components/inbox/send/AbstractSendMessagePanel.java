@@ -28,7 +28,7 @@ public abstract class AbstractSendMessagePanel extends Panel
 	protected final Form<SendMessagePanelModel> form;
 	protected final Component recipient;
 	protected final Component subject;
-	protected final LabeledTextAreaPanel<SendMessagePanelModel> messageContent;
+	protected final LabeledTextAreaPanel<String, SendMessagePanelModel> messageContent;
 	protected final Button sendButton;
 
 	/** The Label component. */
@@ -39,30 +39,30 @@ public abstract class AbstractSendMessagePanel extends Panel
 		super(id);
 		final SendMessagePanelModel modelObject = onSendMessageModel(parameters);
 		setDefaultModel(Model.of(modelObject));
-		final IModel<SendMessagePanelModel> cpm = new CompoundPropertyModel<SendMessagePanelModel>(
-			modelObject);
+		final IModel<SendMessagePanelModel> cpm = new CompoundPropertyModel<>(modelObject);
 
-		form = new Form<SendMessagePanelModel>("form", cpm);
+		this.form = new Form<>("form", cpm);
 		// add the form.
-		add(form);
+		add(this.form);
 
-		form.add(sendMessageLabel = newLabel("sendMessageLabel", newSendMessageLabelModel()));
+		this.form
+			.add(this.sendMessageLabel = newLabel("sendMessageLabel", newSendMessageLabelModel()));
 
-		form.add(recipient = newRecipientPanel("recipient", cpm));
+		this.form.add(this.recipient = newRecipientPanel("recipient", cpm));
 
-		form.add(subject = newSubjectPanel("subject", cpm));
+		this.form.add(this.subject = newSubjectPanel("subject", cpm));
 
 		// Create the labeled text area panel for the message content...
 		final IModel<String> messageContentModel = new StringResourceModel("inbox.message.label",
 			this, null);
 
-		messageContent = new LabeledTextAreaPanel<SendMessagePanelModel>("messageContent", cpm,
+		this.messageContent = new LabeledTextAreaPanel<>("messageContent", cpm,
 			messageContentModel);
-		messageContent.getTextArea().add(new AttributeAppender("class", "labeledFormElement"));
-		form.add(messageContent);
+		this.messageContent.getTextArea().add(new AttributeAppender("class", "labeledFormElement"));
+		this.form.add(this.messageContent);
 
 		// Create submit button for the form
-		sendButton = new Button("sendButton")
+		this.sendButton = new Button("sendButton")
 		{
 			/**
 			 * The serialVersionUID.
@@ -77,15 +77,16 @@ public abstract class AbstractSendMessagePanel extends Panel
 		};
 		final IModel<String> buttonLabelModel = new StringResourceModel("inbox.send.button.label",
 			this, null);
-		sendButton.add(new Label("buttonLabel", buttonLabelModel));
+		this.sendButton.add(new Label("buttonLabel", buttonLabelModel));
 
-		form.add(sendButton);
+		this.form.add(this.sendButton);
 
 	}
 
-	protected Component newRecipientPanel(final String id, final IModel<SendMessagePanelModel> model)
+	protected Component newRecipientPanel(final String id,
+		final IModel<SendMessagePanelModel> model)
 	{
-		final LabeledTextFieldPanel<SendMessagePanelModel> panel = new LabeledTextFieldPanel<SendMessagePanelModel>(
+		final LabeledTextFieldPanel<String, SendMessagePanelModel> panel = new LabeledTextFieldPanel<>(
 			id, model, ResourceModelFactory.newResourceModel("inbox.recipient.label", this));
 		panel.getTextField().add(new AttributeAppender("class", "labeledFormElement"));
 
@@ -98,7 +99,7 @@ public abstract class AbstractSendMessagePanel extends Panel
 
 	protected Component newSubjectPanel(final String id, final IModel<SendMessagePanelModel> model)
 	{
-		final LabeledTextFieldPanel<SendMessagePanelModel> panel = new LabeledTextFieldPanel<SendMessagePanelModel>(
+		final LabeledTextFieldPanel<String, SendMessagePanelModel> panel = new LabeledTextFieldPanel<>(
 			id, model, ResourceModelFactory.newResourceModel("inbox.subject.label", this));
 		panel.getTextField().add(new AttributeAppender("class", "labeledFormElement"));
 		return panel;

@@ -28,31 +28,31 @@ public class InfringementInputPanel extends Panel
 	public InfringementInputPanel(final String id, final IModel<InfringementModel> model)
 	{
 		super(id, model);
-		final IModel<InfringementModel> cpm = new CompoundPropertyModel<InfringementModel>(model);
-		add(reason = newReason("reason", cpm));
-		add(description = newDescription("description", cpm));
+		final IModel<InfringementModel> cpm = new CompoundPropertyModel<>(model);
+		add(this.reason = newReason("reason", cpm));
+		add(this.description = newDescription("description", cpm));
 	}
 
 	public Component getDescription()
 	{
-		return description;
+		return this.description;
 	}
 
 	public Component getReason()
 	{
-		return reason;
+		return this.reason;
 	}
 
 	protected Component newDescription(final String id, final IModel<InfringementModel> model)
 	{
-		final IModel<String> labelModel = ResourceModelFactory.newResourceModel(
-			"rule.violation.reason.description.label", this, "Description");
+		final IModel<String> labelModel = ResourceModelFactory
+			.newResourceModel("rule.violation.reason.description.label", this, "Description");
 
 		final IModel<String> placeholderModel = ResourceModelFactory.newResourceModel(
 			"global.enter.your.rule.violation.reason.description.label", this,
 			"Enter your description for the rule violation");
 
-		final BootstrapLabeledTextAreaPanel<InfringementModel> description = new BootstrapLabeledTextAreaPanel<InfringementModel>(
+		final BootstrapLabeledTextAreaPanel<String, InfringementModel> description = new BootstrapLabeledTextAreaPanel<>(
 			"description", model, labelModel, placeholderModel);
 		description.add(new AttributeAppender("class", "pull-left"));
 
@@ -66,15 +66,15 @@ public class InfringementInputPanel extends Panel
 	{
 		final RuleViolationReason[] values = RuleViolationReason.values();
 
-		final List<RuleViolationReason> violationReasons = new ArrayList<RuleViolationReason>(
+		final List<RuleViolationReason> violationReasons = new ArrayList<>(
 			Arrays.asList(values));
 		// Create the select options for search gender with label...
 		final IModel<String> genderLabelModel = new StringResourceModel(
 			"rule.violation.dropdown.reason.label", this, null);
-		final EnumLocalizedDropdownChoicePanel<RuleViolationReason, InfringementModel> reason = new EnumLocalizedDropdownChoicePanel<RuleViolationReason, InfringementModel>(
+		final EnumLocalizedDropdownChoicePanel<RuleViolationReason, InfringementModel> reason = new EnumLocalizedDropdownChoicePanel<>(
 			"reason", model, genderLabelModel, violationReasons);
-		reason.getDropdownChoice().add(
-			new JQueryJsAppenderBehavior("wrap", "<div class=\"span3dot5\"></div>"));
+		reason.getDropdownChoice()
+			.add(new JQueryJsAppenderBehavior("wrap", "<div class=\"span3dot5\"></div>"));
 		reason.setRequired(true);
 		return reason;
 	}

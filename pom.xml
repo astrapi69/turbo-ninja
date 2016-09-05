@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-wicket-parent</artifactId>
-		<version>7.1.12</version>
+		<version>7.4.0</version>
 		<relativePath></relativePath>
 	</parent>
 
 	<artifactId>turbo-ninja</artifactId>
-	<version>3.0.0</version>
+	<version>4.0.0</version>
 	<packaging>pom</packaging>
 
 	<name>${project.artifactId}</name>
@@ -63,11 +63,11 @@
 
 	<properties>
 		<!-- WICKET version -->
-		<wicket.version>7.1.0</wicket.version>
+		<wicket.version>7.3.0</wicket.version>
 		<!-- JAULP-WICKET version -->
-		<jaulp.wicket.version>7.1.0</jaulp.wicket.version>
+		<jaulp.wicket.version>7.3.0</jaulp.wicket.version>
 		<!-- WICKET-JS-ADDONS version -->
-		<wicket-js-addons.version>7.1.0</wicket-js-addons.version>
+		<wicket-js-addons.version>7.3.0</wicket-js-addons.version>
 		<!-- SERVLET-API version -->
 		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 
@@ -111,6 +111,11 @@
 				<groupId>de.alpharogroup</groupId>
 				<artifactId>wicket.bootstrap3</artifactId>
 				<version>${jaulp.wicket.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>wicket.bootstrap2</artifactId>
+				<version>${wicket.version}</version>
 			</dependency>
 			<!-- JAVAX-SERVLET DEPENDENCIES -->
 			<dependency>

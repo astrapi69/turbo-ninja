@@ -1,9 +1,5 @@
 package de.alpharogroup.wicket.components.inbox.send.response;
 
-import de.alpharogroup.message.system.application.models.ReplyMessageModel;
-import de.alpharogroup.message.system.application.models.utils.MessageModelConverter;
-import de.alpharogroup.message.system.entities.Messages;
-
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
@@ -15,6 +11,9 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.StringResourceModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
+import de.alpharogroup.message.system.application.models.ReplyMessageModel;
+import de.alpharogroup.message.system.application.models.utils.MessageModelConverter;
+import de.alpharogroup.message.system.entities.Messages;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.components.labeled.label.LabeledEnumLabelPanel;
 import de.alpharogroup.wicket.components.labeled.textarea.LabeledTextAreaPanel;
@@ -32,7 +31,7 @@ public abstract class AbstractSendResponseMessagePanel extends Panel
 	protected final Button upperSendButton;
 	protected Component sender;
 	protected Component subject;
-	protected LabeledTextAreaPanel<ReplyMessageModel> messageContent;
+	protected LabeledTextAreaPanel<String, ReplyMessageModel> messageContent;
 	protected final Button lowerSendButton;
 	/** The Label component. */
 	protected final Label replyMessageLabel;
@@ -52,17 +51,17 @@ public abstract class AbstractSendResponseMessagePanel extends Panel
 		}
 		model.setResponseSubject(responseSubjectPart);
 
-		final CompoundPropertyModel<ReplyMessageModel> cpm = new CompoundPropertyModel<ReplyMessageModel>(
-			model);
+		final CompoundPropertyModel<ReplyMessageModel> cpm = new CompoundPropertyModel<>(model);
 
-		form = new Form<ReplyMessageModel>("form", cpm);
+		this.form = new Form<>("form", cpm);
 		// add the form.
-		add(form);
+		add(this.form);
 
-		form.add(replyMessageLabel = newLabel("replyMessageLabel", newReplyMessageLabelModel()));
+		this.form.add(
+			this.replyMessageLabel = newLabel("replyMessageLabel", newReplyMessageLabelModel()));
 
 		// Create inbox button for the form
-		inboxButton = new Button("inboxButton")
+		this.inboxButton = new Button("inboxButton")
 		{
 			/**
 			 * The serialVersionUID.
@@ -76,10 +75,10 @@ public abstract class AbstractSendResponseMessagePanel extends Panel
 			}
 		};
 
-		form.add(inboxButton);
+		this.form.add(this.inboxButton);
 
 		// Create upperSendButton button for the form
-		upperSendButton = new Button("upperSendButton")
+		this.upperSendButton = new Button("upperSendButton")
 		{
 			/**
 			 * The serialVersionUID.
@@ -93,21 +92,21 @@ public abstract class AbstractSendResponseMessagePanel extends Panel
 			}
 		};
 
-		form.add(upperSendButton);
+		this.form.add(this.upperSendButton);
 
-		form.add(sender = newSenderPanel("sendInformationModel.sender.username", cpm));
+		this.form.add(this.sender = newSenderPanel("sendInformationModel.sender.username", cpm));
 
-		form.add(subject = newSubjectPanel("responseSubject", cpm));
+		this.form.add(this.subject = newSubjectPanel("responseSubject", cpm));
 
 		// Create the label for content(the content of the message)...
 		final IModel<String> messageContentLabelModel = new StringResourceModel(
 			"inbox.message.content.label", this, null);
-		messageContent = new LabeledTextAreaPanel<ReplyMessageModel>("responseMessage", cpm,
+		this.messageContent = new LabeledTextAreaPanel<>("responseMessage", cpm,
 			messageContentLabelModel);
-		form.add(messageContent);
+		this.form.add(this.messageContent);
 
 		// Create 'lowerSendButton' button for the form
-		lowerSendButton = new Button("lowerSendButton")
+		this.lowerSendButton = new Button("lowerSendButton")
 		{
 			/**
 			 * The serialVersionUID.
@@ -121,19 +120,19 @@ public abstract class AbstractSendResponseMessagePanel extends Panel
 			}
 		};
 
-		form.add(lowerSendButton);
+		this.form.add(this.lowerSendButton);
 	}
 
 	protected Component newSenderPanel(final String id, final IModel<ReplyMessageModel> model)
 	{
-		final LabeledEnumLabelPanel<ReplyMessageModel> panel = new LabeledEnumLabelPanel<ReplyMessageModel>(
-			id, model, ResourceModelFactory.newResourceModel("inbox.sender.label", this));
+		final LabeledEnumLabelPanel<ReplyMessageModel> panel = new LabeledEnumLabelPanel<>(id,
+			model, ResourceModelFactory.newResourceModel("inbox.sender.label", this));
 		return panel;
 	}
 
 	protected Component newSubjectPanel(final String id, final IModel<ReplyMessageModel> model)
 	{
-		final LabeledTextFieldPanel<ReplyMessageModel> panel = new LabeledTextFieldPanel<ReplyMessageModel>(
+		final LabeledTextFieldPanel<String, ReplyMessageModel> panel = new LabeledTextFieldPanel<>(
 			id, model, ResourceModelFactory.newResourceModel("inbox.subject.label", this));
 		return panel;
 	}
