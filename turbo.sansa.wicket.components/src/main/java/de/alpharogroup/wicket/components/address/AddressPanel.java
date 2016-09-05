@@ -106,10 +106,10 @@ public class AddressPanel extends GenericPanel<AddressBean>
 		final String betweenLabel = AddressPanel.this.newBetweenLabelModel().getObject();
 		final IModel<String> streetModel = new PropertyModel<>(model, "address.street");
 		final IModel<String> streetNumberModel = new PropertyModel<>(model, "address.streetnumber");
-		final TwoFormComponentBean<String, String> streetNumberTwoFormComponentBeanModel = new TwoFormComponentBean<>(
+		final TwoFormComponentBean<String, String> streetNumberTwoFormComponentBean = new TwoFormComponentBean<>(
 			streetModel, streetNumberModel);
 		final LabeledTwoFormComponentPanel<String, String, AddressBean> streetNumberPanel = new LabeledTwoFormComponentPanel<String, String, AddressBean>(
-			id, model, Model.of(streetNumberTwoFormComponentBeanModel),
+			id, model, Model.of(streetNumberTwoFormComponentBean),
 			ResourceModelFactory.newResourceModel(
 				ResourceBundleKey.builder().key("sem.main.address.street.and.nr.label")
 					.parameters(ListExtensions.toObjectArray(betweenLabel))
