@@ -27,14 +27,14 @@ public abstract class NotificationPanel extends Panel
 
 	public Component getNotification()
 	{
-		return notification;
+		return this.notification;
 	}
 
 	private final Duration duration;
 
 	public Duration getDuration()
 	{
-		return duration;
+		return this.duration;
 	}
 
 	/**
@@ -52,7 +52,7 @@ public abstract class NotificationPanel extends Panel
 	{
 		super(id, model);
 		this.duration = duration;
-		add(notification = newNotificationLabel("notification", new PropertyModel<String>(model,
+		add(this.notification = newNotificationLabel("notification", new PropertyModel<String>(model,
 			"chat")));
 		addChannelListener(model);
 	}
@@ -67,17 +67,17 @@ public abstract class NotificationPanel extends Panel
 	{
 		getChannelService().addChannelListener(this, model.getObject().getChannel(),
 			new IChannelListener()
-			{
-				private static final long serialVersionUID = 1L;
+		{
+			private static final long serialVersionUID = 1L;
 
-				@Override
-				public void onEvent(final String channel, final Map<String, String> data,
-					final IChannelTarget target)
-				{
-					final String pnotify = onGetJavaScript(data);
-					target.appendJavaScript(pnotify);
-				}
-			});
+			@Override
+			public void onEvent(final String channel, final Map<String, String> data,
+				final IChannelTarget target)
+			{
+				final String pnotify = onGetJavaScript(data);
+				target.appendJavaScript(pnotify);
+			}
+		});
 	}
 
 	/**
@@ -91,9 +91,9 @@ public abstract class NotificationPanel extends Panel
 	 * Factory method for creating the notification component. This method is invoked in the
 	 * constructor from the derived classes and can be overridden so users can provide their own
 	 * version of a notification component.
-	 * 
-	 * @param id
-	 *            the id
+	 *
+	 * @param id            the id
+	 * @param model the model
 	 * @return the component
 	 */
 	protected Component newNotificationLabel(final String id, final IModel<String> model)
