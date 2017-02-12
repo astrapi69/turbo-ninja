@@ -6,7 +6,7 @@ import org.apache.wicket.markup.html.image.NonCachingImage;
 
 import de.alpharogroup.resource.system.application.model.ResourcesModel;
 import de.alpharogroup.resource.system.entities.Resources;
-import de.alpharogroup.user.management.entities.Users;
+import de.alpharogroup.user.management.entities.UserDatas;
 import de.alpharogroup.wicket.base.util.WicketImageExtensions;
 
 /**
@@ -113,7 +113,6 @@ public class WicketNonCachingImageExtensions
 		return image;
 	}
 
-
 	/**
 	 * Gets the non caching image.
 	 *
@@ -133,6 +132,19 @@ public class WicketNonCachingImageExtensions
 		return image;
 	}
 
+//	/**
+//	 * Gets the user image with the default wicket:id="image".
+//	 *
+//	 * @param user
+//	 *            the user
+//	 * @return the user image
+//	 */
+//	public static NonCachingImage getUserImage(final Users user)
+//	{
+//		final Set<Resources> resources = user.getUserData().getResources();
+//		return getImage(resources);
+//	}
+
 	/**
 	 * Gets the user image with the default wicket:id="image".
 	 *
@@ -140,11 +152,26 @@ public class WicketNonCachingImageExtensions
 	 *            the user
 	 * @return the user image
 	 */
-	public static NonCachingImage getUserImage(final Users user)
+	public static NonCachingImage getUserImage(final UserDatas userData)
 	{
-		final Set<Resources> resources = user.getUserData().getResources();
+		final Set<Resources> resources = userData.getResources();
 		return getImage(resources);
 	}
+
+//	/**
+//	 * Gets the user image.
+//	 *
+//	 * @param user
+//	 *            the user
+//	 * @param wicketId
+//	 *            the id from the image for the html template.
+//	 * @return the user image
+//	 */
+//	public static NonCachingImage getUserImage(final Users user, final String wicketId)
+//	{
+//		final Set<Resources> images = user.getUserData().getResources();
+//		return getNonCachingImage(images, wicketId);
+//	}
 
 	/**
 	 * Gets the user image.
@@ -155,11 +182,25 @@ public class WicketNonCachingImageExtensions
 	 *            the id from the image for the html template.
 	 * @return the user image
 	 */
-	public static NonCachingImage getUserImage(final Users user, final String wicketId)
+	public static NonCachingImage getUserImage(final UserDatas userData, final String wicketId)
 	{
-		final Set<Resources> images = user.getUserData().getResources();
+		final Set<Resources> images = userData.getResources();
 		return getNonCachingImage(images, wicketId);
 	}
+
+//	/**
+//	 * Gets the Images object from the given user or null if the user does not have any Images
+//	 * objects in the database.
+//	 *
+//	 * @param user
+//	 *            the user
+//	 * @return the user images
+//	 */
+//	public static Resources getUserImages(final Users user)
+//	{
+//		final Set<Resources> images = user.getUserData().getResources();
+//		return getFirstImage(images);
+//	}
 
 	/**
 	 * Gets the Images object from the given user or null if the user does not have any Images
@@ -169,11 +210,26 @@ public class WicketNonCachingImageExtensions
 	 *            the user
 	 * @return the user images
 	 */
-	public static Resources getUserImages(final Users user)
+	public static Resources getUserImages(final UserDatas userData )
 	{
-		final Set<Resources> images = user.getUserData().getResources();
+		final Set<Resources> images = userData.getResources();
 		return getFirstImage(images);
 	}
+
+//	/**
+//	 * Gets the user image.
+//	 *
+//	 * @param user
+//	 *            the user
+//	 * @param wicketId
+//	 *            the id from the image for the html template.
+//	 * @return the user image
+//	 */
+//	public static NonCachingImage getUserNonCachingImage(final Users user, final String wicketId)
+//	{
+//		final Set<Resources> images = user.getUserData().getResources();
+//		return getNonCachingImage(images, wicketId);
+//	}
 
 	/**
 	 * Gets the user image.
@@ -184,9 +240,9 @@ public class WicketNonCachingImageExtensions
 	 *            the id from the image for the html template.
 	 * @return the user image
 	 */
-	public static NonCachingImage getUserNonCachingImage(final Users user, final String wicketId)
+	public static NonCachingImage getUserNonCachingImage(final UserDatas userData, final String wicketId)
 	{
-		final Set<Resources> images = user.getUserData().getResources();
+		final Set<Resources> images = userData.getResources();
 		return getNonCachingImage(images, wicketId);
 	}
 
