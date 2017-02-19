@@ -9,8 +9,8 @@ import org.apache.wicket.Session;
 import org.apache.wicket.protocol.http.WebSession;
 import org.apache.wicket.request.Request;
 
-import de.alpharogroup.user.management.entities.Roles;
-import de.alpharogroup.user.management.entities.Users;
+import de.alpharogroup.user.entities.Roles;
+import de.alpharogroup.user.entities.Users;
 
 /**
  * The Class WicketSession is the session object for this application.
