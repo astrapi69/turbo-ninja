@@ -67,9 +67,11 @@
 		<!-- JAULP-WICKET version -->
 		<jaulp.wicket.version>6.25.0</jaulp.wicket.version>
 		<!-- WICKET-JS-ADDONS version -->
-		<wicket-js-addons.version>6.21.0</wicket-js-addons.version>
+		<wicket-js-addons.version>6.25.0</wicket-js-addons.version>
 		<!-- SERVLET-API version -->
 		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+		<!-- DB-MODULES version -->
+		<db-modules.version>3.10.0</db-modules.version>
 
 	</properties>
 
@@ -123,6 +125,30 @@
 				<artifactId>javax.servlet-api</artifactId>
 				<version>${javax.servlet-api.version}</version>
 			</dependency>
+		<!-- DB-MODULES DEPENDENCIES -->
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>resource-system-entities</artifactId>
+			<version>${db-modules.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>resource-bundles-business</artifactId>
+			<version>${db-modules.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>message-system-business</artifactId>
+			<version>${db-modules.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>event-system-entities</artifactId>
+			<version>${db-modules.version}</version>
+		</dependency>
 
 		</dependencies>
 

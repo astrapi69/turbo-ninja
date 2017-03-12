@@ -56,26 +56,22 @@
 		<!-- DB-MODULES DEPENDENCIES -->
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>message-system-business</artifactId>
-			<version>3.10.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>de.alpharogroup</groupId>
 			<artifactId>resource-system-entities</artifactId>
-			<version>3.10.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>resource-bundles-business</artifactId>
-			<version>3.10.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>message-system-business</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>event-system-entities</artifactId>
-			<version>3.10.0</version>
 		</dependency>
 		<!-- NEW EXTENSIONS LIB DEPENDENCIES -->
 		<dependency>
