@@ -55,9 +55,9 @@
 
 	<modules>
 		<module>chat-systems</module>
-		<module>turbo.sansa.wicket.components</module>
-		<module>wicket.bootstrap2</module>
-		<module>wicket.bootstrap3</module>
+		<module>turbo-sansa-wicket-components</module>
+		<module>wicket-bootstrap2</module>
+		<module>wicket-bootstrap3</module>
 		<module>wicket-component-expressions</module>
 	</modules>
 
@@ -66,7 +66,8 @@
 		<wicket.version>7.5.0</wicket.version>
 		<!-- JAULP-WICKET version -->
 		<jaulp-wicket.version>7.5.0-SNAPSHOT</jaulp-wicket.version>
-		<wicket.bootstrap3.version>7.5.0-SNAPSHOT</wicket.bootstrap3.version>
+		<wicket-bootstrap2.version>7.5.0-SNAPSHOT</wicket-bootstrap2.version>
+		<wicket-bootstrap3.version>7.5.0-SNAPSHOT</wicket-bootstrap3.version>
 		<wicket-chat-api.version>7.5.0-SNAPSHOT</wicket-chat-api.version>
 		<!-- WICKET-JS-ADDONS version -->
 		<wicket-js-addons.version>7.5.0-SNAPSHOT</wicket-js-addons.version>
@@ -112,13 +113,13 @@
 			<!-- INTERNAL WICKET LIB DEPENDENCIES -->
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
-				<artifactId>wicket.bootstrap3</artifactId>
-				<version>${wicket.bootstrap3.version}</version>
+				<artifactId>wicket-bootstrap3</artifactId>
+				<version>${wicket-bootstrap3.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
-				<artifactId>wicket.bootstrap2</artifactId>
-				<version>${wicket.version}</version>
+				<artifactId>wicket-bootstrap2</artifactId>
+				<version>${wicket-bootstrap2.version}</version>
 			</dependency>
 			<!-- JAVAX-SERVLET DEPENDENCIES -->
 			<dependency>

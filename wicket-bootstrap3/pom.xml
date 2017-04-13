@@ -8,7 +8,7 @@
 		<version>4.1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>wicket.bootstrap3</artifactId>
+	<artifactId>wicket-bootstrap3</artifactId>
 	<version>7.5.0-SNAPSHOT</version>
 
 	<name>${project.artifactId}</name>
