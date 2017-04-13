@@ -1,17 +1,18 @@
 package de.alpharogroup.wicket.components.welcome;
 
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.markup.html.panel.GenericPanel;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.util.lang.Args;
 
 import de.alpharogroup.resourcebundle.locale.ResourceBundleKey;
-import de.alpharogroup.user.management.entities.Users;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.components.factory.ComponentFactory;
 
 /**
  * @author Asterios Raptis
  */
-public abstract class WelcomeUserPanel extends Panel
+public class WelcomeUserPanel extends GenericPanel<WelcomeUserBean>
 {
 
 	/**
@@ -19,43 +20,48 @@ public abstract class WelcomeUserPanel extends Panel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public WelcomeUserPanel(final String id)
+	public WelcomeUserPanel(final String id, final IModel<WelcomeUserBean> model)
 	{
-		super(id);
-		String username = null;
+		super(id, Args.notNull(model, "model"));
+
+		add(newWelcomeLabel("lblWelcome", model));
+
+	}
+
+	protected Label newWelcomeLabel(final String id, final IModel<WelcomeUserBean> model) {
+		final String username = model.getObject().getUsername();
 		final StringBuilder resourceKey = new StringBuilder("welcome.");
-		final Users user = getUser();
-		if (user != null)
-		{
-			if (user.getUserData().getGender() != null)
-			{
-				resourceKey.append(user.getUserData().getGender().name());
-			}
-			else
-			{
-				resourceKey.append("UNDEFINED");
-			}
-			username = user.getUsername();
-		}
-		else
-		{
-			resourceKey.append("guest");
-			username = "";
-		}
+		resourceKey.append(model.getObject().getGenderEnumName());
+
+//		final Users user = getUser();
+//		if (user != null)
+//		{
+//			if (user.getUserData().getGender() != null)
+//			{
+//				resourceKey.append(user.getUserData().getGender().name());
+//			}
+//			else
+//			{
+//				resourceKey.append("UNDEFINED");
+//			}
+//			username = user.getUsername();
+//		}
+//		else
+//		{
+//			resourceKey.append("guest");
+//			username = "";
+//		}
 
 		final Object[] params = { username };
 		ResourceModelFactory.newResourceModel(
 			ResourceBundleKey.builder().key(resourceKey.toString().trim()).parameters(params)
 				.defaultValue(resourceKey.toString().trim()).build(), this);
 		final Label lblWelcome = ComponentFactory.newLabel(
-			"lblWelcome",
+			id,
 			ResourceModelFactory.newResourceModel(
 				ResourceBundleKey.builder().key(resourceKey.toString().trim()).parameters(params)
 					.defaultValue(resourceKey.toString().trim()).build(), this));
-		add(lblWelcome);
-
+		return lblWelcome;
 	}
-
-	protected abstract Users getUser();
 
 }

@@ -5,11 +5,11 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>turbo-ninja</artifactId>
-		<version>4.0.0</version>
+		<version>4.1.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>wicket.bootstrap3</artifactId>
-	<version>7.3.0</version>
+	<version>7.5.0-SNAPSHOT</version>
 
 	<name>${project.artifactId}</name>
 
@@ -105,17 +105,17 @@
 		<!-- JAULP-WICKET DEPENDENCIES -->
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>jaulp.wicket.base</artifactId>
+			<artifactId>jaulp-wicket-base</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>jaulp.wicket.behaviors</artifactId>
+			<artifactId>jaulp-wicket-behaviors</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>jaulp.wicket.components</artifactId>
+			<artifactId>jaulp-wicket-components</artifactId>
 		</dependency>
 
 	</dependencies>

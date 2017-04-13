@@ -9,8 +9,8 @@ import org.apache.wicket.Session;
 import org.apache.wicket.protocol.http.WebSession;
 import org.apache.wicket.request.Request;
 
-import de.alpharogroup.user.management.entities.Roles;
-import de.alpharogroup.user.management.entities.Users;
+import de.alpharogroup.user.entities.Roles;
+import de.alpharogroup.user.entities.Users;
 
 /**
  * The Class WicketSession is the session object for this application.
@@ -44,7 +44,7 @@ public abstract class AbstractWicketSession<USERID> extends WebSession
 	/**
 	 * The user attributes. Holds data for the user session.
 	 **/
-	private final Map<String, Serializable> userAttributes = new LinkedHashMap<String, Serializable>();
+	private final Map<String, Serializable> userAttributes = new LinkedHashMap<>();
 
 	/** The user id. */
 	protected USERID userId;

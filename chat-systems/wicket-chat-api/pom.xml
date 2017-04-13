@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>chat-systems</artifactId>
-		<version>7.3.0</version>
+		<version>7.5.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>wicket-chat-api</artifactId>
