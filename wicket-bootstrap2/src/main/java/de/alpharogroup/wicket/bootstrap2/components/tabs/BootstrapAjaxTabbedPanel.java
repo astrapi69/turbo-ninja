@@ -45,7 +45,8 @@ public class BootstrapAjaxTabbedPanel<T extends ICloseableTab> extends AjaxClose
 		commonInit();
 	}
 
-	public BootstrapAjaxTabbedPanel(final String id, final List<T> tabs, final IModel<Integer> model)
+	public BootstrapAjaxTabbedPanel(final String id, final List<T> tabs,
+		final IModel<Integer> model)
 	{
 		super(id, tabs, model);
 

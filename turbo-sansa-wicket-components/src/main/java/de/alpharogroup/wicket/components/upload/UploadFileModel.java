@@ -22,7 +22,6 @@ import org.apache.wicket.markup.html.form.upload.FileUpload;
 import de.alpharogroup.resource.system.application.model.ResourcesModel;
 
 
-
 /**
  * The Class UploadFileModel.
  *

@@ -81,8 +81,7 @@ public class InfringementInputPanel extends Panel
 	{
 		final RuleViolationReason[] values = RuleViolationReason.values();
 
-		final List<RuleViolationReason> violationReasons = new ArrayList<>(
-			Arrays.asList(values));
+		final List<RuleViolationReason> violationReasons = new ArrayList<>(Arrays.asList(values));
 		// Create the select options for search gender with label...
 		final IModel<String> genderLabelModel = new StringResourceModel(
 			"rule.violation.dropdown.reason.label", this, null);

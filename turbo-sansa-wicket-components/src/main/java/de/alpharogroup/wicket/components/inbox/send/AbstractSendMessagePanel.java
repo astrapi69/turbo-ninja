@@ -98,40 +98,6 @@ public abstract class AbstractSendMessagePanel extends Panel
 
 	}
 
-	protected Component newRecipientPanel(final String id,
-		final IModel<SendMessagePanelModel> model)
-	{
-		final LabeledTextFieldPanel<String, SendMessagePanelModel> panel = new LabeledTextFieldPanel<>(
-			id, model, ResourceModelFactory.newResourceModel("inbox.recipient.label", this));
-		panel.getTextField().add(new AttributeAppender("class", "labeledFormElement"));
-
-		if (model.getObject().getRecipient() != null)
-		{
-			panel.getTextField().setEnabled(false);
-		}
-		return panel;
-	}
-
-	protected Component newSubjectPanel(final String id, final IModel<SendMessagePanelModel> model)
-	{
-		final LabeledTextFieldPanel<String, SendMessagePanelModel> panel = new LabeledTextFieldPanel<>(
-			id, model, ResourceModelFactory.newResourceModel("inbox.subject.label", this));
-		panel.getTextField().add(new AttributeAppender("class", "labeledFormElement"));
-		return panel;
-	}
-
-	/**
-	 * Factory method for creating the Model of the Label of the send message link. This method is
-	 * invoked in the constructor from the derived classes and can be overridden so users can
-	 * provide their own version of the Model of the Label of the send message link.
-	 *
-	 * @return the Model of the Label of the send message link.
-	 */
-	protected IModel<String> newSendMessageLabelModel()
-	{
-		return ResourceModelFactory.newResourceModel("inbox.send.message.header.label", this);
-	}
-
 	/**
 	 * Factory method for creating the Label of the send message link. This method is invoked in the
 	 * constructor from the derived classes and can be overridden so users can provide their own
@@ -149,8 +115,42 @@ public abstract class AbstractSendMessagePanel extends Panel
 		return label;
 	}
 
-	protected abstract SendMessagePanelModel onSendMessageModel(final PageParameters parameters);
+	protected Component newRecipientPanel(final String id,
+		final IModel<SendMessagePanelModel> model)
+	{
+		final LabeledTextFieldPanel<String, SendMessagePanelModel> panel = new LabeledTextFieldPanel<>(
+			id, model, ResourceModelFactory.newResourceModel("inbox.recipient.label", this));
+		panel.getTextField().add(new AttributeAppender("class", "labeledFormElement"));
+
+		if (model.getObject().getRecipient() != null)
+		{
+			panel.getTextField().setEnabled(false);
+		}
+		return panel;
+	}
+
+	/**
+	 * Factory method for creating the Model of the Label of the send message link. This method is
+	 * invoked in the constructor from the derived classes and can be overridden so users can
+	 * provide their own version of the Model of the Label of the send message link.
+	 *
+	 * @return the Model of the Label of the send message link.
+	 */
+	protected IModel<String> newSendMessageLabelModel()
+	{
+		return ResourceModelFactory.newResourceModel("inbox.send.message.header.label", this);
+	}
+
+	protected Component newSubjectPanel(final String id, final IModel<SendMessagePanelModel> model)
+	{
+		final LabeledTextFieldPanel<String, SendMessagePanelModel> panel = new LabeledTextFieldPanel<>(
+			id, model, ResourceModelFactory.newResourceModel("inbox.subject.label", this));
+		panel.getTextField().add(new AttributeAppender("class", "labeledFormElement"));
+		return panel;
+	}
 
 	protected abstract void onSendMessage();
+
+	protected abstract SendMessagePanelModel onSendMessageModel(final PageParameters parameters);
 
 }

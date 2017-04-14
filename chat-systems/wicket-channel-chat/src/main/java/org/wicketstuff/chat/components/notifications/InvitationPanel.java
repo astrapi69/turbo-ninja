@@ -57,8 +57,8 @@ public abstract class InvitationPanel extends NotificationPanel
 		final String profileLinkLabel = StringExtensions.getValue(data, PROFILE_LINK_LABEL,
 			"Show profile");
 		final String closeLinkLabel = StringExtensions.getValue(data, CLOSE_LINK_LABEL, "Close");
-		final String chatroom = StringExtensions.getValue(data, CHATROOM, UUID.randomUUID().toString()
-			.substring(0, 7));
+		final String chatroom = StringExtensions.getValue(data, CHATROOM,
+			UUID.randomUUID().toString().substring(0, 7));
 		final String divId = getNotification().getMarkupId() + "_" + chatroom;
 		final String closeId = divId + "_close";
 
@@ -70,13 +70,15 @@ public abstract class InvitationPanel extends NotificationPanel
 
 		final String jqueryHide = "setTimeout(function() { " + replaceDiv + "}, " + delay + ");";
 		final String jqueryShow = "$(\"#" + getNotification().getMarkupId() + "\").append('"
-			+ "<div class=\"" + divId + " well\" id=\"" + divId + "\">" + "		<span class=\"lead\">"
-			+ invitationLabel + "		</span>" + "		<div class=\"btn-group\">"
-			+ "			<a class=\"btn btn-success buttonPadding\" href=\"" + chatLinkAddress + "\" >"
-			+ chatLinkLabel + "			</a>" + "			<a class=\"btn btn-info buttonPadding\" href=\""
-			+ profileLinkAddress + "\" >" + profileLinkLabel + "			</a>"
-			+ "			<a class=\"btn btn-inverse buttonPadding\" href=\"#\" id=\"" + closeId + "\" >"
-			+ closeLinkLabel + "			</a>" + "		</div>" + "</div>" + "');";
+			+ "<div class=\"" + divId + " well\" id=\"" + divId + "\">"
+			+ "		<span class=\"lead\">" + invitationLabel + "		</span>"
+			+ "		<div class=\"btn-group\">"
+			+ "			<a class=\"btn btn-success buttonPadding\" href=\"" + chatLinkAddress
+			+ "\" >" + chatLinkLabel + "			</a>"
+			+ "			<a class=\"btn btn-info buttonPadding\" href=\"" + profileLinkAddress
+			+ "\" >" + profileLinkLabel + "			</a>"
+			+ "			<a class=\"btn btn-inverse buttonPadding\" href=\"#\" id=\"" + closeId
+			+ "\" >" + closeLinkLabel + "			</a>" + "		</div>" + "</div>" + "');";
 		return jqueryShow + jqueryHide + closeFunction + closeJs;
 	}
 

@@ -61,35 +61,6 @@ public abstract class AbstractInboxPanel extends Panel
 	}
 
 	/**
-	 * Factory method for creating the Model of the Label of the send message link. This method is
-	 * invoked in the constructor from the derived classes and can be overridden so users can
-	 * provide their own version of the Model of the Label of the send message link.
-	 *
-	 * @return the Model of the Label of the send message link.
-	 */
-	protected IModel<String> newSendMessageLabelModel()
-	{
-		return ResourceModelFactory.newResourceModel("inbox.send.message.button.label", this);
-	}
-
-	/**
-	 * Factory method for creating the Label of the send message link. This method is invoked in the
-	 * constructor from the derived classes and can be overridden so users can provide their own
-	 * version of Label of the send message link.
-	 *
-	 * @param id
-	 *            the id
-	 * @param model
-	 *            the model
-	 * @return the label
-	 */
-	protected Label newLabel(final String id, final IModel<String> model)
-	{
-		final Label label = new Label(id, model);
-		return label;
-	}
-
-	/**
 	 * Gets the messages panel.
 	 *
 	 * @return the messages panel
@@ -107,6 +78,23 @@ public abstract class AbstractInboxPanel extends Panel
 	public Link<Void> getSendMessage()
 	{
 		return sendMessage;
+	}
+
+	/**
+	 * Factory method for creating the Label of the send message link. This method is invoked in the
+	 * constructor from the derived classes and can be overridden so users can provide their own
+	 * version of Label of the send message link.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @return the label
+	 */
+	protected Label newLabel(final String id, final IModel<String> model)
+	{
+		final Label label = new Label(id, model);
+		return label;
 	}
 
 	/**
@@ -143,6 +131,18 @@ public abstract class AbstractInboxPanel extends Panel
 				onSendMessage();
 			}
 		};
+	}
+
+	/**
+	 * Factory method for creating the Model of the Label of the send message link. This method is
+	 * invoked in the constructor from the derived classes and can be overridden so users can
+	 * provide their own version of the Model of the Label of the send message link.
+	 *
+	 * @return the Model of the Label of the send message link.
+	 */
+	protected IModel<String> newSendMessageLabelModel()
+	{
+		return ResourceModelFactory.newResourceModel("inbox.send.message.button.label", this);
 	}
 
 	/**

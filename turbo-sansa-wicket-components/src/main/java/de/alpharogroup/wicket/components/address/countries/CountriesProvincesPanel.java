@@ -66,14 +66,16 @@ public class CountriesProvincesPanel extends TwoDropDownChoicesPanel<String>
 	{
 		super(id, stringTwoDropDownChoicesModel, rootRenderer, childRenderer);
 
-		add(new Label("countryLabel", ResourceModelFactory.newResourceModel(ResourceBundleKey
-			.builder().key("sem.main.address.country.label").build(), this)));
+		add(new Label("countryLabel", ResourceModelFactory.newResourceModel(
+			ResourceBundleKey.builder().key("sem.main.address.country.label").build(), this)));
 
 		add(wmcRootChoice = newWmcRootChoice("wmcRootChoice"));
 		wmcRootChoice.add(this.getRootChoice());
 
-		add(new Label("federalStateLabel", ResourceModelFactory.newResourceModel(ResourceBundleKey
-			.builder().key("sem.main.address.federal.state.label").build(), this)));
+		add(new Label("federalStateLabel",
+			ResourceModelFactory.newResourceModel(
+				ResourceBundleKey.builder().key("sem.main.address.federal.state.label").build(),
+				this)));
 		wmcChildChoice = newWmcChildChoice("wmcChildChoice");
 		add(wmcChildChoice);
 		wmcChildChoice.add(this.getChildChoice());

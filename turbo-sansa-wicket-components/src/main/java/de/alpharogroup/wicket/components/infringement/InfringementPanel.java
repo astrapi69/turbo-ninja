@@ -69,24 +69,6 @@ public abstract class InfringementPanel extends Panel
 	}
 
 	/**
-	 * Factory method to get the display values in the ListViewPanel.
-	 *
-	 * @return the list
-	 */
-	protected List<ResourceBundleKey> newDisplayValues()
-	{
-		final List<ResourceBundleKey> values = Arrays.asList(ResourceBundleKey.builder().key("1")
-			.build(), ResourceBundleKey.builder().key("2").build(), ResourceBundleKey.builder()
-			.key("3").build(), ResourceBundleKey.builder().key("4").build(), ResourceBundleKey
-			.builder().key("5").build(), ResourceBundleKey.builder().key("6").build(),
-			ResourceBundleKey.builder().key("7").build());
-		final ComponentPropertiesKeysListResolver renderer = new ComponentPropertiesKeysListResolver(
-			"infringement.list.entry", "label", this, values);
-		final List<ResourceBundleKey> listDisplayValues = renderer.getDisplayValues();
-		return listDisplayValues;
-	}
-
-	/**
 	 * Gets the form panel.
 	 *
 	 * @return the form panel
@@ -106,7 +88,6 @@ public abstract class InfringementPanel extends Panel
 		return introductionPanel;
 	}
 
-
 	/**
 	 * Gets the list view panel.
 	 *
@@ -115,6 +96,28 @@ public abstract class InfringementPanel extends Panel
 	public Component getListViewPanel()
 	{
 		return listViewPanel;
+	}
+
+
+	/**
+	 * Factory method to get the display values in the ListViewPanel.
+	 *
+	 * @return the list
+	 */
+	protected List<ResourceBundleKey> newDisplayValues()
+	{
+		final List<ResourceBundleKey> values = Arrays.asList(
+			ResourceBundleKey.builder().key("1").build(),
+			ResourceBundleKey.builder().key("2").build(),
+			ResourceBundleKey.builder().key("3").build(),
+			ResourceBundleKey.builder().key("4").build(),
+			ResourceBundleKey.builder().key("5").build(),
+			ResourceBundleKey.builder().key("6").build(),
+			ResourceBundleKey.builder().key("7").build());
+		final ComponentPropertiesKeysListResolver renderer = new ComponentPropertiesKeysListResolver(
+			"infringement.list.entry", "label", this, values);
+		final List<ResourceBundleKey> listDisplayValues = renderer.getDisplayValues();
+		return listDisplayValues;
 	}
 
 	/**
@@ -178,8 +181,8 @@ public abstract class InfringementPanel extends Panel
 			protected Component newListComponent(final String id,
 				final ListItem<ResourceBundleKey> item)
 			{
-				return new Label(id, ResourceModelFactory.newResourceModel(item.getModel()
-					.getObject(), this));
+				return new Label(id,
+					ResourceModelFactory.newResourceModel(item.getModel().getObject(), this));
 			}
 		};
 		return listViewPanel;

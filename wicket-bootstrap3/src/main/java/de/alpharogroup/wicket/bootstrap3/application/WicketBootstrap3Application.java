@@ -131,11 +131,47 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 	private void initBootstrap(final ThemeProvider themeProvider)
 	{
 		final IBootstrapSettings settings = new BootstrapSettings();
-		settings.setJsResourceFilterName(FOOTER_FILTER_NAME)
-		.setThemeProvider(themeProvider)
-        .setActiveThemeProvider(new SessionThemeProvider());
+		settings.setJsResourceFilterName(FOOTER_FILTER_NAME).setThemeProvider(themeProvider)
+			.setActiveThemeProvider(new SessionThemeProvider());
 		Bootstrap.install(this, settings);
 		BootstrapLess.install(this);
+	}
+
+	/**
+	 * Initialize all header contributors.
+	 */
+	private void initializeAllHeaderContributors()
+	{
+		try
+		{
+			initializeResources();
+		}
+		catch (final ClassNotFoundException e)
+		{
+			LOGGER.error(
+				"ClassNotFoundException in the initializeResources-Method from the WicketApplication.",
+				e);
+		}
+		catch (final IOException e)
+		{
+			LOGGER.error(
+				"IOException in the initializeResources-Method from the WicketApplication.", e);
+		}
+	}
+
+	/**
+	 * Initialize all resources that are returned from the factory callback method
+	 * {@link WicketBootstrap3Application#newPackagesToScan()}.
+	 *
+	 * @throws ClassNotFoundException
+	 *             the class not found exception
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
+	public void initializeResources() throws ClassNotFoundException, IOException
+	{
+		final PackageResourceReferences prr = PackageResourceReferences.getInstance();
+		prr.initializeResources(newPackagesToScan());
 	}
 
 	/**
@@ -149,6 +185,19 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 	protected String newDefaultTheme()
 	{
 		return "Cerulean";
+	}
+
+
+	/**
+	 * Factory callback method that returns the packages to scan as a {@link String} array object.
+	 * Note: the first entry is called with the {@link AnnotatedMountScanner} to mount pages.
+	 *
+	 * @return the {@link String} array object with the packages to scan
+	 */
+	protected String[] newPackagesToScan()
+	{
+		final String[] packagesToScan = { "" };
+		return packagesToScan;
 	}
 
 	protected Theme newTheme()
@@ -166,6 +215,16 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 		return new BootswatchThemeProvider(newDefaultTheme());
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onBeforeApplicationConfigurations()
+	{
+		super.onBeforeApplicationConfigurations();
+		// initialize all header contributors
+		initializeAllHeaderContributors();
+	}
 
 	@Override
 	protected void onDeploymentModeSettings()
@@ -183,7 +242,7 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 		// getDebugSettings().setAjaxDebugModeEnabled(false);
 
 		configureBootstrap();
-//		configureResourceBundles();
+		// configureResourceBundles();
 
 		optimizeForWebPerformance();
 
@@ -194,11 +253,13 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 			StaticResourceRewriteMapper.withBaseUrl(cdn).install(this);
 		}
 
-        final IPackageResourceGuard packageResourceGuard = getResourceSettings().getPackageResourceGuard();
-        if (packageResourceGuard instanceof SecurePackageResourceGuard) {
-            final SecurePackageResourceGuard securePackageResourceGuard = (SecurePackageResourceGuard) packageResourceGuard;
-            securePackageResourceGuard.addPattern("+*.woff2");
-        }
+		final IPackageResourceGuard packageResourceGuard = getResourceSettings()
+			.getPackageResourceGuard();
+		if (packageResourceGuard instanceof SecurePackageResourceGuard)
+		{
+			final SecurePackageResourceGuard securePackageResourceGuard = (SecurePackageResourceGuard)packageResourceGuard;
+			securePackageResourceGuard.addPattern("+*.woff2");
+		}
 	}
 
 	/**
@@ -208,9 +269,8 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 	{
 		if (usesDeploymentConfig())
 		{
-			getResourceSettings().setCachingStrategy(
-				new FilenameWithVersionResourceCachingStrategy("-v-", new CachingResourceVersion(
-					new Adler32ResourceVersion())));
+			getResourceSettings().setCachingStrategy(new FilenameWithVersionResourceCachingStrategy(
+				"-v-", new CachingResourceVersion(new Adler32ResourceVersion())));
 
 			getResourceSettings().setJavaScriptCompressor(
 				new GoogleClosureJavaScriptCompressor(CompilationLevel.SIMPLE_OPTIMIZATIONS));
@@ -226,66 +286,6 @@ public abstract class WicketBootstrap3Application extends DisableJSessionIDinUrl
 		setHeaderResponseDecorator(new RenderJavaScriptToFooterHeaderResponseDecorator());
 		getRequestCycleSettings().setRenderStrategy(
 			org.apache.wicket.settings.RequestCycleSettings.RenderStrategy.ONE_PASS_RENDER);
-	}
-
-	/**
-	 * Initialize all resources that are returned from the factory callback method {@link WicketBootstrap3Application#newPackagesToScan()}.
-	 *
-	 * @throws ClassNotFoundException
-	 *             the class not found exception
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
-	 */
-	public void initializeResources() throws ClassNotFoundException, IOException
-	{
-		final PackageResourceReferences prr = PackageResourceReferences.getInstance();
-		prr.initializeResources(newPackagesToScan());
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onBeforeApplicationConfigurations()
-	{
-		super.onBeforeApplicationConfigurations();
-		// initialize all header contributors
-		initializeAllHeaderContributors();
-	}
-
-	/**
-	 * Initialize all header contributors.
-	 */
-	private void initializeAllHeaderContributors()
-	{
-		try
-		{
-			initializeResources();
-		}
-		catch (final ClassNotFoundException e)
-		{
-			LOGGER
-				.error(
-					"ClassNotFoundException in the initializeResources-Method from the WicketApplication.",
-					e);
-		}
-		catch (final IOException e)
-		{
-			LOGGER.error(
-				"IOException in the initializeResources-Method from the WicketApplication.", e);
-		}
-	}
-
-	/**
-	 * Factory callback method that returns the packages to scan as a {@link String} array object.
-	 * Note: the first entry is called with the {@link AnnotatedMountScanner} to mount pages.
-	 *
-	 * @return the {@link String} array object with the packages to scan
-	 */
-	protected String[] newPackagesToScan()
-	{
-		final String[] packagesToScan = {""};
-		return packagesToScan;
 	}
 
 }

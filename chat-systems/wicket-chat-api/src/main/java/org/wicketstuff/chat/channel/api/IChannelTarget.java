@@ -53,20 +53,20 @@ public interface IChannelTarget
 	public void addComponent(final Component component, final String markupId);
 
 	/**
-	 * Sets the focus in the browser to the given component. The markup id must be set.
-	 * 
-	 * @param component
-	 *            The component to get the focus.
-	 */
-	public void focusComponent(final Component component);
-
-	/**
 	 * Adds javascript that will be evaluated on the client side after components are replaced
 	 * 
 	 * @param javascript
 	 *            The js to append
 	 */
 	public void appendJavaScript(final String javascript);
+
+	/**
+	 * Sets the focus in the browser to the given component. The markup id must be set.
+	 * 
+	 * @param component
+	 *            The component to get the focus.
+	 */
+	public void focusComponent(final Component component);
 
 	/**
 	 * Adds javascript that will be evaluated on the client side before components are replaced

@@ -105,8 +105,8 @@ public class TimerChannelBehavior extends AbstractAjaxTimerBehavior implements S
 			 * @throws IllegalAccessException
 			 * @throws InvocationTargetException
 			 */
-			public void invoke(final Object o) throws IllegalArgumentException,
-				IllegalAccessException, InvocationTargetException
+			public void invoke(final Object o)
+				throws IllegalArgumentException, IllegalAccessException, InvocationTargetException
 			{
 				final Application originalApplication = Application.get();
 				try
@@ -181,8 +181,8 @@ public class TimerChannelBehavior extends AbstractAjaxTimerBehavior implements S
 		 * @throws IllegalAccessException
 		 * @throws InvocationTargetException
 		 */
-		public void invoke(final Object o) throws IllegalArgumentException, IllegalAccessException,
-			InvocationTargetException
+		public void invoke(final Object o)
+			throws IllegalArgumentException, IllegalAccessException, InvocationTargetException
 		{
 			for (final DelayedMethodCall dmc : calls)
 			{
@@ -268,8 +268,8 @@ public class TimerChannelBehavior extends AbstractAjaxTimerBehavior implements S
 		{
 			synchronized (currentTrigger)
 			{
-				currentTrigger.addCall(ADD_COMPONENT_WITH_MARKUP_ID_METHOD, new Object[] {
-						component, markupId });
+				currentTrigger.addCall(ADD_COMPONENT_WITH_MARKUP_ID_METHOD,
+					new Object[] { component, markupId });
 			}
 		}
 
@@ -386,8 +386,8 @@ public class TimerChannelBehavior extends AbstractAjaxTimerBehavior implements S
 		{
 			methods = new Method[] {
 					AjaxRequestTarget.class.getMethod("add", new Class[] { Component[].class }),
-					AjaxRequestTarget.class.getMethod("add", new Class[] { Component.class,
-							String.class }),
+					AjaxRequestTarget.class.getMethod("add",
+						new Class[] { Component.class, String.class }),
 					AjaxRequestTarget.class.getMethod("appendJavaScript",
 						new Class[] { CharSequence.class }),
 					AjaxRequestTarget.class.getMethod("prependJavaScript",

@@ -57,15 +57,18 @@ public abstract class LocationPanel extends BasePanel<LocationModel<Addresses>>
 	/**
 	 * Instantiates a new {@link LocationPanel}.
 	 *
-	 * @param id the id
-	 * @param model the model
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
 	 */
 	public LocationPanel(final String id, final IModel<LocationModel<Addresses>> model)
 	{
 		super(id, model);
 		Args.notNull(model, "model");
 		this.countriesToZipcodes = newCountriesToZipcodesMap();
-		this.dropdownChoicesModel = new StringTwoDropDownChoicesModel("de.deu", this.countriesToZipcodes);
+		this.dropdownChoicesModel = new StringTwoDropDownChoicesModel("de.deu",
+			this.countriesToZipcodes);
 		add(locationDescriptionLabel = newLocationDescriptionLabel("locationDescriptionLabel"));
 		add(countryWithZipDropDownChoiceTextFieldPanel = newDropDownChoiceTextFieldPanel(
 			"dropDownChoiceTextFieldPanel", model));
@@ -79,9 +82,9 @@ public abstract class LocationPanel extends BasePanel<LocationModel<Addresses>>
 	protected abstract Map<String, List<String>> newCountriesToZipcodesMap();
 
 	/**
-	 * Factory method for creating a new {@link DropDownChoiceTextFieldPanel}. This method is invoked in the
-	 * constructor from the derived classes and can be overridden so users can provide their own
-	 * version of a new {@link DropDownChoiceTextFieldPanel}.
+	 * Factory method for creating a new {@link DropDownChoiceTextFieldPanel}. This method is
+	 * invoked in the constructor from the derived classes and can be overridden so users can
+	 * provide their own version of a new {@link DropDownChoiceTextFieldPanel}.
 	 *
 	 * @param id
 	 *            the id
@@ -93,22 +96,22 @@ public abstract class LocationPanel extends BasePanel<LocationModel<Addresses>>
 		final IModel<LocationModel<Addresses>> model)
 	{
 		// Create the dropdown for countries with label...
-		final IModel<String> rootLabelModel = ResourceModelFactory.newResourceModel(
-			"countries.location.label", this, "Land");
-		final IModel<String> childLabelModel = ResourceModelFactory.newResourceModel(
-			"zipcode.location.label", this, "PLZ");
-		final IChoiceRenderer<String> choiceRenderer = new PropertiesChoiceRenderer(this, DropDownChoiceTextFieldPanel.class);
+		final IModel<String> rootLabelModel = ResourceModelFactory
+			.newResourceModel("countries.location.label", this, "Land");
+		final IModel<String> childLabelModel = ResourceModelFactory
+			.newResourceModel("zipcode.location.label", this, "PLZ");
+		final IChoiceRenderer<String> choiceRenderer = new PropertiesChoiceRenderer(this,
+			DropDownChoiceTextFieldPanel.class);
 		final DropDownChoiceTextFieldPanel countryWithZipDropDownChoiceTextFieldPanel = new DropDownChoiceTextFieldPanel(
-			id, this.dropdownChoicesModel,
-			choiceRenderer, rootLabelModel,
-			childLabelModel, model);
+			id, this.dropdownChoicesModel, choiceRenderer, rootLabelModel, childLabelModel, model);
 		return countryWithZipDropDownChoiceTextFieldPanel;
 	}
 
 	/**
-	 * Factory method for creating a new {@link MultiLineLabel} for the description of the location. This method is invoked in the
-	 * constructor from the derived classes and can be overridden so users can provide their own
-	 * version of a new {@link MultiLineLabel} for the description of the location.
+	 * Factory method for creating a new {@link MultiLineLabel} for the description of the location.
+	 * This method is invoked in the constructor from the derived classes and can be overridden so
+	 * users can provide their own version of a new {@link MultiLineLabel} for the description of
+	 * the location.
 	 *
 	 * @param id
 	 *            the id
@@ -116,11 +119,9 @@ public abstract class LocationPanel extends BasePanel<LocationModel<Addresses>>
 	 */
 	protected MultiLineLabel newLocationDescriptionLabel(final String id)
 	{
-		final IModel<String> locationDescriptionLabelModel = ResourceModelFactory
-			.newResourceModel(
-				"global.location.error.label",
-				this,
-				"Wähle dein Land und gib deine Postleitzahl oder deine Stadt ein und wähle ein Eintrag von der vorgeschlagenen Liste");
+		final IModel<String> locationDescriptionLabelModel = ResourceModelFactory.newResourceModel(
+			"global.location.error.label", this,
+			"Wähle dein Land und gib deine Postleitzahl oder deine Stadt ein und wähle ein Eintrag von der vorgeschlagenen Liste");
 		final MultiLineLabel locationDescriptionLabel = new MultiLineLabel(id,
 			locationDescriptionLabelModel);
 		return locationDescriptionLabel;

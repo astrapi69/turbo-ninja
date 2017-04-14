@@ -138,32 +138,6 @@ public abstract class AbstractSendResponseMessagePanel extends Panel
 		this.form.add(this.lowerSendButton);
 	}
 
-	protected Component newSenderPanel(final String id, final IModel<ReplyMessageModel> model)
-	{
-		final LabeledEnumLabelPanel<ReplyMessageModel> panel = new LabeledEnumLabelPanel<>(id,
-			model, ResourceModelFactory.newResourceModel("inbox.sender.label", this));
-		return panel;
-	}
-
-	protected Component newSubjectPanel(final String id, final IModel<ReplyMessageModel> model)
-	{
-		final LabeledTextFieldPanel<String, ReplyMessageModel> panel = new LabeledTextFieldPanel<>(
-			id, model, ResourceModelFactory.newResourceModel("inbox.subject.label", this));
-		return panel;
-	}
-
-	/**
-	 * Factory method for creating the Model of the Label of the read message link. This method is
-	 * invoked in the constructor from the derived classes and can be overridden so users can
-	 * provide their own version of the Model of the Label of the read message link.
-	 *
-	 * @return the Model of the Label of the send message link.
-	 */
-	protected IModel<String> newReplyMessageLabelModel()
-	{
-		return ResourceModelFactory.newResourceModel("inbox.reply.message.header.label", this);
-	}
-
 	/**
 	 * Factory method for creating the Label of the read message link. This method is invoked in the
 	 * constructor from the derived classes and can be overridden so users can provide their own
@@ -181,10 +155,36 @@ public abstract class AbstractSendResponseMessagePanel extends Panel
 		return label;
 	}
 
-	protected abstract void onSend();
+	/**
+	 * Factory method for creating the Model of the Label of the read message link. This method is
+	 * invoked in the constructor from the derived classes and can be overridden so users can
+	 * provide their own version of the Model of the Label of the read message link.
+	 *
+	 * @return the Model of the Label of the send message link.
+	 */
+	protected IModel<String> newReplyMessageLabelModel()
+	{
+		return ResourceModelFactory.newResourceModel("inbox.reply.message.header.label", this);
+	}
+
+	protected Component newSenderPanel(final String id, final IModel<ReplyMessageModel> model)
+	{
+		final LabeledEnumLabelPanel<ReplyMessageModel> panel = new LabeledEnumLabelPanel<>(id,
+			model, ResourceModelFactory.newResourceModel("inbox.sender.label", this));
+		return panel;
+	}
+
+	protected Component newSubjectPanel(final String id, final IModel<ReplyMessageModel> model)
+	{
+		final LabeledTextFieldPanel<String, ReplyMessageModel> panel = new LabeledTextFieldPanel<>(
+			id, model, ResourceModelFactory.newResourceModel("inbox.subject.label", this));
+		return panel;
+	}
+
+	protected abstract Messages onGetMessage(final PageParameters parameters);
 
 	protected abstract void onInbox();
 
-	protected abstract Messages onGetMessage(final PageParameters parameters);
+	protected abstract void onSend();
 
 }

@@ -63,8 +63,8 @@ public abstract class PnotifyPanel extends NotificationPanel
 	public void renderHead(final IHeaderResponse response)
 	{
 		super.renderHead(response);
-		response.render(JavaScriptHeaderItem.forReference(Application.get()
-			.getJavaScriptLibrarySettings().getJQueryReference()));
+		response.render(JavaScriptHeaderItem
+			.forReference(Application.get().getJavaScriptLibrarySettings().getJQueryReference()));
 		response.render(JavaScriptHeaderItem.forReference(PnotifyJsReference.INSTANCE));
 	}
 

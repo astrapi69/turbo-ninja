@@ -43,7 +43,8 @@ import de.alpharogroup.wicket.components.tree.model.Content;
  *            the generic type
  * @author Asterios Raptis
  */
-@ImportResources(resources = { @ImportResource(resourceName = "AbstractTreePanel.css", resourceType = "css") })
+@ImportResources(resources = {
+		@ImportResource(resourceName = "AbstractTreePanel.css", resourceType = "css") })
 public abstract class AbstractTreePanel<T> extends Panel
 {
 

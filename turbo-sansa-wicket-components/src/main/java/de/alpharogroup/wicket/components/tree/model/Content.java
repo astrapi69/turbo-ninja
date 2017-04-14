@@ -41,6 +41,7 @@ public interface Content<T> extends IDetachable
 	 *            the model
 	 * @return the component
 	 */
-	Component newContentComponent(final String id, final AbstractTree<T> tree, final IModel<T> model);
+	Component newContentComponent(final String id, final AbstractTree<T> tree,
+		final IModel<T> model);
 
 }

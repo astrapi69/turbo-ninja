@@ -202,6 +202,35 @@ public abstract class AbstractReadMessagePanel extends BasePanel
 
 	}
 
+	/**
+	 * Factory method for creating the Label of the read message link. This method is invoked in the
+	 * constructor from the derived classes and can be overridden so users can provide their own
+	 * version of Label of the read message link.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @return the label
+	 */
+	protected Label newLabel(final String id, final IModel<String> model)
+	{
+		final Label label = new Label(id, model);
+		return label;
+	}
+
+	/**
+	 * Factory method for creating the Model of the Label of the read message link. This method is
+	 * invoked in the constructor from the derived classes and can be overridden so users can
+	 * provide their own version of the Model of the Label of the read message link.
+	 *
+	 * @return the Model of the Label of the send message link.
+	 */
+	protected IModel<String> newReadMessageLabelModel()
+	{
+		return ResourceModelFactory.newResourceModel("inbox.read.message.header.label", this);
+	}
+
 	protected Component newSenderPanel(final String id, final IModel<Messages> model)
 	{
 		final LabeledEnumLabelPanel<Messages> panel = new LabeledEnumLabelPanel<>(id, model,
@@ -224,53 +253,19 @@ public abstract class AbstractReadMessagePanel extends BasePanel
 	}
 
 	/**
-	 * Factory method for creating the Model of the Label of the read message link. This method is
-	 * invoked in the constructor from the derived classes and can be overridden so users can
-	 * provide their own version of the Model of the Label of the read message link.
-	 *
-	 * @return the Model of the Label of the send message link.
+	 * Callback method for the button delete.
 	 */
-	protected IModel<String> newReadMessageLabelModel()
-	{
-		return ResourceModelFactory.newResourceModel("inbox.read.message.header.label", this);
-	}
+	protected abstract void onDelete();
 
 	/**
-	 * Factory method for creating the Label of the read message link. This method is invoked in the
-	 * constructor from the derived classes and can be overridden so users can provide their own
-	 * version of Label of the read message link.
-	 *
-	 * @param id
-	 *            the id
-	 * @param model
-	 *            the model
-	 * @return the label
+	 * Callback method for the button inbox.
 	 */
-	protected Label newLabel(final String id, final IModel<String> model)
-	{
-		final Label label = new Label(id, model);
-		return label;
-	}
-
-	/**
-	 * Callback method for the button reply.
-	 */
-	protected abstract void onReply();
-
-	/**
-	 * Callback method for the button no junk.
-	 */
-	protected abstract void onNoJunk();
+	protected abstract void onInbox();
 
 	/**
 	 * Callback method for the button junk.
 	 */
 	protected abstract void onJunk();
-
-	/**
-	 * Callback method for the button delete.
-	 */
-	protected abstract void onDelete();
 
 	/**
 	 * Gets the message from db to read.
@@ -282,7 +277,12 @@ public abstract class AbstractReadMessagePanel extends BasePanel
 	protected abstract Messages onMessageRead(final PageParameters parameters);
 
 	/**
-	 * Callback method for the button inbox.
+	 * Callback method for the button no junk.
 	 */
-	protected abstract void onInbox();
+	protected abstract void onNoJunk();
+
+	/**
+	 * Callback method for the button reply.
+	 */
+	protected abstract void onReply();
 }

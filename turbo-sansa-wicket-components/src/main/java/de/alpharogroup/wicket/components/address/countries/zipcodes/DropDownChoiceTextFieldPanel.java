@@ -93,8 +93,8 @@ public class DropDownChoiceTextFieldPanel extends Panel
 		super(id);
 		this.stringTwoDropDownChoicesModel = stringTwoDropDownChoicesModel;
 
-		rootChoice = newLocalisedDropDownChoice("rootChoice", new PropertyModel<String>(
-			this.stringTwoDropDownChoicesModel, "selectedRootOption"),
+		rootChoice = newLocalisedDropDownChoice("rootChoice",
+			new PropertyModel<String>(this.stringTwoDropDownChoicesModel, "selectedRootOption"),
 			this.stringTwoDropDownChoicesModel.getRootChoices(), rootRenderer);
 
 		final String rootMarkupId = rootChoice.getMarkupId();
@@ -105,8 +105,8 @@ public class DropDownChoiceTextFieldPanel extends Panel
 		wmcRootChoice.add(rootLabel = newRootLabel(rootMarkupId, rootLabelModel));
 		wmcRootChoice.add(this.getRootChoice());
 
-		zipcode = newAutoCompleteTextField("zipcode", new PropertyModel<String>(locationModel,
-			"location"));
+		zipcode = newAutoCompleteTextField("zipcode",
+			new PropertyModel<String>(locationModel, "location"));
 
 		final String childMarkupId = zipcode.getMarkupId();
 		zipcode.setOutputMarkupId(true);

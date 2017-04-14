@@ -26,7 +26,8 @@ import org.apache.wicket.model.IModel;
 /**
  * The class {@link NavbarBrandPanel}.
  */
-public abstract class NavbarBrandPanel extends Panel {
+public abstract class NavbarBrandPanel extends Panel
+{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -34,25 +35,29 @@ public abstract class NavbarBrandPanel extends Panel {
 	/**
 	 * Instantiates a new {@link NavbarBrandPanel}.
 	 *
-	 * @param id the id
-	 * @param model the model
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
 	 */
-	public NavbarBrandPanel(final String id, final IModel<?> model) {
+	public NavbarBrandPanel(final String id, final IModel<?> model)
+	{
 		super(id, model);
 		add(newnavbarBrandButton("navbarBrandButton"));
 		add(newNavbarBrandLink("navbarBrandLink"));
 	}
 
 	/**
-	 * Factory method for create a new {@link Button}. This method is invoked in the
-	 * constructor from the derived classes and can be overridden so users can provide their own
-	 * version of a new {@link Button}.
+	 * Factory method for create a new {@link Button}. This method is invoked in the constructor
+	 * from the derived classes and can be overridden so users can provide their own version of a
+	 * new {@link Button}.
 	 *
 	 * @param id
 	 *            the id
 	 * @return the new {@link Button}
 	 */
-	protected Component newnavbarBrandButton(final String id) {
+	protected Component newnavbarBrandButton(final String id)
+	{
 		return new Button(id);
 	}
 
