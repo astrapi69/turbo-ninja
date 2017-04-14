@@ -6,12 +6,11 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-wicket-parent</artifactId>
-		<version>7.5.0-SNAPSHOT</version>
+		<version>7.3.1-SNAPSHOT</version>
 		<relativePath></relativePath>
 	</parent>
 
 	<artifactId>turbo-ninja</artifactId>
-	<version>4.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>${project.artifactId}</name>
@@ -63,14 +62,14 @@
 
 	<properties>
 		<!-- WICKET version -->
-		<wicket.version>7.5.0</wicket.version>
+		<wicket.version>7.3.0</wicket.version>
 		<!-- JAULP-WICKET version -->
-		<jaulp-wicket.version>7.5.0-SNAPSHOT</jaulp-wicket.version>
-		<wicket-bootstrap2.version>7.5.0-SNAPSHOT</wicket-bootstrap2.version>
-		<wicket-bootstrap3.version>7.5.0-SNAPSHOT</wicket-bootstrap3.version>
-		<wicket-chat-api.version>7.5.0-SNAPSHOT</wicket-chat-api.version>
+		<jaulp-wicket.version>7.3.1-SNAPSHOT</jaulp-wicket.version>
+		<wicket-bootstrap2.version>7.3.1-SNAPSHOT</wicket-bootstrap2.version>
+		<wicket-bootstrap3.version>7.3.1-SNAPSHOT</wicket-bootstrap3.version>
+		<wicket-chat-api.version>7.3.1-SNAPSHOT</wicket-chat-api.version>
 		<!-- WICKET-JS-ADDONS version -->
-		<wicket-js-addons.version>7.5.0-SNAPSHOT</wicket-js-addons.version>
+		<wicket-js-addons.version>7.3.1-SNAPSHOT</wicket-js-addons.version>
 		<!-- DB-MODULES version -->
 		<db-modules.version>3.11.0-SNAPSHOT</db-modules.version>
 		<!-- SERVLET-API version -->
