@@ -1,3 +1,18 @@
+/**
+ * Copyright (C) 2015 Asterios Raptis
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package de.alpharogroup.wicket.component.search.with.conditions;
 
 import static org.junit.Assert.assertEquals;
@@ -44,28 +59,27 @@ public class TestExpressionWithConditions
 	@Test
 	public void testAnd()
 	{
-		assertEquals(
-			1,
-			ComponentExpression.findAllComponents(parent,
-				"one1[visible=true and enabled = true]:two1[visible=true & enabled=true]").size());
+		assertEquals(1,
+			ComponentExpression
+				.findAllComponents(parent,
+					"one1[visible=true and enabled = true]:two1[visible=true & enabled=true]")
+				.size());
 
 		two1.setVisible(false);
-		assertEquals(
-			1,
-			ComponentExpression.findAllComponents(parent,
-				"one1[visible=true and enabled = true]:two1[visible=false & enabled=true]").size());
+		assertEquals(1,
+			ComponentExpression
+				.findAllComponents(parent,
+					"one1[visible=true and enabled = true]:two1[visible=false & enabled=true]")
+				.size());
 	}
 
 	@Test
 	public void testWhitespaceParsing()
 	{
-		assertEquals(1,
-			ComponentExpression.findAllComponents(parent, "one1[visible=true]:two1[visible=true]")
-				.size());
-		assertEquals(
-			1,
-			ComponentExpression.findAllComponents(parent,
-				"one1 [ visible  = true   ]:two1  [enabled=true]").size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[visible=true]:two1[visible=true]").size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1 [ visible  = true   ]:two1  [enabled=true]").size());
 	}
 
 
@@ -78,26 +92,23 @@ public class TestExpressionWithConditions
 
 		assertEquals(1, ComponentExpression.findAllComponents(parent, "**[visible=false]").size());
 
-		assertEquals(2,
-			ComponentExpression.findAllComponents(parent, "**[visible=true]:two2:**[visible=true]")
-				.size());
+		assertEquals(2, ComponentExpression
+			.findAllComponents(parent, "**[visible=true]:two2:**[visible=true]").size());
 	}
 
 	@Test
 	public void testWithEnabled()
 	{
-		assertEquals(1,
-			ComponentExpression.findAllComponents(parent, "one1[enabled=true]:two1[enabled=true]")
-				.size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[enabled=true]:two1[enabled=true]").size());
 	}
 
 	@Test
 	public void testWithEnabled2()
 	{
 		two1.setEnabled(false);
-		assertEquals(1,
-			ComponentExpression.findAllComponents(parent, "one1[enabled=true]:two1[enabled=false]")
-				.size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[enabled=true]:two1[enabled=false]").size());
 	}
 
 	@Test
@@ -106,26 +117,22 @@ public class TestExpressionWithConditions
 
 		one1.setEnabled(false);
 
-		assertEquals(0,
-			ComponentExpression.findAllComponents(parent, "one1[enabled=false]:two1[enabled=true]")
-				.size());
+		assertEquals(0, ComponentExpression
+			.findAllComponents(parent, "one1[enabled=false]:two1[enabled=true]").size());
 
-		assertEquals(1,
-			ComponentExpression
-				.findAllComponents(parent, "one1[enabled=false]:two1[enabled=false]").size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[enabled=false]:two1[enabled=false]").size());
 	}
 
 	@Test
 	public void testWithVisible()
 	{
-		assertEquals(1,
-			ComponentExpression.findAllComponents(parent, "one1[visible=true]:two1[visible=true]")
-				.size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[visible=true]:two1[visible=true]").size());
 
 		two1.setVisible(false);
-		assertEquals(1,
-			ComponentExpression.findAllComponents(parent, "one1[visible=true]:two1[visible=false]")
-				.size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[visible=true]:two1[visible=false]").size());
 	}
 
 	@Test
@@ -134,13 +141,11 @@ public class TestExpressionWithConditions
 
 		one1.setVisible(false);
 
-		assertEquals(0,
-			ComponentExpression.findAllComponents(parent, "one1[visible=false]:two1[visible=true]")
-				.size());
+		assertEquals(0, ComponentExpression
+			.findAllComponents(parent, "one1[visible=false]:two1[visible=true]").size());
 
-		assertEquals(1,
-			ComponentExpression
-				.findAllComponents(parent, "one1[visible=false]:two1[visible=false]").size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[visible=false]:two1[visible=false]").size());
 	}
 
 }

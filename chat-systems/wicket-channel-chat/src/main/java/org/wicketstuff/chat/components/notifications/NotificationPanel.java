@@ -1,3 +1,18 @@
+/**
+ * Copyright (C) 2015 Asterios Raptis
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.wicketstuff.chat.components.notifications;
 
 import java.util.Map;
@@ -25,17 +40,7 @@ public abstract class NotificationPanel extends Panel
 
 	private final Component notification;
 
-	public Component getNotification()
-	{
-		return notification;
-	}
-
 	private final Duration duration;
-
-	public Duration getDuration()
-	{
-		return duration;
-	}
 
 	/**
 	 * Instantiates a new notification panel.
@@ -52,8 +57,8 @@ public abstract class NotificationPanel extends Panel
 	{
 		super(id, model);
 		this.duration = duration;
-		add(notification = newNotificationLabel("notification", new PropertyModel<String>(model,
-			"chat")));
+		add(this.notification = newNotificationLabel("notification",
+			new PropertyModel<String>(model, "chat")));
 		addChannelListener(model);
 	}
 
@@ -87,13 +92,25 @@ public abstract class NotificationPanel extends Panel
 	 */
 	protected abstract IChannelService getChannelService();
 
+	public Duration getDuration()
+	{
+		return this.duration;
+	}
+
+	public Component getNotification()
+	{
+		return this.notification;
+	}
+
 	/**
 	 * Factory method for creating the notification component. This method is invoked in the
 	 * constructor from the derived classes and can be overridden so users can provide their own
 	 * version of a notification component.
-	 * 
+	 *
 	 * @param id
 	 *            the id
+	 * @param model
+	 *            the model
 	 * @return the component
 	 */
 	protected Component newNotificationLabel(final String id, final IModel<String> model)

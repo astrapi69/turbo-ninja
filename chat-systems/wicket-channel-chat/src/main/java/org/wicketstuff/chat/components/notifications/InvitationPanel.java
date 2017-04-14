@@ -1,3 +1,18 @@
+/**
+ * Copyright (C) 2015 Asterios Raptis
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.wicketstuff.chat.components.notifications;
 
 import java.util.Map;
@@ -42,8 +57,8 @@ public abstract class InvitationPanel extends NotificationPanel
 		final String profileLinkLabel = StringExtensions.getValue(data, PROFILE_LINK_LABEL,
 			"Show profile");
 		final String closeLinkLabel = StringExtensions.getValue(data, CLOSE_LINK_LABEL, "Close");
-		final String chatroom = StringExtensions.getValue(data, CHATROOM, UUID.randomUUID().toString()
-			.substring(0, 7));
+		final String chatroom = StringExtensions.getValue(data, CHATROOM,
+			UUID.randomUUID().toString().substring(0, 7));
 		final String divId = getNotification().getMarkupId() + "_" + chatroom;
 		final String closeId = divId + "_close";
 
@@ -55,13 +70,15 @@ public abstract class InvitationPanel extends NotificationPanel
 
 		final String jqueryHide = "setTimeout(function() { " + replaceDiv + "}, " + delay + ");";
 		final String jqueryShow = "$(\"#" + getNotification().getMarkupId() + "\").append('"
-			+ "<div class=\"" + divId + " well\" id=\"" + divId + "\">" + "		<span class=\"lead\">"
-			+ invitationLabel + "		</span>" + "		<div class=\"btn-group\">"
-			+ "			<a class=\"btn btn-success buttonPadding\" href=\"" + chatLinkAddress + "\" >"
-			+ chatLinkLabel + "			</a>" + "			<a class=\"btn btn-info buttonPadding\" href=\""
-			+ profileLinkAddress + "\" >" + profileLinkLabel + "			</a>"
-			+ "			<a class=\"btn btn-inverse buttonPadding\" href=\"#\" id=\"" + closeId + "\" >"
-			+ closeLinkLabel + "			</a>" + "		</div>" + "</div>" + "');";
+			+ "<div class=\"" + divId + " well\" id=\"" + divId + "\">"
+			+ "		<span class=\"lead\">" + invitationLabel + "		</span>"
+			+ "		<div class=\"btn-group\">"
+			+ "			<a class=\"btn btn-success buttonPadding\" href=\"" + chatLinkAddress
+			+ "\" >" + chatLinkLabel + "			</a>"
+			+ "			<a class=\"btn btn-info buttonPadding\" href=\"" + profileLinkAddress
+			+ "\" >" + profileLinkLabel + "			</a>"
+			+ "			<a class=\"btn btn-inverse buttonPadding\" href=\"#\" id=\"" + closeId
+			+ "\" >" + closeLinkLabel + "			</a>" + "		</div>" + "</div>" + "');";
 		return jqueryShow + jqueryHide + closeFunction + closeJs;
 	}
 
