@@ -52,7 +52,8 @@ public abstract class AddressBean implements Serializable
 	 * @param countriesAndProvincesDropDownChoicesModel
 	 *            the countries and provinces drop down choices model
 	 */
-	public AddressBean(final StringTwoDropDownChoicesModel countriesAndProvincesDropDownChoicesModel)
+	public AddressBean(
+		final StringTwoDropDownChoicesModel countriesAndProvincesDropDownChoicesModel)
 	{
 		this.countriesAndProvincesDropDownChoicesModel = countriesAndProvincesDropDownChoicesModel;
 	}
@@ -75,12 +76,15 @@ public abstract class AddressBean implements Serializable
 	public String getGeohashSearchvalue()
 	{
 		final String street = getAddress().getStreet() == null ? "" : getAddress().getStreet();
-		final String streetnumber = getAddress().getStreetnumber() == null ? "" : getAddress()
-			.getStreetnumber();
-		final String zipcode = getAddress().getZipcode().getZipcode() == null ? "" : getAddress()
-			.getZipcode().getZipcode();
-		final String city = getAddress().getZipcode().getCity() == null ? "" : getAddress()
-			.getZipcode().getCity();
+		final String streetnumber = getAddress().getStreetnumber() == null
+			? ""
+			: getAddress().getStreetnumber();
+		final String zipcode = getAddress().getZipcode().getZipcode() == null
+			? ""
+			: getAddress().getZipcode().getZipcode();
+		final String city = getAddress().getZipcode().getCity() == null
+			? ""
+			: getAddress().getZipcode().getCity();
 		final StringBuilder sb = new StringBuilder();
 		if (0 < street.length())
 		{

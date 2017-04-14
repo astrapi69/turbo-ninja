@@ -86,9 +86,8 @@ public class TestComponentExpression
 	public void testNormalExpressionWithSubType()
 	{
 
-		assertEquals(1,
-			ComponentExpression.findAllComponents(parent, "one1:two1", WebMarkupContainer.class)
-				.size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1:two1", WebMarkupContainer.class).size());
 		assertEquals(1,
 			ComponentExpression.findAllComponents(parent, "one1:two1", WMCSubClass.class).size());
 	}
@@ -97,9 +96,8 @@ public class TestComponentExpression
 	public void testNormalExpressionWithSuperType()
 	{
 
-		assertEquals(1,
-			ComponentExpression.findAllComponents(parent, "one1:two1", WebMarkupContainer.class)
-				.size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1:two1", WebMarkupContainer.class).size());
 	}
 
 	@Test
@@ -123,11 +121,10 @@ public class TestComponentExpression
 	public void testStarExpressionWithSubType()
 	{
 
-		assertEquals(2,
-			ComponentExpression.findAllComponents(parent, "one1:*", WebMarkupContainer.class)
-				.size());
-		assertEquals(1, ComponentExpression.findAllComponents(parent, "one1:*", WMCSubClass.class)
-			.size());
+		assertEquals(2, ComponentExpression
+			.findAllComponents(parent, "one1:*", WebMarkupContainer.class).size());
+		assertEquals(1,
+			ComponentExpression.findAllComponents(parent, "one1:*", WMCSubClass.class).size());
 
 	}
 
@@ -135,9 +132,8 @@ public class TestComponentExpression
 	public void testStarExpressionWithSuperType()
 	{
 
-		assertEquals(2,
-			ComponentExpression.findAllComponents(parent, "one1:*", WebMarkupContainer.class)
-				.size());
+		assertEquals(2, ComponentExpression
+			.findAllComponents(parent, "one1:*", WebMarkupContainer.class).size());
 
 	}
 
@@ -163,8 +159,8 @@ public class TestComponentExpression
 
 		assertEquals(5,
 			ComponentExpression.findAllComponents(parent, "**", WebMarkupContainer.class).size());
-		assertEquals(2, ComponentExpression.findAllComponents(parent, "**", WMCSubClass.class)
-			.size());
+		assertEquals(2,
+			ComponentExpression.findAllComponents(parent, "**", WMCSubClass.class).size());
 
 	}
 
@@ -189,22 +185,17 @@ public class TestComponentExpression
 	@Test
 	public void testStarStarExpression2WithSubType()
 	{
-		assertEquals(
-			1,
-			ComponentExpression.findAllComponents(parent, "one1:**:three1",
-				WebMarkupContainer.class).size());
-		assertEquals(0,
-			ComponentExpression.findAllComponents(parent, "one1:**:three1", WMCSubClass.class)
-				.size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1:**:three1", WebMarkupContainer.class).size());
+		assertEquals(0, ComponentExpression
+			.findAllComponents(parent, "one1:**:three1", WMCSubClass.class).size());
 	}
 
 	@Test
 	public void testStarStarExpression2WithSuperType()
 	{
-		assertEquals(
-			1,
-			ComponentExpression.findAllComponents(parent, "one1:**:three1",
-				WebMarkupContainer.class).size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1:**:three1", WebMarkupContainer.class).size());
 	}
 
 	@Test
@@ -220,35 +211,25 @@ public class TestComponentExpression
 	@Test
 	public void testStarStarExpression3WithSubType()
 	{
-		assertEquals(
-			0,
-			ComponentExpression.findAllComponents(parent, "**:two1:**:four1",
-				WebMarkupContainer.class).size());
-		assertEquals(
-			1,
-			ComponentExpression.findAllComponents(parent, "**:two2:**:four1",
-				WebMarkupContainer.class).size());
+		assertEquals(0, ComponentExpression
+			.findAllComponents(parent, "**:two1:**:four1", WebMarkupContainer.class).size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "**:two2:**:four1", WebMarkupContainer.class).size());
 
-		assertEquals(0,
-			ComponentExpression.findAllComponents(parent, "**:two1:**:four1", WMCSubClass.class)
-				.size());
-		assertEquals(1,
-			ComponentExpression.findAllComponents(parent, "**:two2:**:four1", WMCSubClass.class)
-				.size());
+		assertEquals(0, ComponentExpression
+			.findAllComponents(parent, "**:two1:**:four1", WMCSubClass.class).size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "**:two2:**:four1", WMCSubClass.class).size());
 
 	}
 
 	@Test
 	public void testStarStarExpression3WithSuperType()
 	{
-		assertEquals(
-			0,
-			ComponentExpression.findAllComponents(parent, "**:two1:**:four1",
-				WebMarkupContainer.class).size());
-		assertEquals(
-			1,
-			ComponentExpression.findAllComponents(parent, "**:two2:**:four1",
-				WebMarkupContainer.class).size());
+		assertEquals(0, ComponentExpression
+			.findAllComponents(parent, "**:two1:**:four1", WebMarkupContainer.class).size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "**:two2:**:four1", WebMarkupContainer.class).size());
 	}
 
 }

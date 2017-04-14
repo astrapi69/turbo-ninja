@@ -103,15 +103,15 @@ public abstract class BaseChatPanel extends Panel
 					final String bubble = "<div class=\"talk-bubble triangle-right round "
 						+ cssClassValue + "-top\">" + talktext + "</div>";
 
-					final String div = "<div class=\"chat-body clearfix\">" + decoratedUser
-						+ bubble + "</div>";
+					final String div = "<div class=\"chat-body clearfix\">" + decoratedUser + bubble
+						+ "</div>";
 					final String listItemElement = "<li class=\"" + cssClassValue + " clearfix\">"
 						+ div + "</li>";
 
-					target.appendJavaScript("var chathistory = document.getElementById('"
-						+ chat.getMarkupId() + "');" + "chathistory.innerHTML += '"
-						+ listItemElement + "';"
-						+ "chathistory.scrollTop = chathistory.scrollHeight;");
+					target.appendJavaScript(
+						"var chathistory = document.getElementById('" + chat.getMarkupId() + "');"
+							+ "chathistory.innerHTML += '" + listItemElement + "';"
+							+ "chathistory.scrollTop = chathistory.scrollHeight;");
 				}
 			});
 	}
@@ -241,8 +241,8 @@ public abstract class BaseChatPanel extends Panel
 					event.addData("message", currentMessage);
 					getChannelService().publish(event);
 					// clear message area add focus it
-					target.appendJavaScript("document.getElementById('" + message.getMarkupId()
-						+ "').value =''");
+					target.appendJavaScript(
+						"document.getElementById('" + message.getMarkupId() + "').value =''");
 				}
 				target.focusComponent(message);
 			}

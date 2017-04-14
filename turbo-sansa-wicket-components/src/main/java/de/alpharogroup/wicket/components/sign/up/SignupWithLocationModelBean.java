@@ -33,7 +33,9 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class SignupWithLocationModelBean<T> extends BaseUsernameSignUpModel implements LocationModel<T>
+public class SignupWithLocationModelBean<T> extends BaseUsernameSignUpModel
+	implements
+		LocationModel<T>
 {
 
 	private static final long serialVersionUID = 1L;

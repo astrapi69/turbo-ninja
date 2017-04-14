@@ -40,17 +40,7 @@ public abstract class NotificationPanel extends Panel
 
 	private final Component notification;
 
-	public Component getNotification()
-	{
-		return this.notification;
-	}
-
 	private final Duration duration;
-
-	public Duration getDuration()
-	{
-		return this.duration;
-	}
 
 	/**
 	 * Instantiates a new notification panel.
@@ -67,8 +57,8 @@ public abstract class NotificationPanel extends Panel
 	{
 		super(id, model);
 		this.duration = duration;
-		add(this.notification = newNotificationLabel("notification", new PropertyModel<String>(model,
-			"chat")));
+		add(this.notification = newNotificationLabel("notification",
+			new PropertyModel<String>(model, "chat")));
 		addChannelListener(model);
 	}
 
@@ -82,17 +72,17 @@ public abstract class NotificationPanel extends Panel
 	{
 		getChannelService().addChannelListener(this, model.getObject().getChannel(),
 			new IChannelListener()
-		{
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void onEvent(final String channel, final Map<String, String> data,
-				final IChannelTarget target)
 			{
-				final String pnotify = onGetJavaScript(data);
-				target.appendJavaScript(pnotify);
-			}
-		});
+				private static final long serialVersionUID = 1L;
+
+				@Override
+				public void onEvent(final String channel, final Map<String, String> data,
+					final IChannelTarget target)
+				{
+					final String pnotify = onGetJavaScript(data);
+					target.appendJavaScript(pnotify);
+				}
+			});
 	}
 
 	/**
@@ -102,13 +92,25 @@ public abstract class NotificationPanel extends Panel
 	 */
 	protected abstract IChannelService getChannelService();
 
+	public Duration getDuration()
+	{
+		return this.duration;
+	}
+
+	public Component getNotification()
+	{
+		return this.notification;
+	}
+
 	/**
 	 * Factory method for creating the notification component. This method is invoked in the
 	 * constructor from the derived classes and can be overridden so users can provide their own
 	 * version of a notification component.
 	 *
-	 * @param id            the id
-	 * @param model the model
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
 	 * @return the component
 	 */
 	protected Component newNotificationLabel(final String id, final IModel<String> model)

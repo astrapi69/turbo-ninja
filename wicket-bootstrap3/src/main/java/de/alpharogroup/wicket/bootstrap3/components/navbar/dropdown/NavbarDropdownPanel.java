@@ -68,87 +68,22 @@ public class NavbarDropdownPanel extends Panel
 	/**
 	 * Instantiates a new {@link NavbarDropdownPanel}.
 	 *
-	 * @param id the id
-	 * @param model the model
-	 * @param dropdownLinkLabelModel the dropdown link label model
-	 */
-	public NavbarDropdownPanel(final String id, final IModel<List<LinkItem>> model, final IModel<String> dropdownLinkLabelModel)
-	{
-		super(id, model);
-		add(dropdownLink = newdropdownLink("dropdownLink"));
-		dropdownLink.add(dropdownLinkLabel = newdropdownLinkLabel("dropdownLinkLabel", dropdownLinkLabelModel));
-		add(listViewContainer = newListViewContainer("listViewContainer"));
-		listViewContainer.add(listView = newListView("listView", model));
-	}
-
-	/**
-	 * Instantiates a new {@link newdropdownLinkLabel}.
-	 *
-	 * @param id the id
-	 * @param model the model
-	 * @return the label
-	 */
-	protected Label newdropdownLinkLabel(final String id, final IModel<String> model)
-	{
-		return ComponentFactory.newLabel(id, model);
-	}
-
-	/**
-	 * Instantiates a new {@link newdropdownLink}.
-	 *
-	 * @param id the id
-	 * @return the web markup container
-	 */
-	protected WebMarkupContainer newdropdownLink(final String id)
-	{
-		return ComponentFactory.newWebMarkupContainer(id);
-	}
-
-	/**
-	 * Factory method for creating a new {@link WebMarkupContainer}. This method is invoked in the constructor
-	 * from the derived classes and can be overridden so users can provide their own version of the
-	 * new {@link WebMarkupContainer}.
-	 *
-	 * @param id
-	 *            the id
-	 * @return the new {@link WebMarkupContainer}.
-	 */
-	protected WebMarkupContainer newListViewContainer(final String id)
-	{
-		final WebMarkupContainer container = ComponentFactory.newWebMarkupContainer(id);
-		container.add(new AttributeAppender("class", "dropdown-menu"));
-		return container;
-	}
-
-	/**
-	 * Factory method for creating a new {@link ListView}. This method is invoked in the constructor
-	 * from the derived classes and can be overridden so users can provide their own version of the
-	 * new {@link ListView}.
-	 *
 	 * @param id
 	 *            the id
 	 * @param model
 	 *            the model
-	 * @return the new {@link ListView}.
+	 * @param dropdownLinkLabelModel
+	 *            the dropdown link label model
 	 */
-	protected ListView<LinkItem> newListView(final String id, final IModel<List<LinkItem>> model)
+	public NavbarDropdownPanel(final String id, final IModel<List<LinkItem>> model,
+		final IModel<String> dropdownLinkLabelModel)
 	{
-		final ListView<LinkItem> listView = new ListView<LinkItem>(id, model)
-		{
-			/** The Constant serialVersionUID. */
-			private static final long serialVersionUID = 1L;
-
-			/**
-			 * {@inheritDoc}
-			 */
-			@Override
-			protected void populateItem(final ListItem<LinkItem> item)
-			{
-				item.add(newListComponent("item", item));
-			}
-		};
-		listView.setReuseItems(true);
-		return listView;
+		super(id, model);
+		add(dropdownLink = newdropdownLink("dropdownLink"));
+		dropdownLink.add(
+			dropdownLinkLabel = newdropdownLinkLabel("dropdownLinkLabel", dropdownLinkLabelModel));
+		add(listViewContainer = newListViewContainer("listViewContainer"));
+		listViewContainer.add(listView = newListView("listView", model));
 	}
 
 	/**
@@ -188,6 +123,32 @@ public class NavbarDropdownPanel extends Panel
 	}
 
 	/**
+	 * Instantiates a new {@link newdropdownLink}.
+	 *
+	 * @param id
+	 *            the id
+	 * @return the web markup container
+	 */
+	protected WebMarkupContainer newdropdownLink(final String id)
+	{
+		return ComponentFactory.newWebMarkupContainer(id);
+	}
+
+	/**
+	 * Instantiates a new {@link newdropdownLinkLabel}.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @return the label
+	 */
+	protected Label newdropdownLinkLabel(final String id, final IModel<String> model)
+	{
+		return ComponentFactory.newLabel(id, model);
+	}
+
+	/**
 	 * Factory method for create a new item link {@link Label}. This method is invoked in the
 	 * constructor from the derived classes and can be overridden so users can provide their own
 	 * version of a new item link {@link Label}.
@@ -206,9 +167,9 @@ public class NavbarDropdownPanel extends Panel
 	}
 
 	/**
-	 * Factory method for creating the new {@link Component} in the list. This method is
-	 * invoked in the {@link ListView#populateItem(ListItem)} from the derived classes and can be
-	 * overridden so users can provide their own version of a new {@link Component} in the list.
+	 * Factory method for creating the new {@link Component} in the list. This method is invoked in
+	 * the {@link ListView#populateItem(ListItem)} from the derived classes and can be overridden so
+	 * users can provide their own version of a new {@link Component} in the list.
 	 *
 	 * @param id
 	 *            the id
@@ -223,6 +184,53 @@ public class NavbarDropdownPanel extends Panel
 		final AbstractLink link = newAbstractLink(id, model);
 		link.add(itemLinkLabel);
 		return link;
+	}
+
+	/**
+	 * Factory method for creating a new {@link ListView}. This method is invoked in the constructor
+	 * from the derived classes and can be overridden so users can provide their own version of the
+	 * new {@link ListView}.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @return the new {@link ListView}.
+	 */
+	protected ListView<LinkItem> newListView(final String id, final IModel<List<LinkItem>> model)
+	{
+		final ListView<LinkItem> listView = new ListView<LinkItem>(id, model)
+		{
+			/** The Constant serialVersionUID. */
+			private static final long serialVersionUID = 1L;
+
+			/**
+			 * {@inheritDoc}
+			 */
+			@Override
+			protected void populateItem(final ListItem<LinkItem> item)
+			{
+				item.add(newListComponent("item", item));
+			}
+		};
+		listView.setReuseItems(true);
+		return listView;
+	}
+
+	/**
+	 * Factory method for creating a new {@link WebMarkupContainer}. This method is invoked in the
+	 * constructor from the derived classes and can be overridden so users can provide their own
+	 * version of the new {@link WebMarkupContainer}.
+	 *
+	 * @param id
+	 *            the id
+	 * @return the new {@link WebMarkupContainer}.
+	 */
+	protected WebMarkupContainer newListViewContainer(final String id)
+	{
+		final WebMarkupContainer container = ComponentFactory.newWebMarkupContainer(id);
+		container.add(new AttributeAppender("class", "dropdown-menu"));
+		return container;
 	}
 
 }

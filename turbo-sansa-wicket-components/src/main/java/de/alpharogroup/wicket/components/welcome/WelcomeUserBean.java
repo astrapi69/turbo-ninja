@@ -32,7 +32,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(toBuilder=true)
+@Builder(toBuilder = true)
 public class WelcomeUserBean implements Serializable
 {
 	private static final long serialVersionUID = 1L;

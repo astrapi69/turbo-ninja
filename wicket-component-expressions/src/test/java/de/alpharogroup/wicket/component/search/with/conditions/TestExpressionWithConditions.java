@@ -59,28 +59,27 @@ public class TestExpressionWithConditions
 	@Test
 	public void testAnd()
 	{
-		assertEquals(
-			1,
-			ComponentExpression.findAllComponents(parent,
-				"one1[visible=true and enabled = true]:two1[visible=true & enabled=true]").size());
+		assertEquals(1,
+			ComponentExpression
+				.findAllComponents(parent,
+					"one1[visible=true and enabled = true]:two1[visible=true & enabled=true]")
+				.size());
 
 		two1.setVisible(false);
-		assertEquals(
-			1,
-			ComponentExpression.findAllComponents(parent,
-				"one1[visible=true and enabled = true]:two1[visible=false & enabled=true]").size());
+		assertEquals(1,
+			ComponentExpression
+				.findAllComponents(parent,
+					"one1[visible=true and enabled = true]:two1[visible=false & enabled=true]")
+				.size());
 	}
 
 	@Test
 	public void testWhitespaceParsing()
 	{
-		assertEquals(1,
-			ComponentExpression.findAllComponents(parent, "one1[visible=true]:two1[visible=true]")
-				.size());
-		assertEquals(
-			1,
-			ComponentExpression.findAllComponents(parent,
-				"one1 [ visible  = true   ]:two1  [enabled=true]").size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[visible=true]:two1[visible=true]").size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1 [ visible  = true   ]:two1  [enabled=true]").size());
 	}
 
 
@@ -93,26 +92,23 @@ public class TestExpressionWithConditions
 
 		assertEquals(1, ComponentExpression.findAllComponents(parent, "**[visible=false]").size());
 
-		assertEquals(2,
-			ComponentExpression.findAllComponents(parent, "**[visible=true]:two2:**[visible=true]")
-				.size());
+		assertEquals(2, ComponentExpression
+			.findAllComponents(parent, "**[visible=true]:two2:**[visible=true]").size());
 	}
 
 	@Test
 	public void testWithEnabled()
 	{
-		assertEquals(1,
-			ComponentExpression.findAllComponents(parent, "one1[enabled=true]:two1[enabled=true]")
-				.size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[enabled=true]:two1[enabled=true]").size());
 	}
 
 	@Test
 	public void testWithEnabled2()
 	{
 		two1.setEnabled(false);
-		assertEquals(1,
-			ComponentExpression.findAllComponents(parent, "one1[enabled=true]:two1[enabled=false]")
-				.size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[enabled=true]:two1[enabled=false]").size());
 	}
 
 	@Test
@@ -121,26 +117,22 @@ public class TestExpressionWithConditions
 
 		one1.setEnabled(false);
 
-		assertEquals(0,
-			ComponentExpression.findAllComponents(parent, "one1[enabled=false]:two1[enabled=true]")
-				.size());
+		assertEquals(0, ComponentExpression
+			.findAllComponents(parent, "one1[enabled=false]:two1[enabled=true]").size());
 
-		assertEquals(1,
-			ComponentExpression
-				.findAllComponents(parent, "one1[enabled=false]:two1[enabled=false]").size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[enabled=false]:two1[enabled=false]").size());
 	}
 
 	@Test
 	public void testWithVisible()
 	{
-		assertEquals(1,
-			ComponentExpression.findAllComponents(parent, "one1[visible=true]:two1[visible=true]")
-				.size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[visible=true]:two1[visible=true]").size());
 
 		two1.setVisible(false);
-		assertEquals(1,
-			ComponentExpression.findAllComponents(parent, "one1[visible=true]:two1[visible=false]")
-				.size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[visible=true]:two1[visible=false]").size());
 	}
 
 	@Test
@@ -149,13 +141,11 @@ public class TestExpressionWithConditions
 
 		one1.setVisible(false);
 
-		assertEquals(0,
-			ComponentExpression.findAllComponents(parent, "one1[visible=false]:two1[visible=true]")
-				.size());
+		assertEquals(0, ComponentExpression
+			.findAllComponents(parent, "one1[visible=false]:two1[visible=true]").size());
 
-		assertEquals(1,
-			ComponentExpression
-				.findAllComponents(parent, "one1[visible=false]:two1[visible=false]").size());
+		assertEquals(1, ComponentExpression
+			.findAllComponents(parent, "one1[visible=false]:two1[visible=false]").size());
 	}
 
 }

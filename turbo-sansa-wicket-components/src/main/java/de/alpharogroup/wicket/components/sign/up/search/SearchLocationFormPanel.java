@@ -57,8 +57,10 @@ public abstract class SearchLocationFormPanel extends Panel
 		form.add(submitButton);
 	}
 
-	protected abstract LocationPanel newLocationPanel(final String id,
-		final IModel<LocationModel<Addresses>> model);
+	public AjaxButton getSubmitButton()
+	{
+		return submitButton;
+	}
 
 	protected AjaxButton newButton(final String id, final IModel<LocationModel<Addresses>> model)
 	{
@@ -80,30 +82,18 @@ public abstract class SearchLocationFormPanel extends Panel
 			{
 				target.add(form);
 				final LocationModel<Addresses> object = model.getObject();
-				final String countryName = locationPanel.getCountryWithZipDropDownChoiceTextFieldPanel()
+				final String countryName = locationPanel
+					.getCountryWithZipDropDownChoiceTextFieldPanel()
 					.getStringTwoDropDownChoicesModel().getSelectedRootOption();
 				object.setSelectedCountryName(countryName);
-				final String location = locationPanel.getCountryWithZipDropDownChoiceTextFieldPanel()
-					.getZipcode().getDefaultModelObjectAsString();
+				final String location = locationPanel
+					.getCountryWithZipDropDownChoiceTextFieldPanel().getZipcode()
+					.getDefaultModelObjectAsString();
 
 				object.setLocation(location);
 				onSearch(target, model.getObject());
 			}
 		};
-	}
-
-	/**
-	 * New form.
-	 *
-	 * @param id
-	 *            the id
-	 * @return the form
-	 */
-	protected Form<?> newForm(final String id)
-	{
-		final Form<SignupWithLocationModelBean<Addresses>> form = new Form<>(id);
-		form.setOutputMarkupId(true);
-		return form;
 	}
 
 	/**
@@ -135,11 +125,24 @@ public abstract class SearchLocationFormPanel extends Panel
 		return "global.choose.label";
 	}
 
-	public AjaxButton getSubmitButton()
+	/**
+	 * New form.
+	 *
+	 * @param id
+	 *            the id
+	 * @return the form
+	 */
+	protected Form<?> newForm(final String id)
 	{
-		return submitButton;
+		final Form<SignupWithLocationModelBean<Addresses>> form = new Form<>(id);
+		form.setOutputMarkupId(true);
+		return form;
 	}
 
-	public abstract void onSearch(final AjaxRequestTarget target, final LocationModel<Addresses> object);
+	protected abstract LocationPanel newLocationPanel(final String id,
+		final IModel<LocationModel<Addresses>> model);
+
+	public abstract void onSearch(final AjaxRequestTarget target,
+		final LocationModel<Addresses> object);
 
 }

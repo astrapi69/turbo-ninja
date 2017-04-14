@@ -30,8 +30,8 @@ import org.apache.wicket.extensions.markup.html.repeater.util.ProviderSubset;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.cycle.RequestCycle;
 
-import de.alpharogroup.tree.ifaces.ITreeNode;
 import de.alpharogroup.event.system.entities.Topics;
+import de.alpharogroup.tree.ifaces.ITreeNode;
 
 /**
  * The Class CheckedFolderContent.

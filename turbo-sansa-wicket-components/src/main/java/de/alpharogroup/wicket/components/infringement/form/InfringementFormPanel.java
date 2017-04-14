@@ -44,25 +44,16 @@ public abstract class InfringementFormPanel extends Panel
 	{
 		super(id, model);
 		add(form = newForm("form", model));
-		form.add(infringementInputPanel = newInfringementInputPanel("infringementInputPanel", model));
+		form.add(
+			infringementInputPanel = newInfringementInputPanel("infringementInputPanel", model));
 		form.add(submitButton = newButton("submitButton"));
-		submitButton.add(buttonLabel = newButtonLabel("buttonLabel", newButtonResourceKey(),
-			"Send", this));
-	}
-
-	protected String newButtonResourceKey()
-	{
-		return "global.button.send.email.label";
+		submitButton
+			.add(buttonLabel = newButtonLabel("buttonLabel", newButtonResourceKey(), "Send", this));
 	}
 
 	public Label getButtonLabel()
 	{
 		return buttonLabel;
-	}
-
-	public Button getSubmitButton()
-	{
-		return submitButton;
 	}
 
 	public Form<?> getForm()
@@ -75,10 +66,9 @@ public abstract class InfringementFormPanel extends Panel
 		return infringementInputPanel;
 	}
 
-	protected Component newInfringementInputPanel(final String id,
-		final IModel<InfringementModel> model)
+	public Button getSubmitButton()
 	{
-		return new InfringementInputPanel(id, model);
+		return submitButton;
 	}
 
 	protected Button newButton(final String id)
@@ -119,6 +109,11 @@ public abstract class InfringementFormPanel extends Panel
 		return label;
 	}
 
+	protected String newButtonResourceKey()
+	{
+		return "global.button.send.email.label";
+	}
+
 	/**
 	 * New form.
 	 *
@@ -132,6 +127,12 @@ public abstract class InfringementFormPanel extends Panel
 	protected Form<?> newForm(final String id, final IModel<?> model)
 	{
 		return new Form<InfringementModel>(id, (IModel<InfringementModel>)model);
+	}
+
+	protected Component newInfringementInputPanel(final String id,
+		final IModel<InfringementModel> model)
+	{
+		return new InfringementInputPanel(id, model);
 	}
 
 	protected abstract void onFormSubmit();

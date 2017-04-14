@@ -36,7 +36,7 @@ package org.wicketstuff.chat.channel.api;
 public interface IPushTarget extends IChannelTarget
 {
 
-	void trigger();
-
 	boolean isConnected();
+
+	void trigger();
 }

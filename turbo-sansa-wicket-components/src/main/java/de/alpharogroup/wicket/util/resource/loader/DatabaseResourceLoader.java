@@ -73,7 +73,8 @@ public class DatabaseResourceLoader implements IStringResourceLoader
 		ResourceBundle resourceBundle = null;
 		try
 		{
-			resourceBundle = ResourceBundle.getBundle(bundleName, locale, DatabaseControl.getInstance());
+			resourceBundle = ResourceBundle.getBundle(bundleName, locale,
+				DatabaseControl.getInstance());
 		}
 		catch (final MissingResourceException e)
 		{

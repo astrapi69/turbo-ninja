@@ -28,9 +28,9 @@ import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import de.alpharogroup.tree.ifaces.ITreeNode;
 import de.alpharogroup.event.system.entities.Topics;
 import de.alpharogroup.resourcebundle.locale.ResourceBundleExtensions;
+import de.alpharogroup.tree.ifaces.ITreeNode;
 
 /**
  * The Class TopicTreeNodeProvider.
@@ -67,8 +67,9 @@ public class TopicTreeNodeProvider implements ISortableTreeProvider<ITreeNode<To
 			super(treeNode);
 			id = treeNode.getValue().getId().toString();
 			final String propertiesKey = treeNode.getValue().getName();
-			final String topicTreeName = ResourceBundleExtensions.getString(ResourceBundle.getBundle(
-				TopicsTreePanel.class.getName(), Session.get().getLocale()), propertiesKey);
+			final String topicTreeName = ResourceBundleExtensions.getString(ResourceBundle
+				.getBundle(TopicsTreePanel.class.getName(), Session.get().getLocale()),
+				propertiesKey);
 			treeNode.setDisplayValue(topicTreeName);
 		}
 

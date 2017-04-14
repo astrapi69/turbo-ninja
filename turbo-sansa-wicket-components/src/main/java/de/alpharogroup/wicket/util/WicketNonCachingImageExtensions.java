@@ -95,7 +95,8 @@ public class WicketNonCachingImageExtensions
 	 * @return the image corresponding to the given db Images object or an empty image if the Byte
 	 *         array is null from the given db Images object.
 	 */
-	public static NonCachingImage getNonCachingImage(final ResourcesModel img, final String wicketId)
+	public static NonCachingImage getNonCachingImage(final ResourcesModel img,
+		final String wicketId)
 	{
 		NonCachingImage image = null;
 		if ((img != null) && (img.getContent() != null))
@@ -183,7 +184,7 @@ public class WicketNonCachingImageExtensions
 	 *            the user data
 	 * @return the user images
 	 */
-	public static Resources getUserImages(final UserDatas userData )
+	public static Resources getUserImages(final UserDatas userData)
 	{
 		final Set<Resources> images = userData.getResources();
 		return getFirstImage(images);
@@ -198,7 +199,8 @@ public class WicketNonCachingImageExtensions
 	 *            the id from the image for the html template.
 	 * @return the user image
 	 */
-	public static NonCachingImage getUserNonCachingImage(final UserDatas userData, final String wicketId)
+	public static NonCachingImage getUserNonCachingImage(final UserDatas userData,
+		final String wicketId)
 	{
 		final Set<Resources> images = userData.getResources();
 		return getNonCachingImage(images, wicketId);

@@ -180,17 +180,17 @@ public class ComponentExpression
 	 *         given expression in the given parent with the given class type restriction or an
 	 *         empty {@link java.util.List} if nothing is found.
 	 */
-	public static List<Component> findAllComponents(final Component parent,
-		final String expression, final Class<? extends Component> typeRestriction)
+	public static List<Component> findAllComponents(final Component parent, final String expression,
+		final Class<? extends Component> typeRestriction)
 	{
 		if (expression == null || expression.equals(""))
 		{
 			return Collections.emptyList();
 		}
-		return findComponent(
-			parent,
-			new LinkedList<String>(Arrays.asList(expression.split(Character
-				.toString(Component.PATH_SEPARATOR)))), typeRestriction);
+		return findComponent(parent,
+			new LinkedList<String>(
+				Arrays.asList(expression.split(Character.toString(Component.PATH_SEPARATOR)))),
+			typeRestriction);
 	}
 
 	/**
@@ -243,8 +243,8 @@ public class ComponentExpression
 					final List<Component> finallyMatchedComponents = new ArrayList<Component>();
 					for (final Component aMatch : allMatches)
 					{
-						finallyMatchedComponents.addAll(findComponent(aMatch, expressionList,
-							typeRestriction));
+						finallyMatchedComponents
+							.addAll(findComponent(aMatch, expressionList, typeRestriction));
 					}
 					return finallyMatchedComponents;
 				}
@@ -455,8 +455,8 @@ public class ComponentExpression
 						{
 							condition = Boolean.TRUE;
 						}
-						else if (parts[1].toUpperCase().equals(
-							Boolean.FALSE.toString().toUpperCase()))
+						else if (parts[1].toUpperCase()
+							.equals(Boolean.FALSE.toString().toUpperCase()))
 						{
 							condition = Boolean.FALSE;
 						}

@@ -36,7 +36,8 @@ import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
  *
  * @author Asterios Raptis
  */
-@ImportResources(resources = { @ImportResource(resourceName = "MemberInboxPanel.css", resourceType = "css") })
+@ImportResources(resources = {
+		@ImportResource(resourceName = "MemberInboxPanel.css", resourceType = "css") })
 public abstract class AbstractMemberInboxPanel extends Panel
 {
 
@@ -118,18 +119,18 @@ public abstract class AbstractMemberInboxPanel extends Panel
 		add(ajaxTabbedPanel);
 	}
 
-	protected abstract Panel newReadedPanel(final String panelId);
+	protected abstract Panel newInboxPanel(final String panelId);
 
 	protected abstract Panel newMailSentPanel(final String panelId);
 
-	protected abstract Panel newInboxPanel(final String panelId);
+	protected abstract Panel newReadedPanel(final String panelId);
 
-	protected abstract void onSuccessfulSendMessage(final PageParameters parameters);
+	protected abstract List<Messages> onFindContactedMessages();
 
 	protected abstract List<Messages> onFindSentMessages();
 
 	protected abstract List<Messages> onFindUnrepliedMessages();
 
-	protected abstract List<Messages> onFindContactedMessages();
+	protected abstract void onSuccessfulSendMessage(final PageParameters parameters);
 
 }

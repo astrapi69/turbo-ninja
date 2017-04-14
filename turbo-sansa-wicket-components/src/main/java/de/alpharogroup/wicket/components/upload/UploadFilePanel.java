@@ -84,72 +84,13 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel>
 
 
 	/**
-	 * Factory method for creating the fileInput Label. This method is invoked in the constructor
-	 * from the derived classes and can be overridden so users can provide their own version of the
-	 * fileInput Label.
-	 * 
-	 * @param id
-	 *            the id
-	 * @param resourceKey
-	 *            the resource key
-	 * @param defaultValue
-	 *            the default value
-	 * @param component
-	 *            the component
-	 * @return the label
-	 */
-	protected Label newFileInputLabel(final String id, final String resourceKey,
-		final String defaultValue, final Component component)
-	{
-		final IModel<String> labelModel = ResourceModelFactory.newResourceModel(resourceKey,
-			component, defaultValue);
-		final Label label = new Label(id, labelModel);
-		label.setOutputMarkupId(true);
-		return label;
-	}
-
-	/**
-	 * Factory method for creating the UploadProgressBar. This method is invoked in the constructor
-	 * from the derived classes and can be overridden so users can provide their own version of a
-	 * UploadProgressBar.
+	 * Gets the button label.
 	 *
-	 * @param id
-	 *            the id
-	 * @param form
-	 *            the form
-	 * @param uploadField
-	 *            the upload field
-	 * @return the upload progress bar
+	 * @return the button label
 	 */
-	protected UploadProgressBar newUploadProgressBar(final String id, final Form<?> form,
-		final FileUploadField uploadField)
+	public Label getButtonLabel()
 	{
-		return new UploadProgressBar(id, form, uploadField);
-	}
-
-	/**
-	 * Factory method for creating the button Label. This method is invoked in the constructor from
-	 * the derived classes and can be overridden so users can provide their own version of the
-	 * button Label.
-	 * 
-	 * @param id
-	 *            the id
-	 * @param resourceKey
-	 *            the resource key
-	 * @param defaultValue
-	 *            the default value
-	 * @param component
-	 *            the component
-	 * @return the label
-	 */
-	protected Label newButtonLabel(final String id, final String resourceKey,
-		final String defaultValue, final Component component)
-	{
-		final IModel<String> labelModel = ResourceModelFactory.newResourceModel(resourceKey,
-			component, defaultValue);
-		final Label label = new Label(id, labelModel);
-		label.setOutputMarkupId(true);
-		return label;
+		return buttonLabel;
 	}
 
 	/**
@@ -173,16 +114,6 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel>
 	}
 
 	/**
-	 * Gets the button label.
-	 *
-	 * @return the button label
-	 */
-	public Label getButtonLabel()
-	{
-		return buttonLabel;
-	}
-
-	/**
 	 * Gets the form.
 	 *
 	 * @return the form
@@ -193,16 +124,6 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel>
 	}
 
 	/**
-	 * Gets the submit button.
-	 *
-	 * @return the submit button
-	 */
-	public Button getSubmitButton()
-	{
-		return submitButton;
-	}
-
-	/**
 	 * Gets the max size.
 	 *
 	 * @return the max size
@@ -210,6 +131,16 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel>
 	public Bytes getMaxSize()
 	{
 		return maxSize;
+	}
+
+	/**
+	 * Gets the submit button.
+	 *
+	 * @return the submit button
+	 */
+	public Button getSubmitButton()
+	{
+		return submitButton;
 	}
 
 	/**
@@ -246,6 +177,56 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel>
 				onUpload(target, form, false);
 			}
 		};
+	}
+
+	/**
+	 * Factory method for creating the button Label. This method is invoked in the constructor from
+	 * the derived classes and can be overridden so users can provide their own version of the
+	 * button Label.
+	 * 
+	 * @param id
+	 *            the id
+	 * @param resourceKey
+	 *            the resource key
+	 * @param defaultValue
+	 *            the default value
+	 * @param component
+	 *            the component
+	 * @return the label
+	 */
+	protected Label newButtonLabel(final String id, final String resourceKey,
+		final String defaultValue, final Component component)
+	{
+		final IModel<String> labelModel = ResourceModelFactory.newResourceModel(resourceKey,
+			component, defaultValue);
+		final Label label = new Label(id, labelModel);
+		label.setOutputMarkupId(true);
+		return label;
+	}
+
+	/**
+	 * Factory method for creating the fileInput Label. This method is invoked in the constructor
+	 * from the derived classes and can be overridden so users can provide their own version of the
+	 * fileInput Label.
+	 * 
+	 * @param id
+	 *            the id
+	 * @param resourceKey
+	 *            the resource key
+	 * @param defaultValue
+	 *            the default value
+	 * @param component
+	 *            the component
+	 * @return the label
+	 */
+	protected Label newFileInputLabel(final String id, final String resourceKey,
+		final String defaultValue, final Component component)
+	{
+		final IModel<String> labelModel = ResourceModelFactory.newResourceModel(resourceKey,
+			component, defaultValue);
+		final Label label = new Label(id, labelModel);
+		label.setOutputMarkupId(true);
+		return label;
 	}
 
 	/**
@@ -296,6 +277,25 @@ public abstract class UploadFilePanel extends GenericPanel<UploadFileModel>
 	protected Bytes newMaxSize()
 	{
 		return Bytes.kilobytes(500);
+	}
+
+	/**
+	 * Factory method for creating the UploadProgressBar. This method is invoked in the constructor
+	 * from the derived classes and can be overridden so users can provide their own version of a
+	 * UploadProgressBar.
+	 *
+	 * @param id
+	 *            the id
+	 * @param form
+	 *            the form
+	 * @param uploadField
+	 *            the upload field
+	 * @return the upload progress bar
+	 */
+	protected UploadProgressBar newUploadProgressBar(final String id, final Form<?> form,
+		final FileUploadField uploadField)
+	{
+		return new UploadProgressBar(id, form, uploadField);
 	}
 
 	/**

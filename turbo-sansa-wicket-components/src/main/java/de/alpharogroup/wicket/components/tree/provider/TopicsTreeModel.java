@@ -20,8 +20,8 @@ import java.util.Map;
 
 import org.apache.wicket.util.io.IClusterable;
 
-import de.alpharogroup.tree.ifaces.ITreeNode;
 import de.alpharogroup.event.system.entities.Topics;
+import de.alpharogroup.tree.ifaces.ITreeNode;
 
 /**
  * The Class TopicsTreeModel.

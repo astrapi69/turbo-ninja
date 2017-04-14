@@ -238,9 +238,8 @@ public abstract class WicketBootstrap2Application extends DisableJSessionIDinUrl
 	{
 		if (usesDeploymentConfig())
 		{
-			getResourceSettings().setCachingStrategy(
-				new FilenameWithVersionResourceCachingStrategy("-v-", new CachingResourceVersion(
-					new Adler32ResourceVersion())));
+			getResourceSettings().setCachingStrategy(new FilenameWithVersionResourceCachingStrategy(
+				"-v-", new CachingResourceVersion(new Adler32ResourceVersion())));
 
 			getResourceSettings().setJavaScriptCompressor(
 				new GoogleClosureJavaScriptCompressor(CompilationLevel.SIMPLE_OPTIMIZATIONS));
