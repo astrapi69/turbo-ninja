@@ -21,7 +21,7 @@ import org.apache.wicket.ajax.markup.html.form.AjaxButton;
 import org.apache.wicket.extensions.ajax.markup.html.IndicatingAjaxButton;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 
 import de.alpharogroup.address.book.application.model.LocationModel;
@@ -30,20 +30,22 @@ import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.components.sign.up.SignupWithLocationModelBean;
 import lombok.Getter;
 
-public abstract class SearchLocationFormPanel extends Panel
+public abstract class SearchLocationFormPanel extends GenericPanel<LocationModel<Addresses>>
 {
 	private static final long serialVersionUID = 1L;
 	private final AjaxButton submitButton;
 	/** The button label. */
+	@Getter
 	private final Label buttonLabel;
 	@Getter
 	private final LocationPanel locationPanel;
 
+	@Getter
 	private final Form<?> form;
 
 	public SearchLocationFormPanel(final String id, final IModel<LocationModel<Addresses>> model)
 	{
-		super(id);
+		super(id, model);
 
 		add(form = newForm("form"));
 		form.setOutputMarkupId(true);
@@ -75,6 +77,7 @@ public abstract class SearchLocationFormPanel extends Panel
 			@Override
 			protected void onError(final AjaxRequestTarget target, final Form<?> form)
 			{
+				SearchLocationFormPanel.this.onError(target, form);
 			}
 
 			@Override
@@ -144,5 +147,9 @@ public abstract class SearchLocationFormPanel extends Panel
 
 	public abstract void onSearch(final AjaxRequestTarget target,
 		final LocationModel<Addresses> object);
+
+	protected void onError(final AjaxRequestTarget target, final Form<?> form)
+	{
+	}
 
 }
