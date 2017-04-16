@@ -22,7 +22,7 @@ import de.alpharogroup.wicket.components.labeled.label.LabeledEnumLabelPanel;
 
 /**
  * Convenience class for labeled EnumLabel and adds bootstrap css.
- * 
+ *
  * @param <T>
  *            the generic type
  */
@@ -34,7 +34,7 @@ public class BootstrapLabeledEnumLabelPanel<T> extends LabeledEnumLabelPanel<T>
 
 	/**
 	 * Instantiates a new LabeledEnumLabelPanel.
-	 * 
+	 *
 	 * @param id
 	 *            the id
 	 * @param model
@@ -46,6 +46,23 @@ public class BootstrapLabeledEnumLabelPanel<T> extends LabeledEnumLabelPanel<T>
 		final IModel<String> labelModel)
 	{
 		super(id, model, labelModel);
-		getLabel().add(new AttributeAppender("class", "span2 "));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onInitialize()
+	{
+		super.onInitialize();
+		onLayout();
+	}
+
+	/**
+	 * Callback method for layout this component and the child components of it.
+	 */
+	protected void onLayout()
+	{
+		getLabel().add(new AttributeAppender("class", "col-lg-2 col-md-2 col-sm-2 "));
 	}
 }
