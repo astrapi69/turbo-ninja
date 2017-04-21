@@ -145,11 +145,11 @@ public abstract class SearchLocationFormPanel extends GenericPanel<LocationModel
 	protected abstract LocationPanel newLocationPanel(final String id,
 		final IModel<LocationModel<Addresses>> model);
 
-	public abstract void onSearch(final AjaxRequestTarget target,
-		final LocationModel<Addresses> object);
-
 	protected void onError(final AjaxRequestTarget target, final Form<?> form)
 	{
 	}
+
+	public abstract void onSearch(final AjaxRequestTarget target,
+		final LocationModel<Addresses> object);
 
 }

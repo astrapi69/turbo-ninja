@@ -99,7 +99,8 @@ public class DropDownChoiceTextFieldPanel extends GenericPanel<StringTwoDropDown
 		final IChoiceRenderer<String> rootRenderer, final IModel<String> rootLabelModel,
 		final IModel<String> childLabelModel, final IModel<LocationModel<Addresses>> locationModel)
 	{
-		super(id, Model.of(Args.notNull(stringTwoDropDownChoicesModel, "stringTwoDropDownChoicesModel")));
+		super(id,
+			Model.of(Args.notNull(stringTwoDropDownChoicesModel, "stringTwoDropDownChoicesModel")));
 		this.stringTwoDropDownChoicesModel = stringTwoDropDownChoicesModel;
 
 		rootChoice = newLocalisedDropDownChoice("rootChoice",
@@ -143,7 +144,8 @@ public class DropDownChoiceTextFieldPanel extends GenericPanel<StringTwoDropDown
 	protected AutoCompleteTextField<String> newAutoCompleteTextField(final String id,
 		final IModel<String> model)
 	{
-		final DefaultCssAutoCompleteTextField<String> autoCompleteTextField = new DefaultCssAutoCompleteTextField<String>(id, model)
+		final DefaultCssAutoCompleteTextField<String> autoCompleteTextField = new DefaultCssAutoCompleteTextField<String>(
+			id, model)
 		{
 
 			private static final long serialVersionUID = 1L;
@@ -159,8 +161,8 @@ public class DropDownChoiceTextFieldPanel extends GenericPanel<StringTwoDropDown
 
 				final List<String> choices = new ArrayList<>(10);
 
-				final List<String> childChoices = DropDownChoiceTextFieldPanel.this.stringTwoDropDownChoicesModel.getChildChoices()
-					.getObject();
+				final List<String> childChoices = DropDownChoiceTextFieldPanel.this.stringTwoDropDownChoicesModel
+					.getChildChoices().getObject();
 				for (final String choice : childChoices)
 				{
 					if (choice.toUpperCase().startsWith(input.toUpperCase()))
@@ -217,7 +219,8 @@ public class DropDownChoiceTextFieldPanel extends GenericPanel<StringTwoDropDown
 		final IModel<String> model, final IModel<? extends List<? extends String>> choices,
 		final IChoiceRenderer<? super String> renderer)
 	{
-		final LocalisedDropDownChoice<String> dropdown = new LocalisedDropDownChoice<>(id, model, choices, renderer);
+		final LocalisedDropDownChoice<String> dropdown = new LocalisedDropDownChoice<>(id, model,
+			choices, renderer);
 		dropdown.setOutputMarkupId(true);
 		return dropdown;
 	}
