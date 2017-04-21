@@ -22,7 +22,7 @@ import de.alpharogroup.wicket.components.labeled.label.LabeledLabelPanel;
 
 /**
  * Convenience class for labeled Label for form uneditable components. Adds some bootstrap css.
- * 
+ *
  * @param <T>
  *            the generic type
  */
@@ -34,7 +34,7 @@ public class BootstrapLabeledLabelPanel<T> extends LabeledLabelPanel<T>
 
 	/**
 	 * Instantiates a new LabeledDateTextfieldPanel.
-	 * 
+	 *
 	 * @param id
 	 *            the id
 	 * @param model
@@ -46,6 +46,24 @@ public class BootstrapLabeledLabelPanel<T> extends LabeledLabelPanel<T>
 		final IModel<String> labelModel)
 	{
 		super(id, model, labelModel);
-		getLabel().add(new AttributeAppender("class", "span2 "));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onInitialize()
+	{
+		super.onInitialize();
+		onLayout();
+	}
+
+	/**
+	 * Callback method for layout this component and the child components of it.
+	 */
+	protected void onLayout()
+	{
+		getLabel().add(new AttributeAppender("class", "col-lg-5 col-md-5 col-sm-5 "));
+		getViewableLabel().add(new AttributeAppender("class", "col-lg-5 col-md-5 col-sm-5 "));
 	}
 }

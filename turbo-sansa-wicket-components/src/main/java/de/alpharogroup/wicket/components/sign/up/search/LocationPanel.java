@@ -64,8 +64,7 @@ public abstract class LocationPanel extends BasePanel<LocationModel<Addresses>>
 	 */
 	public LocationPanel(final String id, final IModel<LocationModel<Addresses>> model)
 	{
-		super(id, model);
-		Args.notNull(model, "model");
+		super(id, Args.notNull(model, "model"));
 		this.countriesToZipcodes = newCountriesToZipcodesMap();
 		this.dropdownChoicesModel = new StringTwoDropDownChoicesModel("de.deu",
 			this.countriesToZipcodes);

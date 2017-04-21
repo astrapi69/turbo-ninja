@@ -28,45 +28,54 @@ import org.apache.wicket.extensions.ajax.markup.html.autocomplete.DefaultCssAuto
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.IChoiceRenderer;
-import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.util.lang.Args;
 import org.apache.wicket.util.string.Strings;
 
 import de.alpharogroup.address.book.application.model.LocationModel;
 import de.alpharogroup.address.book.entities.Addresses;
 import de.alpharogroup.wicket.components.i18n.dropdownchoice.LocalisedDropDownChoice;
 import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
+import lombok.Getter;
 
 /**
- * The Class DropDownChoiceTextFieldPanel.
+ * The class {@link DropDownChoiceTextFieldPanel}.
  *
  * @author Asterios Raptis
  */
-public class DropDownChoiceTextFieldPanel extends Panel
+public class DropDownChoiceTextFieldPanel extends GenericPanel<StringTwoDropDownChoicesModel>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	@Getter
 	private final LocalisedDropDownChoice<String> rootChoice;
 
+	@Getter
 	private final StringTwoDropDownChoicesModel stringTwoDropDownChoicesModel;
 
 
 	/** The wmc child choice. */
+	@Getter
 	private final WebMarkupContainer wmcChildChoice;
 
 	/** The Label for root component. */
-	protected Label rootLabel;
+	@Getter
+	protected final Label rootLabel;
 
 	/** The Label for child component. */
+	@Getter
 	protected Label childLabel;
 
 	/** The wmc root choice. */
+	@Getter
 	private final WebMarkupContainer wmcRootChoice;
 
+	@Getter
 	private final AutoCompleteTextField<String> zipcode;
 
 	/**
@@ -90,7 +99,8 @@ public class DropDownChoiceTextFieldPanel extends Panel
 		final IChoiceRenderer<String> rootRenderer, final IModel<String> rootLabelModel,
 		final IModel<String> childLabelModel, final IModel<LocationModel<Addresses>> locationModel)
 	{
-		super(id);
+		super(id,
+			Model.of(Args.notNull(stringTwoDropDownChoicesModel, "stringTwoDropDownChoicesModel")));
 		this.stringTwoDropDownChoicesModel = stringTwoDropDownChoicesModel;
 
 		rootChoice = newLocalisedDropDownChoice("rootChoice",
@@ -131,49 +141,13 @@ public class DropDownChoiceTextFieldPanel extends Panel
 		});
 	}
 
-	public Label getChildLabel()
-	{
-		return childLabel;
-	}
-
-	public LocalisedDropDownChoice<String> getRootChoice()
-	{
-		return rootChoice;
-	}
-
-	public Label getRootLabel()
-	{
-		return rootLabel;
-	}
-
-	public StringTwoDropDownChoicesModel getStringTwoDropDownChoicesModel()
-	{
-		return stringTwoDropDownChoicesModel;
-	}
-
-	public WebMarkupContainer getWmcChildChoice()
-	{
-		return wmcChildChoice;
-	}
-
-	public WebMarkupContainer getWmcRootChoice()
-	{
-		return wmcRootChoice;
-	}
-
-	public AutoCompleteTextField<String> getZipcode()
-	{
-		return zipcode;
-	}
-
 	protected AutoCompleteTextField<String> newAutoCompleteTextField(final String id,
 		final IModel<String> model)
 	{
-		return new DefaultCssAutoCompleteTextField<String>(id, model)
+		final DefaultCssAutoCompleteTextField<String> autoCompleteTextField = new DefaultCssAutoCompleteTextField<String>(
+			id, model)
 		{
-			/**
-			 *
-			 */
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -185,10 +159,10 @@ public class DropDownChoiceTextFieldPanel extends Panel
 					return emptyList.iterator();
 				}
 
-				final List<String> choices = new ArrayList<String>(10);
+				final List<String> choices = new ArrayList<>(10);
 
-				final List<String> childChoices = stringTwoDropDownChoicesModel.getChildChoices()
-					.getObject();
+				final List<String> childChoices = DropDownChoiceTextFieldPanel.this.stringTwoDropDownChoicesModel
+					.getChildChoices().getObject();
 				for (final String choice : childChoices)
 				{
 					if (choice.toUpperCase().startsWith(input.toUpperCase()))
@@ -203,6 +177,7 @@ public class DropDownChoiceTextFieldPanel extends Panel
 				return choices.iterator();
 			}
 		};
+		return autoCompleteTextField;
 	}
 
 	/**
@@ -235,6 +210,7 @@ public class DropDownChoiceTextFieldPanel extends Panel
 	private Label newLabel(final String id, final String forId, final IModel<String> model)
 	{
 		final Label label = new Label(id, model);
+		label.setOutputMarkupId(true);
 		label.add(new AttributeAppender("for", Model.of(forId), " "));
 		return label;
 	}
@@ -243,7 +219,10 @@ public class DropDownChoiceTextFieldPanel extends Panel
 		final IModel<String> model, final IModel<? extends List<? extends String>> choices,
 		final IChoiceRenderer<? super String> renderer)
 	{
-		return new LocalisedDropDownChoice<String>(id, model, choices, renderer);
+		final LocalisedDropDownChoice<String> dropdown = new LocalisedDropDownChoice<>(id, model,
+			choices, renderer);
+		dropdown.setOutputMarkupId(true);
+		return dropdown;
 	}
 
 	/**
