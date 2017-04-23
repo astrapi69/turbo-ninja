@@ -53,7 +53,6 @@
 	</licenses>
 
 	<modules>
-		<module>chat-systems</module>
 		<module>turbo-sansa-wicket-components</module>
 		<module>wicket-bootstrap2</module>
 		<module>wicket-bootstrap3</module>
