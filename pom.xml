@@ -62,6 +62,8 @@
 	<properties>
 		<!-- WICKET version -->
 		<wicket.version>6.25.0</wicket.version>
+		<!-- WICKETSTUFF LIBRARIES versions -->
+		<wicketstuff.version>6.25.0</wicketstuff.version>
 		<!-- JAULP-WICKET version -->
 		<jaulp-wicket.version>6.25.2</jaulp-wicket.version>
 		<wicket-bootstrap2.version>6.25.2</wicket-bootstrap2.version>
