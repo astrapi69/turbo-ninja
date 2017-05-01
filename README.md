@@ -76,26 +76,6 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 	<version>${wicket-component-expressions.version}</version>
 </dependency>
 ```
-
-## Run Examples 
-
-Example projects are moved to the [wicket-examples](https://github.com/astrapi69/wicket-examples) project.
-
-You can run every example project by doing following steps. For instance if you want to start the examples for the project turbo-ninja-components you do this:
-
-First change to the directory and build the project:
-```bash
-cd turbo-ninja-components-examples
-mvn clean install
-```
-Running the example:
-```bash
-mvn jetty:run
-```
-Call then http://localhost:8080/
-
-Another way is to start the example application programmaticly with jetty. In every example project there exists a start class with a main method that have the prefix Start**** and the suffix ****Examples. 
- 
 ## Open Issues
 [![Open Issues](https://img.shields.io/github/issues/astrapi69/turbo-ninja.svg?style=flat)](https://github.com/astrapi69/turbo-ninja/issues) 
 
