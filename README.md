@@ -99,20 +99,6 @@ Another way is to start the example application programmaticly with jetty. In ev
 ## Open Issues
 [![Open Issues](https://img.shields.io/github/issues/astrapi69/turbo-ninja.svg?style=flat)](https://github.com/astrapi69/turbo-ninja/issues) 
 
-## Documentation
-
-  * [BaseWebApplication][BaseWebApplication]
-  * [Counting online users with wicket][Counting online users with wicket]
-  * [Internationalization with ResourceModelFactory][Internationalization with ResourceModelFactory]
-  * [Wicket and I18n][Wicket and I18n]
-  * [Replacing wicket panels with ajax][Replacing wicket panels with ajax]
-  
-  [Replacing wicket panels with ajax]: https://github.com/astrapi69/turbo-ninja/wiki/Replacing-wicket-panels-with-ajax "Replacing wicket panels with ajax"
-  [Wicket and I18n]: https://github.com/astrapi69/turbo-ninja/wiki/Wicket-and-I18n "Wicket and I18n"  
-  [Internationalization with ResourceModelFactory]: https://github.com/astrapi69/turbo-ninja/wiki/Internationalization-with-StringResourceModel-and-ResourceModelFactory "Internationalization with ResourceModelFactory"
-  [Counting online users with wicket]: https://github.com/astrapi69/turbo-ninja/wiki/Counting-online-users-with-wicket "Counting online users with wicket"
-   [BaseWebApplication]: https://github.com/astrapi69/turbo-ninja/wiki/Extending-from-BaseWebApplication "Extending from BaseWebApplication"
-
 ## Want to Help and improve it? ###
 
 The source code of turbo-ninja are on GitHub. Please feel free to fork and send pull requests!
