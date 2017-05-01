@@ -28,7 +28,7 @@ You can first define the version properties:
 <properties>
 	...
 	<!-- TURBO-NINJA version -->
-	<turbo-ninja.version>6.25.2</turbo-ninja.version>
+	<turbo-ninja.version>7.6.0</turbo-ninja.version>
 	<turbo-sansa-wicket-components.version>${turbo-ninja.version}</turbo-sansa-wicket-components.version>
 	<wicket-bootstrap2.version>${turbo-ninja.version}</wicket-bootstrap2.version>
 	<wicket-bootstrap3.version>${turbo-ninja.version}</wicket-bootstrap3.version>
