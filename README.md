@@ -28,7 +28,7 @@ You can first define the version properties:
 <properties>
 	...
 	<!-- TURBO-NINJA version -->
-	<turbo-ninja.version>6.25.2</turbo-ninja.version>
+	<turbo-ninja.version>7.6.0</turbo-ninja.version>
 	<turbo-sansa-wicket-components.version>${turbo-ninja.version}</turbo-sansa-wicket-components.version>
 	<wicket-bootstrap2.version>${turbo-ninja.version}</wicket-bootstrap2.version>
 	<wicket-bootstrap3.version>${turbo-ninja.version}</wicket-bootstrap3.version>
@@ -76,42 +76,8 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 	<version>${wicket-component-expressions.version}</version>
 </dependency>
 ```
-
-## Run Examples 
-
-Example projects are moved to the [wicket-examples](https://github.com/astrapi69/wicket-examples) project.
-
-You can run every example project by doing following steps. For instance if you want to start the examples for the project turbo-ninja-components you do this:
-
-First change to the directory and build the project:
-```bash
-cd turbo-ninja-components-examples
-mvn clean install
-```
-Running the example:
-```bash
-mvn jetty:run
-```
-Call then http://localhost:8080/
-
-Another way is to start the example application programmaticly with jetty. In every example project there exists a start class with a main method that have the prefix Start**** and the suffix ****Examples. 
- 
 ## Open Issues
 [![Open Issues](https://img.shields.io/github/issues/astrapi69/turbo-ninja.svg?style=flat)](https://github.com/astrapi69/turbo-ninja/issues) 
-
-## Documentation
-
-  * [BaseWebApplication][BaseWebApplication]
-  * [Counting online users with wicket][Counting online users with wicket]
-  * [Internationalization with ResourceModelFactory][Internationalization with ResourceModelFactory]
-  * [Wicket and I18n][Wicket and I18n]
-  * [Replacing wicket panels with ajax][Replacing wicket panels with ajax]
-  
-  [Replacing wicket panels with ajax]: https://github.com/astrapi69/turbo-ninja/wiki/Replacing-wicket-panels-with-ajax "Replacing wicket panels with ajax"
-  [Wicket and I18n]: https://github.com/astrapi69/turbo-ninja/wiki/Wicket-and-I18n "Wicket and I18n"  
-  [Internationalization with ResourceModelFactory]: https://github.com/astrapi69/turbo-ninja/wiki/Internationalization-with-StringResourceModel-and-ResourceModelFactory "Internationalization with ResourceModelFactory"
-  [Counting online users with wicket]: https://github.com/astrapi69/turbo-ninja/wiki/Counting-online-users-with-wicket "Counting online users with wicket"
-   [BaseWebApplication]: https://github.com/astrapi69/turbo-ninja/wiki/Extending-from-BaseWebApplication "Extending from BaseWebApplication"
 
 ## Want to Help and improve it? ###
 
