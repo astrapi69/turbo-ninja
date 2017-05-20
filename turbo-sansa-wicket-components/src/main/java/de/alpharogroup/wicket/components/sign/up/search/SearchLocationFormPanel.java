@@ -23,11 +23,13 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 
 import de.alpharogroup.address.book.application.model.LocationModel;
 import de.alpharogroup.address.book.entities.Addresses;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.components.sign.up.SignupWithLocationModelBean;
+import de.alpharogroup.wicket.model.dropdownchoices.TwoDropDownChoicesBean;
 import lombok.Getter;
 
 public abstract class SearchLocationFormPanel extends GenericPanel<LocationModel<Addresses>>
@@ -38,7 +40,10 @@ public abstract class SearchLocationFormPanel extends GenericPanel<LocationModel
 	@Getter
 	private final Label buttonLabel;
 	@Getter
-	private final LocationPanel locationPanel;
+	private final LocationFormComponentPanel locationPanel;
+
+	@Getter
+	private final TwoDropDownChoicesBean<String> twoDropDownChoicesBean;
 
 	@Getter
 	private final Form<?> form;
@@ -47,9 +52,11 @@ public abstract class SearchLocationFormPanel extends GenericPanel<LocationModel
 	{
 		super(id, model);
 
-		add(form = newForm("form"));
-		form.setOutputMarkupId(true);
 		locationPanel = newLocationPanel("locationPanel", model);
+		this.twoDropDownChoicesBean = locationPanel.getTwoDropDownChoicesBean();
+
+		add(form = new Form<>("form", Model.of(locationPanel.getTwoDropDownChoicesBean())));
+		form.setOutputMarkupId(true);
 		form.add(locationPanel);
 
 		// Create submit button for the form
@@ -84,19 +91,18 @@ public abstract class SearchLocationFormPanel extends GenericPanel<LocationModel
 			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 				target.add(form);
-				final LocationModel<Addresses> object = model.getObject();
-				final String countryName = locationPanel
-					.getCountryWithZipDropDownChoiceTextFieldPanel()
-					.getStringTwoDropDownChoicesModel().getSelectedRootOption();
-				object.setSelectedCountryName(countryName);
-				final String location = locationPanel
-					.getCountryWithZipDropDownChoiceTextFieldPanel().getZipcode()
-					.getDefaultModelObjectAsString();
-
-				object.setLocation(location);
-				onSearch(target, model.getObject());
+				SearchLocationFormPanel.this.onSubmit(target, form);				
 			}
 		};
+	}
+	
+	protected void onSubmit(final AjaxRequestTarget target, final Form<?> form){
+		final LocationModel<Addresses> object = getModel().getObject();
+		final String countryName = this.twoDropDownChoicesBean.getSelectedRootOption();
+		object.setSelectedCountryName(countryName);
+		final String location =this.twoDropDownChoicesBean.getSelectedChildOption();
+		object.setLocation(location);
+		onSearch(target, object);
 	}
 
 	/**
@@ -142,7 +148,7 @@ public abstract class SearchLocationFormPanel extends GenericPanel<LocationModel
 		return form;
 	}
 
-	protected abstract LocationPanel newLocationPanel(final String id,
+	protected abstract LocationFormComponentPanel newLocationPanel(final String id,
 		final IModel<LocationModel<Addresses>> model);
 
 	protected void onError(final AjaxRequestTarget target, final Form<?> form)
