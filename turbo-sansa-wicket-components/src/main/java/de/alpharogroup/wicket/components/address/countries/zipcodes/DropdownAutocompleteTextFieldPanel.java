@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
-import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.extensions.ajax.markup.html.autocomplete.AutoCompleteTextField;
 import org.apache.wicket.extensions.ajax.markup.html.autocomplete.DefaultCssAutoCompleteTextField;
 import org.apache.wicket.markup.html.WebMarkupContainer;
@@ -16,7 +15,6 @@ import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.FormComponentPanel;
 import org.apache.wicket.markup.html.form.IChoiceRenderer;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.util.lang.Args;
 import org.apache.wicket.util.string.Strings;
@@ -45,7 +43,7 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 	/** The root choice. */
 	@Getter
 	private DropDownChoice<String> rootChoice;
-	
+
 	/** The root renderer. */
 	@Getter
 	private IChoiceRenderer<String> rootRenderer;
@@ -91,14 +89,14 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 			final IModel<String> childLabelModel, final IModel<LocationModel<Addresses>> locationModel) {
 		super(id, Args.notNull(model, "model"));
 		this.rootRenderer = rootRenderer;
-		
+
 		rootChoice = newRootChoice(ROOT_CHOICE_ID, getModel());
 
 		add(wmcRootChoice = ComponentFactory.newWebMarkupContainer("wmcRootChoice", getModel()));
 		wmcRootChoice.add(rootLabel = newRootLabel(rootChoice.getMarkupId(), rootLabelModel));
 		wmcRootChoice.add(rootChoice);
 
-		zipcode = newAutoCompleteTextField("zipcode", new PropertyModel<String>(locationModel, "location"));		
+		zipcode = newAutoCompleteTextField("zipcode", new PropertyModel<String>(locationModel, "location"));
 
 		add(wmcChildChoice = ComponentFactory.newWebMarkupContainer("wmcChildChoice", getModel()));
 		wmcChildChoice.add(childLabel = newChildLabel(zipcode.getMarkupId(), childLabelModel));
@@ -106,11 +104,11 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 
 	}
 
-
 	/**
-	 * Factory method for creating the new child {@link AutoCompleteTextField}. This method is invoked in
-	 * the constructor from the derived classes and can be overridden so users can provide their own
-	 * version of a new child {@link AutoCompleteTextField}.
+	 * Factory method for creating the new child {@link AutoCompleteTextField}.
+	 * This method is invoked in the constructor from the derived classes and
+	 * can be overridden so users can provide their own version of a new child
+	 * {@link AutoCompleteTextField}.
 	 *
 	 * @param id
 	 *            the id
@@ -150,20 +148,15 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 			 * {@inheritDoc}
 			 */
 			@Override
-			public void convertInput()
-			{
+			public void convertInput() {
 				String convertedInput = getConvertedInput();
-				if (convertedInput == null)
-				{
+				if (convertedInput == null) {
 					final String[] inputArray = getInputAsArray();
 					convertedInput = convertChoiceValue(inputArray);
-					DropdownAutocompleteTextFieldPanel.this.getModelObject()
-						.setSelectedChildOption(convertedInput);
+					DropdownAutocompleteTextFieldPanel.this.getModelObject().setSelectedChildOption(convertedInput);
 					setConvertedInput(
 							DropdownAutocompleteTextFieldPanel.this.getModelObject().getSelectedChildOption());
-				}
-				else
-				{
+				} else {
 					setConvertedInput(convertedInput);
 				}
 			}
@@ -175,16 +168,12 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 			 *            the value
 			 * @return the converted value to the specific type
 			 */
-			protected String convertChoiceValue(final String[] value)
-			{
-				return (String)(value != null && value.length > 0 && value[0] != null
-					? trim(value[0])
-					: null);
+			protected String convertChoiceValue(final String[] value) {
+				return (String) (value != null && value.length > 0 && value[0] != null ? trim(value[0]) : null);
 			}
 		};
 		autoCompleteTextField.setOutputMarkupId(true);
-		autoCompleteTextField.add(new AjaxFormComponentUpdatingBehavior("change")
-		{
+		autoCompleteTextField.add(new AjaxFormComponentUpdatingBehavior("change") {
 			/** The Constant serialVersionUID. */
 			private static final long serialVersionUID = 1L;
 
@@ -192,8 +181,7 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 			 * {@inheritDoc}
 			 */
 			@Override
-			protected void onError(final AjaxRequestTarget target, final RuntimeException e)
-			{
+			protected void onError(final AjaxRequestTarget target, final RuntimeException e) {
 				DropdownAutocompleteTextFieldPanel.this.onChildChoiceError(target, e);
 			}
 
@@ -201,8 +189,7 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 			 * {@inheritDoc}
 			 */
 			@Override
-			protected void onUpdate(final AjaxRequestTarget target)
-			{
+			protected void onUpdate(final AjaxRequestTarget target) {
 				DropdownAutocompleteTextFieldPanel.this.onChildChoiceUpdate(target);
 			}
 		});
@@ -240,9 +227,10 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 	}
 
 	/**
-	 * Factory method for creating the new root {@link DropDownChoice}. This method is invoked in
-	 * the constructor from the derived classes and can be overridden so users can provide their own
-	 * version of a new root {@link DropDownChoice}.
+	 * Factory method for creating the new root {@link DropDownChoice}. This
+	 * method is invoked in the constructor from the derived classes and can be
+	 * overridden so users can provide their own version of a new root
+	 * {@link DropDownChoice}.
 	 *
 	 * @param id
 	 *            the id
@@ -251,14 +239,12 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 	 * @return the new root {@link DropDownChoice}.
 	 */
 	protected DropDownChoice<String> newRootChoice(final String id,
-		final IModel<TwoDropDownChoicesBean<String>> model)
-	{
+			final IModel<TwoDropDownChoicesBean<String>> model) {
 		final IModel<String> selectedRootOptionModel = PropertyModel.of(model, "selectedRootOption");
 		final IModel<List<String>> rootChoicesModel = PropertyModel.of(model, "rootChoices");
 
 		final DropDownChoice<String> rc = new LocalisedDropDownChoice<String>(id, selectedRootOptionModel,
-			rootChoicesModel, this.rootRenderer)
-		{
+				rootChoicesModel, this.rootRenderer) {
 
 			/** The Constant serialVersionUID. */
 			private static final long serialVersionUID = 1L;
@@ -267,19 +253,14 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 			 * {@inheritDoc}
 			 */
 			@Override
-			public void convertInput()
-			{
+			public void convertInput() {
 				String convertedInput = getConvertedInput();
-				if (convertedInput == null)
-				{
+				if (convertedInput == null) {
 					final String[] inputArray = getInputAsArray();
 					convertedInput = convertChoiceValue(inputArray);
 					DropdownAutocompleteTextFieldPanel.this.getModelObject().setSelectedRootOption(convertedInput);
-					setConvertedInput(
-							DropdownAutocompleteTextFieldPanel.this.getModelObject().getSelectedRootOption());
-				}
-				else
-				{
+					setConvertedInput(DropdownAutocompleteTextFieldPanel.this.getModelObject().getSelectedRootOption());
+				} else {
 					setConvertedInput(convertedInput);
 				}
 			}
@@ -291,15 +272,11 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 			 *            the value
 			 * @return the converted value to the specific type
 			 */
-			protected String convertChoiceValue(final String[] value)
-			{
-				return (String)(value != null && value.length > 0 && value[0] != null
-					? trim(value[0])
-					: null);
+			protected String convertChoiceValue(final String[] value) {
+				return (String) (value != null && value.length > 0 && value[0] != null ? trim(value[0]) : null);
 			}
 		};
-		rc.add(new AjaxFormComponentUpdatingBehavior("change")
-		{
+		rc.add(new AjaxFormComponentUpdatingBehavior("change") {
 			/** The Constant serialVersionUID. */
 			private static final long serialVersionUID = 1L;
 
@@ -307,8 +284,7 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 			 * {@inheritDoc}
 			 */
 			@Override
-			protected void onError(final AjaxRequestTarget target, final RuntimeException e)
-			{
+			protected void onError(final AjaxRequestTarget target, final RuntimeException e) {
 				DropdownAutocompleteTextFieldPanel.this.onRootChoiceError(target, e);
 			}
 
@@ -316,64 +292,60 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 			 * {@inheritDoc}
 			 */
 			@Override
-			protected void onUpdate(final AjaxRequestTarget target)
-			{
+			protected void onUpdate(final AjaxRequestTarget target) {
 				DropdownAutocompleteTextFieldPanel.this.onRootChoiceUpdate(target);
 			}
 		});
 		return rc;
 	}
 
-
 	/**
-	 * Callback method that can be overwritten to handle any error resulting from updating the root
-	 * choice.
+	 * Callback method that can be overwritten to handle any error resulting
+	 * from updating the root choice.
 	 *
 	 * @param target
 	 *            the current request handler
 	 * @param e
-	 *            the {@link RuntimeException} error that occurred during the update of the
-	 *            component.
+	 *            the {@link RuntimeException} error that occurred during the
+	 *            update of the component.
 	 */
-	protected void onRootChoiceError(final AjaxRequestTarget target, final RuntimeException e)
-	{
+	protected void onRootChoiceError(final AjaxRequestTarget target, final RuntimeException e) {
 	}
 
 	/**
-	 * Callback method that can be overwritten to provide an additional action when root choice has
-	 * updated.
+	 * Callback method that can be overwritten to provide an additional action
+	 * when root choice has updated.
 	 *
 	 * @param target
 	 *            the current request handler
 	 */
-	protected void onRootChoiceUpdate(final AjaxRequestTarget target)
-	{
+	protected void onRootChoiceUpdate(final AjaxRequestTarget target) {
+		DropdownAutocompleteTextFieldPanel.this.getModelObject().setSelectedChildOption("");
+		zipcode.setModelObject(getModelObject().getSelectedChildOption());
 		target.add(DropdownAutocompleteTextFieldPanel.this.zipcode);
 	}
 
 	/**
-	 * Callback method that can be overwritten to handle any error resulting from updating the child
-	 * choice.
+	 * Callback method that can be overwritten to handle any error resulting
+	 * from updating the child choice.
 	 *
 	 * @param target
 	 *            the current request handler
 	 * @param e
-	 *            the {@link RuntimeException} error that occurred during the update of the
-	 *            component.
+	 *            the {@link RuntimeException} error that occurred during the
+	 *            update of the component.
 	 */
-	protected void onChildChoiceError(final AjaxRequestTarget target, final RuntimeException e)
-	{
+	protected void onChildChoiceError(final AjaxRequestTarget target, final RuntimeException e) {
 	}
 
 	/**
-	 * Callback method that can be overwritten to provide an additional action when child choice has
-	 * updated.
+	 * Callback method that can be overwritten to provide an additional action
+	 * when child choice has updated.
 	 *
 	 * @param target
 	 *            the current request handler
 	 */
-	protected void onChildChoiceUpdate(final AjaxRequestTarget target)
-	{
+	protected void onChildChoiceUpdate(final AjaxRequestTarget target) {
 	}
 
 }
