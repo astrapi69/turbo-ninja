@@ -45,11 +45,11 @@ public abstract class LocationFormComponentPanel extends BasePanel<LocationModel
 
 	/** The drop down choice text field panel. */
 	@Getter
-	private final DropdownAutocompleteTextFieldPanel countryWithZipDropDownChoiceTextFieldPanel;
+	private DropdownAutocompleteTextFieldPanel countryWithZipDropDownChoiceTextFieldPanel;
 
 	/** The location description label. */
 	@Getter
-	private final MultiLineLabel locationDescriptionLabel;
+	private MultiLineLabel locationDescriptionLabel;
 
 	/** The countries to zipcodes map. */
 	@Getter
@@ -72,9 +72,14 @@ public abstract class LocationFormComponentPanel extends BasePanel<LocationModel
 		this.countriesToZipcodes = newCountriesToZipcodesMap();
 
 		this.twoDropDownChoicesBean = new TwoDropDownChoicesBean<String>("de.deu",this.countriesToZipcodes);
-		add(locationDescriptionLabel = newLocationDescriptionLabel("locationDescriptionLabel"));
-		add(countryWithZipDropDownChoiceTextFieldPanel = newDropDownChoiceTextFieldPanel(
-			"dropDownChoiceTextFieldPanel", model));
+	}
+	
+	@Override
+	protected void onBeforeRender() {
+		addOrReplace(locationDescriptionLabel = newLocationDescriptionLabel("locationDescriptionLabel"));
+		addOrReplace(countryWithZipDropDownChoiceTextFieldPanel = newDropDownChoiceTextFieldPanel(
+			"dropDownChoiceTextFieldPanel", getModel()));
+		super.onBeforeRender();
 	}
 
 	/**
@@ -107,7 +112,7 @@ public abstract class LocationFormComponentPanel extends BasePanel<LocationModel
 			DropDownChoiceTextFieldPanel.class);
 		if(model.getObject() != null && model.getObject().getSelectedCountryName() !=null) {
 			String selectedRootOption = model.getObject().getSelectedCountryName();
-			if(getTwoDropDownChoicesBean().getRootChoices().contains(selectedRootOption)){
+			if(getTwoDropDownChoicesBean().getRootChoices() != null && getTwoDropDownChoicesBean().getRootChoices().contains(selectedRootOption)){
 				getTwoDropDownChoicesBean().setSelectedRootOption(selectedRootOption);
 			}
 		}

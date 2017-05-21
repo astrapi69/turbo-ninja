@@ -84,7 +84,7 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 	 * @param locationModel
 	 *            the location model
 	 */
-	public DropdownAutocompleteTextFieldPanel(String id, IModel<TwoDropDownChoicesBean<String>> model,
+	public DropdownAutocompleteTextFieldPanel(final String id, final IModel<TwoDropDownChoicesBean<String>> model,
 			final IChoiceRenderer<String> rootRenderer, final IModel<String> rootLabelModel,
 			final IModel<String> childLabelModel, final IModel<LocationModel<Addresses>> locationModel) {
 		super(id, Args.notNull(model, "model"));
@@ -92,7 +92,7 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 
 		rootChoice = newRootChoice(ROOT_CHOICE_ID, getModel());
 
-		add(wmcRootChoice = ComponentFactory.newWebMarkupContainer("wmcRootChoice", getModel()));
+		add(wmcRootChoice = ComponentFactory.newWebMarkupContainer("wmcRootChoice"));
 		wmcRootChoice.add(rootLabel = newRootLabel(rootChoice.getMarkupId(), rootLabelModel));
 		wmcRootChoice.add(rootChoice);
 
@@ -263,6 +263,15 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 				} else {
 					setConvertedInput(convertedInput);
 				}
+			}
+
+			@Override
+			public List<? extends String> getChoices() {
+				List<? extends String> choices = rootChoicesModel.getObject();
+				if(choices == null) {
+					choices = new ArrayList<>();
+				}
+				return choices;
 			}
 
 			/**
