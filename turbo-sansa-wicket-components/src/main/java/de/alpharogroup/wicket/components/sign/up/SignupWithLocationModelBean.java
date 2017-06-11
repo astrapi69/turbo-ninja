@@ -20,7 +20,7 @@ import java.util.Map;
 
 import de.alpharogroup.address.book.application.model.LocationModel;
 import de.alpharogroup.auth.models.BaseUsernameSignUpModel;
-import de.alpharogroup.wicket.model.dropdownchoices.StringTwoDropDownChoicesModel;
+import de.alpharogroup.wicket.model.dropdownchoices.TwoDropDownChoicesBean;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -28,7 +28,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
 @ToString
 @NoArgsConstructor
@@ -39,20 +40,15 @@ public class SignupWithLocationModelBean<T> extends BaseUsernameSignUpModel
 {
 
 	private static final long serialVersionUID = 1L;
-	@Getter
-	@Setter
+
 	private T address;
-	@Getter
-	@Setter
+
 	private String location;
-	@Getter
-	@Setter
+
 	private String selectedCountryName;
-	@Getter
-	@Setter
+
 	private Map<String, List<String>> countriesToZipcodes;
-	@Getter
-	@Setter
-	private StringTwoDropDownChoicesModel dropdownChoicesModel;
+
+	private TwoDropDownChoicesBean<String> dropdownChoicesModel;
 
 }

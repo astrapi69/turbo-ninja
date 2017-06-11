@@ -19,8 +19,6 @@ import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.util.lang.Args;
 import org.apache.wicket.util.string.Strings;
 
-import de.alpharogroup.address.book.application.model.LocationModel;
-import de.alpharogroup.address.book.entities.Addresses;
 import de.alpharogroup.wicket.components.factory.ComponentFactory;
 import de.alpharogroup.wicket.components.i18n.dropdownchoice.LocalisedDropDownChoice;
 import de.alpharogroup.wicket.model.dropdownchoices.TwoDropDownChoicesBean;
@@ -42,11 +40,11 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 
 	/** The root choice. */
 	@Getter
-	private DropDownChoice<String> rootChoice;
+	private final DropDownChoice<String> rootChoice;
 
 	/** The root renderer. */
 	@Getter
-	private IChoiceRenderer<String> rootRenderer;
+	private final IChoiceRenderer<String> rootRenderer;
 
 	/** The wmc root choice. */
 	@Getter
@@ -66,7 +64,7 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 
 	/** The {@link AutoCompleteTextField} for the zipcode. */
 	@Getter
-	private AutoCompleteTextField<String> zipcode;
+	private final AutoCompleteTextField<String> zipcode;
 
 	/**
 	 * Instantiates a new dropdown autocomplete text field panel.
@@ -86,7 +84,7 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 	 */
 	public DropdownAutocompleteTextFieldPanel(final String id, final IModel<TwoDropDownChoicesBean<String>> model,
 			final IChoiceRenderer<String> rootRenderer, final IModel<String> rootLabelModel,
-			final IModel<String> childLabelModel, final IModel<LocationModel<Addresses>> locationModel) {
+			final IModel<String> childLabelModel) {
 		super(id, Args.notNull(model, "model"));
 		this.rootRenderer = rootRenderer;
 
@@ -96,7 +94,7 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 		wmcRootChoice.add(rootLabel = newRootLabel(rootChoice.getMarkupId(), rootLabelModel));
 		wmcRootChoice.add(rootChoice);
 
-		zipcode = newAutoCompleteTextField("zipcode", new PropertyModel<String>(locationModel, "location"));
+		zipcode = newAutoCompleteTextField("zipcode", getModel());
 
 		add(wmcChildChoice = ComponentFactory.newWebMarkupContainer("wmcChildChoice", getModel()));
 		wmcChildChoice.add(childLabel = newChildLabel(zipcode.getMarkupId(), childLabelModel));
@@ -116,9 +114,12 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 	 *            the model
 	 * @return the new child {@link AutoCompleteTextField}.
 	 */
-	protected AutoCompleteTextField<String> newAutoCompleteTextField(final String id, final IModel<String> model) {
+	protected AutoCompleteTextField<String> newAutoCompleteTextField(final String id, final IModel<TwoDropDownChoicesBean<String>> model) {
+
+		final IModel<String> selectedChildOptionModel = new PropertyModel<>(model,
+			"selectedChildOption");
 		final DefaultCssAutoCompleteTextField<String> autoCompleteTextField = new DefaultCssAutoCompleteTextField<String>(
-				id, model) {
+				id, selectedChildOptionModel) {
 
 			private static final long serialVersionUID = 1L;
 
@@ -153,9 +154,11 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 				if (convertedInput == null) {
 					final String[] inputArray = getInputAsArray();
 					convertedInput = convertChoiceValue(inputArray);
-					DropdownAutocompleteTextFieldPanel.this.getModelObject().setSelectedChildOption(convertedInput);
-					setConvertedInput(
-							DropdownAutocompleteTextFieldPanel.this.getModelObject().getSelectedChildOption());
+					if(DropdownAutocompleteTextFieldPanel.this.getModelObject()!=null) {
+						DropdownAutocompleteTextFieldPanel.this.getModelObject().setSelectedChildOption(convertedInput);
+						setConvertedInput(
+								DropdownAutocompleteTextFieldPanel.this.getModelObject().getSelectedChildOption());
+					}
 				} else {
 					setConvertedInput(convertedInput);
 				}
@@ -169,7 +172,7 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 			 * @return the converted value to the specific type
 			 */
 			protected String convertChoiceValue(final String[] value) {
-				return (String) (value != null && value.length > 0 && value[0] != null ? trim(value[0]) : null);
+				return value != null && value.length > 0 && value[0] != null ? trim(value[0]) : null;
 			}
 		};
 		autoCompleteTextField.setOutputMarkupId(true);
@@ -258,8 +261,10 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 				if (convertedInput == null) {
 					final String[] inputArray = getInputAsArray();
 					convertedInput = convertChoiceValue(inputArray);
-					DropdownAutocompleteTextFieldPanel.this.getModelObject().setSelectedRootOption(convertedInput);
-					setConvertedInput(DropdownAutocompleteTextFieldPanel.this.getModelObject().getSelectedRootOption());
+					if(DropdownAutocompleteTextFieldPanel.this.getModelObject()!=null) {
+						DropdownAutocompleteTextFieldPanel.this.getModelObject().setSelectedRootOption(convertedInput);
+						setConvertedInput(DropdownAutocompleteTextFieldPanel.this.getModelObject().getSelectedRootOption());
+					}
 				} else {
 					setConvertedInput(convertedInput);
 				}
@@ -282,7 +287,7 @@ public class DropdownAutocompleteTextFieldPanel extends FormComponentPanel<TwoDr
 			 * @return the converted value to the specific type
 			 */
 			protected String convertChoiceValue(final String[] value) {
-				return (String) (value != null && value.length > 0 && value[0] != null ? trim(value[0]) : null);
+				return value != null && value.length > 0 && value[0] != null ? trim(value[0]) : null;
 			}
 		};
 		rc.add(new AjaxFormComponentUpdatingBehavior("change") {

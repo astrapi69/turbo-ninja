@@ -15,31 +15,26 @@
  */
 package de.alpharogroup.wicket.components.sign.up.search;
 
-import java.util.List;
-import java.util.Map;
-
 import org.apache.wicket.markup.html.basic.MultiLineLabel;
 import org.apache.wicket.markup.html.form.IChoiceRenderer;
+import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.util.lang.Args;
 
-import de.alpharogroup.address.book.application.model.LocationModel;
 import de.alpharogroup.address.book.entities.Addresses;
-import de.alpharogroup.wicket.base.BasePanel;
 import de.alpharogroup.wicket.base.util.resource.ResourceModelFactory;
 import de.alpharogroup.wicket.components.address.countries.zipcodes.DropDownChoiceTextFieldPanel;
 import de.alpharogroup.wicket.components.address.countries.zipcodes.DropdownAutocompleteTextFieldPanel;
 import de.alpharogroup.wicket.components.i18n.dropdownchoice.renderers.PropertiesChoiceRenderer;
+import de.alpharogroup.wicket.components.sign.up.SignupWithLocationModelBean;
 import de.alpharogroup.wicket.model.dropdownchoices.TwoDropDownChoicesBean;
 import lombok.Getter;
-
-
-import org.apache.wicket.model.PropertyModel;
 
 /**
  * The class {@link LocationFormComponentPanel}.
  */
-public abstract class LocationFormComponentPanel extends BasePanel<LocationModel<Addresses>>
+public abstract class LocationFormComponentPanel extends GenericPanel<SignupWithLocationModelBean<Addresses>>
 {
 	private static final long serialVersionUID = 1L;
 
@@ -51,13 +46,6 @@ public abstract class LocationFormComponentPanel extends BasePanel<LocationModel
 	@Getter
 	private MultiLineLabel locationDescriptionLabel;
 
-	/** The countries to zipcodes map. */
-	@Getter
-	private final Map<String, List<String>> countriesToZipcodes;
-
-	@Getter
-	private final TwoDropDownChoicesBean<String> twoDropDownChoicesBean;
-
 	/**
 	 * Instantiates a new {@link LocationFormComponentPanel}.
 	 *
@@ -66,28 +54,19 @@ public abstract class LocationFormComponentPanel extends BasePanel<LocationModel
 	 * @param model
 	 *            the model
 	 */
-	public LocationFormComponentPanel(final String id, final IModel<LocationModel<Addresses>> model)
+	public LocationFormComponentPanel(final String id, final IModel<SignupWithLocationModelBean<Addresses>> model)
 	{
 		super(id, Args.notNull(model, "model"));
-		this.countriesToZipcodes = newCountriesToZipcodesMap();
-
-		this.twoDropDownChoicesBean = new TwoDropDownChoicesBean<String>("de.deu",this.countriesToZipcodes);
 	}
-	
+
 	@Override
-	protected void onBeforeRender() {
-		addOrReplace(locationDescriptionLabel = newLocationDescriptionLabel("locationDescriptionLabel"));
-		addOrReplace(countryWithZipDropDownChoiceTextFieldPanel = newDropDownChoiceTextFieldPanel(
+	protected void onInitialize()
+	{
+		super.onInitialize();
+		add(locationDescriptionLabel = newLocationDescriptionLabel("locationDescriptionLabel"));
+		add(countryWithZipDropDownChoiceTextFieldPanel = newDropDownChoiceTextFieldPanel(
 			"dropDownChoiceTextFieldPanel", getModel()));
-		super.onBeforeRender();
 	}
-
-	/**
-	 * Abstract factory method for creating a new map for countries to zipcodes.
-	 *
-	 * @return the {@link Map} for countries to zipcodes.
-	 */
-	protected abstract Map<String, List<String>> newCountriesToZipcodesMap();
 
 	/**
 	 * Factory method for creating a new {@link DropDownChoiceTextFieldPanel}. This method is
@@ -101,7 +80,7 @@ public abstract class LocationFormComponentPanel extends BasePanel<LocationModel
 	 * @return the new {@link DropDownChoiceTextFieldPanel}.
 	 */
 	protected DropdownAutocompleteTextFieldPanel newDropDownChoiceTextFieldPanel(final String id,
-		final IModel<LocationModel<Addresses>> model)
+		final IModel<SignupWithLocationModelBean<Addresses>> model)
 	{
 		// Create the dropdown for countries with label...
 		final IModel<String> rootLabelModel = ResourceModelFactory
@@ -111,16 +90,16 @@ public abstract class LocationFormComponentPanel extends BasePanel<LocationModel
 		final IChoiceRenderer<String> choiceRenderer = new PropertiesChoiceRenderer(this,
 			DropDownChoiceTextFieldPanel.class);
 		if(model.getObject() != null && model.getObject().getSelectedCountryName() !=null) {
-			String selectedRootOption = model.getObject().getSelectedCountryName();
-			if(getTwoDropDownChoicesBean().getRootChoices() != null && getTwoDropDownChoicesBean().getRootChoices().contains(selectedRootOption)){
-				getTwoDropDownChoicesBean().setSelectedRootOption(selectedRootOption);
+			final String selectedRootOption = model.getObject().getSelectedCountryName();
+			if(getModelObject().getDropdownChoicesModel().getRootChoices() != null && getModelObject().getDropdownChoicesModel().getRootChoices().contains(selectedRootOption)){
+				getModelObject().getDropdownChoicesModel().setSelectedRootOption(selectedRootOption);
 			}
 		}
-		final IModel<TwoDropDownChoicesBean<String>> boundOptionModel = new PropertyModel<>(this,
-				"twoDropDownChoicesBean");
-		final DropdownAutocompleteTextFieldPanel countryWithZipDropDownChoiceTextFieldPanel = 
+		final IModel<TwoDropDownChoicesBean<String>> boundOptionModel = new PropertyModel<>(getModel(),
+				"dropdownChoicesModel");
+		final DropdownAutocompleteTextFieldPanel countryWithZipDropDownChoiceTextFieldPanel =
 				new DropdownAutocompleteTextFieldPanel(
-			id, boundOptionModel, choiceRenderer, rootLabelModel, childLabelModel, model);
+			id, boundOptionModel, choiceRenderer, rootLabelModel, childLabelModel);
 		return countryWithZipDropDownChoiceTextFieldPanel;
 	}
 

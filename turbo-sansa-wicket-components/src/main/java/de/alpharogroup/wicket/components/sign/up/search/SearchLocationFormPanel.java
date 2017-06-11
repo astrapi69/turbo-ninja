@@ -23,7 +23,7 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.GenericPanel;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.Model;
+import org.apache.wicket.model.PropertyModel;
 
 import de.alpharogroup.address.book.application.model.LocationModel;
 import de.alpharogroup.address.book.entities.Addresses;
@@ -32,7 +32,9 @@ import de.alpharogroup.wicket.components.sign.up.SignupWithLocationModelBean;
 import de.alpharogroup.wicket.model.dropdownchoices.TwoDropDownChoicesBean;
 import lombok.Getter;
 
-public abstract class SearchLocationFormPanel extends GenericPanel<LocationModel<Addresses>>
+public abstract class SearchLocationFormPanel
+	extends
+		GenericPanel<SignupWithLocationModelBean<Addresses>>
 {
 	private static final long serialVersionUID = 1L;
 	private final AjaxButton submitButton;
@@ -43,19 +45,17 @@ public abstract class SearchLocationFormPanel extends GenericPanel<LocationModel
 	private final LocationFormComponentPanel locationPanel;
 
 	@Getter
-	private final TwoDropDownChoicesBean<String> twoDropDownChoicesBean;
-
-	@Getter
 	private final Form<?> form;
 
-	public SearchLocationFormPanel(final String id, final IModel<LocationModel<Addresses>> model)
+	public SearchLocationFormPanel(final String id,
+		final IModel<SignupWithLocationModelBean<Addresses>> model)
 	{
 		super(id, model);
 
 		locationPanel = newLocationPanel("locationPanel", model);
-		this.twoDropDownChoicesBean = locationPanel.getTwoDropDownChoicesBean();
 
-		add(form = new Form<>("form", Model.of(locationPanel.getTwoDropDownChoicesBean())));
+		add(form = new Form<>("form", PropertyModel.<TwoDropDownChoicesBean<String>> of(getModel(),
+			"twoDropDownChoicesBean")));
 		form.setOutputMarkupId(true);
 		form.add(locationPanel);
 
@@ -71,7 +71,8 @@ public abstract class SearchLocationFormPanel extends GenericPanel<LocationModel
 		return submitButton;
 	}
 
-	protected AjaxButton newButton(final String id, final IModel<LocationModel<Addresses>> model)
+	protected AjaxButton newButton(final String id,
+		final IModel<SignupWithLocationModelBean<Addresses>> model)
 	{
 
 		return new IndicatingAjaxButton(id, form)
@@ -91,16 +92,18 @@ public abstract class SearchLocationFormPanel extends GenericPanel<LocationModel
 			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 				target.add(form);
-				SearchLocationFormPanel.this.onSubmit(target, form);				
+				SearchLocationFormPanel.this.onSubmit(target, form);
 			}
 		};
 	}
-	
-	protected void onSubmit(final AjaxRequestTarget target, final Form<?> form){
+
+	protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
+	{
 		final LocationModel<Addresses> object = getModel().getObject();
-		final String countryName = this.twoDropDownChoicesBean.getSelectedRootOption();
+		final String countryName = getModelObject().getDropdownChoicesModel()
+			.getSelectedRootOption();
 		object.setSelectedCountryName(countryName);
-		final String location =this.twoDropDownChoicesBean.getSelectedChildOption();
+		final String location = getModelObject().getDropdownChoicesModel().getSelectedChildOption();
 		object.setLocation(location);
 		onSearch(target, object);
 	}
@@ -149,7 +152,7 @@ public abstract class SearchLocationFormPanel extends GenericPanel<LocationModel
 	}
 
 	protected abstract LocationFormComponentPanel newLocationPanel(final String id,
-		final IModel<LocationModel<Addresses>> model);
+		final IModel<SignupWithLocationModelBean<Addresses>> model);
 
 	protected void onError(final AjaxRequestTarget target, final Form<?> form)
 	{
